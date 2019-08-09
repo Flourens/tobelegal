@@ -1,0 +1,25 @@
+
+$main-text: #717073;
+$reg-text:#000100;
+$accent: #0B8295;
+$blue:#00B1B9;
+$light-blue:#f5fcfc;
+$gold: #BDA700;
+$footnote: #636467;
+
+$color-dark-blue: #000;
+
+$isi-background: #fff;
+$isi-background-dark: $main-text;
+$isi-color: $reg-text;
+$isi-color-light: #fff;
+$isi-title-color: $blue;
+$isi-size: 16px;
+
+$breakpoints: (
+  "phone": 768px,
+  "tablet": 1024px,
+  "desktop": 1360px,
+  "largeDesktop": 1600px,
+  "xlargeDesktop": 1921px,
+);
