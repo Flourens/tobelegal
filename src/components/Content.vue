@@ -20,7 +20,7 @@ export default {
         css3: true,
 
         fadingEffect: true,
-        verticalCentered: false,
+        verticalCentered: true,
 
       },
     }

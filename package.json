@@ -15,6 +15,7 @@
     "ismobilejs": "^1.0.1",
     "lodash": "^4.17.15",
     "normalize-scss": "^7.0.1",
+    "replace-in-file-webpack-plugin": "^1.0.6",
     "vue": "^2.6.10",
     "vue-fullpage.js": "^0.1.4",
     "vue-router": "^3.0.3",

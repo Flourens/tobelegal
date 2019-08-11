@@ -1,3 +1,4 @@
+
 .brand-link{
   position: fixed;
   top: 40px;
@@ -23,8 +24,194 @@
   right: 0;
   top: 0;
 }
-.slide-image--2{
+
+.slide_wrap{
+  position: relative;
+  z-index: 10;
+  margin-left: 15%;
+  margin-right: 7%;
+  &--1{
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.slide-image--1{
   position: absolute;
-  right: 30%;
-  top: 20%;
+  right: 2px;
+  bottom: -15px;
+  z-index: 1;
+  max-width: 870px;
+}
+
+
+
+
+// ------------------ Slide 1
+
+.slide-1-cols{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  .slide-1__text{
+    text-align: right;
+    @include bebas-regular;
+    color: $beige;
+    font-size: 16px;
+    line-height: 140%;
+    letter-spacing: 0.1em;
+    margin-top: 30px;
+    &-margin{
+      margin-top: 15px;
+      margin-bottom: 30px;
+    }
+  }
+  .slide-1-cols__1{
+    width: 210px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .slide-1-cols__3{
+    width: 210px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .logo{
+    width: 150px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+  .slide-1__position{
+    font-size: 14px;
+    line-height: 1.2;
+    letter-spacing: 0.05em;
+    @include montserrat-regular;
+    color: $beige;
+    text-align: left;
+    margin-top: 0;
+    margin-top: 35px;
+    margin-bottom: 10px;
+  }
+  .slide-1__name{
+    @include bebas-bold;
+    color: $beige;
+    font-size: 52px;
+    line-height: 1;
+  }
+}
+
+
+// ------------------ Slide 2
+
+.slide-2-cols{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  .slide-2-cols__1{
+    display: flex;
+    flex-wrap: wrap;
+    width: 470px;
+  }
+  .slide-2-cols__2{
+    width: 410px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .text{
+    width: 100%;
+    font-size: 13px;
+    line-height: 1.5;
+    letter-spacing: 0.05em;
+    color: $grey;
+    margin-left: 80px;
+    margin-top: 30px;
+  }
+
+  .logo-block__logo{
+    width: 150px;
+    height: auto;
+    margin-right: 35px;
+  }
+  .logo-block__position{
+    font-size: 14px;
+    line-height: 1.2;
+    letter-spacing: 0.05em;
+    @include montserrat-regular;
+    color: $beige;
+    text-align: left;
+    margin-top: 0;
+    margin-top: 35px;
+    margin-bottom: 10px;
+  }
+  .logo-block__name{
+    @include bebas-bold;
+    color: $beige;
+    font-size: 52px;
+    line-height: 1;
+  }
+  .qoute{
+    background-color: $black;
+    width: 410px;
+    position: relative;
+    padding: 25px;
+    margin-bottom: -55px;
+    &:after{
+      content: '';
+      position: absolute;
+      bottom: -26px;
+      right: 26px;
+      border: 13px solid transparent;	
+      border-top: 13px solid #000; 
+      border-right: 13px solid #000;
+    }
+  }
+  .qoute__icon{
+    display: inline;
+    position: absolute;
+    @include merri-regular-italic;
+    font-size: 80px;
+    line-height:1;
+    letter-spacing: 0.05em;
+    left: 20px;
+    top: 28px;
+    color: #fff;
+  }
+  .qoute__text{
+    margin-left: 60px;
+    font-size: 12px;
+    line-height: 150%;
+    @include montserrat-regular;
+    color: #fff;
+  }
+  .qoute__contact{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: calc(100% - 60px);
+    margin-left: 60px;
+    margin-top: 20px;
+  }
+  .qoute__tel{
+    font-size: 12px;
+    line-height: 15px;
+    text-align: right;
+    letter-spacing: 0.05em;
+    @include merri-bold-italic;
+  }
+  .qoute__name{
+    font-size: 12px;
+    line-height: 15px;
+    text-align: right;
+    letter-spacing: 0.05em;
+    @include merri-bold-italic;
+  }
 }
