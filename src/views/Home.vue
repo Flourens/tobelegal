@@ -1,6 +1,6 @@
 <template>
   <div class="page_wrapper">
-    <Content msg="Welcome to Your Vue.js App"/>
+    <Content/>
   </div>
 </template>
 

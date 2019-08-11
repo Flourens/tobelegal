@@ -1,0 +1,30 @@
+.brand-link{
+  position: fixed;
+  top: 40px;
+  left: 40px;
+  color: #fff;
+  z-index: 900;
+}
+.languages{
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  color: #fff;
+  z-index: 900;
+
+  li{
+    display: inline-block;
+    margin-left: 15px;
+  }
+}
+.slide-image{
+  width: 80%;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.slide-image--2{
+  position: absolute;
+  right: 30%;
+  top: 20%;
+}
