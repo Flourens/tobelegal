@@ -45,14 +45,15 @@ export default {
         onLeave: function(origin, destination, direction){
             var animationTl = new TimelineMax({});
             console.log('Leave', origin.index);
-            // slide 0 - 1
+            // slide 0
             if(origin.index == 0){
               animationTl.to('.slide-image', 1, {opacity: 0, onComplete: function(){
                 animationIsFinished = true;
                 fullpage_api.moveTo('section2');
                 animationIsFinished = false;
               }},0);
-            } 
+            }
+            // slide 1
             if(origin.index == 1){
               animationTl.to('.slide-image--2', 1, {opacity: 0, onComplete: function(){
                 animationIsFinished = true;
@@ -64,18 +65,20 @@ export default {
             return animationIsFinished;
           },
         afterLoad: function(origin, destination, direction){
+
           var animationTlBack = new TimelineMax({});
-            //console.log('Leave', origin.index);
-            // slide 1 - 0
-            if(origin.index == 1){
-              animationTlBack.to('.slide-image', 1, {opacity: 1},0);
-            } 
-            if(origin.index == 0){
-              animationTlBack.to('.slide-image--2', 1, {opacity: 1, onComplete: function(){
-              }},0);
-            }
+          // slide 0
+          if(origin.index == 1){
+            animationTlBack.to('.slide-image', 1, {opacity: 1},0);
           }
-        });
+          // slide 1
+          if(origin.index == 0){
+            animationTlBack.to('.slide-image--2', 1, {opacity: 1, onComplete: function(){
+            }},0);
+          }
+
+        }
+      });
     },
     animatePreloader(){
       setTimeout(function(){
