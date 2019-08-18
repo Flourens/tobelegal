@@ -1,23 +1,166 @@
-
-.brand-link{
-  position: fixed;
-  top: 40px;
-  left: 40px;
-  color: #fff;
-  z-index: 900;
+// ------------------- header
+.header{
+  width: calc(100% - 90px);
+  height: 45px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-left: 45px;
+  margin-right: 45px;
 }
-.languages{
-  position: fixed;
-  bottom: 40px;
-  right: 40px;
-  color: #fff;
-  z-index: 900;
-
-  li{
-    display: inline-block;
-    margin-left: 15px;
+.left-block{
+  width: 50%;
+  margin-right: 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.right-block{
+  width: 50%;
+  margin-left: 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.header-logo{
+  img{
+    width: 22px;
+    height: 32px;
+  }
+  position: absolute;
+  top: 27px;
+  left: calc(50% - 11px);
+}
+.header-link{
+  @include montserrat-medium;
+  font-size: 11px;
+  line-height: 1.1;
+  letter-spacing: 0.05em;
+  color: $dark-beige;
+  &:hover{
+    color: $beige;
   }
 }
+
+// ------------------- footer
+.footer{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  z-index: 1000;
+  width: calc(100% - 90px);
+  margin-left: 45px;
+  margin-right: 45px;
+  align-items: flex-end;
+  margin-bottom: 30px;
+  &:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 1px;
+    height: 15px;
+    background-color: $beige;
+    display: block;
+    margin: 0 auto;
+  }
+}
+.social{
+  display: flex;
+  flex-direction: column;
+}
+.connect-icon{
+  width: 14px;
+  height: 16px;
+  margin-bottom: 15px;
+}
+.facebook{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.facebook-icon{
+  height: 16px;
+  width: 8px;
+   margin-right: 15px;
+}
+.facebook-text{
+  display: inline;
+  padding-left: 15px;
+  position: relative;
+  @include montserrat-medium;
+  font-size: 11px;
+  line-height: 1.1;
+  letter-spacing: 0.05em;
+  color: $dark-beige;
+  &:before{
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 0px;
+    width: 1px;
+    height: 18px;
+    background-color: $dark-beige;
+  }
+}
+.facebook-link{
+  color: $beige;
+  text-decoration: underline;
+  &:hover{
+    text-decoration: none;
+  }
+}
+
+.languages{
+  display: flex;
+  flex-direction: row;
+  li{
+    margin-left: 15px;
+    @include montserrat-medium;
+    font-size: 11px;
+    line-height: 1.1;
+    letter-spacing: 0.05em;
+    color: $dark-beige;
+    }
+    a{
+      color: inherit;
+    }
+    &:hover{
+      color: $beige;
+    }
+}
+.active-link{
+  color: $beige;
+}
+#fp-nav ul li, .fp-slidesNav ul li{
+  height: 1px !important;
+  background-color: $beige;
+  width: 6px !important;
+  margin-bottom: 15px !important;
+}
+#fp-nav ul li {
+  a.active{
+    width: 15px !important;
+    background-color: $beige;
+    right: 0;
+    position: absolute;
+  }
+}
+#fp-nav ul li a span, .fp-slidesNav ul li a span{
+  display: none;
+}
+
 .static-object{
   width: 100%;
   height: 100vh;
@@ -33,6 +176,9 @@
   height: 430px;
   top: 23vh;
   left: 22.5vw;
+  &-2{
+    left: 55vw;
+  }
 }
 .section{
   z-index: 1000;
@@ -49,11 +195,63 @@
   }
 }
 .text{
+  @include montserrat-regular;
   width: 100%;
   font-size: 13px;
   line-height: 1.5;
   letter-spacing: 0.05em;
   color: $grey;
+}
+.text-upper{
+  text-transform: uppercase;
+  margin-top: 50px;
+  padding-left: 20px;
+  font-size: 14px;
+}
+.services-title{
+  padding-left: 20px;
+  @include montserrat-medium;
+  background: -webkit-linear-gradient(90deg, #E9C0A0 -29.04%, #E5BB9C -11.71%, #D8AC90 9.05%, #C3947E 31.48%, #AB7968 51.12%, #BD8C76 53.66%, #D0A084 57.25%, #DDAE8E 61.34%, #E5B794 66.37%, #E7B996 74.94%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 34px;
+  line-height: 1.2;
+  position: relative;
+  text-transform: uppercase;
+  &:before{
+    content: '/';
+    top: 0;
+    left: 0;
+    @include montserrat-medium;
+    background: -webkit-linear-gradient(90deg, hsl(26, 62%, 77%) -29.04%, #E5BB9C -11.71%, #D8AC90 9.05%, #C3947E 31.48%, #AB7968 51.12%, #BD8C76 53.66%, #D0A084 57.25%, #DDAE8E 61.34%, #E5B794 66.37%, #E7B996 74.94%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 34px;
+    line-height: 1;
+    position: absolute;
+  }
+}
+.arrow-list__item{
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 25px;
+  position: relative;
+  @include montserrat-regular;
+  font-size: 13px;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  color: $grey;
+  &:before{
+    content: '';
+    top: 8px;
+    width: 11px;
+    height: 7px;
+    left: -3px;
+    background-image: url(./img/before-list.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+  }
 }
 
 .slide-image--1{
@@ -74,6 +272,30 @@
   left: 56.5%;
   top: 19%;
   z-index: 1000;
+}
+.slide-image--4{
+  position: absolute;
+  left: 56.5%;
+  top: 19%;
+  z-index: 1000;
+}
+.slide-image--5{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+.slide-image--6{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 0;
+}
+.slide-image--7{
+  position: absolute;
+ left: 35vw;
+  bottom: 0;
+  z-index: 0;
 }
 
 
@@ -330,5 +552,264 @@
     font-size: 38px;
     line-height: 1.7;
     letter-spacing: 0.07em;
+  }
+}
+
+// ------------------ Slide 5
+.slide-5-cols{
+  display: flex;
+  flex-direction: row;
+  margin-left: 4vw;
+  .slide-5-cols__1{
+    width: 60%;
+  }
+
+  .list-hammer{
+    padding-left: 0;
+    margin-top: 40px;
+  }
+  .list-hammer__item{
+    border-top: solid 1px $beige;
+    border-left: solid 1px $beige;
+    margin-bottom: 33px;
+    position: relative;
+    @include montserrat-regular;
+    color: $beige;
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: 0.05em;
+    padding: 25px;
+    padding-right: 10px;
+    max-width: 380px;
+    &:before{
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: $beige;
+      width: 1px;
+      height: 80%;
+    }
+    &::after{
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background-color: $beige;
+      width: 80%;
+      height: 1px;
+    }
+    &-2{
+      margin-left: 6vw;
+    }
+    &-3{
+      margin-left: 2vw;
+    }
+  }
+  .icon-hammer{
+    position: absolute;
+    bottom: -2px;
+    right: 10px;
+    width: 42px;
+    height: 32px;
+  }
+  .text{
+    margin-left: 2vw;
+  }
+}
+
+// ------------------ Slide 6
+.slide-6-cols{
+  display: flex;
+  flex-direction: row;
+  margin-left: 6vw;
+  .slide-6-cols__1{
+    width: 40%;
+  }
+  .text{
+    margin-top: 15vh;
+  }
+}
+
+// ------------------ Slide 7
+.slide-7-cols{
+  width: 50%;
+  margin-right: 5vw;
+  margin-left: auto;
+
+  .two-column{
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 40px;
+  }
+  .two-column__1{
+    width: 50%;
+    margin-right: 10%;
+  }
+  .two-column__2{
+    width: 40%;
+  }
+}
+
+// ------------------ Slide 8
+.slide-8-cols{
+  width: 50%;
+  margin-right: 5vw;
+  margin-left: auto;
+
+  .two-column{
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 40px;
+  }
+  .two-column__1{
+    width: 65%;
+    margin-right: 10%;
+  }
+}
+// ------------------ Slide 9
+.slide-9-cols{
+  width: 50%;
+  margin-right: 5vw;
+  margin-left: auto;
+
+  .two-column{
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 40px;
+  }
+  .two-column__1{
+    width: 72%;
+    margin-right: 10%;
+  }
+}
+// ------------------ Slide 10
+.slide-10-cols{
+  width: 50%;
+  margin-right: 5vw;
+  margin-left: auto;
+
+  .two-column{
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 40px;
+  }
+  .two-column__1{
+    width: 72%;
+    margin-right: 10%;
+  }
+}
+// ------------------ Slide 11
+.slide-11-cols{
+  width: 50%;
+  margin-right: 5vw;
+  margin-left: auto;
+
+  .two-column{
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 40px;
+  }
+  .two-column__1{
+    width: 45%;
+    margin-right: 10%;
+  }
+  .two-column__2{
+    width: 45%;
+  }
+}
+
+// ------------------ Slide 12
+.slide-12-cols{
+  width: 50%;
+  margin-right: 5vw;
+  margin-left: auto;
+
+  .two-column{
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 40px;
+  }
+  .two-column__1{
+    width: 80%;
+    margin-right: 10%;
+  }
+}
+
+// ------------------ Slide 13
+.slide-13-cols{
+  width: 50%;
+  margin-right: 5vw;
+  margin-left: auto;
+
+  .two-column{
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 40px;
+  }
+  .two-column__1{
+    width: 80%;
+    margin-right: 10%;
+  }
+}
+
+// ------------------ Slide 14
+.slide-14-cols{
+  width: 47%;
+  margin-right: 40vw;
+  margin-left: auto;
+  display: flex;
+  flex-direction: row;
+
+  .slide-14-cols-1{
+    width: 58%;
+  }
+  .slide-14-cols-2{
+    width: 30%;
+    margin-left: 7%;
+  }
+  .contact-title{
+    @include montserrat-medium;
+    background: -webkit-linear-gradient(90deg, #E9C0A0 -29.04%, #E5BB9C -11.71%, #D8AC90 9.05%, #C3947E 31.48%, #AB7968 51.12%, #BD8C76 53.66%, #D0A084 57.25%, #DDAE8E 61.34%, #E5B794 66.37%, #E7B996 74.94%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 28px;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+  .text{
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+  .contact-link{
+    @include montserrat-medium;
+    background: -webkit-linear-gradient(90deg, #E9C0A0 -29.04%, #E5BB9C -11.71%, #D8AC90 9.05%, #C3947E 31.48%, #AB7968 51.12%, #BD8C76 53.66%, #D0A084 57.25%, #DDAE8E 61.34%, #E5B794 66.37%, #E7B996 74.94%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 18px;
+    line-height: 1.2;
+  }
+  .contact-name{
+    text-align: right;
+    font-size: 14px;
+    line-height: 1.3;
+    letter-spacing: 0.05em;
+    @include merri-bold-italic;
+    color: $grey;
+    margin-top: 5px;
+  }
+  .code{
+    @include montserrat-medium;
+    background: -webkit-linear-gradient(90deg, #E9C0A0 -29.04%, #E5BB9C -11.71%, #D8AC90 9.05%, #C3947E 31.48%, #AB7968 51.12%, #BD8C76 53.66%, #D0A084 57.25%, #DDAE8E 61.34%, #E5B794 66.37%, #E7B996 74.94%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 10px;
+    line-height: 1.2;
+    margin-bottom: 30px;
+    margin-top: 10px;
+  }
+  .contact-code{
+    width: 145px;
+    height: 145px;
   }
 }
