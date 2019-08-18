@@ -8,14 +8,14 @@
     <title>tobelegal.github.io</title>
 
     <script>
-        window.onload = function() {
-          var preloaderPane = document.getElementById("preloader-pane");
-          preloaderPane.classList.add("preloadHide");
-          setTimeout(function() {
-            preloaderPane.parentElement.removeChild(preloaderPane);
-            preloaderPane = null;
-          }, 300);
-        };
+        // window.onload = function() {
+        //   var preloaderPane = document.getElementById("preloader-pane");
+        //   preloaderPane.classList.add("preloadHide");
+        //   setTimeout(function() {
+        //     preloaderPane.parentElement.removeChild(preloaderPane);
+        //     preloaderPane = null;
+        //   }, 300);
+        // };
       </script>
       <style>
         #preloader-pane {
@@ -26,31 +26,50 @@
             margin: 0px;
             top: 0px;
             left: 0px;
-            background-color: #000;
             z-index: 999999;
             transition: opacity 0.3s linear;
             opacity: 1;
-            /* display: none; */
-            
         }
-        .screentest #preloader-pane{
-            display: none !important;
+        .preloader-baground{
+          position: fixed;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          width: 100%;
+          height: 100%;
+          background-color: #1A2730;
+          background: radial-gradient(680.00px at 50% 50%, #2A3843 0%, #1A2730 100%);
+          opacity: 1;
+          transition: opacity 0.3s linear;
         }
         #preloader-pane
         .preloader-wrap{
+          position: fixed;
             width: 100%;
             height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: space-around;
             align-items: middle;
-            background-color: #1A2730;
         }
         .pre_dot {
-            position: relative;
-            margin: 0 auto;
-            height: 100px;
-            width: 100px;
+            position: absolute;
+            width: 50%;
+            left: 50%;
+            transform: translate(-50%);
+            max-width: 600px;
+            height: auto;
+        }
+        @media screen and (max-width: 1366px) {
+            .pre_dot {
+                max-width: 277px;
+            }
+        }
+        @media screen and (max-width: 1600px) {
+            .pre_dot {
+                max-width: 395px;
+            }
         }
         @media screen and (max-width: 767px) {
             .pre_dot {
@@ -78,6 +97,7 @@
     <!-- built files will be auto injected -->
 
     <div id="preloader-pane">
+        <div class="preloader-baground"></div>
         <div class="preloader-wrap">
             <img class="pre_dot" src="./preloader.svg" alt="tobe legal">
         </div>
