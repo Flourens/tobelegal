@@ -47,7 +47,115 @@
     color: $beige;
   }
 }
+.header-desktop{
+  @include media ("<smallTablet"){
+    display: none;
+  }
+}
+.header-mobile{
+  display: none;
+  @include media ("<smallTablet"){
+    display: flex;
+    align-items: center;
+    height: 75px;
+    z-index: 100000;
+  }
+  .header-logo{
+  left: 0;
+  }
+  .brand-link{
+    margin: 0 auto;
+    width: 50px;
+    display: block;
+  }
 
+    // Menu burger
+    .burger {
+      position: absolute;
+      top: 35px;
+      right: 0;
+      width: 24px;
+      height: 18px;
+      transform: rotate(0deg);
+      transition: 0.5s ease-in-out;
+      cursor: pointer;
+      display: none;
+      z-index: 1500;
+      @include media ("<smallTablet"){
+        display: block;
+      }
+  
+      > span {
+        display: block;
+        position: absolute;
+        height: 1px;
+        width: 100%;
+        background: $beige;
+        border-radius: 2px;
+        opacity: 1;
+        left: 0;
+        transform: rotate(0deg);
+        transition: 0.25s ease-in-out;
+        
+        &:nth-child(1) {
+          top: 0px;
+        }
+  
+        &:nth-child(2) {
+          top: 6px;
+        }
+      }
+  
+      &.open > span {
+  
+        &:nth-child(1) {
+          top: 6px;
+          transform: rotate(155deg);
+        }
+  
+        &:nth-child(2) {
+          top: 6px;
+          transform: rotate(-155deg);
+        }
+
+      }
+    }
+}
+
+.burder-menu{
+  display: none;
+  width: 100vw;
+  background-color: $bg-menu;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  position: absolute;
+  z-index: 10000;
+  flex-direction: column;
+  padding-top: 20vh;
+
+  &.active{
+    display: flex;
+  }
+  .services, .contact, .about{
+    font-size: 38px;
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 7vh;
+  }
+  .qr-code{
+    width: 35%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  .social{
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+  }
+}
 // ------------------- footer
 .footer{
   position: absolute;
@@ -140,9 +248,53 @@
       color: $beige;
     }
 }
+.footer-desktop{
+  @include media ("<smallTablet"){
+    display: none;
+   }
+}
+.footer-mobile{
+  display: none;
+
+  @include media ("<smallTablet"){
+   display: flex;
+   height: 55px;
+   margin-bottom: 10px;
+   margin-left: 30px;
+   margin-right: 30px;
+   width: calc(100% - 60px);
+   align-items: center;
+  }
+  &:before{
+    top: 23px;
+  }
+  .phone{
+    background-color: $bg-menu;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .phone-icon{
+    width: 22px;
+    height: 22px;
+  }
+}
+
+
+
+
+
 .active-link{
   color: $beige;
 }
+
+
+
+
+
 #fp-nav ul li, .fp-slidesNav ul li{
   height: 1px !important;
   background-color: $beige;
@@ -183,15 +335,18 @@
 .section{
   z-index: 1000;
   position: relative;
+  overflow: hidden;
 }
 .slide_wrap{
   position: relative;
   z-index: 10;
   margin-left: 15%;
   margin-right: 7%;
-  &--1{
-    margin-left: 0;
-    margin-right: 0;
+  @include media ("<tablet"){
+    margin-left: 13%;
+  }
+  @include media ("<smallTablet"){
+   margin-right: 10vw;
   }
 }
 .text{
@@ -201,6 +356,9 @@
   line-height: 1.5;
   letter-spacing: 0.05em;
   color: $grey;
+  @include media ("<smallTablet"){
+    font-size: 16px;
+  }
 }
 .text-upper{
   text-transform: uppercase;
@@ -230,6 +388,9 @@
     line-height: 1;
     position: absolute;
   }
+  @include media ("<tablet"){
+    font-size: 28px;
+  }
 }
 .arrow-list__item{
   position: relative;
@@ -256,51 +417,118 @@
 
 .slide-image--1{
   position: absolute;
-  right: 2px;
+  left: 36vw;
   bottom: -15px;
   z-index: 1;
   max-width: 870px;
+  @include media ("<tablet"){
+    left: 24vw;
+  }
+  @include media ("<smallTablet"){
+    left: 24vw;
+  }
 }
 .slide-image--2{
   position: absolute;
   left: 47%;
   top: 19%;
   z-index: 1000;
+  @include media ("<tablet"){
+    left: auto;
+    right: 24vw;
+  }
+  @include media ("<smallTablet"){
+    width: 100%;
+    height: auto;
+    left: 0;
+    right: 0;
+    bottom: -100%;
+    display: none;
+
+  }
+  @include media (">phone"){
+    @include media ("height<min-height"){
+      top: 10%;
+    }
+  }
 }
 .slide-image--3{
   position: absolute;
   left: 56.5%;
   top: 19%;
   z-index: 1000;
+  @include media (">phone"){
+    @include media ("height<min-height"){
+      top: 10%;
+    }
+  }
 }
-.slide-image--4{
-  position: absolute;
-  left: 56.5%;
-  top: 19%;
-  z-index: 1000;
-}
+
 .slide-image--5{
   position: absolute;
-  right: 0;
+  left: 26vw;
   bottom: 0;
   z-index: 0;
+
+  @include media (">phone"){
+    @include media ("height<min-height"){
+      bottom: -120px;
+    }
+  }
 }
 .slide-image--6{
   position: absolute;
   left: 0;
   bottom: 0;
   z-index: 0;
+  @include media ("<tablet"){
+    left: -18vw;
+  }
+  @include media (">phone"){
+    @include media ("height<min-height"){
+      bottom: -110px;
+    }
+  }
 }
 .slide-image--7{
   position: absolute;
- left: 35vw;
+  left: 35vw;
   bottom: 0;
   z-index: 0;
+  @include media ("<tablet"){
+    left: 30vw;
+  }
+  @include media (">phone"){
+    @include media ("height<min-height"){
+      bottom: -80px;
+    }
+  }
+}
+.slide-image--mob-1{
+  position: absolute;
+  right: 4vw;
+  top: 9vh;
+  z-index: 0;
+}
+.slide-image--mob-3{
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  left: -13vw;
 }
 
-
-
-
+.on-mobile{
+  display: none;
+  @include media ("<tablet"){
+   display: block;
+  }
+}
+.on-desktop{
+  display: block;
+  @include media ("<tablet"){
+   display: none;
+  }
+}
 
 // ------------------ Slide 1
 
@@ -312,12 +540,51 @@
     display: flex;
     flex-wrap: wrap;
     width: 470px;
+    @include media ("<tablet"){
+      width: 80%;
+      min-width: 700px;
+    }
+    @include media ("<smallTablet"){
+      display: none;
+    }
+  }
+  @include media ("<smallTablet"){
+    flex-direction: column;
+    justify-content: space-between;
+    width: 60%;
+    margin-left: 40%;
   }
   .slide-1-cols__2{
     width: 410px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    @include media ("<smallTablet"){
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+  .slide-1-cols__3{
+    height: 70vh;
+    .logo-block__position{
+      text-align: right;
+      font-size: 19px;
+    }
+    .logo-block__name{
+      text-align: right;
+      font-size: 57px;
+    }
+    .text-2{
+      @include bebas-regular;
+      background: -webkit-linear-gradient(90deg, #E9C0A0 -29.04%, #E5BB9C -11.71%, #D8AC90 9.05%, #C3947E 31.48%, #AB7968 51.12%, #BD8C76 53.66%, #D0A084 57.25%, #DDAE8E 61.34%, #E5B794 66.37%, #E7B996 74.94%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 16px;
+      line-height: 22px;
+      text-align: right;
+      letter-spacing: 0.1em;
+      margin-top: 30px;
+    }
   }
   .text{
     margin-left: 80px;
@@ -353,9 +620,10 @@
   .qoute{
     background-color: $black;
     width: 410px;
-    position: relative;
+    position: absolute;
+    bottom: -55px;
+    right: 0;
     padding: 25px;
-    margin-bottom: -55px;
     &:after{
       content: '';
       position: absolute;
@@ -364,6 +632,19 @@
       border: 13px solid transparent;	
       border-top: 13px solid #000; 
       border-right: 13px solid #000;
+    }
+    @include media ("<tablet"){
+      width: 54%;
+      padding-right: 15px;
+      bottom: -100px;
+      right: -15px;
+    }
+    @include media ("<smallTablet"){
+      bottom: 0vh;
+      right: 0;
+      &:after{
+        display: none;
+      }
     }
   }
   .qoute__icon{
@@ -376,6 +657,9 @@
     left: 20px;
     top: 28px;
     color: #fff;
+    @include media ("<tablet"){
+      left: 10px;
+    }
   }
   .qoute__text{
     margin-left: 60px;
@@ -383,6 +667,9 @@
     line-height: 150%;
     @include montserrat-regular;
     color: #fff;
+    @include media ("<tablet"){
+      margin-left: 40px;
+    }
   }
   .qoute__contact{
     display: flex;
@@ -391,13 +678,20 @@
     width: calc(100% - 60px);
     margin-left: 60px;
     margin-top: 20px;
+    @include media ("<tablet"){
+      margin-left: 40px;
+      width: calc(100% - 40px);
+    }
   }
   .qoute__tel{
     font-size: 12px;
     line-height: 15px;
-    text-align: right;
+    text-align: left;
     letter-spacing: 0.05em;
     @include merri-bold-italic;
+    @include media ("<tablet"){
+      width: 50%;
+    }
   }
   .qoute__name{
     font-size: 12px;
@@ -412,15 +706,35 @@
 .slide-2-cols{
   display: flex;
   flex-direction: row;
+  @include media ("<smallTablet"){
+    flex-direction: column;
+  }
   .slide-2-cols__1{
     width: 30%;
     position: relative;
     margin-top: 11%;
     margin-left: 6vw;
+    @include media ("<tablet"){
+      margin-left: 0;
+      width: 37%;
+      margin-top: 15%;
+      min-width: 100px;
+      @include media ("<smallTablet"){
+        width: 60%;
+        box-sizing: border-box;
+        margin-top: 0;
+      }
+    }
   }
   .slide-2-cols__2{
     width: 27%;
     min-width: 274px;
+    @include media ("<tablet"){
+      width: 35%;
+    }
+    @include media ("<smallTablet"){
+      display: none;
+    }
   }
   .slide-2-cols__3{
     width: 25%;
@@ -428,6 +742,16 @@
     position: relative;
     margin-top: 3%;
     margin-left: 45px;
+    @include media ("<tablet"){
+      margin-top: 4%;
+    }
+    @include media ("<smallTablet"){
+      min-width: 60%;
+      width: 60%;
+      margin-left: 40%;
+      box-sizing: border-box;
+      margin-top: 13vh;
+    }
   }
   .year{
     @include montserrat-medium;
@@ -442,11 +766,17 @@
     top: -55px;
     left: 165px;
     width: 145%;
+    @include media ("<smallTablet"){
+     display: none;
+    }
   }
   .line-2{
     position: absolute;
     top: -68px;
     left: 153px;
+    @include media ("<smallTablet"){
+      display: none;
+    }
   }
   .text{
     margin-top: 15px;
@@ -461,10 +791,17 @@
   display: flex;
   flex-direction: row;
   margin-left: 4vw;
+  @include media ("<tablet"){
+    margin-left: 0;
+  }
   .slide-3-cols__1{
     width: 50%;
     max-width: 430px;
     margin-right: 10%;
+    @include media ("<smallTablet"){
+      width: 50%;
+      max-width: 320px;
+    }
   }
   .slide-3-cols__2{
     width: 40%;
@@ -479,6 +816,7 @@
     border: solid 1px $beige;
     margin-bottom: 20px;
     padding-left: 10px;
+    padding-right: 20px;
     position: relative;
     display: flex;
     flex-direction: row;
@@ -494,6 +832,12 @@
       width: 28px;
       height: 8px;
     }
+    @include media ("<smallTablet"){
+      padding-right: 40px;
+      height: auto;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
   }
   .list-block__text{
     @include montserrat-regular;
@@ -501,10 +845,13 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 13px;
-    line-height: 1.7;
+    line-height: 1.5;
     letter-spacing: 0.05em;
     margin: 0;
     padding: 0;
+    @include media ("<smallTablet"){
+      font-size: 16px;
+    }
   }
   .list-block__number{
     @include  merri-regular;
@@ -518,6 +865,10 @@
     display: inline-block;
     text-align: center;
     margin-right: 10px;
+    @include media ("<smallTablet"){
+     width: 100px;
+     display: block;
+    }
   }
   .text{
     margin-left: 2vw;
@@ -530,6 +881,9 @@
   display: flex;
   flex-direction: row;
   margin-left: 6vw;
+  @include media ("<tablet"){
+    margin-left: 0;
+  }
   .slide-4-cols__1{
     width: 50%;
     max-width: 400px;
@@ -552,6 +906,9 @@
     font-size: 38px;
     line-height: 1.7;
     letter-spacing: 0.07em;
+    @include media ("<tablet"){
+      font-size: 35px;
+    }
   }
 }
 
@@ -560,6 +917,9 @@
   display: flex;
   flex-direction: row;
   margin-left: 4vw;
+  @include media ("<tablet"){
+    margin-left: 0;
+  }
   .slide-5-cols__1{
     width: 60%;
   }
@@ -581,6 +941,9 @@
     padding: 25px;
     padding-right: 10px;
     max-width: 380px;
+    @include media ("<tablet"){
+      max-width: 350px;
+    }
     &:before{
       content: '';
       position: absolute;
@@ -625,9 +988,15 @@
   margin-left: 6vw;
   .slide-6-cols__1{
     width: 40%;
+    @include media ("<tablet"){
+      width: 70%;
+    }
   }
   .text{
     margin-top: 15vh;
+  }
+  @include media ("<tablet"){
+    margin-left: 0;
   }
 }
 
@@ -636,6 +1005,10 @@
   width: 50%;
   margin-right: 5vw;
   margin-left: auto;
+  @include media ("<tablet"){
+    margin-right: 0;
+    width: 65%;
+  }
 
   .two-column{
     display: flex;
@@ -645,6 +1018,7 @@
   .two-column__1{
     width: 50%;
     margin-right: 10%;
+
   }
   .two-column__2{
     width: 40%;
@@ -656,6 +1030,10 @@
   width: 50%;
   margin-right: 5vw;
   margin-left: auto;
+  @include media ("<tablet"){
+   margin-right: 0;
+   width: 60%;
+  }
 
   .two-column{
     display: flex;
@@ -672,7 +1050,10 @@
   width: 50%;
   margin-right: 5vw;
   margin-left: auto;
-
+  @include media ("<tablet"){
+    margin-right: 0;
+    width: 60%;
+   }
   .two-column{
     display: flex;
     margin-top: 30px;
@@ -688,7 +1069,10 @@
   width: 50%;
   margin-right: 5vw;
   margin-left: auto;
-
+  @include media ("<tablet"){
+    margin-right: 0;
+    width: 60%;
+   }
   .two-column{
     display: flex;
     margin-top: 30px;
@@ -704,7 +1088,10 @@
   width: 50%;
   margin-right: 5vw;
   margin-left: auto;
-
+  @include media ("<tablet"){
+    margin-right: 0;
+    width: 60%;
+   }
   .two-column{
     display: flex;
     margin-top: 30px;
@@ -724,7 +1111,10 @@
   width: 50%;
   margin-right: 5vw;
   margin-left: auto;
-
+  @include media ("<tablet"){
+    margin-right: 0;
+    width: 60%;
+   }
   .two-column{
     display: flex;
     margin-top: 30px;
@@ -741,7 +1131,10 @@
   width: 50%;
   margin-right: 5vw;
   margin-left: auto;
-
+  @include media ("<tablet"){
+    margin-right: 0;
+    width: 60%;
+   }
   .two-column{
     display: flex;
     margin-top: 30px;
@@ -760,9 +1153,16 @@
   margin-left: auto;
   display: flex;
   flex-direction: row;
-
+  @include media ("<tablet"){
+    margin-right: 46vw;
+    margin-left: 0;
+    width: 55%;
+   }
   .slide-14-cols-1{
     width: 58%;
+    @include media ("<tablet"){
+      width: 60%;
+     }
   }
   .slide-14-cols-2{
     width: 30%;

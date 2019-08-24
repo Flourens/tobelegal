@@ -3,10 +3,13 @@ $grey: #CDCDCD;
 $black: #140B05;
 $bg-color: #1A2730;
 $dark-beige: #AB7968;
+$bg-menu: #243948;
 
 $breakpoints: (
-  "phone": 768px,
-  "tablet": 1024px,
+  "min-height": 650px,
+  "phone": 769px,
+  "smallTablet": 800px,
+  "tablet": 1025px,
   "desktop": 1360px,
   "largeDesktop": 1600px,
   "xlargeDesktop": 1921px,
