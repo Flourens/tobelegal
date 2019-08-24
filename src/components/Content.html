@@ -32,6 +32,10 @@
           <a class="facebook-link" href="javscript:void(0);"><img src="./img/facebook-icon.svg" alt="" class="facebook-icon"></a>
         <p class="facebook-text">подписывайтесь на мой  <a class="facebook-link" href="javscript:void(0);">facebook</a></p>
       </div>
+        <a class="header-logo" href="javscript:void(0);"><img src="./img/Logo.svg" alt=""></a>
+      <div class="right-block">
+        <a href="javscript:void(0);" class="services header-link">Услуги</a>
+        <a href="javscript:void(0);" class="contact header-link">Контакты</a>
     </div>
   </div>
 
@@ -62,11 +66,21 @@
   
   <!-- static object -->
   <div class="static-object">
-    <img src="./img/logo-black.svg" alt="tobe.leagel" class="black-logo">
-    <img src="./img/logo-black.svg" alt="tobe.leagel" class="black-logo black-logo-2">
+    <!-- <img src="./img/logo-black.svg" alt="tobe.leagel" class="black-logo">
+    <img src="./img/logo-black.svg" alt="tobe.leagel" class="black-logo black-logo-2"> -->
+    <div class="slide__overlay"></div>
+    <div id="preloader-pane-2" class="preloader-pane">
+        <div class="preloader-wrap">
+            <img class="pre_dot" src="./img/preloader-2.svg" alt="tobe legal">
+        </div>
+    </div>
+    <div class="black-logo__owerlay">
+      <img src="./img/logo-black.svg" alt="tobe.leagel" class="black-logo">
+    </div>
+      <img class="slide-image--1" src="./img/photo-1.jpg" alt="tobe.leagel">
   </div>
 
-  <full-page ref="fullpage" :options="options" id="fullpage">
+  <div id="fullpage">
 
     <!-- Slide 1 -->
     <div class="section">
@@ -74,13 +88,14 @@
       alt="tobe.leagel">
       <img class="slide-image--mob-1 on-mobile" src="./img/photo-mob-1.png" 
       alt="tobe.leagel">
+      <!-- <div class="slide__overlay"></div> -->
       <div class="slide_wrap">
         <div class="slide-1-cols">
           <div class="slide-1-cols__1 on-desktop">
             <div class="logo-block_1">
               <img src="./img/logo-legal.svg" alt="tobe.leagel" class="logo-block__logo">
             </div>
-            <div class="logo-block__2">
+            <div class="logo-block__2" style="opacity: 0"> 
               <p class="logo-block__position">Адвокат</p>
               <p class="logo-block__name">Евгений <br>Воробей</p>
             </div>
@@ -110,7 +125,9 @@
 
     <!-- Slide 2 -->
     <div class="section">
-      <img class="slide-image--2" src="./img/photo-2.png" alt="tobe.leagel">
+      <div class="photo__owerlay">
+        <img class="slide-image--2" src="./img/photo-2.png" alt="tobe.leagel">
+      </div>
       <div class="slide_wrap">
         <div class="slide-2-cols">
           <div class="slide-2-cols__1">
@@ -376,6 +393,6 @@
       </div>  
     </div>
 
-  </full-page>
+  </div>
 
 </div>

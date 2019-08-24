@@ -21,25 +21,20 @@ export default {
       this.openMenu = !this.openMenu;
     },
     initSectionSlides(){
-      var delay = 2000; //milliseconds
+      var delay = 1000; //milliseconds
       var timeoutId;
       var animationIsFinished = false;
       new fullpage('#fullpage', {
         // Init
         licenseKey: 'F1F7C056-F79543AF-9D4C42D2-E43F5FDE',
         menu: '#menu',
-        anchors: ['page1', 'page2', 'page3', 'page4', 'page5', 'page6', 'page7', 'page8', 'page9', 'page10', 'page11', 'page12', 'page13', 'page14', 'page14'],
+        anchors: ['section1', 'section2', 'section3', 'section4', 'section5', 'section6', 'section7', 'section8', 'section9', 'section10', 'section11', 'section12', 'section13', 'section14'],
         // sectionsColor: ['#1A2730', '#1A2730', '#1A2730'],
-
         // Navigation
         navigation: true,
         navigationPosition: 'right',
-        scrollingSpeed: 700,
-        
-        // Style
-        // sectionsColor: ['#1A2730', '#1A2730', '#1A2730'],
-        anchors: ['section1', 'section2', 'section3'],
-        verticalCentered: false,
+        scrollingSpeed: 0, 
+        verticalCentered: true,
 
         //Methods
         onLeave: function(origin, destination, direction){
@@ -47,7 +42,8 @@ export default {
             console.log('Leave', origin.index);
             // slide 0
             if(origin.index == 0){
-              animationTl.to('.slide-image', 1, {opacity: 0, onComplete: function(){
+              animationTl.to('.slide__overlay', 0.6, {ease: Power0.easeNone, height:'110vh'},0)
+              .to('.preloader-pane-1,#preloader-pane-2,.slide-image--1', 0.6,{opacity:0, onComplete: function(){
                 animationIsFinished = true;
                 fullpage_api.moveTo('section2');
                 animationIsFinished = false;
@@ -55,26 +51,30 @@ export default {
             }
             // slide 1
             if(origin.index == 1){
-              animationTl.to('.slide-image--2', 1, {opacity: 0, onComplete: function(){
+              animationTl.set('.slide__overlay', {opacity: 1, onComplete: function(){
                 animationIsFinished = true;
                 fullpage_api.moveTo('section1');
                 animationIsFinished = false;
               }},0);
             }
-            //console.log(animationIsFinished);
             return animationIsFinished;
           },
         afterLoad: function(origin, destination, direction){
+          console.log('After load', destination.index);
 
           var animationTlBack = new TimelineMax({});
           // slide 0
           if(origin.index == 1){
-            animationTlBack.to('.slide-image', 1, {opacity: 1},0);
+            animationTlBack.set('.preloader-pane-1,#preloader-pane-2,.black-logo,.slide-image--1', {opacity:1})
+                           .fromTo('.slide__overlay', 0.6, {ease: Power0.easeNone, height:'100vh'},{ease: Power0.easeNone, height:'0vh'},0)
+            ;
           }
           // slide 1
-          if(origin.index == 0){
-            animationTlBack.to('.slide-image--2', 1, {opacity: 1, onComplete: function(){
-            }},0);
+          if(destination.index == 1){
+            let blackLogoHeigth = document.querySelector('.black-logo__owerlay').scrollHeight;
+            let photoHeigth = document.querySelector('.photo__owerlay').scrollHeight;
+            animationTlBack.set('.slide__overlay,#preloader-pane-2', {opacity: 0},0);
+            ;
           }
 
         }
@@ -83,9 +83,12 @@ export default {
     animatePreloader(){
       setTimeout(function(){
       var preloaderTl = new TimelineMax({});
-          preloaderTl.to('.pre_dot', 1, {left: '30%'},0)
-                     .to('.preloader-baground', 1, {opacity: 0})
-                     .set('#preloader-pane', {pointerEvents: 'none'})
+          preloaderTl.to('.pre_dot', 1, {left: '19.5%'},0)
+                     .to('#preloader-pane-1', 0.3, {opacity: 0})
+                     .to('.per_dot', 0.1, {opacity: 0}, '-=1')
+                     .set('#preloader-pane-1, #preloader-pane-2', {pointerEvents: 'none'})
+                     .fromTo('.slide-1-cols__1 .text', 0.4, {x: -80,opacity:0},{x: 0,opacity:1})
+                     .fromTo('.slide-1-cols__2', 0.4, {y: 50, opacity:0},{y: 0,opacity:1})
           ;
       }, 400);
     },
