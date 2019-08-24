@@ -839,6 +839,17 @@
       padding-bottom: 10px;
     }
   }
+  .list-block__item-arrow{
+    content: '';
+    position: absolute;
+    top: calc(50% - 4px);
+    right: -11px;
+    background-image: url(./img/list-arrow.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 28px;
+    height: 8px;
+  }
   .list-block__text{
     @include montserrat-regular;
     background: -webkit-linear-gradient(90deg, #E9C0A0 -29.04%, #E5BB9C -11.71%, #D8AC90 9.05%, #C3947E 31.48%, #AB7968 51.12%, #BD8C76 53.66%, #D0A084 57.25%, #DDAE8E 61.34%, #E5B794 66.37%, #E7B996 74.94%);
