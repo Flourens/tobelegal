@@ -33,7 +33,7 @@ export default {
         // Navigation
         navigation: true,
         navigationPosition: 'right',
-        scrollingSpeed: 700, 
+        scrollingSpeed: 0, 
         verticalCentered: true,
 
         //Methods
@@ -66,15 +66,18 @@ export default {
                           animationIsFinished = true;
                           fullpage_api.moveTo(`section-${destination.index}`);
                           animationIsFinished = false;
-                        }});
+                        }})
+                        .set('.section.active', {opacity: 0});
             }
             // slide 4
             if(origin.index == 3){
+              TweenMax.killChildTweensOf( ".list-country" );
               animationTl.set('.slide__overlay', {opacity: 1, onComplete: function(){
                 animationIsFinished = true;
                 fullpage_api.moveTo(`section-${destination.index}`);
                 animationIsFinished = false;
-              }},0);
+              }},0)
+              .set('.section.active', {opacity: 0});
             }
             // slide 5
             if(origin.index == 4){
@@ -82,15 +85,18 @@ export default {
                 animationIsFinished = true;
                 fullpage_api.moveTo(`section-${destination.index}`);
                 animationIsFinished = false;
-              }},0);
+              }},0)
+              .set('.section.active', {opacity: 0});
             }
             // slide 6
             if(origin.index == 5){
-              animationTl.set('.slide__overlay', {opacity: 1, onComplete: function(){
-                animationIsFinished = true;
-                fullpage_api.moveTo(`section-${destination.index}`);
-                animationIsFinished = false;
-              }},0);
+              animationTl.to('.slide-6-cols__1 .text', 0.6, { opacity:0, y:-60 })
+                         .to('.slide-image--5', 1.5, { opacity:0,xPercent:-30, onComplete: function(){
+                            animationIsFinished = true;
+                            fullpage_api.moveTo(`section-${destination.index}`);
+                            animationIsFinished = false;
+                          }})
+              .set('.section.active', {opacity: 0});
             }
             // slide 7
             if(origin.index == 6){
@@ -98,7 +104,8 @@ export default {
                 animationIsFinished = true;
                 fullpage_api.moveTo(`section-${destination.index}`);
                 animationIsFinished = false;
-              }},0);
+              }},0)
+              .set('.section.active', {opacity: 0});
             }
             // slide 8
             if(origin.index == 7){
@@ -106,7 +113,8 @@ export default {
                 animationIsFinished = true;
                 fullpage_api.moveTo(`section-${destination.index}`);
                 animationIsFinished = false;
-              }},0);
+              }},0)
+              .set('.section.active', {opacity: 0});
             }
             // slide 9
             if(origin.index == 8){
@@ -114,7 +122,8 @@ export default {
                 animationIsFinished = true;
                 fullpage_api.moveTo(`section-${destination.index}`);
                 animationIsFinished = false;
-              }},0);
+              }},0)
+              .set('.section.active', {opacity: 0});
             }
             // slide 10
             if(origin.index == 9){
@@ -122,7 +131,8 @@ export default {
                 animationIsFinished = true;
                 fullpage_api.moveTo(`section-${destination.index}`);
                 animationIsFinished = false;
-              }},0);
+              }},0)
+              .set('.section.active', {opacity: 0});
             }
             // slide 11
             if(origin.index == 10){
@@ -130,7 +140,8 @@ export default {
                 animationIsFinished = true;
                 fullpage_api.moveTo(`section-${destination.index}`);
                 animationIsFinished = false;
-              }},0);
+              }},0)
+              .set('.section.active', {opacity: 0});
             }
             // slide 12
             if(origin.index == 11){
@@ -138,7 +149,8 @@ export default {
                 animationIsFinished = true;
                 fullpage_api.moveTo(`section-${destination.index}`);
                 animationIsFinished = false;
-              }},0);
+              }},0)
+              .set('.section.active', {opacity: 0});
             }
             // slide 13
             if(origin.index == 12){
@@ -146,7 +158,8 @@ export default {
                 animationIsFinished = true;
                 fullpage_api.moveTo(`section-${destination.index}`);
                 animationIsFinished = false;
-              }},0);
+              }},0)
+              .set('.section.active', {opacity: 0});
             }
             // slide 14
             if(origin.index == 13){
@@ -154,7 +167,8 @@ export default {
                 animationIsFinished = true;
                 fullpage_api.moveTo(`section-${destination.index}`);
                 animationIsFinished = false;
-              }},0);
+              }},0)
+              .set('.section.active', {opacity: 0});
             }
             return animationIsFinished;
           },
@@ -211,18 +225,80 @@ export default {
                               .fromTo('.slide-4-cols__1 .text', 0.6, { opacity:0, x:-50 },{ opacity:1, x:0 })
                               .fromTo('.list-country', 0.6, { opacity:0, x:-50 },{ opacity:1, x:0 })
               ;
+              countriesLoop = new TimelineMax({repeat:-1, force3D:true});
               countriesLoop.fromTo(countries[0], 1.2, { opacity:0},{ opacity:1})
-                            .to(countries[0], 0.4, { opacity:0 })
+                            .to(countries[0], 0.4, { opacity:0 }, "+=1")
                             .fromTo(countries[1], 1.2, { opacity:0},{ opacity:1})
-                            .to(countries[1], 0.4, { opacity:0 })
+                            .to(countries[1], 0.4, { opacity:0 },"+=1")
                             .fromTo(countries[2], 1.2, { opacity:0},{ opacity:1})
-                            .to(countries[2], 0.4, { opacity:0 })
+                            .to(countries[2], 0.4, { opacity:0 },"+=1")
                             .fromTo(countries[3], 1.2, { opacity:0},{ opacity:1})
-                            .to(countries[3], 0.4, { opacity:0 })
+                            .to(countries[3], 0.4, { opacity:0 },"+=1")
                             .fromTo(countries[4], 1.2, { opacity:0},{ opacity:1})
-                            .to(countries[4], 0.4, { opacity:0 })
+                            .to(countries[4], 0.4, { opacity:0 },"+=1")
                             .fromTo(countries[5], 1.2, { opacity:0},{ opacity:1})
-                            .to(countries[5], 0.4, { opacity:0 });
+                            .to(countries[5], 0.4, { opacity:0 },"+=1");
+          }
+          if(destination.index == 4){
+              animationTlBack.set('.slide-5-cols__1', { y: 0, opacity: 1 })
+                              .set('.slide__overlay,#preloader-pane-2', {opacity: 0},0)
+                              .set('.section.active', {opacity: 1},0)
+                              //face
+                              .fromTo('.slide-image--5', 1.5, { opacity:0, xPercent:30 },{ opacity:1,xPercent:0 })
+                              .fromTo('.slide-5-cols__1 .text', 0.6, { opacity:0, x:-30 },{ opacity:1, x:0 })
+                              .fromTo('.slide-5-cols__1 .list-hammer__item-1', 0.6, { opacity:0, x:60 },{ opacity:1, x:0 })
+                              .fromTo('.slide-5-cols__1 .list-hammer__item-2', 0.6, { opacity:0, x:-60 },{ opacity:1, x:0 })
+                              .fromTo('.slide-5-cols__1 .list-hammer__item-3', 0.6, { opacity:0, x:60 },{ opacity:1, x:0 })
+              ;
+          }
+          if(destination.index == 5){
+              animationTlBack.set('.slide-6-cols__1', { y: 0, opacity: 1 })
+                              .set('.slide__overlay,#preloader-pane-2', {opacity: 0},0)
+                              .set('.section.active', {opacity: 1},0)
+                              //face
+                              .fromTo('.slide-image--5', 1.5, { opacity:0, xPercent:30 },{ opacity:1,xPercent:0 })
+                              .fromTo('.slide-6-cols__1 .text', 0.6, { opacity:0, x:-60 },{ opacity:1, x:0 })
+              ;
+          }
+          if(destination.index == 6){
+              animationTlBack.set('.slide__overlay,#preloader-pane-2', {opacity: 0},0)
+                              .set('.section.active', {opacity: 1},0)
+              ;
+          }
+          if(destination.index == 7){
+              animationTlBack.set('.slide__overlay,#preloader-pane-2', {opacity: 0},0)
+                              .set('.section.active', {opacity: 1},0)
+              ;
+          }
+          if(destination.index == 8){
+              animationTlBack.set('.slide__overlay,#preloader-pane-2', {opacity: 0},0)
+                              .set('.section.active', {opacity: 1},0)
+              ;
+          }
+          if(destination.index == 9){
+              animationTlBack.set('.slide__overlay,#preloader-pane-2', {opacity: 0},0)
+                              .set('.section.active', {opacity: 1},0)
+              ;
+          }
+          if(destination.index == 10){
+              animationTlBack.set('.slide__overlay,#preloader-pane-2', {opacity: 0},0)
+                              .set('.section.active', {opacity: 1},0)
+              ;
+          }
+          if(destination.index == 11){
+              animationTlBack.set('.slide__overlay,#preloader-pane-2', {opacity: 0},0)
+                              .set('.section.active', {opacity: 1},0)
+              ;
+          }
+          if(destination.index == 12){
+              animationTlBack.set('.slide__overlay,#preloader-pane-2', {opacity: 0},0)
+                              .set('.section.active', {opacity: 1},0)
+              ;
+          }
+          if(destination.index == 13){
+              animationTlBack.set('.slide__overlay,#preloader-pane-2', {opacity: 0},0)
+                              .set('.section.active', {opacity: 1},0)
+              ;
           }
 
         }
