@@ -326,9 +326,6 @@ export default {
     
   },
 }
-
-
-}
 </script>
 
 <style lang="scss" src="./Content.scss">
