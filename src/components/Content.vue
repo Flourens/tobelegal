@@ -58,7 +58,7 @@ export default {
             // Leave animation slide 2
             if(origin.index == 1){
               if(direction == 'up'){
-                animationTl.to('.slide-2-cols, .slide-image--2, .black-logo', 0.6, {opacity: 0, y: -100})
+                animationTl.to('.slide-2-cols, .slide-image--2, .black-logo__owerlay', 0.6, {opacity: 0, y: -100})
                             .set('.slide__overlay', {opacity: 1, delay: 0.6, onComplete: function(){
                               animationIsFinished = true;
                               fullpage_api.moveTo(`section-${destination.index}`);
@@ -150,7 +150,8 @@ export default {
                 .set('.section.active', {opacity: 0});
               } else if(direction == 'down'){
                    animationTl.to('.slide-6-cols__1 .text', 0.6, { opacity:0, y:-60 })
-                              .to('.black-logo', 0.6, { opacity:0, y:-60 })
+                              .set('.black-logo,.black-logo__owerlay', { clearProps: 'all' },0)
+                              .to('.black-logo__owerlay', 0.6, { height: 0 },0)
                               .to('.slide-image--5', 1.1, { opacity:0,xPercent:-30, onComplete: function(){
                                 animationIsFinished = true;
                                 fullpage_api.moveTo(`section-${destination.index}`);
@@ -165,6 +166,8 @@ export default {
               if(direction == 'up'){
                 animationTl.to('.slide-7-cols', 0.3, { opacity:0, },0)
                 .to('.slide-image--6', 1.5, { opacity:0,xPercent:-30 })
+                .set('.black-logo,.black-logo-right__owerlay', { clearProps: 'all' },0)
+                .to('.black-logo-right__owerlay', 0.6, { height: 0 },0)
                 .set('.slide__overlay', {opacity: 0, onComplete: function(){
                   animationIsFinished = true;
                   fullpage_api.moveTo(`section-${destination.index}`);
@@ -317,8 +320,15 @@ export default {
                               .set('.section.active', {opacity: 1},0)
                               .set('.slide-2-cols', {clearProps: 'all'})
                               // logo+photo
-                              .fromTo('.black-logo', 0.6, { opacity:0, y:-150 },{ opacity:1, y:0 },0)
-                              .fromTo('.slide-image--2', 0.6, { opacity:0, y:150 },{ opacity:1, y:0 },0)
+                              .set('.black-logo,.black-logo__owerlay', { clearProps: 'all' },0)
+                              .set('.black-logo__owerlay', { height: 0 },0)
+                              .set('.black-logo__owerlay', { height: 'auto' })
+                              .from('.black-logo__owerlay', 0.6, { height: 0 })
+                              //
+                              .set('.slide-image--2', { clearProps: 'all' },0)
+                              .set('.photo__owerlay', { height: 0 },0)
+                              .set('.photo__owerlay', { height: 'auto' })
+                              .from('.photo__owerlay', 0.6, { height: 0 }, '-=0.6')
                               // text
                               .fromTo('.slide-2-cols__1 .year', 0.6, { opacity:0, x:-50 },{ opacity:1, x:0 })
                               .fromTo('.slide-2-cols__1 .text', 0.6, { opacity:0, x:-50 },{ opacity:1, x:0 })
@@ -409,6 +419,7 @@ export default {
                               .set('.slide__overlay,#preloader-pane-2', {opacity: 0},0)
                               .set('.section.active', {opacity: 1},0)
                               //face
+                              .set('.black-logo,.black-logo-right__owerlay', { clearProps: 'all' },0)
                               .fromTo('.slide-6-cols__1 .text', 0.6, { opacity:0, x:-60 },{ opacity:1, x:0 })
                               .fromTo('.slide-image--5', 1.5, { opacity:0, xPercent:30 },{ opacity:1,xPercent:0 })
               ;
@@ -420,6 +431,7 @@ export default {
                 animationTlBack.set('.slide-7-cols', {opacity: 1},0)
                                 .set('.slide__overlay,#preloader-pane-2', {opacity: 0},0)
                                 .set('.section.active', {opacity: 1},0)
+                                .set('.black-logo,.black-logo-right__owerlay', { clearProps: 'all' },0)
                                 //face
                                 .set('.slide-image--6',{ opacity: 1 })
                                 .fromTo('.slide-7-cols .services-title', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 })
@@ -429,6 +441,9 @@ export default {
                 animationTlBack.set('.slide-7-cols', {opacity: 1},0)
                                 .set('.slide__overlay,#preloader-pane-2', {opacity: 0},0)
                                 .set('.section.active', {opacity: 1},0)
+                                
+                                .set('.black-logo,.black-logo-right__owerlay', { clearProps: 'all' },0)
+
                                 //face
                                 .fromTo('.slide-image--6', 0.6, { xPercent: -30, opacity: 0 },{ xPercent: 0, opacity: 1 })
                                 .fromTo('.slide-7-cols .services-title', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 })
