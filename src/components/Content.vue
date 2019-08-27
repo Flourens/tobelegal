@@ -603,6 +603,10 @@ export default {
         }
       });
       } else {
+
+        // MOBILE animations
+
+
         new fullpage('#fullpage', {
         // Init
         licenseKey: 'F1F7C056-F79543AF-9D4C42D2-E43F5FDE',
@@ -615,25 +619,31 @@ export default {
         scrollingSpeed: 700, 
         verticalCentered: true,
 
-        // //Methods
-        // onLeave: function(origin, destination, direction){
-        //   console.log(destination.index);
-        //     var animationTl = new TimelineMax({});
-        //     console.log('Leave: ' + origin.index, 'Enter: ' + destination.index, 'Direction: ' + direction);
-        //     // Leave animation slide 1
-        //     if(origin.index == 0){
-        //       animationTl.to('.slide__overlay', 0.6, {ease: Power0.easeNone, height:'110vh'},0)
-        //       .to('.preloader-pane-1,#preloader-pane-2,.slide-image--1', 0.6,{opacity:0, onComplete: function(){
-        //         animationIsFinished = true;
-        //         if(direction == 'up'){
-        //           fullpage_api.moveTo(`section-${destination.index}`);
-        //           animationIsFinished = false;
-        //         } else {
-        //           fullpage_api.moveTo(`section-${destination.index}`);
-        //           animationIsFinished = false;
-        //         }
-        //       }},0);
-        //     }
+        //Methods
+
+        onLeave: function(origin, destination, direction){
+          console.log(destination.index);
+            var animationTl = new TimelineMax({});
+            console.log('Leave: ' + origin.index, 'Enter: ' + destination.index, 'Direction: ' + direction);
+            // Leave animation slide 1
+            // if(origin.index == 0){
+            //    animationTl.fromTo('.slide-image--6', 0.6, { opacity:0, xPercent:30 }, { opacity:1, xPercent:0 }, 0)
+            //               .fromTo('.logo-block__2', 0.3, { opacity:0 }, { opacity:1 })
+            //               .fromTo('.text-2', 0.3, { opacity:0, x: 30 }, { opacity:1, x: 0 })
+            //               .staggerFromTo('.text-2', 0.3, { opacity:0, x: 30 }, { opacity:1, x: 0 }, 0.4)
+            //               .fromTo('.quote', 0.6, { opacity:0, y: 100 }, { opacity:1, y: 100 })
+                          
+            //               .to('.preloader-pane-1,#preloader-pane-2,.slide-image--1', 0.6,{opacity:0, onComplete: function(){
+            //                 animationIsFinished = true;
+            //                 if(direction == 'up'){
+            //                   fullpage_api.moveTo(`section-${destination.index}`);
+            //                   animationIsFinished = false;
+            //                 } else {
+            //                   fullpage_api.moveTo(`section-${destination.index}`);
+            //                   animationIsFinished = false;
+            //                 }
+            //               }},0);
+            // }
         //     // Leave animation slide 2
         //     if(origin.index == 1){
         //       if(direction == 'up'){
@@ -860,21 +870,23 @@ export default {
         //                     animationIsFinished = false;
         //                   }});
         //       ;
-
         //     }
-        //     return animationIsFinished;
-        //   },
-        // afterLoad: function(origin, destination, direction){
-        //   var animationTlBack = new TimelineMax({});
-        //   var countriesLoop = new TimelineMax({repeat:-1, force3D:true});
-        //   animationTlBack.progress(0);
-        //   countriesLoop.progress(0);
-        //   // Enter anim slide 1
-        //   if(destination.index == 0){
-        //     animationTlBack.set('.preloader-pane-1,#preloader-pane-2,.black-logo,.slide-image--1', {opacity:1})
-        //                    .fromTo('.slide__overlay', 0.6, {ease: Power0.easeNone, height:'100vh'},{ease: Power0.easeNone, height:'0vh'},0)
-        //     ;
-        //   }
+        
+          return animationIsFinished;
+        },
+        afterLoad: function(origin, destination, direction){
+          var animationTlBack = new TimelineMax({});
+          var countriesLoop = new TimelineMax({repeat:-1, force3D:true});
+          animationTlBack.progress(0);
+          countriesLoop.progress(0);
+          // Enter anim slide 1
+          if(destination.index == 0){
+           animationTlBack.fromTo('.slide-image--mob-1', 1.6, { opacity:0, xPercent:-30 }, { opacity:1, xPercent:0 }, 0)
+                          .fromTo('.logo-block__2', 0.3, { opacity:0 }, { opacity:1 })
+                          .staggerFromTo('.slide-1-cols__3 .text-2', 0.3, { opacity:0, x: 30 }, { opacity:1, x: 0 }, 0.4)
+                          .fromTo('.quote', 0.6, { opacity:0, y: 60 }, { opacity:1, y: 0 })
+            ;
+          }
         //   // Enter anim slide 2
         //   if(destination.index == 1){
         //     let blackLogoHeigth = document.querySelector('.black-logo__owerlay').scrollHeight;
@@ -1178,21 +1190,27 @@ export default {
         //       ;
         //   }
 
-        //   }
+          }
         });
       }
       
     },
     animatePreloader(){
-      setTimeout(function(){
-      var preloaderTl = new TimelineMax({});
+      setTimeout(()=>{
+        var preloaderTl = new TimelineMax({});
+        if(this.userAgent.window.width >= 1024 && !this.userAgent.device.isMobile){
           preloaderTl.to('.pre_dot', 1, {left: '19.5%'},0)
-                     .to('#preloader-pane-1', 0.3, {opacity: 0})
-                     .to('.per_dot', 0.1, {opacity: 0}, '-=1')
-                     .set('#preloader-pane-1, #preloader-pane-2', {pointerEvents: 'none'})
-                     .fromTo('.slide-1-cols__1 .text', 0.4, {x: -80,opacity:0},{x: 0,opacity:1})
-                     .fromTo('.slide-1-cols__2', 0.4, {y: 50, opacity:0},{y: 0,opacity:1})
+                      .to('#preloader-pane-1', 0.3, {opacity: 0})
+                      .to('.per_dot', 0.1, {opacity: 0}, '-=1')
+                      .set('#preloader-pane-1, #preloader-pane-2', {pointerEvents: 'none'})
+                      .fromTo('.slide-1-cols__1 .text', 0.4, {x: -80,opacity:0},{x: 0,opacity:1})
+                      .fromTo('.slide-1-cols__2', 0.4, {y: 50, opacity:0},{y: 0,opacity:1})
           ;
+        } else {
+          preloaderTl.to('#preloader-pane-1', 0.3, {opacity: 0})
+          ;
+        }
+        
       }, 400);
     },
   },
