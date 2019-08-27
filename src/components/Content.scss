@@ -1669,21 +1669,26 @@
     .black-logo__owerlay{
       opacity: 0;
     }
-    .phone{
+    .none-phone-contact{
       display: none;
-      &.phone-page-contact{
-        display: block;
-        width: 250px;
-        border-radius: 30px;
-        @include montserrat-medium;
-        font-size: 18px;
-        text-align: center;
-        padding-top: 20px;
-        color: $beige;
-      }
+    }
+    .phone-page-contact{
+      display: block !important;
+      width: 250px;
+      border-radius: 30px;
+      @include montserrat-medium;
+      font-size: 18px;
+      text-align: center;
+      padding-top: 20px;
+      color: $beige;
     }
   }
 }
+
+  .phone-page-contact{
+    display: none !important;
+  }
+
 .fp-viewing-section-4,.fp-viewing-section-5,.fp-viewing-section-6,.fp-viewing-section-7 {
   .is-mobile{
     .black-logo-right__owerlay{
