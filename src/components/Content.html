@@ -1,5 +1,5 @@
 
-<div class="content-wrapper">
+<div class="content-wrapper" :class="{'is-mobile': this.userAgent.window.width <= 1024 && this.userAgent.device.isMobile}">
   <!-- header desktop-->
   <div class="header header-desktop">
     <div class="left-block">
@@ -68,7 +68,7 @@
   <!-- static object -->
   <div class="static-object">
     <div class="slide__overlay"></div>
-    <div id="preloader-pane-2" class="preloader-pane">
+    <div v-if="this.userAgent.window.width >= 1024 && !this.userAgent.device.isMobile" id="preloader-pane-2" class="preloader-pane">
         <div class="preloader-wrap">
             <img class="pre_dot" src="./img/preloader-2.svg" alt="tobe legal">
         </div>
@@ -86,6 +86,12 @@
       </div>
       <img class="static-image static-image--2 slide-image--5 on-desktop" src="./img/photo-3.jpg" alt="tobe.leagel">
       <img class="static-image static-image--3 slide-image--6" src="./img/photo-4.png" alt="tobe.leagel">
+
+      <!-- Mobile images -->
+      <img class="static-image slide-image--mob-3" src="./img/photo-3.jpg" alt="tobe.leagel">
+      <img class="static-image slide-image--mob-4" src="./img/photo-fade-mob-1.jpg" alt="tobe.leagel">
+      <img class="static-image slide-image--mob-5" src="./img/photo-fade-mob-2.jpg" alt="tobe.leagel">
+
     </div>
   </div>
 
@@ -98,6 +104,14 @@
       <img class="slide-image--mob-1 on-mobile" src="./img/photo-mob-1.png" 
       alt="tobe.leagel">
       <div class="slide__overlay"></div>
+      <div class="quote">
+          <p class="qoute__icon">“</p>
+          <p class="qoute__text">Я умею предотвращать проблемы и выведу Вас из сложной ситуации законным путём.</p>
+          <div class="qoute__contact">
+            <a class="qoute__tel on-desktop" href="tel:+380 50 441 89 82">+380 50 441 89 82</a>
+            <p class="qoute__name">Адвокат <nobr>Евгений Воробей</nobr></p>
+          </div>
+        </div>
       <div class="slide_wrap">
         <div class="slide-1-cols">
           <div class="slide-1-cols__1 on-desktop">
@@ -119,21 +133,13 @@
               <p class="text-2">судебная<br>практика</p>
             </div>
           <div class="slide-1-cols__2">
-            <div class="qoute">
-              <p class="qoute__icon">“</p>
-              <p class="qoute__text">Я умею предотвращать проблемы и выведу Вас из сложной ситуации законным путём.</p>
-              <div class="qoute__contact">
-                <a class="qoute__tel on-desktop" href="tel:+380 50 441 89 82">+380 50 441 89 82</a>
-                <p class="qoute__name">Адвокат <nobr>Евгений Воробей</nobr></p>
-              </div>
-            </div>
           </div>
         </div>
       </div>  
     </div>
 
-    <!-- Slide 2 -->
-    <div class="section">
+    <!-- Slide 2 Desktop -->
+    <div class="section" v-if="this.userAgent.window.width >= 1024 && !this.userAgent.device.isMobile">
       <div class="photo__owerlay slide-image--2">
         <img class="inner-image inner-image--1" src="./img/photo-2.png" alt="tobe.leagel">
       </div>
@@ -160,10 +166,44 @@
       </div>  
     </div>
 
+    <!-- Slide 2 Mobile -->
+    <div v-if="this.userAgent.window.width <= 1024 && this.userAgent.device.isMobile" class="section">
+      <div class="slide_wrap">
+        <div class="slide-2-cols">
+          <div class="slide-2-cols__1">
+            <p class="year">2002</p>
+            <p class="text">Начал свою карьру на должности помощника адвоката.</p>
+            <p class="text text-2">Продолжительное время работал юрисконсультом на различных предприятиях, руководил юридической службой компании, осуществляющей деятельность в сфере энергетики.</p>
+          </div>
+        </div>
+      </div>  
+    </div>
+    <!-- Slide 3 Mobile -->
+    <div v-if="this.userAgent.window.width <= 1024 && this.userAgent.device.isMobile" class="section">
+        <div class="slide_wrap no-margin">
+            <div class="photo__owerlay slide-image-mobile--2">
+              <img class="inner-image-mobile--1" src="./img/photo-2-mobile.jpg" alt="tobe.leagel">
+            </div>
+        </div>
+    </div>
+    <!-- Slide 4 Mobile -->
+    <div v-if="this.userAgent.window.width <= 1024 && this.userAgent.device.isMobile" class="section">
+        <div class="slide_wrap">
+          <div class="slide-2-cols">
+            <div class="slide-2-cols__1">
+              <p class="year">2012</p>
+              <p class="text">Получил право осуществлять адвокатскую деятельность и открыл частную практику.</p>
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+
     <!-- Slide 3 -->
     <div class="section">
       <img class="slide-image--3 on-desktop" src="./img/photo-2.png" alt="tobe.leagel">
-      <img class="slide-image--mob-3 on-mobile" src="./img/photo-3.jpg" alt="tobe.leagel">
+      <!-- <img class="slide-image--mob-3 on-mobile" src="./img/photo-3.jpg" alt="tobe.leagel"> -->
       <div class="slide_wrap">
         <div class="slide-3-cols">
           <div class="slide-3-cols__1">
@@ -388,7 +428,7 @@
 
     <!-- Slide 14 -->
     <div class="section">
-      <img class="slide-image--7" src="./img/photo-5.png" alt="tobe.leagel">
+      <!-- <img class="slide-image--7" src="./img/photo-5.png" alt="tobe.leagel"> -->
       <div class="slide_wrap">
         <div class="slide-14-cols">
           <div class="slide-14-cols-1">
