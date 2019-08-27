@@ -413,6 +413,13 @@
   @include media ("<tablet"){
    margin-right: 10vw;
   }
+  .is-mobile &{
+    @include media ("<phone"){
+      margin-left: 45px;
+      margin-right: 45px;
+      margin-top: 2vh;
+    }
+  }
 }
 .text{
   @include montserrat-regular;
@@ -423,6 +430,11 @@
   color: $grey;
   @include media ("<tablet"){
     font-size: 16px;
+  }
+  .is-mobile &{
+    @include media ("<phone"){
+      font-size: 14px;
+    }
   }
 }
 .text-upper{
@@ -455,6 +467,9 @@
   }
   @include media ("<smallDesktop"){
     font-size: 28px;
+  }
+  @include media ("<phone"){
+    font-size: 24px;
   }
 }
 .arrow-list__item{
@@ -889,6 +904,9 @@
         width: 60%;
         margin-top: 0;
       }
+      @include media ("<phone"){
+        width: 100%;
+      }
     }
   }
   .slide-2-cols__2{
@@ -900,6 +918,9 @@
     .is-mobile &{
       @include media ("<tablet"){
         display: none;
+      }
+      @include media ("<phone"){
+        width: 100%;
       }
     }
   }
@@ -973,6 +994,12 @@
     @include media ("<tablet"){
       width: 50%;
       max-width: 320px;
+    }
+    .is-mobile &{
+      @include media ("<phone"){
+       width: 100%;
+       margin-right: 0;
+      }
     }
   }
   .slide-3-cols__2{
@@ -1075,10 +1102,22 @@
         max-width: 250px;
       }
     }
+    .is-mobile &{
+      @include media ("<phone"){
+       width: 100%;
+       margin-right: 0;
+      }
+    }
   }
   .slide-4-cols__2{
     width: 40%;
     min-width: 274px;
+    .is-mobile &{
+      @include media ("<phone"){
+       width: 100%;
+       min-width: 100%;
+      }
+    }
   }
   .list-country{
     padding-left: 0;
@@ -1113,6 +1152,11 @@
   }
   .slide-5-cols__1{
     width: 60%;
+    .is-mobile &{
+      @include media ("<phone"){
+       width: 100%;
+      }
+    }
   }
 
   .list-hammer{
@@ -1194,6 +1238,9 @@
     }
     .is-mobile &{
      width: 60%;
+      @include media ("<phone"){
+       width: 100% !important;
+      }
     }
   }
   .text{
@@ -1255,6 +1302,9 @@
       width: 80%;
     }
   }
+  @include media ("<phone"){
+    width: 100% !important;
+  }
 }
 
 // ------------------ Slide 8
@@ -1286,7 +1336,11 @@
     .two-column__2{
       width: 80%;
     }
+    @include media ("<phone"){
+      width: 100% !important;
+    }
   }
+  
 }
 // ------------------ Slide 9
 .slide-9-cols{
@@ -1315,6 +1369,9 @@
     }
     .two-column__2{
       width: 80%;
+    }
+    @include media ("<phone"){
+      width: 100% !important;
     }
   }
 }
@@ -1345,6 +1402,9 @@
     }
     .two-column__2{
       width: 80%;
+    }
+    @include media ("<phone"){
+      width: 100% !important;
     }
   }
 }
@@ -1385,6 +1445,9 @@
         display: none;
       }
     }
+    @include media ("<phone"){
+      width: 100% !important;
+    }
   }
 }
 
@@ -1415,6 +1478,9 @@
     }
     .two-column__2{
       width: 80%;
+    }
+    @include media ("<phone"){
+      width: 100% !important;
     }
   }
 }
@@ -1447,6 +1513,9 @@
     .two-column__2{
       width: 80%;
     }
+    @include media ("<phone"){
+      width: 100% !important;
+    }
   }
 }
 
@@ -1462,6 +1531,9 @@
     max-width: 357px;
     margin-right: 0;
     margin-left: auto;
+    @include media ("<phone"){
+     width: 230px;
+     }
   }
   @include media ("<smallDesktop"){
     margin-right: 46vw;
@@ -1681,10 +1753,22 @@
       text-align: center;
       padding-top: 20px;
       color: $beige;
+      @include media ("<phone"){
+       font-size: 14px;
+       width: 200px;
+      }
+    }
+    .text-desktop{
+      display: none;
+    }
+    .text-mobile{
+      display: block !important;
     }
   }
 }
-
+.text-mobile{
+  display: none !important;
+}
   .phone-page-contact{
     display: none !important;
   }
