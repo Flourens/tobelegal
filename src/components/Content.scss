@@ -617,14 +617,21 @@
     opacity: 1;
   }
 }
+.inner-image-mobile--1{
+  width: 100%;
+}
 .slide-image--mob-4{
   position: absolute;
   bottom: 0;
   height: 100%;
   left: -13vw;
+  z-index: 10;
   .is-mobile & {
     display: block;
     opacity: 1;
+    @include media ("<smallPhone"){
+      display: none;
+    }
   }
 }
 .slide-image--mob-5{
@@ -1315,6 +1322,12 @@
   margin-left: auto;
   display: flex;
   flex-direction: row;
+  .is-mobile &{
+    width: 80%;
+    max-width: 357px;
+    margin-right: 0;
+    margin-left: auto;
+  }
   @include media ("<tablet"){
     margin-right: 46vw;
     margin-left: 0;
@@ -1324,11 +1337,19 @@
     width: 58%;
     @include media ("<tablet"){
       width: 60%;
-     }
+    }
+    .is-mobile &{
+      @include media ("<phone"){
+        width: 100%;
+      }
+    }
   }
   .slide-14-cols-2{
     width: 30%;
     margin-left: 7%;
+    .is-mobile &{
+      display: none;
+    }
   }
   .contact-title{
     @include montserrat-medium;
@@ -1373,6 +1394,12 @@
   .contact-code{
     width: 145px;
     height: 145px;
+  }
+}
+
+.contact-group-3{
+  .is-mobile &{
+    display: none;
   }
 }
 // Fade sliders
@@ -1483,9 +1510,43 @@
     opacity: 0;
   }
 }
+
+.fp-viewing-section-8,.fp-viewing-section-9,.fp-viewing-section-10,.fp-viewing-section-11,.fp-viewing-section-12,.fp-viewing-section-13,.fp-viewing-section-14{
+  .is-mobile{
+    .black-logo-right__owerlay{
+      opacity: 0;
+    }
+    .black-logo__owerlay{
+      opacity: 0;
+    }
+  }
+}
+.fp-viewing-section-15{
+  .is-mobile{
+    .black-logo-right__owerlay{
+      opacity: 0;
+    }
+    .black-logo__owerlay{
+      opacity: 0;
+    }
+  }
+}
+.fp-viewing-section-4,.fp-viewing-section-5,.fp-viewing-section-6,.fp-viewing-section-7 {
+  .is-mobile{
+    .black-logo-right__owerlay{
+      opacity: 0;
+    }
+    .black-logo__owerlay{
+      opacity: 0;
+    }
+  }
+}
+  
+
+
 .fp-viewing-section-13{
-  .black-logo__owerlay, .black-logo-right__owerlay{
-    opacity: 0;
+  .is-mobile &{
+    opacity: 1;
   }
 }
 
