@@ -366,6 +366,11 @@
   @include media ("<smallDesktop"){
     left: 14.5vw;
   }
+  .is-mobile &{
+    @include media ("<tablet"){
+      bottom: 28vh;
+    }
+  }
 }
 .black-logo-right__owerlay{
   opacity: 0;
@@ -862,9 +867,12 @@
 .slide-2-cols{
   display: flex;
   flex-direction: row;
-  @include media ("<tablet"){
-    flex-direction: column;
+  .is-mobile &{
+    @include media ("<tablet"){
+      flex-direction: column;
+    }
   }
+
   .slide-2-cols__1{
     width: 30%;
     position: relative;
@@ -876,6 +884,12 @@
       margin-left: 0;
       min-width: 100px;
     }
+    .is-mobile &{
+      @include media ("<tablet"){
+        width: 60%;
+        margin-top: 0;
+      }
+    }
   }
   .slide-2-cols__2{
     width: 27%;
@@ -883,8 +897,10 @@
     @include media ("<smallDesktop"){
       width: 35%;
     }
-    @include media ("<tablet"){
-      display: none;
+    .is-mobile &{
+      @include media ("<tablet"){
+        display: none;
+      }
     }
   }
   .slide-2-cols__3{
@@ -896,6 +912,12 @@
     @include media ("<smallDesktop"){
       box-sizing: border-box;
       margin-top: 4%;
+    }
+    .is-mobile &{
+      @include media ("<tablet"){
+       width: 40%;
+       margin-top: 0;
+      }
     }
   }
   .year{
@@ -1015,14 +1037,21 @@
     display: inline-block;
     text-align: center;
     margin-right: 10px;
-    @include media ("<tablet"){
-     width: 100px;
-     display: block;
+    .is-mobile &{
+      @include media ("<tablet"){
+        width: 100px;
+        display: block;
+       }
     }
   }
   .text{
     margin-left: 2vw;
     width: 90%;
+    .is-mobile &{
+      @include media ("<tablet"){
+        width: 100%;
+      }
+    }
   }
 }
 
@@ -1106,6 +1135,10 @@
     @include media ("<tablet"){
       max-width: 350px;
     }
+    .is-mobile &{
+      padding-bottom: 30px;
+      padding-right: 20px;
+    }
     &:before{
       content: '';
       position: absolute;
@@ -1126,9 +1159,15 @@
     }
     &-2{
       margin-left: 6vw;
+      .is-mobile &{
+        margin-left: 0;
+      }
     }
     &-3{
       margin-left: 2vw;
+      .is-mobile &{
+        margin-left: 0;
+      }
     }
   }
   .icon-hammer{
@@ -1153,12 +1192,26 @@
     @include media ("<smallDesktop"){
       width: 70%;
     }
+    .is-mobile &{
+     width: 60%;
+    }
   }
   .text{
     margin-top: 15vh;
   }
   @include media ("<tablet"){
     margin-left: 0;
+  }
+  .is-mobile &{
+    br{
+      display: none;
+    }
+    .text{
+      margin-top: 5vh;
+    }
+    .slide-6-cols__1{
+      width: 60%;
+    }
   }
 }
 
@@ -1185,6 +1238,23 @@
   .two-column__2{
     width: 40%;
   }
+  .is-mobile &{
+    .text-upper{
+      max-width: 320px;
+      br{
+        display: none;
+      }
+    }
+    .two-column{
+      flex-direction: column;
+    }
+    .two-column__1{
+      width: 80%;
+    }
+    .two-column__2{
+      width: 80%;
+    }
+  }
 }
 
 // ------------------ Slide 8
@@ -1206,6 +1276,17 @@
     width: 65%;
     margin-right: 10%;
   }
+  .is-mobile &{
+    .two-column{
+      flex-direction: column;
+    }
+    .two-column__1{
+      width: 80%;
+    }
+    .two-column__2{
+      width: 80%;
+    }
+  }
 }
 // ------------------ Slide 9
 .slide-9-cols{
@@ -1225,6 +1306,17 @@
     width: 72%;
     margin-right: 10%;
   }
+  .is-mobile &{
+    .two-column{
+      flex-direction: column;
+    }
+    .two-column__1{
+      width: 80%;
+    }
+    .two-column__2{
+      width: 80%;
+    }
+  }
 }
 // ------------------ Slide 10
 .slide-10-cols{
@@ -1243,6 +1335,17 @@
   .two-column__1{
     width: 72%;
     margin-right: 10%;
+  }
+  .is-mobile &{
+    .two-column{
+      flex-direction: column;
+    }
+    .two-column__1{
+      width: 80%;
+    }
+    .two-column__2{
+      width: 80%;
+    }
   }
 }
 // ------------------ Slide 11
@@ -1266,6 +1369,23 @@
   .two-column__2{
     width: 45%;
   }
+  .is-mobile &{
+    .two-column{
+      flex-direction: column;
+    }
+    .two-column__1{
+      width: 80%;
+    }
+    .two-column__2{
+      width: 80%;
+    }
+    .text-upper{
+      max-width: 320px;
+      br{
+        display: none;
+      }
+    }
+  }
 }
 
 // ------------------ Slide 12
@@ -1286,6 +1406,17 @@
     width: 80%;
     margin-right: 10%;
   }
+  .is-mobile &{
+    .two-column{
+      flex-direction: column;
+    }
+    .two-column__1{
+      width: 80%;
+    }
+    .two-column__2{
+      width: 80%;
+    }
+  }
 }
 
 // ------------------ Slide 13
@@ -1305,6 +1436,17 @@
   .two-column__1{
     width: 80%;
     margin-right: 10%;
+  }
+  .is-mobile &{
+    .two-column{
+      flex-direction: column;
+    }
+    .two-column__1{
+      width: 80%;
+    }
+    .two-column__2{
+      width: 80%;
+    }
   }
 }
 
@@ -1373,6 +1515,9 @@
     @include merri-bold-italic;
     color: $grey;
     margin-top: 5px;
+    .is-mobile &{
+      margin-top: 30vh;
+    }
   }
   .code{
     @include montserrat-medium;
@@ -1395,6 +1540,8 @@
     display: none;
   }
 }
+
+
 // Fade sliders
 // .fullpage-wrapper {
 // 	width: 100%!important;
@@ -1521,6 +1668,19 @@
     }
     .black-logo__owerlay{
       opacity: 0;
+    }
+    .phone{
+      display: none;
+      &.phone-page-contact{
+        display: block;
+        width: 250px;
+        border-radius: 30px;
+        @include montserrat-medium;
+        font-size: 18px;
+        text-align: center;
+        padding-top: 20px;
+        color: $beige;
+      }
     }
   }
 }

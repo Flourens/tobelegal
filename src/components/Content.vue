@@ -621,10 +621,10 @@ export default {
 
         //Methods
 
-        onLeave: function(origin, destination, direction){
-          console.log(destination.index);
-            var animationTl = new TimelineMax({});
-            console.log('Leave: ' + origin.index, 'Enter: ' + destination.index, 'Direction: ' + direction);
+        // onLeave: function(origin, destination, direction){
+        //   console.log(destination.index);
+        //     var animationTl = new TimelineMax({});
+        //     console.log('Leave: ' + origin.index, 'Enter: ' + destination.index, 'Direction: ' + direction);
             // Leave animation slide 1
             // if(origin.index == 0){
             //    animationTl.fromTo('.slide-image--6', 0.6, { opacity:0, xPercent:30 }, { opacity:1, xPercent:0 }, 0)
@@ -872,21 +872,21 @@ export default {
         //       ;
         //     }
         
-          return animationIsFinished;
-        },
-        afterLoad: function(origin, destination, direction){
-          var animationTlBack = new TimelineMax({});
-          var countriesLoop = new TimelineMax({repeat:-1, force3D:true});
-          animationTlBack.progress(0);
-          countriesLoop.progress(0);
-          // Enter anim slide 1
-          if(destination.index == 0){
-           animationTlBack.fromTo('.slide-image--mob-1', 1.6, { opacity:0, xPercent:-30 }, { opacity:1, xPercent:0 }, 0)
-                          .fromTo('.logo-block__2', 0.3, { opacity:0 }, { opacity:1 })
-                          .staggerFromTo('.slide-1-cols__3 .text-2', 0.3, { opacity:0, x: 30 }, { opacity:1, x: 0 }, 0.4)
-                          .fromTo('.quote', 0.6, { opacity:0, y: 60 }, { opacity:1, y: 0 })
-            ;
-          }
+         // return animationIsFinished;
+        // },
+        // afterLoad: function(origin, destination, direction){
+          // var animationTlBack = new TimelineMax({});
+          // var countriesLoop = new TimelineMax({repeat:-1, force3D:true});
+          // animationTlBack.progress(0);
+          // countriesLoop.progress(0);
+          // // Enter anim slide 1
+          // if(destination.index == 0){
+          //  animationTlBack.fromTo('.slide-image--mob-1', 1.6, { opacity:0, xPercent:-30 }, { opacity:1, xPercent:0 }, 0)
+          //                 .fromTo('.logo-block__2', 0.3, { opacity:0 }, { opacity:1 })
+          //                 .staggerFromTo('.slide-1-cols__3 .text-2', 0.3, { opacity:0, x: 30 }, { opacity:1, x: 0 }, 0.4)
+          //                 .fromTo('.quote', 0.6, { opacity:0, y: 60 }, { opacity:1, y: 0 })
+          //   ;
+          // }
         //   // Enter anim slide 2
         //   if(destination.index == 1){
         //     let blackLogoHeigth = document.querySelector('.black-logo__owerlay').scrollHeight;
@@ -1190,7 +1190,7 @@ export default {
         //       ;
         //   }
 
-          }
+          // }
         });
       }
       
