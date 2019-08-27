@@ -448,7 +448,7 @@
     line-height: 1;
     position: absolute;
   }
-  @include media ("<tablet"){
+  @include media ("<smallDesktop"){
     font-size: 28px;
   }
 }
@@ -506,12 +506,12 @@
   top: 19%;
   z-index: 1000;
   img{
-    width: 100%;
+    width: 304px;
     height: auto;
   }
-  @include media ("<tablet"){
-    left: auto;
-    right: 24vw;
+  @include media ("<smallDesktop"){
+    // left: auto !important;
+    right: 30vw;
   }
   .is-mobile &{
     width: 100%;
@@ -552,6 +552,7 @@
   z-index: 0;
   @include media ("<smallDesktop"){
     left: 12vw;
+    height: 95vh;
   }
   @include media (">phone"){
     @include media ("height<min-height"){
@@ -737,6 +738,9 @@
   .text{
     margin-left: 80px;
     margin-top: 30px;
+    @include media ("<smallDesktop"){
+      margin-left: 145px;
+    }
   }
 
   .logo-block__logo{
@@ -866,22 +870,17 @@
     position: relative;
     margin-top: 11%;
     margin-left: 6vw;
-    @include media ("<tablet"){
-      margin-left: 0;
+    @include media ("<smallDesktop"){
       width: 37%;
-      margin-top: 15%;
+      box-sizing: border-box;
+      margin-left: 0;
       min-width: 100px;
-      @include media ("<tablet"){
-        width: 60%;
-        box-sizing: border-box;
-        margin-top: 0;
-      }
     }
   }
   .slide-2-cols__2{
     width: 27%;
     min-width: 274px;
-    @include media ("<tablet"){
+    @include media ("<smallDesktop"){
       width: 35%;
     }
     @include media ("<tablet"){
@@ -894,15 +893,9 @@
     position: relative;
     margin-top: 3%;
     margin-left: 45px;
-    @include media ("<tablet"){
-      margin-top: 4%;
-    }
-    @include media ("<tablet"){
-      min-width: 60%;
-      width: 60%;
-      margin-left: 40%;
+    @include media ("<smallDesktop"){
       box-sizing: border-box;
-      margin-top: 13vh;
+      margin-top: 4%;
     }
   }
   .year{
@@ -1157,7 +1150,7 @@
   margin-left: 6vw;
   .slide-6-cols__1{
     width: 40%;
-    @include media ("<tablet"){
+    @include media ("<smallDesktop"){
       width: 70%;
     }
   }
@@ -1328,14 +1321,14 @@
     margin-right: 0;
     margin-left: auto;
   }
-  @include media ("<tablet"){
+  @include media ("<smallDesktop"){
     margin-right: 46vw;
     margin-left: 0;
     width: 55%;
    }
   .slide-14-cols-1{
     width: 58%;
-    @include media ("<tablet"){
+    @include media ("<smallDesktop"){
       width: 60%;
     }
     .is-mobile &{
