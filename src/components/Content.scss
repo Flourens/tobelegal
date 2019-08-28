@@ -313,7 +313,6 @@
 
 
 #fp-nav{
-  pointer-events: none;
   @include media("retina2x", "<=tablet", "portrait") {
     display: none;
     pointer-events: none;
