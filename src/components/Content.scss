@@ -362,12 +362,15 @@
   &-2{
     left: 55vw;
   }
-  @include media ("<smallDesktop"){
+  @include media ("<desktop"){
     left: 14.5vw;
   }
   .is-mobile &{
     @include media ("<tablet"){
-      bottom: 28vh;
+      width: 62%;
+      left: 21%;
+      height: 80vh;
+      bottom: 13vh;
     }
   }
 }
@@ -413,9 +416,9 @@
    margin-right: 10vw;
   }
   .is-mobile &{
-    @include media ("<phone"){
-      margin-left: 45px;
-      margin-right: 45px;
+    @include media ("<tablet"){
+      margin-left: 110px;
+      margin-right: 110px;
       margin-top: 2vh;
     }
   }
@@ -443,7 +446,7 @@
   font-size: 14px;
 }
 .services-title{
-  padding-left: 20px;
+  padding-left: 25px;
   @include montserrat-medium;
   background: -webkit-linear-gradient(90deg, #E9C0A0 -29.04%, #E5BB9C -11.71%, #D8AC90 9.05%, #C3947E 31.48%, #AB7968 51.12%, #BD8C76 53.66%, #D0A084 57.25%, #DDAE8E 61.34%, #E5B794 66.37%, #E7B996 74.94%);
   -webkit-background-clip: text;
@@ -452,6 +455,7 @@
   line-height: 1.2;
   position: relative;
   text-transform: uppercase;
+  margin-top: 10px;
   &:before{
     content: '/';
     top: 0;
@@ -471,10 +475,14 @@
     font-size: 24px;
   }
 }
+.arrow-list{
+  margin-top: 20px;
+  margin-left: 10px;
+}
 .arrow-list__item{
   position: relative;
   padding-left: 20px;
-  margin-bottom: 25px;
+  margin-bottom: 35px;
   position: relative;
   @include montserrat-regular;
   font-size: 13px;
@@ -496,18 +504,21 @@
 
 .slide-image--1{
   position: absolute;
-  right: 0%;
-  bottom: -15px;
+  right: 1%;
+  bottom: 0px;
   z-index: 1;
   height: 100vh;
   width: auto;
-  @include media ("<smallDesktop"){
+  @include media ("<desktop"){
     right: -8%;
-    min-height: 834px;
-    bottom: 0;
-    top: 0;
-    margin: auto 0;
   }
+  // @include media ("<smallDesktop"){
+  //   right: -8%;
+  //   min-height: 834px;
+  //   bottom: 0;
+  //   top: 0;
+  //   margin: auto 0;
+  // }
   @include media ("height<hSmall"){
     height: 120vh;
     min-height: 0px;
@@ -543,7 +554,7 @@
     opacity: 0;
   }
   @include media (">phone"){
-    @include media ("height<min-height"){
+    @include media ("height<hSmall"){
       top: 10%;
     }
   }
@@ -554,7 +565,7 @@
   top: 19%;
   z-index: 1000;
   @include media (">phone"){
-    @include media ("height<min-height"){
+    @include media ("height<hSmall"){
       top: 10%;
     }
   }
@@ -565,16 +576,16 @@
 
 .slide-image--5{
   position: absolute;
-  left: 26vw;
-  bottom: 0;
+  left: 24vw;
+  bottom: -4vh;
   height: 100vh;
   z-index: 0;
-  @include media ("<smallDesktop"){
-    left: 12vw;
-    height: 95vh;
+  @include media ("<desktop"){
+    left: 11vw;
+    height: 100vh;
   }
   @include media (">phone"){
-    @include media ("height<min-height"){
+    @include media ("height<hSmall"){
       bottom: -120px;
     }
   }
@@ -585,11 +596,11 @@
   bottom: 0;
   z-index: 0;
   height: 100vh;
-  @include media ("<tablet"){
+  @include media ("<desktop"){
     left: -18vw;
   }
   @include media (">phone"){
-    @include media ("height<min-height"){
+    @include media ("height<hSmall"){
       bottom: -110px;
     }
   }
@@ -597,14 +608,14 @@
 .slide-image--7{
   position: absolute;
   height: 100vh;
-  left: 35vw;
+  left: 36vw;
   bottom: 0;
   z-index: 0;
-  @include media ("<tablet"){
+  @include media ("<desktop"){
     left: 30vw;
   }
   @include media (">phone"){
-    @include media ("height<min-height"){
+    @include media ("height<hSmall"){
       bottom: -80px;
     }
   }
@@ -616,16 +627,23 @@
   height: 100vh;
   min-height: 800px;
   z-index: 0;
-  @include media ("<phone"){
-    right: 4%;
-    left: auto;
-  }
-  @include media ("<smallPhone"){
-    right: auto;
-    left: -150px;
-    top: 10%;
-    min-height: 700px;
-  }
+  .is-mobile &{
+     @include media ("<tablet"){
+      left: 0;
+      right: auto;
+      min-height: 100vh;
+     }
+   }
+  // @include media ("<phone"){
+  //   right: 4%;
+  //   left: auto;
+  // }
+  // @include media ("<hSmallPhone"){
+  //   right: auto;
+  //   left: -150px;
+  //   top: 10%;
+  //   min-height: 700px;
+  // }
 }
 .slide-image--mob-3{
   position: absolute;
@@ -649,7 +667,7 @@
   .is-mobile & {
     display: block;
     opacity: 1;
-    @include media ("<smallPhone"){
+    @include media ("<hSmallPhone"){
       display: none;
     }
   }
@@ -690,44 +708,35 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  .is-mobile & {
+    flex-direction: column;
+    justify-content: space-between;
+    width: 60%;
+    margin-left: 40%;
+  }
   .slide-1-cols__1{
     display: flex;
     flex-wrap: wrap;
     width: 470px;
-    @include media ("<tablet"){
-      width: 80%;
-      min-width: 700px;
-      display: none;
-    }
-  }
-  @include media ("<tablet"){
-    flex-direction: column;
-    justify-content: space-between;
-    width: 60%;
-    margin-left: 40%;
-  }
-  @include media("retina2x", "<=tablet", "portrait") {
-    flex-direction: column;
-    justify-content: space-between;
-    width: 60%;
-    margin-left: 40%;
   }
   .slide-1-cols__2{
     width: 410px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    @include media ("<tablet"){
-      flex-direction: column;
-      justify-content: space-between;
-    }
+
   }
   .slide-1-cols__3{
     height: 70vh;
+    .is-mobile & {
+      @include media ("<tablet"){
+        height: 72vh;
+      }
+    }
     .logo-block__position{
       text-align: right;
       font-size: 19px;
-      @include media ("<smallPhone"){
+      @include media ("<hSmallPhone"){
         font-size: 14px;
       }
     }
@@ -735,7 +744,7 @@
       text-align: right;
       font-size: 57px;
       padding-top: 3px;
-      @include media ("<smallPhone"){
+      @include media ("<hSmallPhone"){
         font-size: 38px;
       }
     }
@@ -749,14 +758,14 @@
       text-align: right;
       letter-spacing: 0.1em;
       margin-top: 30px;
-      @include media ("<smallPhone"){
+      @include media ("<hSmallPhone"){
         font-size: 14px;
       }
     }
   }
   .text{
     margin-left: 80px;
-    margin-top: 30px;
+    margin-top: 80px;
     @include media ("<smallDesktop"){
       margin-left: 145px;
     }
@@ -787,6 +796,11 @@
     -webkit-text-fill-color: transparent;
     font-size: 52px;
     line-height: 1;
+    .is-mobile & {
+      @include media ("<tablet"){
+        font-size: 62px;
+      }
+    }
   }
 }
 
@@ -795,23 +809,26 @@
   width: 90%;
   max-width: 410px;
   position: absolute;
-  bottom: 105px;
-  right: 40px;
+  bottom: 180px;
+  right: 90px;
   padding: 25px;
-  // @include media("retina2x", "<=tablet", "portrait") {
+  .is-mobile & {
+    @include media ("<tablet"){
+      right: 70px;
+      bottom: 100px;
+    }
+  }
+  // @include media ("<hSmallPhone"){
+  //   display: block;
+  //   max-width: 360px;
+  //   bottom: 105px;
+  //   right: 0;
+  //   left: 0;
+  //   margin: 0 auto;
+  // }
+  // @include media ("height<hSmallPhone"){
   //   display: none;
   // }
-  @include media ("<smallPhone"){
-    display: block;
-    max-width: 360px;
-    bottom: 105px;
-    right: 0;
-    left: 0;
-    margin: 0 auto;
-  }
-  @include media ("height<hSmallPhone"){
-    display: none;
-  }
   
   &:after{
     content: '';
@@ -833,9 +850,6 @@
   left: 20px;
   top: 28px;
   color: #fff;
-  @include media ("<tablet"){
-    left: 10px;
-  }
 }
 .qoute__text{
   margin-left: 60px;
@@ -843,9 +857,7 @@
   line-height: 150%;
   @include montserrat-regular;
   color: #fff;
-  @include media ("<tablet"){
-    margin-left: 40px;
-  }
+
 }
 .qoute__contact{
   display: flex;
@@ -854,10 +866,6 @@
   width: calc(100% - 60px);
   margin-left: 60px;
   margin-top: 20px;
-  @include media ("<tablet"){
-    margin-left: 40px;
-    width: calc(100% - 40px);
-  }
 }
 .qoute__tel{
   font-size: 12px;
@@ -865,9 +873,6 @@
   text-align: left;
   letter-spacing: 0.05em;
   @include merri-bold-italic;
-  @include media ("<tablet"){
-    width: 50%;
-  }
 }
 .qoute__name{
   font-size: 12px;
@@ -881,9 +886,13 @@
 .slide-2-cols{
   display: flex;
   flex-direction: row;
+  @include media ("<desktop"){
+    margin-left: 5.5vw;
+  }
   .is-mobile &{
     @include media ("<tablet"){
       flex-direction: column;
+      margin-left: 0vw;
     }
   }
 
@@ -892,16 +901,18 @@
     position: relative;
     margin-top: 11%;
     margin-left: 6vw;
-    @include media ("<smallDesktop"){
+    @include media ("<desktop"){
       width: 37%;
       box-sizing: border-box;
       margin-left: 0;
       min-width: 100px;
+      margin-top: 13%;
     }
     .is-mobile &{
       @include media ("<tablet"){
         width: 60%;
         margin-top: 0;
+        margin-bottom: 10vh;
       }
       @include media ("<phone"){
         width: 100%;
@@ -911,16 +922,16 @@
   .slide-2-cols__2{
     width: 27%;
     min-width: 274px;
-    @include media ("<smallDesktop"){
+    @include media ("<desktop"){
       width: 35%;
     }
     .is-mobile &{
       @include media ("<tablet"){
         display: none;
       }
-      @include media ("<phone"){
-        width: 100%;
-      }
+      // @include media ("<phone"){
+      //   width: 100%;
+      // }
     }
   }
   .slide-2-cols__3{
@@ -929,14 +940,15 @@
     position: relative;
     margin-top: 3%;
     margin-left: 45px;
-    @include media ("<smallDesktop"){
+    @include media ("<desktop"){
       box-sizing: border-box;
-      margin-top: 4%;
+      margin-top: 0%;
     }
     .is-mobile &{
       @include media ("<tablet"){
        width: 40%;
        margin-top: 0;
+       padding-bottom: 20vh;
       }
     }
   }
@@ -947,6 +959,11 @@
     -webkit-text-fill-color: transparent;
     font-size: 64px;
     line-height: 1;
+    .is-mobile &{
+      @include media ("<tablet"){
+       font-size: 80px;
+      }
+    }
   }
   .line-1{
     overflow: hidden;
@@ -983,21 +1000,28 @@
   display: flex;
   flex-direction: row;
   margin-left: 4vw;
-  @include media ("<tablet"){
+  @include media ("<desktop"){
+   margin-left: 3vw;
+  }
+  .is-mobile &{
+    @include media ("<tablet"){
     margin-left: 0;
+    }
   }
   .slide-3-cols__1{
     width: 50%;
     max-width: 430px;
     margin-right: 10%;
+
     @include media ("<tablet"){
       width: 50%;
       max-width: 320px;
     }
     .is-mobile &{
-      @include media ("<phone"){
+      @include media ("<tablet"){
        width: 100%;
        margin-right: 0;
+       max-width: 100%;
       }
     }
   }
@@ -1007,7 +1031,8 @@
   }
   .list-block{
     padding-left: 0;
-    margin-top: 25px;
+    margin-top: 30px;
+    margin-left: 10px;
   }
   .list-block__item{
     height: 45px;
@@ -1073,6 +1098,7 @@
   .text{
     margin-left: 2vw;
     width: 90%;
+    margin-top: 15px;
     .is-mobile &{
       @include media ("<tablet"){
         width: 100%;
@@ -1232,7 +1258,7 @@
   margin-left: 6vw;
   .slide-6-cols__1{
     width: 40%;
-    @include media ("<smallDesktop"){
+    @include media ("<desktop"){
       width: 70%;
     }
     .is-mobile &{
@@ -1243,7 +1269,10 @@
     }
   }
   .text{
-    margin-top: 15vh;
+    margin-top: 28vh;
+    @include media ("<desktop"){
+      margin-top: 15vh;
+    }
   }
   @include media ("<tablet"){
     margin-left: 0;
@@ -1266,11 +1295,21 @@
   width: 50%;
   margin-right: 5vw;
   margin-left: auto;
-  @include media ("<tablet"){
-    margin-right: 0;
-    width: 65%;
+  @include media ("<desktop"){
+    margin-right: 10vw;
+    width: 55%;
   }
-
+  .arrow-list{
+    margin-top: 0;
+  }
+  .arrow-list__item{
+    margin-bottom: 25px;
+  }
+  .text-upper{
+    @include media ("<desktop"){
+      margin-top: 20px;
+    }
+  }
   .two-column{
     display: flex;
     margin-top: 30px;
@@ -1311,11 +1350,10 @@
   width: 50%;
   margin-right: 5vw;
   margin-left: auto;
-  @include media ("<tablet"){
-   margin-right: 0;
-   width: 60%;
+  @include media ("<desktop"){
+    margin-right: 10vw;
+    width: 55%;
   }
-
   .two-column{
     display: flex;
     margin-top: 30px;
@@ -1346,17 +1384,23 @@
   width: 50%;
   margin-right: 5vw;
   margin-left: auto;
-  @include media ("<tablet"){
-    margin-right: 0;
-    width: 60%;
-   }
+  @include media ("<desktop"){
+    margin-right: 10vw;
+    width: 55%;
+  }
+  .arrow-list{
+    margin-bottom: 13vh;
+  }
+  .arrow-list__item{
+    margin-bottom: 28px;
+  }
   .two-column{
     display: flex;
     margin-top: 30px;
     margin-bottom: 40px;
   }
   .two-column__1{
-    width: 72%;
+    width: 75%;
     margin-right: 10%;
   }
   .is-mobile &{
@@ -1379,10 +1423,15 @@
   width: 50%;
   margin-right: 5vw;
   margin-left: auto;
-  @include media ("<tablet"){
-    margin-right: 0;
-    width: 60%;
-   }
+  @include media ("<desktop"){
+    margin-right: 10vw;
+    width: 55%;
+  }
+  .arrow-list{
+    margin-bottom: 17vh;
+    margin-top: 20px;
+  }
+
   .two-column{
     display: flex;
     margin-top: 30px;
@@ -1409,24 +1458,37 @@
 }
 // ------------------ Slide 11
 .slide-11-cols{
-  width: 50%;
-  margin-right: 5vw;
+  width: 54%;
+  margin-right: 2vw;
   margin-left: auto;
-  @include media ("<tablet"){
-    margin-right: 0;
-    width: 60%;
-   }
+  @include media ("<desktop"){
+    margin-right: 10vw;
+    width: 55%;
+  }
+  .arrow-list{
+    margin-bottom: 13vh;
+    margin-top: 0;
+  }
+  .arrow-list__item{
+    margin-bottom: 24px;
+  }
+  .text-upper{
+    @include media ("<desktop"){
+      margin-top: 20px;
+    }
+  }
   .two-column{
     display: flex;
     margin-top: 30px;
     margin-bottom: 40px;
+    justify-content: space-between;
   }
   .two-column__1{
-    width: 45%;
-    margin-right: 10%;
+    width: 50%;
+    margin-right: 60px;
   }
   .two-column__2{
-    width: 45%;
+    width: 50%;
   }
   .is-mobile &{
     .two-column{
@@ -1455,10 +1517,14 @@
   width: 50%;
   margin-right: 5vw;
   margin-left: auto;
-  @include media ("<tablet"){
-    margin-right: 0;
-    width: 60%;
-   }
+  @include media ("<desktop"){
+    margin-right: 10vw;
+    width: 55%;
+  }
+  .arrow-list{
+    margin-bottom: 24vh;
+    margin-top: 20px;
+  }
   .two-column{
     display: flex;
     margin-top: 30px;
@@ -1489,17 +1555,26 @@
   width: 50%;
   margin-right: 5vw;
   margin-left: auto;
-  @include media ("<tablet"){
-    margin-right: 0;
-    width: 60%;
-   }
+  @include media ("<desktop"){
+    margin-right: 10vw;
+    width: 55%;
+  }
+  .arrow-list{
+    margin-bottom: 24vh;
+    margin-top: 60px;
+  }
+  .two-column{
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 40px;
+  }
   .two-column{
     display: flex;
     margin-top: 30px;
     margin-bottom: 40px;
   }
   .two-column__1{
-    width: 80%;
+    width: 75%;
     margin-right: 10%;
   }
   .is-mobile &{
@@ -1522,7 +1597,7 @@
 .slide-14-cols{
   width: 47%;
   margin-right: 40vw;
-  margin-left: auto;
+  margin-left: 6vw;
   display: flex;
   flex-direction: row;
   .is-mobile &{
@@ -1534,11 +1609,17 @@
      width: 230px;
      }
   }
-  @include media ("<smallDesktop"){
+  @include media ("<desktop"){
     margin-right: 46vw;
-    margin-left: 0;
-    width: 55%;
-   }
+    margin-left: 4vw;
+    width: 54%;
+  }
+  // @include media ("<smallDesktop"){
+  //   margin-right: 46vw;
+  //   margin-left: 0;
+  //   width: 55%;
+  // }
+
   .slide-14-cols-1{
     width: 58%;
     @include media ("<smallDesktop"){
@@ -1553,6 +1634,9 @@
   .slide-14-cols-2{
     width: 30%;
     margin-left: 7%;
+    @include media ("<desktop"){
+      margin-left: 8%;
+    }
     .is-mobile &{
       display: none;
     }
@@ -1575,7 +1659,7 @@
     background: -webkit-linear-gradient(90deg, #E9C0A0 -29.04%, #E5BB9C -11.71%, #D8AC90 9.05%, #C3947E 31.48%, #AB7968 51.12%, #BD8C76 53.66%, #D0A084 57.25%, #DDAE8E 61.34%, #E5B794 66.37%, #E7B996 74.94%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 18px;
+    font-size: 19px;
     line-height: 1.2;
   }
   .contact-name{
@@ -1688,11 +1772,25 @@
 
 .slide-image--mob-3{
   .is-mobile &{
-    .fp-viewing-section-4 &,.fp-viewing-section-5 &,.fp-viewing-section-6 &,.fp-viewing-section-7 &{
+    .fp-viewing-section-5 &,.fp-viewing-section-7 &{
       opacity: 1;
     }
   }
 }
+.slide-image--mob-3{
+  .is-mobile &{
+    .fp-viewing-section-4 &,.fp-viewing-section-6 &{
+      opacity: 0;
+    }
+  }
+}
+// .fp-viewing-section-4{
+// .slide-image--mob-3{
+//   .is-mobile &{
+//       opacity: 0 !important;
+//     }
+//   }
+// }
 .slide-image--mob-4{
   .is-mobile &{
     .fp-viewing-section-8 &,.fp-viewing-section-9 &,.fp-viewing-section-10 &,.fp-viewing-section-11 &,.fp-viewing-section-12 &,.fp-viewing-section-13 &,.fp-viewing-section-14 &{
