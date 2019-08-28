@@ -314,12 +314,11 @@
 
 #fp-nav{
   pointer-events: none;
-  .is-mobile{
-    opacity: 0 !important;
-    pointer-events: none; 
+  @include media("retina2x", "<=tablet", "portrait") {
+    display: none;
+    pointer-events: none;
   }
 }
-
 #fp-nav ul li, .fp-slidesNav ul li{
   height: 1px !important;
   background-color: $beige;
