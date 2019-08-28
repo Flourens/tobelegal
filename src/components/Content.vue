@@ -890,7 +890,7 @@ export default {
           if(destination.index == 0){
            
            animationTlBack.set('.slide-1-cols__3', { clearProps: 'all' }, 0)
-                          .fromTo('.slide-image--mob-1', 1.6, { opacity:0, xPercent:-30 }, { opacity:1, xPercent:0 }, 0)
+                          .fromTo('.slide-image--mob-1', 1.6, { opacity:0, x:0, xPercent:-30 }, { opacity:1, xPercent:0 }, 0)
                           .fromTo('.logo-block__2', 0.3, { opacity:0 }, { opacity:1 })
                           .staggerFromTo('.slide-1-cols__3 .text-2', 0.3, { opacity:0, x: 30 }, { opacity:1, x: 0 }, 0.4)
                           .fromTo('.quote', 0.6, { opacity:0, y: 60 }, { opacity:1, y: 0 })
