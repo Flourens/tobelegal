@@ -14,6 +14,7 @@ export default {
   data() {
     return {
       openMenu: false,
+      enterAnimFinished: true,
     }
   },
   methods:{
@@ -30,7 +31,7 @@ export default {
         licenseKey: 'F1F7C056-F79543AF-9D4C42D2-E43F5FDE',
         menu: '#menu',
         anchors: ['section-0', 'section-1', 'section-2', 'section-3', 'section-4', 'section-5', 'section-6', 'section-7', 'section-8', 'section-9', 'section-10', 'section-11', 'section-12', 'section-13'],
-        // sectionsColor: ['#1A2730', '#1A2730', '#1A2730'],
+        lockAnchors: true,
         // Navigation
         navigation: true,
         navigationPosition: 'right',
@@ -38,22 +39,20 @@ export default {
         verticalCentered: true,
 
         //Methods
-        onLeave: function(origin, destination, direction){
-          console.log(destination.index);
+        onLeave: (origin, destination, direction)=>{
             var animationTl = new TimelineMax({});
+            console.log(this.enterAnimFinished);
+          if(this.enterAnimFinished == true){
+            this.enterAnimFinished = false;
             console.log('Leave: ' + origin.index, 'Enter: ' + destination.index, 'Direction: ' + direction);
             // Leave animation slide 1
             if(origin.index == 0){
               animationTl.to('.slide__overlay', 0.6, {ease: Power0.easeNone, height:'110vh'},0)
               .to('.preloader-pane-1,#preloader-pane-2,.slide-image--1', 0.6,{opacity:0, onComplete: function(){
-                animationIsFinished = true;
-                if(direction == 'up'){
+                  animationIsFinished = true;
                   fullpage_api.moveTo(`section-${destination.index}`);
                   animationIsFinished = false;
-                } else {
-                  fullpage_api.moveTo(`section-${destination.index}`);
-                  animationIsFinished = false;
-                }
+                  
               }},0);
             }
             // Leave animation slide 2
@@ -64,6 +63,7 @@ export default {
                               animationIsFinished = true;
                               fullpage_api.moveTo(`section-${destination.index}`);
                               animationIsFinished = false;
+                              
                             }})
                             .set('.section.active', {opacity: 0});
               } else if(direction == 'down'){
@@ -73,6 +73,7 @@ export default {
                               animationIsFinished = true;
                               fullpage_api.moveTo(`section-${destination.index}`);
                               animationIsFinished = false;
+                              
                             }})
                             .set('.section.active', {opacity: 0});
               }
@@ -86,6 +87,7 @@ export default {
                           animationIsFinished = true;
                           fullpage_api.moveTo(`section-${destination.index}`);
                           animationIsFinished = false;
+                          
                         }})
                         .set('.section.active', {opacity: 0});
               } else if(direction == 'down'){
@@ -94,6 +96,7 @@ export default {
                             animationIsFinished = true;
                             fullpage_api.moveTo(`section-${destination.index}`);
                             animationIsFinished = false;
+                            
                           }})
                           .set('.section.active', {opacity: 0});
               }
@@ -107,6 +110,7 @@ export default {
                             animationIsFinished = true;
                             fullpage_api.moveTo(`section-${destination.index}`);
                             animationIsFinished = false;
+                            
                           }})
                           .set('.section.active', {opacity: 0});
               } else if(direction == 'down'){
@@ -116,6 +120,7 @@ export default {
                           animationIsFinished = true;
                           fullpage_api.moveTo(`section-${destination.index}`);
                           animationIsFinished = false;
+                          
                         }})
                         .set('.section.active', {opacity: 0});
               }
@@ -129,6 +134,7 @@ export default {
                   animationIsFinished = true;
                   fullpage_api.moveTo(`section-${destination.index}`);
                   animationIsFinished = false;
+                  
                 }})
               .set('.section.active', {opacity: 0});
               } else if(direction == 'down'){
@@ -137,6 +143,7 @@ export default {
                   animationIsFinished = true;
                   fullpage_api.moveTo(`section-${destination.index}`);
                   animationIsFinished = false;
+                  
                 }})
               }
             }
@@ -147,6 +154,7 @@ export default {
                               animationIsFinished = true;
                               fullpage_api.moveTo(`section-${destination.index}`);
                               animationIsFinished = false;
+                              
                             }})
                 .set('.section.active', {opacity: 0});
               } else if(direction == 'down'){
@@ -157,11 +165,11 @@ export default {
                                 animationIsFinished = true;
                                 fullpage_api.moveTo(`section-${destination.index}`);
                                 animationIsFinished = false;
+                                
                               }}, '-=0.6')
                 .set('.section.active', {opacity: 0});
               }
             }
-            
             // Leave animation slide 7
             if(origin.index == 6){
               if(direction == 'up'){
@@ -173,6 +181,7 @@ export default {
                   animationIsFinished = true;
                   fullpage_api.moveTo(`section-${destination.index}`);
                   animationIsFinished = false;
+                  
                 }})
                 .set('.section.active', {opacity: 0});
               } else if(direction == 'down'){
@@ -182,11 +191,11 @@ export default {
                     animationIsFinished = true;
                     fullpage_api.moveTo(`section-${destination.index}`);
                     animationIsFinished = false;
+                    
                 }})
                 .set('.section.active', {opacity: 0});
               }
             }
-
             // Leave animation slide 8
             if(origin.index == 7){
               animationTl.to('.slide-8-cols', 0.3, { opacity:0 , delay: 0.5},0)
@@ -195,6 +204,7 @@ export default {
                     animationIsFinished = true;
                     fullpage_api.moveTo(`section-${destination.index}`);
                     animationIsFinished = false;
+                    
                 }})
                 .set('.section.active', {opacity: 0});
             }
@@ -206,6 +216,7 @@ export default {
                     animationIsFinished = true;
                     fullpage_api.moveTo(`section-${destination.index}`);
                     animationIsFinished = false;
+                    
                 }})
                 .set('.section.active', {opacity: 0});
             }
@@ -217,6 +228,7 @@ export default {
                     animationIsFinished = true;
                     fullpage_api.moveTo(`section-${destination.index}`);
                     animationIsFinished = false;
+                    
                 }})
                 .set('.section.active', {opacity: 0});
             }
@@ -228,6 +240,7 @@ export default {
                     animationIsFinished = true;
                     fullpage_api.moveTo(`section-${destination.index}`);
                     animationIsFinished = false;
+                    
                 }})
                 .set('.section.active', {opacity: 0});
             }
@@ -239,11 +252,10 @@ export default {
                     animationIsFinished = true;
                     fullpage_api.moveTo(`section-${destination.index}`);
                     animationIsFinished = false;
+                    
                 }})
                 .set('.section.active', {opacity: 0});
             }
-
-
             // Leave animation slide 13
             if(origin.index == 12){
               if(direction == 'up'){
@@ -253,6 +265,7 @@ export default {
                     animationIsFinished = true;
                     fullpage_api.moveTo(`section-${destination.index}`);
                     animationIsFinished = false;
+                    
                 }})
                 .set('.section.active', {opacity: 0});
               } else if(direction == 'down'){
@@ -261,11 +274,10 @@ export default {
                   animationIsFinished = true;
                   fullpage_api.moveTo(`section-${destination.index}`);
                   animationIsFinished = false;
+                  
                 }})
               }
             }
-
-
             // Leave animation slide 14
             if(origin.index == 13){
               animationTl.to('.slide-image--7', 1,{ opacity: 0 })
@@ -276,25 +288,33 @@ export default {
                           .to('.slide-14-cols-1 .contact-group-3', 0.6, { x:-60,opacity:0 },0)
                           .to('.slide-14-cols-1 .contact-name', 0.3, { opacity:0, x:60 },0)
                           .set('.section.active', {opacity: 0})
-                          .set('.slide__overlay', {opacity: 0, onComplete: function(){
+                          .set('.slide__overlay', {opacity: 0, onComplete: () => {
                             animationIsFinished = true;
                             fullpage_api.moveTo(`section-${destination.index}`);
                             animationIsFinished = false;
+                            
                           }});
               ;
 
             }
-            return animationIsFinished;
-          },
-        afterLoad: function(origin, destination, direction){
+          }
+          return animationIsFinished;
+        },
+
+        afterLoad: (origin, destination, direction) => {
           var animationTlBack = new TimelineMax({});
           var countriesLoop = new TimelineMax({repeat:-1, force3D:true});
           animationTlBack.progress(0);
           countriesLoop.progress(0);
+          this.enterAnimFinished = false;
+          
           // Enter anim slide 1
           if(destination.index == 0){
             animationTlBack.set('.preloader-pane-1,#preloader-pane-2,.black-logo,.slide-image--1', {opacity:1})
                            .fromTo('.slide__overlay', 0.6, {ease: Power0.easeNone, height:'100vh'},{ease: Power0.easeNone, height:'0vh'},0)
+                           .set('body', {opacity: 1, onComplete: ()=>{
+                              setTimeout(()=>{ this.enterAnimFinished = true; },200)
+                            }});
             ;
           }
           // Enter anim slide 2
@@ -314,6 +334,9 @@ export default {
                                 .fromTo('.slide-2-cols__3 .text', 0.6, { opacity:0, x:-50 },{ opacity:1, x:0 })
                                 // line
                                 .fromTo('.slide-2-cols .line-2', 0.6, { opacity:0, x:-50 },{ opacity:1, x:0 })
+                                .set('body', {opacity: 1, onComplete: () => {
+                                  setTimeout(()=>{ this.enterAnimFinished = true; },200)
+                                }})
                   ;
               ;
             } else {
@@ -340,6 +363,9 @@ export default {
                               .fromTo('.slide-2-cols__3 .text', 0.6, { opacity:0, x:-50 },{ opacity:1, x:0 })
                               // line
                               .fromTo('.slide-2-cols .line-2', 0.6, { opacity:0, x:-50 },{ opacity:1, x:0 })
+                              .set('body', {opacity: 1, onComplete: () => {
+                                setTimeout(()=>{ this.enterAnimFinished = true; },200)
+                              }});
                   ;
             }
             
@@ -354,6 +380,9 @@ export default {
                               .fromTo('.slide-3-cols__1 .text', 0.6, { opacity:0, x:-50 },{ opacity:1, x:0 })
                               .staggerFromTo('.slide-3-cols__1 .list-block .list-block__item', 0.4, { opacity:0, x:50 },{ opacity:1, x:0}, 0.6)
                               .staggerFromTo('.list-block__item-arrow', 0.4, { x:10 },{ x:0 }, 0.6, '-=1.2')
+                              .set('body', {opacity: 1, onComplete: () => {
+                                setTimeout(()=>{ this.enterAnimFinished = true; },200)
+                              }})
               ;
           }
           // Enter anim slide 4
@@ -366,6 +395,9 @@ export default {
                               // text
                               .fromTo('.slide-4-cols__1 .text', 0.6, { opacity:0, x:-50 },{ opacity:1, x:0 })
                               .fromTo('.list-country', 0.6, { opacity:0, x:-50 },{ opacity:1, x:0 })
+                              .set('body', {opacity: 1, onComplete: () => {
+                                setTimeout(()=>{ this.enterAnimFinished = true; },200)
+                              }})
               ;
               countriesLoop = new TimelineMax({repeat:-1, force3D:true});
               countriesLoop.fromTo(countries[0], 1.2, { opacity:0},{ opacity:1})
@@ -392,6 +424,9 @@ export default {
                               .fromTo('.slide-5-cols__1 .list-hammer__item-1', 0.6, { opacity:0, x:60 },{ opacity:1, x:0 })
                               .fromTo('.slide-5-cols__1 .list-hammer__item-2', 0.6, { opacity:0, x:-60 },{ opacity:1, x:0 })
                               .fromTo('.slide-5-cols__1 .list-hammer__item-3', 0.6, { opacity:0, x:60 },{ opacity:1, x:0 })
+                              .set('body', {opacity: 1, onComplete: () => {
+                                setTimeout(()=>{ this.enterAnimFinished = true; },200)
+                              }})
               ;
             } else {
               animationTlBack.set('.slide-5-cols__1', { y: 0, opacity: 1 })
@@ -403,6 +438,9 @@ export default {
                               .fromTo('.slide-5-cols__1 .list-hammer__item-1', 0.6, { opacity:0, x:60 },{ opacity:1, x:0 })
                               .fromTo('.slide-5-cols__1 .list-hammer__item-2', 0.6, { opacity:0, x:-60 },{ opacity:1, x:0 })
                               .fromTo('.slide-5-cols__1 .list-hammer__item-3', 0.6, { opacity:0, x:60 },{ opacity:1, x:0 })
+                              .set('body', {opacity: 1, onComplete: () => {
+                                setTimeout(()=>{ this.enterAnimFinished = true; },200)
+                              }});
               ;
             }
           }
@@ -414,6 +452,9 @@ export default {
                               .set('.section.active', {opacity: 1},0)
                               //face
                               .fromTo('.slide-6-cols__1 .text', 0.6, { opacity:0, x:-60 },{ opacity:1, x:0 })
+                              .set('body', {opacity: 1, onComplete: () => {
+                                setTimeout(()=>{ this.enterAnimFinished = true; },200)
+                              }})
               ;
             } else {
               animationTlBack.set('.slide-6-cols__1', { y: 0, opacity: 1 },0)
@@ -423,6 +464,9 @@ export default {
                               .set('.black-logo,.black-logo-right__owerlay', { clearProps: 'all' },0)
                               .fromTo('.slide-6-cols__1 .text', 0.6, { opacity:0, x:-60 },{ opacity:1, x:0 })
                               .fromTo('.slide-image--5', 1.5, { opacity:0, xPercent:30 },{ opacity:1,xPercent:0 })
+                              .set('body', {opacity: 1, onComplete: () => {
+                                setTimeout(()=>{ this.enterAnimFinished = true; },200)
+                              }});
               ;
             }
           }
@@ -437,7 +481,10 @@ export default {
                                 .set('.slide-image--6',{ opacity: 1 })
                                 .fromTo('.slide-7-cols .services-title', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 })
                                 .fromTo('.slide-7-cols .text-upper', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 })
-                                .staggerFromTo('.slide-7-cols .arrow-list__item', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.5 );
+                                .staggerFromTo('.slide-7-cols .arrow-list__item', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.5 )
+                                .set('body', {opacity: 1, onComplete: () => {
+                                  setTimeout(()=>{ this.enterAnimFinished = true; },200)
+                                }});
               } else {
                 animationTlBack.set('.slide-7-cols', {opacity: 1},0)
                                 .set('.slide__overlay,#preloader-pane-2', {opacity: 0},0)
@@ -449,7 +496,10 @@ export default {
                                 .fromTo('.slide-image--6', 0.6, { xPercent: -30, opacity: 0 },{ xPercent: 0, opacity: 1 })
                                 .fromTo('.slide-7-cols .services-title', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 })
                                 .fromTo('.slide-7-cols .text-upper', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 })
-                                .staggerFromTo('.slide-7-cols .arrow-list__item', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.5 );
+                                .staggerFromTo('.slide-7-cols .arrow-list__item', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.5 )
+                                .set('body', {opacity: 1, onComplete: () => {
+                                  setTimeout(()=>{ this.enterAnimFinished = true; },200)
+                                }});
               }
           }
           // Enter anim slide 8
@@ -462,6 +512,9 @@ export default {
                               .set('.slide-image--6',{ xPercent: 0, opacity: 1 })
                               .fromTo('.slide-8-cols .services-title', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 })
                               .staggerFromTo('.slide-8-cols .arrow-list__item', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.5 )
+                              .set('body', {opacity: 1, onComplete: () => {
+                                setTimeout(()=>{ this.enterAnimFinished = true; },200)
+                              }})
               ;
             } else {
               animationTlBack.set('.slide-8-cols', {opacity: 1},0)
@@ -471,6 +524,9 @@ export default {
                               .fromTo('.slide-image--6', 0.6, { xPercent: -30, opacity: 0 },{ xPercent: 0, opacity: 1 })
                               .fromTo('.slide-8-cols .services-title', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 })
                               .staggerFromTo('.slide-8-cols .arrow-list__item', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.5 )
+                              .set('body', {opacity: 1, onComplete: () => {
+                                setTimeout(()=>{ this.enterAnimFinished = true; },200)
+                              }})
               ;
             }
           }
@@ -484,6 +540,9 @@ export default {
                               .set('.slide-image--6',{ xPercent: 0, opacity: 1 })
                               .fromTo('.slide-9-cols .services-title', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 })
                               .staggerFromTo('.slide-9-cols .arrow-list__item', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.5 )
+                              .set('body', {opacity: 1, onComplete: () => {
+                                setTimeout(()=>{ this.enterAnimFinished = true; },200)
+                              }})
               ;
             } else {
               animationTlBack.set('.slide-9-cols', {opacity: 1},0)
@@ -493,6 +552,9 @@ export default {
                               .fromTo('.slide-image--6', 0.6, { xPercent: -30, opacity: 0 },{ xPercent: 0, opacity: 1 })
                               .fromTo('.slide-9-cols .services-title', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 })
                               .staggerFromTo('.slide-9-cols .arrow-list__item', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.5 )
+                              .set('body', {opacity: 1, onComplete: () => {
+                                setTimeout(()=>{ this.enterAnimFinished = true; },200)
+                              }})
               ;
             }
           }
@@ -506,6 +568,9 @@ export default {
                               .set('.slide-image--6',{ xPercent: 0, opacity: 1 })
                               .fromTo('.slide-10-cols .services-title', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 })
                               .staggerFromTo('.slide-10-cols .arrow-list__item', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.5 )
+                              .set('body', {opacity: 1, onComplete: () => {
+                                setTimeout(()=>{ this.enterAnimFinished = true; },200)
+                              }})
               ;
             } else {
                 animationTlBack.set('.slide-10-cols', {opacity: 1},0)
@@ -515,6 +580,9 @@ export default {
                               .fromTo('.slide-image--6', 0.6, { xPercent: -30, opacity: 0 },{ xPercent: 0, opacity: 1 })
                               .fromTo('.slide-10-cols .services-title', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 })
                               .staggerFromTo('.slide-10-cols .arrow-list__item', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.5 )
+                              .set('body', {opacity: 1, onComplete: () => {
+                                setTimeout(()=>{ this.enterAnimFinished = true; },200)
+                              }})
               ;
             }
           }
@@ -529,6 +597,9 @@ export default {
                               .fromTo('.slide-11-cols .services-title', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 })
                               .fromTo('.slide-11-cols .text-upper', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 })
                               .staggerFromTo('.slide-11-cols .arrow-list__item', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.5 )
+                              .set('body', {opacity: 1, onComplete: () => {
+                                setTimeout(()=>{ this.enterAnimFinished = true; },200)
+                              }})
               ;
             } else {
               animationTlBack.set('.slide-11-cols', {opacity: 1},0)
@@ -539,6 +610,9 @@ export default {
                               .fromTo('.slide-11-cols .services-title', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 })
                               .fromTo('.slide-11-cols .text-upper', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 })
                               .staggerFromTo('.slide-11-cols .arrow-list__item', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.5 )
+                              .set('body', {opacity: 1, onComplete: () => {
+                                setTimeout(()=>{ this.enterAnimFinished = true; },200)
+                              }})
               ;
             }
           }
@@ -551,7 +625,10 @@ export default {
                               //face
                               .set('.slide-image--6',{ xPercent: 0, opacity: 1 })
                               .fromTo('.slide-12-cols .services-title', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 })
-                              .staggerFromTo('.slide-12-cols .arrow-list__item', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.5 );
+                              .staggerFromTo('.slide-12-cols .arrow-list__item', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.5 )
+                              .set('body', {opacity: 1, onComplete: () => {
+                                setTimeout(()=>{ this.enterAnimFinished = true; },200)
+                              }});
            } else {
               animationTlBack.set('.slide-12-cols', {opacity: 1},0)
                               .set('.slide__overlay,#preloader-pane-2', {opacity: 0},0)
@@ -559,7 +636,10 @@ export default {
                               //face
                               .fromTo('.slide-image--6', 0.6, { xPercent: -30, opacity: 0 },{ xPercent: 0, opacity: 1 })
                               .fromTo('.slide-12-cols .services-title', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 })
-                              .staggerFromTo('.slide-12-cols .arrow-list__item', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.5 );
+                              .staggerFromTo('.slide-12-cols .arrow-list__item', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.5 )
+                              .set('body', {opacity: 1, onComplete: () => {
+                                setTimeout(()=>{ this.enterAnimFinished = true; },200)
+                              }});
             }
           }
           // Enter anim slide 13
@@ -572,6 +652,9 @@ export default {
                                 .set('.slide-image--6',{ xPercent: 0, opacity: 1 })
                                 .fromTo('.slide-13-cols .services-title', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 })
                                 .staggerFromTo('.slide-13-cols .arrow-list__item', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.5 )
+                                .set('body', {opacity: 1, onComplete: () => {
+                                  setTimeout(()=>{ this.enterAnimFinished = true; },200)
+                                }})
                 ;
               } else {
                 animationTlBack.set('.slide-13-cols', {opacity: 1},0)
@@ -581,6 +664,9 @@ export default {
                                 .fromTo('.slide-image--6', 0.6, { xPercent: -30, opacity: 0 },{ xPercent: 0, opacity: 1 })
                                 .fromTo('.slide-13-cols .services-title', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 })
                                 .staggerFromTo('.slide-13-cols .arrow-list__item', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.5 )
+                                .set('body', {opacity: 1, onComplete: () => {
+                                  setTimeout(()=>{ this.enterAnimFinished = true; },200)
+                                }})
                 ;
               }
           }
@@ -597,6 +683,9 @@ export default {
                               .fromTo('.slide-14-cols-1 .contact-group-2', 0.6, { x:-60,opacity:0 },{ x:0,opacity:1 })
                               .fromTo('.slide-14-cols-1 .contact-group-3', 0.6, { x:-60,opacity:0 },{ x:0,opacity:1 })
                               .staggerFromTo('.slide-14-cols-1 .contact-name', 0.3, { opacity:0, x:60 },{ opacity:1, x:0 }, 0.5 )
+                              .set('body', {opacity: 1, onComplete: () => {
+                                setTimeout(()=>{ this.enterAnimFinished = true; },200)
+                              }})
               ;
           }
 
@@ -622,7 +711,6 @@ export default {
         //Methods
 
         onLeave: function(origin, destination, direction){
-          console.log(destination.index);
             var animationTl = new TimelineMax({});
             console.log('Leave: ' + origin.index, 'Enter: ' + destination.index, 'Direction: ' + direction);
             // Leave animation slide 1

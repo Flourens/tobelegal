@@ -314,7 +314,7 @@
 
 #fp-nav{
   pointer-events: none;
-  @include media ("<smallDesktop"){
+  .is-mobile{
     opacity: 0 !important;
     pointer-events: none; 
   }
