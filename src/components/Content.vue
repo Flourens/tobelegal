@@ -293,12 +293,13 @@ export default {
                 .set('.section.active', {opacity: 0});
               } else if(direction == 'down'){
                  animationTl.to('.slide-13-cols', 0.3, { opacity:0, delay: 0.5 },0)
-                .to('.slide-image--6', 1.5, { opacity:0,xPercent:-30, onComplete: function(){
-                  animationIsFinished = true;
-                  fullpage_api.moveTo(`section-${destination.index}`);
-                  animationIsFinished = false;
-                  
-                }})
+                            .set('.black-logo,.black-logo__owerlay', { clearProps: 'all' },0)
+                            .to('.black-logo__owerlay', 0.6, { height: '0px' })
+                            .to('.slide-image--6', 1.5, { opacity:0,xPercent:-30, onComplete: function(){
+                              animationIsFinished = true;
+                              fullpage_api.moveTo(`section-${destination.index}`);
+                              animationIsFinished = false;
+                            }})
               }
             }
             // Leave animation slide 14
@@ -496,9 +497,8 @@ export default {
                               .set('.slide__overlay,#preloader-pane-2', {opacity: 0},0)
                               .set('.section.active', {opacity: 1},0)
                               //face
-                              .set('.black-logo__owerlay', { x:0,y:0, opacity:1, height: 0 },0)
-                              .set('.black-logo__owerlay', { height: 'auto' })
-                              .from('.black-logo__owerlay', 1.5, { height: 0 })
+                              .set('.black-logo,.black-logo__owerlay', { clearProps: 'all' },0)
+                              .fromTo('.black-logo__owerlay', 0.6, { height: '0px' },{ height: '430px' })
                               .fromTo('.slide-6-cols__1 .text', 0.6, { opacity:0, y:0, x:-60 },{ opacity:1, x:0 })
                               .fromTo('.slide-image--5', 1.5, { opacity:0, xPercent:30 },{ opacity:1,xPercent:0 })
                               .set('body', {opacity: 1, onComplete: () => {
@@ -516,9 +516,12 @@ export default {
                                 .set('.black-logo,.black-logo-right__owerlay', { clearProps: 'all' },0)
                                 //face
                                 .set('.slide-image--6',{ opacity: 1 })
-                                .fromTo('.slide-7-cols .services-title', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 })
-                                .fromTo('.slide-7-cols .text-upper', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 })
-                                .staggerFromTo('.slide-7-cols .arrow-list__item', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.5 )
+                                .fromTo('.slide-image--6', 1.5, { opacity: 0 },{ opacity: 1 }, '-=0.9')
+                                .fromTo('.slide-7-cols .services-title', 0.4, { x:-80 },{ x:0 }, '-=0.3')
+                                .fromTo('.slide-7-cols .services-title', 0.8, { opacity:0 },{ opacity:1 }, '-=0.4')
+                                .fromTo('.slide-7-cols .text-upper', 0.4, { x:60 },{ x:0 }, '-=0.2')
+                                .fromTo('.slide-7-cols .text-upper', 0.8, { opacity:0 },{ opacity:1 }, '-=0.4')
+                                .staggerFromTo('.slide-7-cols .arrow-list__item', 0.6, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.6, '-=0.2' )
                                 .set('body', {opacity: 1, onComplete: () => {
                                   setTimeout(()=>{ this.enterAnimFinished = true; },200)
                                 }});
@@ -528,12 +531,15 @@ export default {
                                 .set('.section.active', {opacity: 1},0)
                                 
                                 .set('.black-logo,.black-logo-right__owerlay', { clearProps: 'all' },0)
-
+                                .fromTo('.black-logo-right__owerlay', 0.5, { height: '0px' },{ height: '430px' })
                                 //face
-                                .fromTo('.slide-image--6', 0.6, { xPercent: -30, opacity: 0 },{ xPercent: 0, opacity: 1 })
-                                .fromTo('.slide-7-cols .services-title', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 })
-                                .fromTo('.slide-7-cols .text-upper', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 })
-                                .staggerFromTo('.slide-7-cols .arrow-list__item', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.5 )
+                                .fromTo('.slide-image--6', 0.9, { xPercent: -30 },{ xPercent: 0 })
+                                .fromTo('.slide-image--6', 1.5, { opacity: 0 },{ opacity: 1 }, '-=0.9')
+                                .fromTo('.slide-7-cols .services-title', 0.4, { x:-80 },{ x:0 }, '-=0.3')
+                                .fromTo('.slide-7-cols .services-title', 0.8, { opacity:0 },{ opacity:1 }, '-=0.4')
+                                .fromTo('.slide-7-cols .text-upper', 0.4, { x:60 },{ x:0 }, '-=0.2')
+                                .fromTo('.slide-7-cols .text-upper', 0.8, { opacity:0 },{ opacity:1 }, '-=0.4')
+                                .staggerFromTo('.slide-7-cols .arrow-list__item', 0.6, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.6, '-=0.2' )
                                 .set('body', {opacity: 1, onComplete: () => {
                                   setTimeout(()=>{ this.enterAnimFinished = true; },200)
                                 }});
@@ -546,9 +552,10 @@ export default {
                               .set('.slide__overlay,#preloader-pane-2', {opacity: 0},0)
                               .set('.section.active', {opacity: 1},0)
                               //face
-                              .set('.slide-image--6',{ xPercent: 0, opacity: 1 })
-                              .fromTo('.slide-8-cols .services-title', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 })
-                              .staggerFromTo('.slide-8-cols .arrow-list__item', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.5 )
+                              .to('.slide-image--6', 0.1,{ xPercent: 0, opacity: 1 })
+                              .fromTo('.slide-8-cols .services-title', 0.4, { x:-80 },{ x:0 }, '-=0.3')
+                              .fromTo('.slide-8-cols .services-title', 0.8, { opacity:0 },{ opacity:1 }, '-=0.4')
+                              .staggerFromTo('.slide-8-cols .arrow-list__item', 0.6, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.6, '-=0.2' )
                               .set('body', {opacity: 1, onComplete: () => {
                                 setTimeout(()=>{ this.enterAnimFinished = true; },200)
                               }})
@@ -558,9 +565,11 @@ export default {
                               .set('.slide__overlay,#preloader-pane-2', {opacity: 0},0)
                               .set('.section.active', {opacity: 1},0)
                               //face
-                              .fromTo('.slide-image--6', 0.6, { xPercent: -30, opacity: 0 },{ xPercent: 0, opacity: 1 })
-                              .fromTo('.slide-8-cols .services-title', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 })
-                              .staggerFromTo('.slide-8-cols .arrow-list__item', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.5 )
+                              .fromTo('.slide-image--6', 0.9, { xPercent: -30 },{ xPercent: 0 })
+                              .fromTo('.slide-image--6', 1.5, { opacity: 0 },{ opacity: 1 }, '-=0.9')
+                              .fromTo('.slide-8-cols .services-title', 0.4, { x:-80 },{ x:0 }, '-=0.3')
+                              .fromTo('.slide-8-cols .services-title', 0.8, { opacity:0 },{ opacity:1 }, '-=0.4')
+                              .staggerFromTo('.slide-8-cols .arrow-list__item', 0.6, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.6, '-=0.2' )
                               .set('body', {opacity: 1, onComplete: () => {
                                 setTimeout(()=>{ this.enterAnimFinished = true; },200)
                               }})
@@ -574,9 +583,10 @@ export default {
                               .set('.slide__overlay,#preloader-pane-2', {opacity: 0},0)
                               .set('.section.active', {opacity: 1},0)
                               //face
-                              .set('.slide-image--6',{ xPercent: 0, opacity: 1 })
-                              .fromTo('.slide-9-cols .services-title', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 })
-                              .staggerFromTo('.slide-9-cols .arrow-list__item', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.5 )
+                              .to('.slide-image--6', 0.1, { xPercent: 0, opacity: 1 })
+                              .fromTo('.slide-9-cols .services-title', 0.4, { x:-80 },{ x:0 }, '-=0.3')
+                              .fromTo('.slide-9-cols .services-title', 0.8, { opacity:0 },{ opacity:1 }, '-=0.4')
+                              .staggerFromTo('.slide-9-cols .arrow-list__item', 0.6, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.6, '-=0.2' )
                               .set('body', {opacity: 1, onComplete: () => {
                                 setTimeout(()=>{ this.enterAnimFinished = true; },200)
                               }})
@@ -586,9 +596,11 @@ export default {
                               .set('.slide__overlay,#preloader-pane-2', {opacity: 0},0)
                               .set('.section.active', {opacity: 1},0)
                               //face
-                              .fromTo('.slide-image--6', 0.6, { xPercent: -30, opacity: 0 },{ xPercent: 0, opacity: 1 })
-                              .fromTo('.slide-9-cols .services-title', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 })
-                              .staggerFromTo('.slide-9-cols .arrow-list__item', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.5 )
+                              .fromTo('.slide-image--6', 0.9, { xPercent: -30 },{ xPercent: 0 })
+                              .fromTo('.slide-image--6', 1.5, { opacity: 0 },{ opacity: 1 }, '-=0.9')
+                              .fromTo('.slide-9-cols .services-title', 0.4, { x:-80 },{ x:0 }, '-=0.3')
+                              .fromTo('.slide-9-cols .services-title', 0.8, { opacity:0 },{ opacity:1 }, '-=0.4')
+                              .staggerFromTo('.slide-9-cols .arrow-list__item', 0.6, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.6, '-=0.2' )
                               .set('body', {opacity: 1, onComplete: () => {
                                 setTimeout(()=>{ this.enterAnimFinished = true; },200)
                               }})
@@ -602,9 +614,10 @@ export default {
                               .set('.slide__overlay,#preloader-pane-2', {opacity: 0},0)
                               .set('.section.active', {opacity: 1},0)
                               //face
-                              .set('.slide-image--6',{ xPercent: 0, opacity: 1 })
-                              .fromTo('.slide-10-cols .services-title', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 })
-                              .staggerFromTo('.slide-10-cols .arrow-list__item', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.5 )
+                              .to('.slide-image--6', 0.1, { xPercent: 0, opacity: 1 })
+                              .fromTo('.slide-10-cols .services-title', 0.4, { x:-80 },{ x:0 }, '-=0.3')
+                              .fromTo('.slide-10-cols .services-title', 0.8, { opacity:0 },{ opacity:1 }, '-=0.4')
+                              .staggerFromTo('.slide-10-cols .arrow-list__item', 0.6, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.6, '-=0.2' )
                               .set('body', {opacity: 1, onComplete: () => {
                                 setTimeout(()=>{ this.enterAnimFinished = true; },200)
                               }})
@@ -614,9 +627,13 @@ export default {
                               .set('.slide__overlay,#preloader-pane-2', {opacity: 0},0)
                               .set('.section.active', {opacity: 1},0)
                               //face
-                              .fromTo('.slide-image--6', 0.6, { xPercent: -30, opacity: 0 },{ xPercent: 0, opacity: 1 })
-                              .fromTo('.slide-10-cols .services-title', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 })
-                              .staggerFromTo('.slide-10-cols .arrow-list__item', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.5 )
+                              .fromTo('.slide-image--6', 0.9, { xPercent: -30 },{ xPercent: 0 })
+                              .fromTo('.slide-image--6', 1.5, { opacity: 0 },{ opacity: 1 }, '-=0.9')
+                              .fromTo('.slide-10-cols .services-title', 0.4, { x:-80 },{ x:0 }, '-=0.3')
+                              .fromTo('.slide-10-cols .services-title', 0.8, { opacity:0 },{ opacity:1 }, '-=0.4')
+                              .fromTo('.slide-7-cols .text-upper', 0.4, { x:-60 },{ x:0 }, '-=0.2')
+                              .fromTo('.slide-7-cols .text-upper', 0.8, { opacity:0 },{ opacity:1 }, '-=0.4')
+                              .staggerFromTo('.slide-10-cols .arrow-list__item', 0.6, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.6, '-=0.2' )
                               .set('body', {opacity: 1, onComplete: () => {
                                 setTimeout(()=>{ this.enterAnimFinished = true; },200)
                               }})
@@ -630,10 +647,12 @@ export default {
                               .set('.slide__overlay,#preloader-pane-2', {opacity: 0},0)
                               .set('.section.active', {opacity: 1},0)
                               //face
-                              .set('.slide-image--6',{ xPercent: 0, opacity: 1 })
-                              .fromTo('.slide-11-cols .services-title', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 })
-                              .fromTo('.slide-11-cols .text-upper', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 })
-                              .staggerFromTo('.slide-11-cols .arrow-list__item', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.5 )
+                              .to('.slide-image--6', 0.1, { xPercent: 0, opacity: 1 })
+                              .fromTo('.slide-11-cols .services-title', 0.4, { x:-80 },{ x:0 }, '-=0.3')
+                              .fromTo('.slide-11-cols .services-title', 0.8, { opacity:0 },{ opacity:1 }, '-=0.4')
+                              .fromTo('.slide-11-cols .text-upper', 0.4, { x:60 },{ x:0 }, '-=0.2')
+                              .fromTo('.slide-11-cols .text-upper', 0.8, { opacity:0 },{ opacity:1 }, '-=0.4')
+                              .staggerFromTo('.slide-11-cols .arrow-list__item', 0.6, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.6, '-=0.2' )
                               .set('body', {opacity: 1, onComplete: () => {
                                 setTimeout(()=>{ this.enterAnimFinished = true; },200)
                               }})
@@ -643,10 +662,13 @@ export default {
                               .set('.slide__overlay,#preloader-pane-2', {opacity: 0},0)
                               .set('.section.active', {opacity: 1},0)
                               //face
-                              .fromTo('.slide-image--6', 0.6, { xPercent: -30, opacity: 0 },{ xPercent: 0, opacity: 1 })
-                              .fromTo('.slide-11-cols .services-title', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 })
-                              .fromTo('.slide-11-cols .text-upper', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 })
-                              .staggerFromTo('.slide-11-cols .arrow-list__item', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.5 )
+                              .fromTo('.slide-image--6', 0.9, { xPercent: -30 },{ xPercent: 0 })
+                              .fromTo('.slide-image--6', 1.5, { opacity: 0 },{ opacity: 1 }, '-=0.9')
+                              .fromTo('.slide-11-cols .services-title', 0.4, { x:-80 },{ x:0 }, '-=0.3')
+                              .fromTo('.slide-11-cols .services-title', 0.8, { opacity:0 },{ opacity:1 }, '-=0.4')
+                              .fromTo('.slide-11-cols .text-upper', 0.4, { x:60 },{ x:0 }, '-=0.2')
+                              .fromTo('.slide-11-cols .text-upper', 0.8, { opacity:0 },{ opacity:1 }, '-=0.4')
+                              .staggerFromTo('.slide-11-cols .arrow-list__item', 0.6, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.6, '-=0.2' )
                               .set('body', {opacity: 1, onComplete: () => {
                                 setTimeout(()=>{ this.enterAnimFinished = true; },200)
                               }})
@@ -660,9 +682,10 @@ export default {
                               .set('.slide__overlay,#preloader-pane-2', {opacity: 0},0)
                               .set('.section.active', {opacity: 1},0)
                               //face
-                              .set('.slide-image--6',{ xPercent: 0, opacity: 1 })
-                              .fromTo('.slide-12-cols .services-title', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 })
-                              .staggerFromTo('.slide-12-cols .arrow-list__item', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.5 )
+                              .to('.slide-image--6', 0.1, { xPercent: 0, opacity: 1 })
+                              .fromTo('.slide-12-cols .services-title', 0.4, { x:-80 },{ x:0 }, '-=0.3')
+                              .fromTo('.slide-12-cols .services-title', 0.8, { opacity:0 },{ opacity:1 }, '-=0.4')
+                              .staggerFromTo('.slide-12-cols .arrow-list__item', 0.6, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.6, '-=0.2' )
                               .set('body', {opacity: 1, onComplete: () => {
                                 setTimeout(()=>{ this.enterAnimFinished = true; },200)
                               }});
@@ -671,9 +694,11 @@ export default {
                               .set('.slide__overlay,#preloader-pane-2', {opacity: 0},0)
                               .set('.section.active', {opacity: 1},0)
                               //face
-                              .fromTo('.slide-image--6', 0.6, { xPercent: -30, opacity: 0 },{ xPercent: 0, opacity: 1 })
-                              .fromTo('.slide-12-cols .services-title', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 })
-                              .staggerFromTo('.slide-12-cols .arrow-list__item', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.5 )
+                              .fromTo('.slide-image--6', 0.9, { xPercent: -30 },{ xPercent: 0 })
+                              .fromTo('.slide-image--6', 1.5, { opacity: 0 },{ opacity: 1 }, '-=0.9')
+                              .fromTo('.slide-12-cols .services-title', 0.4, { x:-80 },{ x:0 }, '-=0.3')
+                              .fromTo('.slide-12-cols .services-title', 0.8, { opacity:0 },{ opacity:1 }, '-=0.4')
+                              .staggerFromTo('.slide-12-cols .arrow-list__item', 0.6, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.6, '-=0.2' )
                               .set('body', {opacity: 1, onComplete: () => {
                                 setTimeout(()=>{ this.enterAnimFinished = true; },200)
                               }});
@@ -686,9 +711,10 @@ export default {
                                 .set('.slide__overlay,#preloader-pane-2', {opacity: 0},0)
                                 .set('.section.active', {opacity: 1},0)
                                 //face
-                                .set('.slide-image--6',{ xPercent: 0, opacity: 1 })
-                                .fromTo('.slide-13-cols .services-title', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 })
-                                .staggerFromTo('.slide-13-cols .arrow-list__item', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.5 )
+                                .to('.slide-image--6', 0.1, { xPercent: 0, opacity: 1 })
+                                .fromTo('.slide-13-cols .services-title', 0.4, { x:-80 },{ x:0 }, '-=0.3')
+                                .fromTo('.slide-13-cols .services-title', 0.8, { opacity:0 },{ opacity:1 }, '-=0.4')
+                                .staggerFromTo('.slide-13-cols .arrow-list__item', 0.6, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.6, '-=0.2' )
                                 .set('body', {opacity: 1, onComplete: () => {
                                   setTimeout(()=>{ this.enterAnimFinished = true; },200)
                                 }})
@@ -697,10 +723,14 @@ export default {
                 animationTlBack.set('.slide-13-cols', {opacity: 1},0)
                                 .set('.slide__overlay,#preloader-pane-2', {opacity: 0},0)
                                 .set('.section.active', {opacity: 1},0)
+                                .set('.black-logo,.black-logo-right__owerlay', { clearProps: 'all' },0)
+                                .fromTo('.black-logo-right__owerlay', 0.5, { height: '0px' },{ height: '430px' })
                                 //face
-                                .fromTo('.slide-image--6', 0.6, { xPercent: -30, opacity: 0 },{ xPercent: 0, opacity: 1 })
-                                .fromTo('.slide-13-cols .services-title', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 })
-                                .staggerFromTo('.slide-13-cols .arrow-list__item', 0.3, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.5 )
+                                .fromTo('.slide-image--6', 0.9, { xPercent: -30 },{ xPercent: 0 })
+                                .fromTo('.slide-image--6', 1.5, { opacity: 0 },{ opacity: 1 }, '-=0.9')
+                                .fromTo('.slide-13-cols .services-title', 0.4, { x:-80 },{ x:0 }, '-=0.3')
+                                .fromTo('.slide-13-cols .services-title', 0.8, { opacity:0 },{ opacity:1 }, '-=0.4')
+                                .staggerFromTo('.slide-13-cols .arrow-list__item', 0.6, { opacity:0, x:-60 },{ opacity:1, x:0 }, 0.6, '-=0.2' )
                                 .set('body', {opacity: 1, onComplete: () => {
                                   setTimeout(()=>{ this.enterAnimFinished = true; },200)
                                 }})
@@ -713,13 +743,14 @@ export default {
                               .set('.slide__overlay,#preloader-pane-2', {opacity: 0},0)
                               .set('.section.active', {opacity: 1},0)
                               //face
-                              .fromTo('.slide-image--7', 2,{ opacity: 0 },{ opacity: 1 })
-                              .fromTo('.slide-14-cols-2', 1, { opacity:0 },{ opacity:1 }, '-=1')
-                              .fromTo('.slide-14-cols-1 .contact-title', 0.6, { x:-60,opacity:0 },{ x:0,opacity:1 }, '-=0.5')
-                              .fromTo('.slide-14-cols-1 .contact-group-1', 0.6, { x:-60,opacity:0 },{ x:0,opacity:1 })
-                              .fromTo('.slide-14-cols-1 .contact-group-2', 0.6, { x:-60,opacity:0 },{ x:0,opacity:1 })
-                              .fromTo('.slide-14-cols-1 .contact-group-3', 0.6, { x:-60,opacity:0 },{ x:0,opacity:1 })
-                              .staggerFromTo('.slide-14-cols-1 .contact-name', 0.3, { opacity:0, x:60 },{ opacity:1, x:0 }, 0.5 )
+                              .fromTo('.slide-image--7', 1.7,{ opacity: 0 },{ opacity: 1 })
+                              .fromTo('.slide-14-cols-2', 1.5, { opacity:0 },{ opacity:1 }, '-=1.3')
+                              .fromTo('.slide-14-cols-1 .contact-title', 0.4, { x:-60 },{ x:0 }, '-=1.2')
+                              .fromTo('.slide-14-cols-1 .contact-title', 0.8, { opacity:0 },{ opacity:1 }, '-=0.45')
+                              .fromTo('.slide-14-cols-1 .contact-group-1', 0.8, { x:-60,opacity:0 },{ x:0,opacity:1 }, '-=0.2')
+                              .fromTo('.slide-14-cols-1 .contact-group-2', 0.8, { x:-60,opacity:0 },{ x:0,opacity:1 }, '-=0.2')
+                              .fromTo('.slide-14-cols-1 .contact-group-3', 0.8, { x:-60,opacity:0 },{ x:0,opacity:1 }, '-=0.2')
+                              .fromTo('.slide-14-cols-1 .contact-name', 0.6, { opacity:0, x:60 },{ opacity:1, x:0 }, '-=0.2' )
                               .set('body', {opacity: 1, onComplete: () => {
                                 setTimeout(()=>{ this.enterAnimFinished = true; },200)
                               }})
