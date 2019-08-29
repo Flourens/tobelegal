@@ -21,6 +21,11 @@ export default {
     toggleMenu(){
       this.openMenu = !this.openMenu;
     },
+
+    goToSection(id){
+      fullpage_api.moveTo(id);
+    },
+
     initSectionSlides(){
       var delay = 1000; //milliseconds
       var timeoutId;
@@ -195,20 +200,8 @@ export default {
             }
             // Leave animation slide 7
             if(origin.index == 6){
-              if(direction == 'up'){
-                animationTl.to('.slide-7-cols', 0.3, { opacity:0, },0)
-                .to('.slide-image--6', 1.5, { opacity:0,xPercent:-30 })
-                .set('.black-logo,.black-logo-right__owerlay', { clearProps: 'all' },0)
-                .to('.black-logo-right__owerlay', 0.6, { height: 0 },0)
-                .set('.slide__overlay', {opacity: 0, onComplete: function(){
-                  animationIsFinished = true;
-                  fullpage_api.moveTo(`section-${destination.index}`);
-                  animationIsFinished = false;
-                  
-                }})
-                .set('.section.active', {opacity: 0});
-              } else if(direction == 'down'){
-                animationTl.to('.slide-7-cols', 0.3, { opacity:0, delay: 0.5 },0)
+              if(destination.index > 5 && destination.index < 13){
+              animationTl.to('.slide-7-cols', 0.3, { opacity:0, delay: 0.5 },0)
                 .set('.slide-image--6', { opacity:1,xPercent:0 })
                 .set('.slide__overlay', {opacity: 0, onComplete: function(){
                     animationIsFinished = true;
@@ -217,11 +210,21 @@ export default {
                     
                 }})
                 .set('.section.active', {opacity: 0});
+              } else {
+                animationTl.to('.slide-7-cols', 0.3, { opacity:0, delay: 0.5 },0)
+                            .set('.black-logo,.black-logo__owerlay', { clearProps: 'all' },0)
+                            .to('.black-logo__owerlay', 0.6, { height: '0px' })
+                            .to('.slide-image--6', 1.5, { opacity:0,xPercent:-30, onComplete: function(){
+                              animationIsFinished = true;
+                              fullpage_api.moveTo(`section-${destination.index}`);
+                              animationIsFinished = false;
+                            }})
               }
             }
             // Leave animation slide 8
             if(origin.index == 7){
-              animationTl.to('.slide-8-cols', 0.3, { opacity:0 , delay: 0.5},0)
+              if(destination.index > 5 && destination.index < 13){
+              animationTl.to('.slide-8-cols', 0.3, { opacity:0, delay: 0.5 },0)
                 .set('.slide-image--6', { opacity:1,xPercent:0 })
                 .set('.slide__overlay', {opacity: 0, onComplete: function(){
                     animationIsFinished = true;
@@ -230,21 +233,43 @@ export default {
                     
                 }})
                 .set('.section.active', {opacity: 0});
+              } else {
+                animationTl.to('.slide-8-cols', 0.3, { opacity:0, delay: 0.5 },0)
+                            .set('.black-logo,.black-logo__owerlay', { clearProps: 'all' },0)
+                            .to('.black-logo__owerlay', 0.6, { height: '0px' })
+                            .to('.slide-image--6', 1.5, { opacity:0,xPercent:-30, onComplete: function(){
+                              animationIsFinished = true;
+                              fullpage_api.moveTo(`section-${destination.index}`);
+                              animationIsFinished = false;
+                            }})
+              }
             }
             // Leave animation slide 9
             if(origin.index == 8){
-              animationTl.to('.slide-9-cols', 0.3, { opacity:0, delay: 0.5 },0)
-                .set('.slide-image--6', { opacity:1,xPercent:0 })
-                .set('.slide__overlay', {opacity: 0, onComplete: function(){
-                    animationIsFinished = true;
-                    fullpage_api.moveTo(`section-${destination.index}`);
-                    animationIsFinished = false;
-                    
-                }})
-                .set('.section.active', {opacity: 0});
+              if(destination.index > 5 && destination.index < 13){
+                animationTl.to('.slide-9-cols', 0.3, { opacity:0, delay: 0.5 },0)
+                  .set('.slide-image--6', { opacity:1,xPercent:0 })
+                  .set('.slide__overlay', {opacity: 0, onComplete: function(){
+                      animationIsFinished = true;
+                      fullpage_api.moveTo(`section-${destination.index}`);
+                      animationIsFinished = false;
+                      
+                  }})
+                  .set('.section.active', {opacity: 0});
+                } else {
+                  animationTl.to('.slide-9-cols', 0.3, { opacity:0, delay: 0.5 },0)
+                            .set('.black-logo,.black-logo__owerlay', { clearProps: 'all' },0)
+                            .to('.black-logo__owerlay', 0.6, { height: '0px' })
+                            .to('.slide-image--6', 1.5, { opacity:0,xPercent:-30, onComplete: function(){
+                              animationIsFinished = true;
+                              fullpage_api.moveTo(`section-${destination.index}`);
+                              animationIsFinished = false;
+                            }})
+                }
             }
             // Leave animation slide 10
             if(origin.index == 9){
+              if(destination.index > 5 && destination.index < 13){
               animationTl.to('.slide-10-cols', 0.3, { opacity:0, delay: 0.5 },0)
                 .set('.slide-image--6', { opacity:1,xPercent:0 })
                 .set('.slide__overlay', {opacity: 0, onComplete: function(){
@@ -254,34 +279,66 @@ export default {
                     
                 }})
                 .set('.section.active', {opacity: 0});
+              } else {
+                animationTl.to('.slide-10-cols', 0.3, { opacity:0, delay: 0.5 },0)
+                            .set('.black-logo,.black-logo__owerlay', { clearProps: 'all' },0)
+                            .to('.black-logo__owerlay', 0.6, { height: '0px' })
+                            .to('.slide-image--6', 1.5, { opacity:0,xPercent:-30, onComplete: function(){
+                              animationIsFinished = true;
+                              fullpage_api.moveTo(`section-${destination.index}`);
+                              animationIsFinished = false;
+                            }})
+              }
             }
             // Leave animation slide 11
             if(origin.index == 10){
-              animationTl.to('.slide-11-cols', 0.3, { opacity:0, delay: 0.5 },0)
-                .set('.slide-image--6', { opacity:1,xPercent:0 })
-                .set('.slide__overlay', {opacity: 0, onComplete: function(){
-                    animationIsFinished = true;
-                    fullpage_api.moveTo(`section-${destination.index}`);
-                    animationIsFinished = false;
-                    
-                }})
-                .set('.section.active', {opacity: 0});
+              if(destination.index > 5 && destination.index < 13){
+                animationTl.to('.slide-11-cols', 0.3, { opacity:0, delay: 0.5 },0)
+                  .set('.slide-image--6', { opacity:1,xPercent:0 })
+                  .set('.slide__overlay', {opacity: 0, onComplete: function(){
+                      animationIsFinished = true;
+                      fullpage_api.moveTo(`section-${destination.index}`);
+                      animationIsFinished = false;
+                      
+                  }})
+                  .set('.section.active', {opacity: 0});
+              } else {
+                animationTl.to('.slide-11-cols', 0.3, { opacity:0, delay: 0.5 },0)
+                            .set('.black-logo,.black-logo__owerlay', { clearProps: 'all' },0)
+                            .to('.black-logo__owerlay', 0.6, { height: '0px' })
+                            .to('.slide-image--6', 1.5, { opacity:0,xPercent:-30, onComplete: function(){
+                              animationIsFinished = true;
+                              fullpage_api.moveTo(`section-${destination.index}`);
+                              animationIsFinished = false;
+                            }})
+              }
             }
             // Leave animation slide 12
             if(origin.index == 11){
-              animationTl.to('.slide-12-cols', 0.3, { opacity:0, delay: 0.5 },0)
-                .set('.slide-image--6', { opacity:1,xPercent:0 })
-                .set('.slide__overlay', {opacity: 0, onComplete: function(){
-                    animationIsFinished = true;
-                    fullpage_api.moveTo(`section-${destination.index}`);
-                    animationIsFinished = false;
-                    
-                }})
-                .set('.section.active', {opacity: 0});
+              if(destination.index > 5 && destination.index < 13){
+                animationTl.to('.slide-12-cols', 0.3, { opacity:0, delay: 0.5 },0)
+                  .set('.slide-image--6', { opacity:1,xPercent:0 })
+                  .set('.slide__overlay', {opacity: 0, onComplete: function(){
+                      animationIsFinished = true;
+                      fullpage_api.moveTo(`section-${destination.index}`);
+                      animationIsFinished = false;
+                      
+                  }})
+                  .set('.section.active', {opacity: 0});
+                } else {
+                  animationTl.to('.slide-12-cols', 0.3, { opacity:0, delay: 0.5 },0)
+                            .set('.black-logo,.black-logo__owerlay', { clearProps: 'all' },0)
+                            .to('.black-logo__owerlay', 0.6, { height: '0px' })
+                            .to('.slide-image--6', 1.5, { opacity:0,xPercent:-30, onComplete: function(){
+                              animationIsFinished = true;
+                              fullpage_api.moveTo(`section-${destination.index}`);
+                              animationIsFinished = false;
+                            }})
+                }
             }
             // Leave animation slide 13
             if(origin.index == 12){
-              if(direction == 'up' && (destination.index > 4)){
+              if(destination.index > 4 && destination.index < 13){
                 animationTl.to('.slide-13-cols', 0.3, { opacity:0, delay: 0.5 },0)
                 .set('.slide-image--6', { opacity:1,xPercent:0 })
                 .set('.slide__overlay', {opacity: 0, onComplete: function(){
@@ -290,15 +347,15 @@ export default {
                     animationIsFinished = false;
                 }})
                 .set('.section.active', {opacity: 0});
-              } else if(direction == 'down' || (destination.index < 5 && destination.index > 13)){
-                 animationTl.to('.slide-13-cols', 0.3, { opacity:0, delay: 0.5 },0)
-                            .set('.black-logo,.black-logo__owerlay', { clearProps: 'all' },0)
-                            .to('.black-logo__owerlay', 0.6, { height: '0px' })
-                            .to('.slide-image--6', 1.5, { opacity:0,xPercent:-30, onComplete: function(){
-                              animationIsFinished = true;
-                              fullpage_api.moveTo(`section-${destination.index}`);
-                              animationIsFinished = false;
-                            }})
+              } else {
+                animationTl.to('.slide-13-cols', 0.3, { opacity:0, delay: 0.5 },0)
+                          .set('.black-logo,.black-logo__owerlay', { clearProps: 'all' },0)
+                          .to('.black-logo__owerlay', 0.6, { height: '0px' })
+                          .to('.slide-image--6', 1.5, { opacity:0,xPercent:-30, onComplete: function(){
+                            animationIsFinished = true;
+                            fullpage_api.moveTo(`section-${destination.index}`);
+                            animationIsFinished = false;
+                          }})
               }
             }
             // Leave animation slide 14

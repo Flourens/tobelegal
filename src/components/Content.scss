@@ -1886,6 +1886,9 @@
   .is-mobile &{
     opacity: 1;
   }
+  .black-logo__owerlay{
+    opacity: 0 !important;
+  }
 }
 
 .no-margin{
