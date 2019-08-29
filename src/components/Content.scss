@@ -745,6 +745,7 @@
   .is-mobile & {
     display: block;
     opacity: 1;
+    z-index: 10;
     @include media ("<tablet"){
      left: -10vw;
     }
@@ -2107,10 +2108,10 @@
 .fp-viewing-section-15{
   .is-mobile{
     .black-logo-right__owerlay{
-      opacity: 0;
+      opacity: 0 !important;
     }
     .black-logo__owerlay{
-      opacity: 0;
+      opacity: 0 !important;
     }
     .none-phone-contact{
       display: none;
