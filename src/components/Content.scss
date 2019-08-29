@@ -346,17 +346,33 @@
   }
 }
 #fp-nav ul li, .fp-slidesNav ul li{
-  height: 1px !important;
-  background-color: $beige;
   width: 6px !important;
-  margin-bottom: 15px !important;
 }
 #fp-nav ul li {
-  a.active{
+  a{
+    position: relative;
+    height: 20px !important;
     width: 15px !important;
-    background-color: $beige;
-    right: 0;
-    position: absolute;
+    &:after{
+      content: '';
+      width: 4px !important;
+      height: 1px;
+      background-color: $beige;
+      top: 10px;
+      right: 0;
+      position: absolute;
+    } 
+  }
+  a.active{
+    &:after{
+      content: '';
+      width: 12px !important;
+      height: 1px;
+      background-color: $beige;
+      top: 5;
+      right: 0;
+      position: absolute;
+    }
   }
 }
 #fp-nav ul li a span, .fp-slidesNav ul li a span{

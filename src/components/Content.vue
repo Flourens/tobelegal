@@ -18,12 +18,26 @@ export default {
     }
   },
   methods:{
-    toggleMenu(){
-      this.openMenu = !this.openMenu;
+    toggleMenu(state){
+      if(state == 'close'){
+        this.openMenu = false;
+      } else {
+        this.openMenu = !this.openMenu;
+      }
+      var animationTl = new TimelineMax({});
+      if(this.openMenu && state != 'close'){
+        animationTl.fromTo('.burder-menu', 0.3, {display:'flex',height:'0%', width:'0%', opacity:0},{height:'100%', width:'100%', opacity:1},0)
+                   .fromTo('.burder-menu > *', 0.3, {opacity:0},{opacity:1})
+      } else {
+        animationTl.fromTo('.burder-menu > *', 0.3, {opacity:1},{opacity:0},0)
+                   .fromTo('.burder-menu', 0.3, {height:'100%', width:'100%', opacity:1},{height:'0%', width:'0%', opacity:0,display:'none'})
+      }
+
     },
 
     goToSection(id){
       fullpage_api.moveTo(id);
+      this.toggleMenu('close');
     },
 
     initSectionSlides(){
@@ -1403,10 +1417,10 @@ export default {
       setTimeout(()=>{
         var preloaderTl = new TimelineMax({});
         if(this.userAgent.window.width >= 1024 && !this.userAgent.device.isMobile){
-          preloaderTl.to('.pre_dot', 1.1, {left: '19.5%'},0)
+          preloaderTl.to('.hummer', 0.5, {opacity: 0})
+                      .to('.pre_dot', 1.1, {left: '19.5%'},0)
                       .to('#preloader-pane-1', 0.7, {opacity: 0})
                       .fromTo('.slide-image--1', 0.7, {opacity: 0},{opacity: 1}, '-=0.7')
-                      .to('.per_dot', 0.5, {opacity: 0}, '-=1')
                       .set('#preloader-pane-1, #preloader-pane-2', {pointerEvents: 'none'})
                       .fromTo('.slide-1-cols__1 .text', 0.8, {x: -220,opacity:0},{x: 0,opacity:1})
                       .fromTo('.quote', 1, {y: 60, opacity:0},{y: 0,opacity:1}, '+=0.1')
