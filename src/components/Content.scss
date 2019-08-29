@@ -13,6 +13,13 @@
   justify-content: space-between;
   margin-left: 45px;
   margin-right: 45px;
+  .is-mobile &{
+    @include media ("<phone"){
+      margin-left: 25px;
+      margin-right: 25px;
+      width: calc(100% - 50px);
+    }
+  }
 }
 .left-block{
   width: 50%;
@@ -174,6 +181,19 @@
       }
     }
   }
+  .languages{
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    @include media ("<tablet"){
+      .right-block{
+        display: none;
+      }
+      .header-logo{
+        display: none;
+      }
+    }
+  }
 }
 // ------------------- footer
 .footer{
@@ -283,6 +303,13 @@
    margin-right: 30px;
    width: calc(100% - 60px);
    align-items: center;
+   .is-mobile &{
+    @include media ("<phone"){
+      margin-left: 25px;
+      margin-right: 25px;
+      width: calc(100% - 50px);
+    }
+  }
   }
   &:before{
     top: 23px;
@@ -417,9 +444,14 @@
       margin-right: 110px;
       margin-top: 2vh;
     }
-    @include media ("<tablet"){
+    @include media ("<smallTablet"){
       margin-left: 45px;
       margin-right: 45px;
+      margin-top: 2vh;
+    }
+    @include media ("<phone"){
+      margin-left: 25px;
+      margin-right: 25px;
       margin-top: 2vh;
     }
   }
@@ -443,8 +475,17 @@
 .text-upper{
   text-transform: uppercase;
   margin-top: 50px;
-  padding-left: 20px;
+  padding-left: 25px;
   font-size: 14px;
+  .is-mobile &{
+    @include media ("<phone"){
+      font-size: 12px;
+      br{
+        display: none;
+        margin-top: 20px;
+      }
+    }
+  }
 }
 .services-title{
   padding-left: 25px;
@@ -468,19 +509,36 @@
     font-size: 34px;
     line-height: 1;
     position: absolute;
+    .is-mobile &{
+      @include media ("<tablet"){
+        font-size: 28px;
+      }
+      @include media ("<phone"){
+        font-size: 20px;
+      }
+    }
   }
   @include media ("<smallDesktop"){
     font-size: 28px;
   }
   .is-mobile &{
-    @include media ("<smallTablet"){
+    @include media ("<phone"){
       font-size: 23px;
+      padding-left: 25px;
+    }
+    @include media ("<phone"){
+      font-size: 20px;
     }
   }
 }
 .arrow-list{
   margin-top: 20px;
   margin-left: 10px;
+  .is-mobile &{
+    @include media ("<phone"){
+      margin-top: 5px;
+    }
+  }
 }
 .arrow-list__item{
   position: relative;
@@ -502,6 +560,12 @@
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
+  }
+  .is-mobile &{
+    @include media ("<phone"){
+      margin-bottom: 10px;
+      padding-left: 17px;
+    }
   }
 }
 
@@ -640,6 +704,11 @@
       left: auto;
       right: -15vw;
      }
+     @include media ("<phone"){
+      left: auto;
+      right: -15vw;
+      top: 10vh;
+     }
    }
   // @include media ("<phone"){
   //   right: 4%;
@@ -702,6 +771,10 @@
     @include media ("<smallTablet"){
       left: -60px;
     }
+    @include media ("<phone"){
+      left: -40px;
+      top: 15vh;
+    }
   }
 }
 
@@ -759,28 +832,6 @@
         margin-bottom: 30vh;
       }
     }
-    .logo-block__position{
-      text-align: right;
-      font-size: 19px;
-      @include media ("<hSmallPhone"){
-        font-size: 14px;
-        margin-bottom: 10px;
-      }
-    }
-    .logo-block__name{
-      text-align: right;
-      font-size: 57px;
-      padding-top: 3px;
-      margin-top: 10px;
-      .is-mobile & {
-        @include media ("<smallTablet"){
-          font-size: 47px;
-        }
-      }
-      @include media ("<hSmallPhone"){
-        font-size: 38px;
-      }
-    }
     .text-2{
       @include bebas-regular;
       background: -webkit-linear-gradient(90deg, #E9C0A0 -29.04%, #E5BB9C -11.71%, #D8AC90 9.05%, #C3947E 31.48%, #AB7968 51.12%, #BD8C76 53.66%, #D0A084 57.25%, #DDAE8E 61.34%, #E5B794 66.37%, #E7B996 74.94%);
@@ -791,8 +842,12 @@
       text-align: right;
       letter-spacing: 0.1em;
       margin-top: 30px;
-      @include media ("<hSmallPhone"){
-        font-size: 14px;
+      .is-mobile & {
+        @include media ("<phone"){
+          font-size: 14px;
+          margin: 0;
+          margin-top: 10px;
+        }
       }
     }
   }
@@ -817,10 +872,16 @@
     background: -webkit-linear-gradient(90deg, #E9C0A0 -29.04%, #E5BB9C -11.71%, #D8AC90 9.05%, #C3947E 31.48%, #AB7968 51.12%, #BD8C76 53.66%, #D0A084 57.25%, #DDAE8E 61.34%, #E5B794 66.37%, #E7B996 74.94%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-align: left;
-    margin-top: 0;
     margin-top: 35px;
     margin-bottom: 10px;
+    text-align: right;
+    .is-mobile & {
+      @include media ("<phone"){
+        font-size: 14px;
+        margin-bottom: 10px;
+        margin-top: 20px;
+      }
+    }
   }
   .logo-block__name{
     @include bebas-bold;
@@ -829,9 +890,18 @@
     -webkit-text-fill-color: transparent;
     font-size: 52px;
     line-height: 1;
+    text-align: right;
+    padding-top: 3px;
+    margin-top: 10px;
     .is-mobile & {
       @include media ("<tablet"){
         font-size: 62px;
+      }
+      @include media ("<smallTablet"){
+        font-size: 47px;
+      }
+      @include media ("<phone"){
+        font-size: 35px;
       }
     }
   }
@@ -854,6 +924,9 @@
       right: 30px;
       bottom: 100px;
       max-width: 350px;
+    }
+    @include media ("<phone"){
+      display: none;
     }
   }
   // @include media ("<hSmallPhone"){
@@ -1086,12 +1159,20 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    @include media ("<tablet"){
-      padding-right: 40px;
-      height: auto;
-      padding-top: 10px;
-      padding-bottom: 10px;
+    .is-mobile &{
+      @include media ("<tablet"){
+        padding-right: 40px;
+        height: auto;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+      @include media ("<phone"){
+        padding-top: 5px;
+        padding-bottom: 5px;
+        min-height: 50px;
+      }
     }
+   
 
   }
   .list-block__item-arrow{
@@ -1123,6 +1204,11 @@
       @include media ("<smallTablet"){
         padding-left: 80px;
       }
+      @include media ("<phone"){
+       font-size: 14px;
+       line-height: 1.2;
+       padding-left: 60px;
+      }
     }
   }
   .list-block__number{
@@ -1145,6 +1231,9 @@
       }
       @include media ("<smallTablet"){
        left: 0px;
+      }
+      @include media ("<phone"){
+        left: -15px;
       }
     }
   }
@@ -1214,6 +1303,10 @@
     .is-mobile &{
       position: relative;
       font-size: 30px;
+      @include media ("<phone"){
+        font-size: 18px;
+        line-height: 1.4;
+       }
     }
   }
 }
@@ -1236,6 +1329,11 @@
   .list-hammer{
     padding-left: 0;
     margin-top: 40px;
+    .is-mobile &{
+      @include media ("<phone"){
+       margin-top: 20px;
+      }
+    }
   }
   .list-hammer__item{
     border-top: solid 1px $beige;
@@ -1256,6 +1354,12 @@
         padding-bottom: 30px;
         padding-right: 20px;
         max-width: 100%;
+      }
+      @include media ("<phone"){
+       padding-top: 10px;
+       padding-bottom: 10px;
+       font-size: 12px;
+       padding-left: 20px;
       }
     }
     &:before{
@@ -1318,7 +1422,10 @@
     }
     .is-mobile &{
       @include media ("<tablet"){
-       width: 55% !important;
+       width: 55%;
+      }
+      @include media ("<phone"){
+        width: 60%;
       }
     }
   }
@@ -1364,6 +1471,11 @@
   }
   .arrow-list__item{
     margin-bottom: 25px;
+    .is-mobile &{
+      @include media ("<phone"){
+        margin-bottom: 10px;
+      }
+    }
   }
   .text-upper{
     @include media ("<desktop"){
@@ -1377,6 +1489,9 @@
     .is-mobile &{
       @include media ("<tablet"){
         flex-direction: column;
+      }
+      @include media ("<phone"){
+        margin-top: 10px;
       }
     }
   }
@@ -1462,6 +1577,11 @@
   }
   .arrow-list__item{
     margin-bottom: 28px;
+    .is-mobile &{
+      @include media ("<phone"){
+        margin-bottom: 10px;
+      }
+    }
   }
   .two-column{
     display: flex;
@@ -1503,6 +1623,7 @@
     .is-mobile &{
       @include media ("<smallTablet"){
         margin-bottom: 0;
+        margin-top: 0;
       }
     }
   }
@@ -1552,6 +1673,11 @@
   }
   .arrow-list__item{
     margin-bottom: 24px;
+    .is-mobile &{
+      @include media ("<phone"){
+        margin-bottom: 10px;
+      }
+    }
   }
   .text-upper{
     @include media ("<desktop"){
@@ -1573,6 +1699,10 @@
     .is-mobile &{
       @include media ("<tablet"){
       flex-direction: column;
+      }
+      @include media ("<phone"){
+        margin-top: 10px;
+        margin-bottom: 0;
       }
     }
   }
@@ -1717,7 +1847,9 @@
     }
     @include media ("<tablet"){
       width: 68%;
-     
+    }
+    @include media ("<phone"){
+      width: 75%;
     }
   }
   // @include media ("<smallDesktop"){
@@ -1795,6 +1927,9 @@
       @include media ("<smallTablet"){
        margin-top: 40vh;
        }
+       @include media ("<phone"){
+        margin-top: 18vh;
+      }
     }
   }
   .code{
