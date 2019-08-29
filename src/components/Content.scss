@@ -313,7 +313,6 @@
 
 
 #fp-nav{
-  pointer-events: none;
   @include media("retina2x", "<=tablet", "portrait") {
     display: none;
     pointer-events: none;
@@ -1886,6 +1885,9 @@
 .fp-viewing-section-13{
   .is-mobile &{
     opacity: 1;
+  }
+  .black-logo__owerlay{
+    opacity: 0 !important;
   }
 }
 

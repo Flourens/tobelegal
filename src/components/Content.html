@@ -3,39 +3,39 @@
   <!-- header desktop-->
   <div class="header header-desktop">
     <div class="left-block">
-      <a class="brand-link header-link" href="javscript:void(0);">tobe.legal</a>
-      <a href="javscript:void(0);" class="about header-link">Об адвокате</a>
+      <a class="brand-link header-link" @click="goToSection(1)" href="javscript:void(0);">tobe.legal</a>
+      <a href="javscript:void(0);" @click="goToSection(2)" class="about header-link">Об адвокате</a>
     </div>
-      <a class="header-logo" href="javscript:void(0);"><img src="./img/logo-legal.svg" alt=""></a>
+      <a class="header-logo" @click="goToSection(1)" href="javscript:void(0);"><img src="./img/logo-legal.svg" alt=""></a>
     <div class="right-block">
-      <a href="javscript:void(0);" class="services header-link">Услуги</a>
-      <a href="javscript:void(0);" class="contact header-link">Контакты</a>
+      <a href="javscript:void(0);" @click="goToSection(7)" class="services header-link">Услуги</a>
+      <a href="javscript:void(0);" @click="goToSection(14)" class="contact header-link">Контакты</a>
     </div>
   </div>
   <!-- header mobile-->
   <div class="header header-mobile">
-      <a class="header-logo" href="javscript:void(0);"><img src="./img/logo-legal.svg" alt=""></a>
-      <a class="brand-link header-link" href="javscript:void(0);">tobe.legal</a>
+      <a class="header-logo" @click="goToSection(1)" href="javscript:void(0);"><img src="./img/logo-legal.svg" alt=""></a>
+      <a class="brand-link header-link" @click="goToSection(1)" href="javscript:void(0);">tobe.legal</a>
       <div @click="toggleMenu" :class="{'open': openMenu}" class="burger">
           <span></span>
           <span></span>
       </div>
   </div>
   <div class="burder-menu" :class="{'active': openMenu}">
-    <a href="javscript:void(0);" class="about header-link">Об адвокате</a>
-    <a href="javscript:void(0);" class="services header-link">Услуги</a>
-    <a href="javscript:void(0);" class="contact header-link">Контакты</a>
+    <a href="javscript:void(0);" @click="goToSection(2)" class="about header-link">Об адвокате</a>
+    <a href="javscript:void(0);" @click="goToSection(7)" class="services header-link">Услуги</a>
+    <a href="javscript:void(0);" @click="goToSection(14)" class="contact header-link">Контакты</a>
     <img src="./img/code.svg" class="qr-code">
     <div class="social">
         <a href="javscript:void(0);"  class="connect"><img src="./img/connect-icon.svg" alt="" class="connect-icon"></a>
         <div class="facebook">
           <a class="facebook-link" href="javscript:void(0);"><img src="./img/facebook-icon.svg" alt="" class="facebook-icon"></a>
-          <p class="facebook-text">подписывайтесь на мой  <a class="facebook-link" href="javscript:void(0);">facebook</a></p>
+          <p class="facebook-text">подписывайтесь на мой  <a class="facebook-link" href="https://www.facebook.com/evgenii.vorobey" target="blank_">facebook</a></p>
         </div>
-        <a class="header-logo" href="javscript:void(0);"><img src="./img/logo-legal.svg" alt=""></a>
+        <a class="header-logo" @click="goToSection(1)" href="javscript:void(0);"><img src="./img/logo-legal.svg" alt=""></a>
         <div class="right-block">
-          <a href="javscript:void(0);" class="services header-link">Услуги</a>
-          <a href="javscript:void(0);" class="contact header-link">Контакты</a>
+          <a href="javscript:void(0);" @click="goToSection(7)" class="services header-link">Услуги</a>
+          <a href="javscript:void(0);" @click="goToSection(14)" class="contact header-link">Контакты</a>
       </div>
     </div>
   </div>
