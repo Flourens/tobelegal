@@ -371,6 +371,9 @@
       height: 80vh;
       bottom: 13vh;
     }
+    @include media ("<smallTablet"){
+      bottom: 25vh;
+    }
   }
 }
 .black-logo-right__owerlay{
@@ -408,16 +411,15 @@
   @include media ("<smallDesktop"){
     margin-left: 7%;
   }
-  @include media ("<tablet"){
-    margin-left: 13%;
-  }
-  @include media ("<tablet"){
-   margin-right: 10vw;
-  }
   .is-mobile &{
     @include media ("<tablet"){
       margin-left: 110px;
       margin-right: 110px;
+      margin-top: 2vh;
+    }
+    @include media ("<tablet"){
+      margin-left: 45px;
+      margin-right: 45px;
       margin-top: 2vh;
     }
   }
@@ -470,8 +472,10 @@
   @include media ("<smallDesktop"){
     font-size: 28px;
   }
-  @include media ("<phone"){
-    font-size: 24px;
+  .is-mobile &{
+    @include media ("<smallTablet"){
+      font-size: 23px;
+    }
   }
 }
 .arrow-list{
@@ -632,6 +636,10 @@
       right: auto;
       min-height: 100vh;
      }
+     @include media ("<tablet"){
+      left: auto;
+      right: -15vw;
+     }
    }
   // @include media ("<phone"){
   //   right: 4%;
@@ -655,6 +663,9 @@
     @include media ("<tablet"){
      left: -10vw;
     }
+    @include media ("<tablet"){
+      left: -40vw;
+    }
   }
 }
 .inner-image-mobile--1{
@@ -672,6 +683,9 @@
     @include media ("<tablet"){
      left: 0vw;
     }
+    @include media ("<smallTablet"){
+      display: none;
+    }
   }
 }
 .slide-image--mob-5{
@@ -684,6 +698,9 @@
     opacity: 1;
     @include media ("<tablet"){
      left: 0vw;
+    }
+    @include media ("<smallTablet"){
+      left: -60px;
     }
   }
 }
@@ -737,18 +754,29 @@
       @include media ("<tablet"){
         height: 72vh;
       }
+      @include media ("<smallTablet"){
+        height: 50vh;
+        margin-bottom: 30vh;
+      }
     }
     .logo-block__position{
       text-align: right;
       font-size: 19px;
       @include media ("<hSmallPhone"){
         font-size: 14px;
+        margin-bottom: 10px;
       }
     }
     .logo-block__name{
       text-align: right;
       font-size: 57px;
       padding-top: 3px;
+      margin-top: 10px;
+      .is-mobile & {
+        @include media ("<smallTablet"){
+          font-size: 47px;
+        }
+      }
       @include media ("<hSmallPhone"){
         font-size: 38px;
       }
@@ -821,6 +849,11 @@
     @include media ("<tablet"){
       right: 70px;
       bottom: 100px;
+    }
+    @include media ("<smallTablet"){
+      right: 30px;
+      bottom: 100px;
+      max-width: 350px;
     }
   }
   // @include media ("<hSmallPhone"){
@@ -919,7 +952,7 @@
         margin-top: 0;
         margin-bottom: 10vh;
       }
-      @include media ("<phone"){
+      @include media ("<smallTablet"){
         width: 100%;
       }
     }
@@ -954,6 +987,9 @@
        width: 40%;
        margin-top: 0;
        padding-bottom: 20vh;
+      }
+      @include media ("<smallTablet"){
+        width: 100%;
       }
     }
   }
@@ -1027,6 +1063,7 @@
        width: 100%;
        margin-right: 0;
        max-width: 100%;
+       margin-bottom: 60px;
       }
     }
   }
@@ -1055,6 +1092,7 @@
       padding-top: 10px;
       padding-bottom: 10px;
     }
+
   }
   .list-block__item-arrow{
     content: '';
@@ -1077,8 +1115,14 @@
     letter-spacing: 0.05em;
     margin: 0;
     padding: 0;
-    @include media ("<tablet"){
-      font-size: 16px;
+    padding-left: 100px;
+    .is-mobile &{
+      @include media ("<tablet"){
+        font-size: 16px;
+      }
+      @include media ("<smallTablet"){
+        padding-left: 80px;
+      }
     }
   }
   .list-block__number{
@@ -1092,12 +1136,16 @@
     width: 40px;
     display: inline-block;
     text-align: center;
-    margin-right: 10px;
+    position: absolute;
+    left: 0;
     .is-mobile &{
       @include media ("<tablet"){
         width: 100px;
         display: block;
-       }
+      }
+      @include media ("<smallTablet"){
+       left: 0px;
+      }
     }
   }
   .text{
@@ -1127,15 +1175,13 @@
     .is-mobile &{
       width: 100%;
       max-width: 500px;
-      .text{
-        width: 80%;
-        max-width: 250px;
-      }
-    }
-    .is-mobile &{
-      @include media ("<phone"){
+      @include media ("<smallTablet"){
        width: 100%;
        margin-right: 0;
+       .text{
+        width: 70%;
+        max-width: 250px;
+      }
       }
     }
   }
@@ -1309,6 +1355,9 @@
      margin-right: 0vw;
      width: 65%;
     }
+    @include media ("<smallTablet"){
+      width: 100%;
+     }
   }
   .arrow-list{
     margin-top: 0;
@@ -1365,6 +1414,9 @@
      margin-right: 0vw;
      width: 65%;
     }
+    @include media ("<smallTablet"){
+      width: 100%;
+     }
   }
   .two-column{
     display: flex;
@@ -1396,9 +1448,17 @@
      margin-right: 0vw;
      width: 65%;
     }
+    @include media ("<smallTablet"){
+      width: 100%;
+     }
   }
   .arrow-list{
     margin-bottom: 13vh;
+    .is-mobile &{
+      @include media ("<smallTablet"){
+        margin-bottom: 0;
+      }
+    }
   }
   .arrow-list__item{
     margin-bottom: 28px;
@@ -1433,10 +1493,18 @@
      margin-right: 0vw;
      width: 65%;
     }
+    @include media ("<smallTablet"){
+      width: 100%;
+     }
   }
   .arrow-list{
     margin-bottom: 17vh;
     margin-top: 20px;
+    .is-mobile &{
+      @include media ("<smallTablet"){
+        margin-bottom: 0;
+      }
+    }
   }
 
   .two-column{
@@ -1469,10 +1537,18 @@
      margin-right: 0vw;
      width: 65%;
     }
+    @include media ("<smallTablet"){
+      width: 100%;
+     }
   }
   .arrow-list{
     margin-bottom: 13vh;
     margin-top: 0;
+    .is-mobile &{
+      @include media ("<smallTablet"){
+        margin-bottom: 0;
+      }
+    }
   }
   .arrow-list__item{
     margin-bottom: 24px;
@@ -1538,10 +1614,18 @@
      margin-right: 0vw;
      width: 65%;
     }
+    @include media ("<smallTablet"){
+      width: 100%;
+     }
   }
   .arrow-list{
     margin-bottom: 24vh;
     margin-top: 20px;
+    .is-mobile &{
+      @include media ("<smallTablet"){
+        margin-bottom: 0;
+      }
+    }
   }
   .two-column{
     display: flex;
@@ -1574,6 +1658,9 @@
      margin-right: 0vw;
      width: 60%;
     }
+    @include media ("<smallTablet"){
+      width: 100%;
+     }
   }
   .arrow-list{
     margin-bottom: 24vh;
@@ -1581,6 +1668,9 @@
     .is-mobile &{
       @include media ("<tablet"){
        margin-top: 25px;
+      }
+      @include media ("<smallTablet"){
+        margin-bottom: 0;
       }
     }
   }
@@ -1625,6 +1715,10 @@
       margin-right: 0%;
       margin-left: auto;
     }
+    @include media ("<tablet"){
+      width: 68%;
+     
+    }
   }
   // @include media ("<smallDesktop"){
   //   margin-right: 46vw;
@@ -1640,6 +1734,9 @@
     .is-mobile &{
       @include media ("<tablet"){
         width: 90%;
+      }
+      @include media ("<smallTablet"){
+        width: 100%;
       }
     }
   }
@@ -1661,10 +1758,21 @@
     font-size: 28px;
     line-height: 1.2;
     text-transform: uppercase;
+    .is-mobile &{
+      @include media ("<smallTablet"){
+       font-size: 21px;
+      }
+    }
   }
   .text{
     margin-top: 30px;
     margin-bottom: 20px;
+    .is-mobile &{
+      @include media ("<smallTablet"){
+       font-size: 14px;
+       margin-bottom: 10px;
+      }
+    }
   }
   .contact-link{
     @include montserrat-medium;
@@ -1684,6 +1792,9 @@
     margin-top: 5px;
     .is-mobile &{
       margin-top: 30vh;
+      @include media ("<smallTablet"){
+       margin-top: 40vh;
+       }
     }
   }
   .code{
