@@ -281,17 +281,16 @@ export default {
             }
             // Leave animation slide 13
             if(origin.index == 12){
-              if(direction == 'up'){
+              if(direction == 'up' && (destination.index > 4)){
                 animationTl.to('.slide-13-cols', 0.3, { opacity:0, delay: 0.5 },0)
                 .set('.slide-image--6', { opacity:1,xPercent:0 })
                 .set('.slide__overlay', {opacity: 0, onComplete: function(){
                     animationIsFinished = true;
                     fullpage_api.moveTo(`section-${destination.index}`);
                     animationIsFinished = false;
-                    
                 }})
                 .set('.section.active', {opacity: 0});
-              } else if(direction == 'down'){
+              } else if(direction == 'down' || (destination.index < 5 && destination.index > 13)){
                  animationTl.to('.slide-13-cols', 0.3, { opacity:0, delay: 0.5 },0)
                             .set('.black-logo,.black-logo__owerlay', { clearProps: 'all' },0)
                             .to('.black-logo__owerlay', 0.6, { height: '0px' })
@@ -334,12 +333,21 @@ export default {
           
           // Enter anim slide 1
           if(destination.index == 0){
-            animationTlBack.set('.preloader-pane-1,#preloader-pane-2,.black-logo,.slide-image--1', {opacity:1})
-                           .fromTo('.slide__overlay', 0.9, {ease: Power0.easeNone, height:'100vh'},{ease: Power0.easeNone, height:'0vh'},0)
-                           .set('body', {opacity: 1, onComplete: ()=>{
-                              setTimeout(()=>{ this.enterAnimFinished = true; },200)
-                            }});
-            ;
+            if(origin.index > 0){
+              animationTlBack.set('.preloader-pane-1,#preloader-pane-2,.black-logo,.slide-image--1', {opacity:1})
+                            .fromTo('.slide__overlay', 0.9, {ease: Power0.easeNone, opacity:1, height:'100vh'},{ease: Power0.easeNone, opacity:1, height:'0vh'},0)
+                            .set('body', {opacity: 1, onComplete: ()=>{
+                                setTimeout(()=>{ this.enterAnimFinished = true; },200)
+                              }});
+              ;
+            } else {
+              animationTlBack.set('.preloader-pane-1,#preloader-pane-2,.black-logo,.slide-image--1', {opacity:1})
+                            .fromTo('.slide__overlay', 0.9, {ease: Power0.easeNone, opacity:1, height:'100vh'},{ease: Power0.easeNone, opacity:1, height:'0vh'},0)
+                            .set('body', {opacity: 1, onComplete: ()=>{
+                                setTimeout(()=>{ this.enterAnimFinished = true; },200)
+                              }});
+              ;
+            }
           }
           // Enter anim slide 2
           if(destination.index == 1){
