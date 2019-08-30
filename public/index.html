@@ -55,7 +55,10 @@
             margin-right: 50.4%;
 
         }
-        .pre_dot {
+        .pre_dot--loader{
+            opacity: 0;
+        }
+        .pre_dot, .pre_dot--loader {
             position: absolute;
             width: 50%;
             left: 50%;
@@ -78,22 +81,22 @@
             display: none;
         }
         @media screen and (max-width: 1365px) {
-            .pre_dot {
+            .pre_dot,.pre_dot--loader {
                 max-width: 277px;
             }
         }
         @media screen and (max-width: 1600px) {
-            .pre_dot {
+            .pre_dot,.pre_dot--loader {
                 max-width: 540px;
             }
         }
         @media screen and (max-width: 1440px) {
-            .pre_dot {
+            .pre_dot,.pre_dot--loader {
                 max-width: 367px;
             }
         }
         @media screen and (max-width: 1024px) {
-            .pre_dot {
+            .pre_dot,.pre_dot--loader {
                 display: none;
             }
             .pre_dot--mobile{
@@ -111,7 +114,7 @@
             and (min-device-width : 768px) 
             and (max-device-width : 1024px) 
             and (orientation : landscape) {
-                .pre_dot{
+                .pre_dot,.pre_dot--loader{
                     display: block;
                 }
                 .pre_dot--mobile{
@@ -119,7 +122,7 @@
                 }
             }
         @media screen and (max-width: 767px) {
-            .pre_dot {
+            .pre_dot,.pre_dot--loader {
                 margin-bottom: 30%;
             }
             .hummer{
@@ -158,7 +161,9 @@
         <div class="preloader-baground"></div>
         <div class="preloader-wrap">
             <img class="pre_dot" src="./preloader.svg" alt="tobe legal">
+            <!-- <img class="pre_dot--loader" src="./logo-loader.svg" alt="tobe legal"> -->
             <img class="pre_dot--mobile" src="./preloader-mobile.svg" alt="tobe legal">
+            <!-- <img class="pre_dot--mobile" src="./preloader-mobile-anim.svg" alt="tobe legal"> -->
             <img class="hummer" src="./hummer-loader.svg" alt="tobe legal">
         </div>
     </div>
