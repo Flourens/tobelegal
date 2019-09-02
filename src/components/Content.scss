@@ -635,15 +635,10 @@
   height: 110vh;
   width: auto;
   @include media ("<desktop"){
-    right: -8%;
+    height: 112vh;
+    right: -15vw;
+    bottom: -2vh;
   }
-  // @include media ("<smallDesktop"){
-  //   right: -8%;
-  //   min-height: 834px;
-  //   bottom: 0;
-  //   top: 0;
-  //   margin: auto 0;
-  // }
   @include media ("height<hSmall"){
     height: 130vh;
     min-height: 0px;
@@ -659,7 +654,7 @@
   overflow: hidden;
   position: absolute;
   left: 47.5%;
-  top: 21%;
+  top: 21vh;
   z-index: 1000;
   img{
     width: 275px;
@@ -683,20 +678,20 @@
     opacity: 0;
   }
   @include media ("height<hSmall"){
-    top: 10%;
+    top: 15vh;
   }
 }
 .slide-image--3{
   width: 274px;
   position: absolute;
   left: 57.5%;
-  top: 21%;
+  top: 21vh;
   z-index: 1000;
   @include media (">largeDesktop"){
     width: 400px;
   }
   @include media ("height<hSmall"){
-    top: 10%;
+    top: 15vh;
   }
   .is-mobile &{
     display: none;
@@ -710,7 +705,7 @@
   height: 102vh;
   z-index: 0;
   @include media ("<desktop"){
-    left: 11vw;
+    left: 14vw;
     height: 100vh;
   }
   @include media ("height<hSmall"){
@@ -737,14 +732,14 @@
 .slide-image--7{
   position: absolute;
   height: 110vh;
-  left: 36vw;
+  right: 0;
   bottom: -5vh;
   z-index: 0;
   @include media ("<desktop"){
-    left: 30vw;
+    right: -15vw;
   }
   @include media ("height<hSmall"){
-    left: 40vw;
+    right: 0;
     height: 130vh;
     bottom: -15vh;
   }
@@ -1008,6 +1003,9 @@
   @include media (">largeDesktop"){
     max-width: 645px;
   }
+  @include media ("<desktop"){
+    bottom: 130px;
+  }
   @include media ("height<hSmall"){
     bottom: 100px;
   }
@@ -1025,18 +1023,6 @@
       display: none;
     }
   }
-  // @include media ("<hSmallPhone"){
-  //   display: block;
-  //   max-width: 360px;
-  //   bottom: 105px;
-  //   right: 0;
-  //   left: 0;
-  //   margin: 0 auto;
-  // }
-  // @include media ("height<hSmallPhone"){
-  //   display: none;
-  // }
-  
   &:after{
     content: '';
     position: absolute;
@@ -1122,7 +1108,7 @@
       box-sizing: border-box;
       margin-left: 0;
       min-width: 100px;
-      margin-top: 13%;
+      margin-top: 14%;
     }
     .is-mobile &{
       @include media ("<tablet"){
@@ -1161,7 +1147,7 @@
     }
     @include media ("<desktop"){
       box-sizing: border-box;
-      margin-top: 0%;
+      margin-top: 3%;
     }
     .is-mobile &{
       @include media ("<tablet"){
