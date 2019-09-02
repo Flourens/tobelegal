@@ -1057,7 +1057,7 @@
       max-width: 350px;
     }
     @include media ("<phone"){
-      display: none;
+      //display: none;
     }
   }
   &:after{
@@ -2264,6 +2264,14 @@
   }
 }
 
+.fp-viewing-section-6,.fp-viewing-section-8,.fp-viewing-section-9,.fp-viewing-section-10,.fp-viewing-section-11,.fp-viewing-section-12 {
+  .is-mobile{
+    .black-logo__owerlay{
+      opacity: 1;
+    }
+  }
+}
+
 .fp-viewing-section-8,.fp-viewing-section-9,.fp-viewing-section-10,.fp-viewing-section-11,.fp-viewing-section-12,.fp-viewing-section-13,.fp-viewing-section-14{
   .is-mobile{
     .black-logo-right__owerlay{
@@ -2319,6 +2327,11 @@
     .black-logo-right__owerlay{
       opacity: 0;
     }
+  }
+}
+
+.fp-viewing-section-5,.fp-viewing-section-7 {
+  .is-mobile{
     .black-logo__owerlay{
       opacity: 0;
     }

@@ -867,7 +867,7 @@ export default {
               this.enterAnimFinished = false;
             if(origin.index == 0){
                animationTl.to('.slide-1-cols__3, .quote', 0.1, { opacity:0 }, 0)
-                          .to('.slide-image--mob-1', 0.4, { ease: Power1.easeIn, opacity:0, x: 50, onComplete: function(){
+                          .to('.slide-image--mob-1', 0.6, { ease: Power1.easeIn, opacity:0, x: 50, onComplete: function(){
                             animationIsFinished = true;
                             if(direction == 'up'){
                               fullpage_api.moveTo(`section-${destination.index}`);
@@ -880,13 +880,22 @@ export default {
             }
             // Leave animation slide 2
             if(origin.index == 1){
-              animationTl.to('.black-logo__owerlay', 0.6, { opacity: 0 },0)
-                          .to('.slide-2-cols__1 > *', 0.3, { opacity: 0, y: -80 }, 0)
+              if(destination.index < 1 || destination.index > 4){
+                animationTl.to('.black-logo__owerlay', 0.6, { opacity: 0 },0)
+                            .to('.slide-2-cols-2 .slide-2-cols__1 > *', 0.3, { opacity: 0, y: -80 }, 0)
+                            .set('body', {opacity: 1, onComplete: function(){
+                              animationIsFinished = true;
+                              fullpage_api.moveTo(`section-${destination.index}`);
+                              animationIsFinished = false;
+                            }});
+              } else {
+                animationTl.to('.slide-2-cols-2 .slide-2-cols__1 > *', 0.3, { opacity: 0, y: -80 }, 0)
                           .set('body', {opacity: 1, onComplete: function(){
                             animationIsFinished = true;
                             fullpage_api.moveTo(`section-${destination.index}`);
                             animationIsFinished = false;
-                          }})
+                          }});
+              }
             }
             // Leave animation slide 3
             if(origin.index == 2){
@@ -910,17 +919,27 @@ export default {
             }
             // Leave animation slide 4
             if(origin.index == 3){
-              animationTl.to('.slide-2-cols__1 > *', 0.4, { opacity: 0, y: -80 }, 0)
-                        .set('body', {opacity: 1, onComplete: function(){
-                          animationIsFinished = true;
-                          fullpage_api.moveTo(`section-${destination.index}`);
-                          animationIsFinished = false;
-                        }})
+              if(destination.index < 1 || destination.index > 4){
+                animationTl.to('.black-logo__owerlay', 0.6, { opacity: 0 },0)
+                            .to('.slide-2-cols-3 .slide-2-cols__1 > *', 0.3, { opacity: 0, y: -80 }, 0)
+                            .set('body', {opacity: 1, onComplete: function(){
+                              animationIsFinished = true;
+                              fullpage_api.moveTo(`section-${destination.index}`);
+                              animationIsFinished = false;
+                            }});
+              } else {
+                animationTl.to('.slide-2-cols-3 .slide-2-cols__1 > *', 0.3, { opacity: 0, y: -80 }, 0)
+                          .set('body', {opacity: 1, onComplete: function(){
+                            animationIsFinished = true;
+                            fullpage_api.moveTo(`section-${destination.index}`);
+                            animationIsFinished = false;
+                          }});
+              }
             }
             // Leave animation slide 5
             if(origin.index == 4){
-              if(direction == 'up'){
-                animationTl.to('.slide-image--mob-3', 0.6, { opacity: 0 },0)
+              if(destination.index < 1 || destination.index > 4){
+                animationTl.to('.black-logo__owerlay', 0.6, { opacity: 0 },0)
                             .to('.slide-3-cols__1 .text', 0.6, { opacity:0 },0)
                             .to('.slide-3-cols__1 .list-block .list-block__item', 0.6, { opacity:0}, 0)
                             .set('body', {opacity: 1, onComplete: function(){
@@ -928,7 +947,7 @@ export default {
                               fullpage_api.moveTo(`section-${destination.index}`);
                               animationIsFinished = false;
                             }});
-              } else if(direction == 'down'){
+              } else {
                 animationTl.to('.slide-3-cols__1 .text', 0.6, { opacity:0 },0)
                             .to('.slide-3-cols__1 .list-block .list-block__item', 0.6, { opacity:0}, 0)
                             .set('body', {opacity: 1, onComplete: function(){
@@ -951,24 +970,14 @@ export default {
             }
             // Leave animation slide 7
             if(origin.index == 6){
-              if(direction == 'up'){
-                animationTl.to('.slide-5-cols__1', 0.1, { opacity: 0 },0)
+                animationTl.to('.black-logo__owerlay', 0.6, { opacity: 0 },0)
+                            .to('.slide-5-cols__1', 0.1, { opacity: 0 },0)
                             .set('body', {opacity: 1, onComplete: function(){
                               animationIsFinished = true;
                               fullpage_api.moveTo(`section-${destination.index}`);
                               animationIsFinished = false;
                             }})
                 ;
-              } else if(direction == 'down'){
-                animationTl.to('.slide-5-cols__1', 0.1, { opacity: 0 },0)
-                           // .to('.slide-image--mob-3', 0.9, { opacity:0, x:-200 })
-                           .set('body', {opacity: 1, onComplete: function(){
-                              animationIsFinished = true;
-                              fullpage_api.moveTo(`section-${destination.index}`);
-                              animationIsFinished = false;
-                            }})
-                ;
-              }
             }
             // Leave animation slide 8
             if(origin.index == 7){
@@ -1154,9 +1163,9 @@ export default {
            
            animationTlBack.set('.slide-1-cols__3', { clearProps: 'all' }, 0)
                           .fromTo('.slide-image--mob-1', 1.5, { opacity:0, x:0, xPercent:-30 }, { opacity:1, xPercent:0 }, 0)
-                          .fromTo('.logo-block__2', 0.3, { opacity:0 }, { opacity:1 })
-                          .staggerFromTo('.slide-1-cols__3 .text-2', 0.3, { opacity:0, x: 30 }, { opacity:1, x: 0 }, 0.4)
-                          .fromTo('.quote', 0.6, { opacity:0, y: 60 }, { opacity:1, y: 0 })
+                          .fromTo('.logo-block__2', 0.6, { opacity:0 }, { opacity:1 })
+                          .staggerFromTo('.slide-1-cols__3 .text-2', 0.6, { opacity:0, x: 30 }, { opacity:1, x: 0 }, 0.6)
+                          .fromTo('.quote', 1.2, { opacity:0, y: 60 }, { opacity:1, y: 0 })
                           .set('body', {opacity: 1, onComplete: ()=>{
                             setTimeout(()=>{ this.enterAnimFinished = true; },200)
                           }})
@@ -1164,12 +1173,23 @@ export default {
           }
           // Enter anim slide 2
           if(destination.index == 1){
-            animationTlBack.set('.slide-1-cols__3', { clearProps: 'all' }, 0)
-                          .fromTo('.black-logo__owerlay', 0.9, { opacity: 0 }, { opacity: 1 },0)
-                          .staggerFromTo('.slide-2-cols__1 > *', 0.4, { opacity: 0, y: 30 }, { opacity: 1, y: 0 }, 0.4)
-                          .set('body', {opacity: 1, onComplete: ()=>{
+            if(origin.index < 1 || origin.index > 4){
+              animationTlBack.set('.slide-1-cols__3', { clearProps: 'all' }, 0)
+                            .set('.black-logo,.black-logo__owerlay', { clearProps: 'all' },0)
+                            .set('.black-logo__owerlay', { height: 0 },0)
+                            .set('.black-logo__owerlay', { height: 'auto' })
+                            .from('.black-logo__owerlay', 1, { height: 0 })
+                            .staggerFromTo('.slide-2-cols-2 .slide-2-cols__1 > *', 0.4, { opacity: 0, y: 30 }, { opacity: 1, y: 0 }, 0.4)
+                            .set('body', {opacity: 1, onComplete: ()=>{
                               setTimeout(()=>{ this.enterAnimFinished = true; },200)
                             }});
+            } else {
+              animationTlBack.set('.slide-1-cols__3', { clearProps: 'all' }, 0)
+                            .staggerFromTo('.slide-2-cols-2 .slide-2-cols__1 > *', 0.4, { opacity: 0, y: 30 }, { opacity: 1, y: 0 }, 0.4)
+                            .set('body', {opacity: 1, onComplete: ()=>{
+                              setTimeout(()=>{ this.enterAnimFinished = true; },200)
+                            }});
+            }
           }
           // Enter anim slide 3
           if(destination.index == 2){
@@ -1191,18 +1211,34 @@ export default {
           }
           // Enter anim slide 4
           if(destination.index == 3){
+            if(origin.index < 1 || origin.index > 4){
               animationTlBack.set('.slide-1-cols__3', { clearProps: 'all' }, 0)
-                          .fromTo('.black-logo__owerlay', 0.3, { opacity: 0 }, { opacity: 1 },0)
-                          .staggerFromTo('.slide-2-cols-3 .slide-2-cols__1 .year, .slide-2-cols-3 .slide-2-cols__1 .text', 0.4, { opacity: 0, y: 30 }, { opacity: 1, y: 0 }, 0.4)
-                          .set('body', {opacity: 1, onComplete: ()=>{
+                            .set('.black-logo,.black-logo__owerlay', { clearProps: 'all' },0)
+                            .set('.black-logo__owerlay', { height: 0 },0)
+                            .set('.black-logo__owerlay', { height: 'auto' })
+                            .from('.black-logo__owerlay', 1, { height: 0 })
+                            .staggerFromTo('.slide-2-cols-3 .slide-2-cols__1 > *', 0.4, { opacity: 0, y: 30 }, { opacity: 1, y: 0 }, 0.4)
+                            .set('body', {opacity: 1, onComplete: ()=>{
                               setTimeout(()=>{ this.enterAnimFinished = true; },200)
                             }});
+            } else {
+              animationTlBack.set('.slide-1-cols__3', { clearProps: 'all' }, 0)
+                            .staggerFromTo('.slide-2-cols-3 .slide-2-cols__1 > *', 0.4, { opacity: 0, y: 30 }, { opacity: 1, y: 0 }, 0.4)
+                            .set('body', {opacity: 1, onComplete: ()=>{
+                              setTimeout(()=>{ this.enterAnimFinished = true; },200)
+                            }});
+            }
           }
           // Enter anim slide 5
           if(destination.index == 4){
-            if(origin.index == 5){
-              animationTlBack.fromTo('.slide-3-cols__1 .text', 0.6, { opacity:0, y:30 },{ opacity:1, y:0 })
-                              .staggerFromTo('.slide-3-cols__1 .list-block .list-block__item', 0.4, { opacity:0, y:50 },{ opacity:1, y:0}, 0.6)
+            if(origin.index < 1 || origin.index > 4){
+              animationTlBack.set('.black-logo,.black-logo__owerlay', { clearProps: 'all' },0)
+                              .set('.black-logo__owerlay', { height: 0 },0)
+                              .set('.black-logo__owerlay', { height: 'auto' })
+                              .from('.black-logo__owerlay', 1, { height: 0 })
+                              .fromTo('.slide-3-cols__1 .text', 0.4, { y:30 },{ y:0 })
+                              .fromTo('.slide-3-cols__1 .text', 0.8, { opacity:0, y:30 },{ opacity:1, y:0 },'-=0.4')
+                              .staggerFromTo('.slide-3-cols__1 .list-block .list-block__item', 0.4, { opacity:0, y:50 },{ opacity:1, y:0}, 0.6, '-=0.4')
                               .staggerFromTo('.list-block__item-arrow', 0.4, { x:10 },{ x:0 }, 0.6, '-=1.2')
                               .set('body', {opacity: 1, onComplete: ()=>{
                                 setTimeout(()=>{ this.enterAnimFinished = true; },200)
@@ -1221,9 +1257,10 @@ export default {
           // Enter anim slide 6
           if(destination.index == 5){
               animationTlBack.set('.slide-4-cols__1', {clearProps:'all'},0)
-                              .fromTo('.slide-image--mob-3', 1.2, { opacity:0, y:0, x:200 },{ opacity:1, x:0 })
-                              .fromTo('.slide-4-cols__1 .text', 0.6, { opacity:0, x:0, y:30 },{ opacity:1, y:0 })
-                              .staggerFromTo('.list-country .list-country__item', 0.3, { opacity:0, y:30 },{ opacity:1, y:0}, 0.4)
+                              .fromTo('.slide-image--mob-3', 0.6, { y:0, x:200 },{ x:0 })
+                              .fromTo('.slide-image--mob-3', 1.2, { opacity:0 },{ opacity:1 },'-=0.6')
+                              .fromTo('.slide-4-cols__1 .text', 0.8, { opacity:0, x:0, y:60 },{ opacity:1, y:0 },'-=0.6')
+                              .staggerFromTo('.list-country .list-country__item', 0.4, { opacity:0, y:60 },{ opacity:1, y:0}, 0.6)
                               .set('body', {opacity: 1, onComplete: ()=>{
                                 setTimeout(()=>{ this.enterAnimFinished = true; },200)
                               }})
@@ -1231,8 +1268,12 @@ export default {
           }
           // Enter anim slide 7
           if(destination.index == 6){
-            if(origin.index == 5){
+            if(origin.index != 6){
               animationTlBack.set('.slide-5-cols__1', {clearProps:'all'},0)
+                              .set('.black-logo,.black-logo__owerlay', { clearProps: 'all' },0)
+                              .set('.black-logo__owerlay', { height: 0 },0)
+                              .set('.black-logo__owerlay', { height: 'auto' })
+                              .from('.black-logo__owerlay', 1, { height: 0 })
                               .fromTo('.slide-5-cols__1 .text', 0.6, { opacity:0, y:30 },{ opacity:1, y:0 })
                               .staggerFromTo('.slide-5-cols__1 .list-hammer__item', 0.3, { opacity:0, y:30 },{ opacity:1, y:0}, 0.4)
                               .set('body', {opacity: 1, onComplete: ()=>{
@@ -1241,7 +1282,6 @@ export default {
               ;
             } else {
               animationTlBack.set('.slide-5-cols__1', {clearProps:'all'},0)
-                              // .fromTo('.slide-image--mob-3', 1.2, { opacity:0, x:200 },{ opacity:1, x:0 })
                               .fromTo('.slide-5-cols__1 .text', 0.6, { opacity:0, y:30 },{ opacity:1, y:0 })
                               .staggerFromTo('.slide-5-cols__1 .list-hammer__item', 0.3, { opacity:0, y:30 },{ opacity:1, y:0}, 0.4)
                               .set('body', {opacity: 1, onComplete: ()=>{
@@ -1262,8 +1302,12 @@ export default {
           }
           // Enter anim slide 9
           if(destination.index == 8){
-            if(origin.index > 8 && origin.index < 15){
+            if(origin.index < 8 || origin.index > 15){
               animationTlBack.set('.slide-7-cols', { clearProps: 'all'},0)
+                              .set('.black-logo, .black-logo__owerlay', { clearProps: 'all' },0)
+                              .set('.black-logo__owerlay', { opacity:1, height: 0 },0)
+                              .set('.black-logo__owerlay', { height: 'auto' })
+                              .from('.black-logo__owerlay', 1, { height: 0 })
                               .fromTo('.slide-7-cols .services-title', 0.3, { opacity:0, y:30 },{ opacity:1, y:0 })
                               .fromTo('.slide-7-cols .text', 0.3, { opacity:0, y:30 },{ opacity:1, y:0 })
                               .staggerFromTo('.slide-7-cols .arrow-list__item', 0.3, { opacity:0, y:30 },{ opacity:1, y:0 }, 0.5 )
@@ -1422,7 +1466,6 @@ export default {
                               }})
               ;
           }
-
         }
         });
       }
@@ -1442,8 +1485,14 @@ export default {
                      .fromTo('.slide-1-cols__1 .text', 0.8, {x: -220,opacity:0},{x: 0,opacity:1})
                      .fromTo('.quote', 1, {y: 60, opacity:0},{y: 0,opacity:1}, '+=0.1');
         } else {
-            preloaderTl.to('#cut-off-bottom-rect-2', 3, { attr:{transform:"translate(0,0)"} },0)
-                       .to('#preloader-pane-1', 0.3, {opacity: 0})
+          preloaderTl.to('#cut-off-bottom-rect-2', 3, { attr:{transform:"translate(0,0)"} },0)
+                     .set(".slide-image--mob-1, .logo-block__2, .slide-1-cols__3 .text-2, .quote", {opacity:0})
+                     .to('#preloader-pane-1', 0.3, {opacity: 0})
+                     .fromTo(".slide-image--mob-1", 1, {x:-100, y:0},{x:0})
+                     .fromTo(".slide-image--mob-1", 1.6, {opacity:0},{opacity:1}, '-=1')
+                     .fromTo(".logo-block__2", 0.6, {opacity:0},{opacity:1}, '-=0.6')
+                     .staggerFromTo(".slide-1-cols__3 .text-2", 0.6, {x:30,y:0,opacity:0},{x:0,y:0,opacity:1},0.6)
+                     .fromTo(".quote", 1.2, {x:0,y:60,opacity:0},{y:0,opacity:1})
           ;
         }
         
