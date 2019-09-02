@@ -635,8 +635,11 @@
   height: 110vh;
   width: auto;
   @include media ("<desktop"){
+    right: -5vh;
+  }
+  @include media ("<smallDesktop"){
     height: 112vh;
-    right: -15vw;
+    right: -15vh;
     bottom: -2vh;
   }
   @include media ("height<hSmall"){
@@ -644,6 +647,9 @@
     min-height: 0px;
     right: -2%;
     bottom: -7vh;
+    @include media ("<smallDesktop"){
+      right: -12vw;
+    }
   }
   @include media ("<tablet"){
     display: none;
@@ -664,8 +670,13 @@
     }
   }
   @include media ("<smallDesktop"){
-    // left: auto !important;
     right: 30vw;
+  }
+  @include media ("height<hSmall"){
+    top: 15vh;
+    @include media ("<desktop"){
+      top: 13vh;
+    }
   }
   .is-mobile &{
     width: 100%;
@@ -676,9 +687,6 @@
     top: 0;
     bottom: 0;
     opacity: 0;
-  }
-  @include media ("height<hSmall"){
-    top: 15vh;
   }
 }
 .slide-image--3{
@@ -692,6 +700,9 @@
   }
   @include media ("height<hSmall"){
     top: 15vh;
+    @include media ("<desktop"){
+      top: 13vh;
+    }
   }
   .is-mobile &{
     display: none;
@@ -705,13 +716,19 @@
   height: 102vh;
   z-index: 0;
   @include media ("<desktop"){
-    left: 14vw;
+    left: 28vw;
+  }
+  @include media ("<smallDesktop"){
+    left: 20vw;
     height: 100vh;
   }
   @include media ("height<hSmall"){
     left: 37vw; 
     height: 110vh;
     bottom: -5vh;
+    @include media ("<smallDesktop"){
+      left: 23vw;
+    }
   }
 }
 .slide-image--6{
@@ -721,27 +738,47 @@
   z-index: 0;
   height: 112vh;
   @include media ("<desktop"){
+    left: -10vw;
+  }
+  @include media ("<smallDesktop"){
     left: -18vw;
   }
   @include media ("height<hSmall"){
     height: 140vh;
     left: 0;
     bottom: -25vh;
+    @include media ("<desktop"){
+      left: -8vw;
+    }
+    @include media ("<smallDesktop"){
+      left: -18vw;
+    }
   }
 }
 .slide-image--7{
   position: absolute;
   height: 110vh;
-  right: 0;
-  bottom: -5vh;
+  right: 0vw;
+  bottom: 0vh;
   z-index: 0;
   @include media ("<desktop"){
+    bottom: 0;
+    right: -3vw;
+  }
+  @include media ("<smallDesktop"){
     right: -15vw;
   }
   @include media ("height<hSmall"){
-    right: 0;
-    height: 130vh;
-    bottom: -15vh;
+    right: -3vw;
+    height: 120vh;
+    bottom: 0vh;
+    @include media ("<desktop"){
+      right: -5vw;
+    }
+    @include media ("<smallDesktop"){
+      right: -15vw;
+      height: 110vh;
+    }
   }
 }
 .slide-image--mob-1{
@@ -1655,6 +1692,9 @@
   .two-column__1{
     width: 65%;
     margin-right: 10%;
+    @include media ("<desktop"){
+      width: 100%;
+    }
     .is-mobile &{
       @include media ("<tablet"){
         width: 100%;
@@ -1705,6 +1745,9 @@
   .two-column__1{
     width: 75%;
     margin-right: 10%;
+    @include media ("<desktop"){
+      width: 100%;
+    }
     .is-mobile &{
       @include media ("<tablet"){
        width: 100%;
@@ -1750,6 +1793,9 @@
   .two-column__1{
     width: 72%;
     margin-right: 10%;
+    @include media ("<desktop"){
+      width: 100%;
+    }
     .is-mobile &{
       @include media ("<tablet"){
        width: 100%;
