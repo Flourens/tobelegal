@@ -8,6 +8,7 @@
 import Vue from 'vue';
 import { mapState } from 'vuex';
 import handleResize from '@/mixins/handleResize';
+import handleOrientation from '@/mixins/handleOrientation';
 
 export default {
   components: {},
@@ -18,7 +19,7 @@ export default {
   computed: {
     ...mapState(['userAgent'])
   },
-  mixins: [handleResize],
+  mixins: [handleResize, handleOrientation],
   methods: {},
   mounted() {}
 };
