@@ -224,7 +224,7 @@
     background-color: $beige;
     display: block;
     margin: 0 auto;
-
+    z-index: -1;
     animation:linear infinite alternate;
     animation-name: run;
     animation-duration: 0.8s;
@@ -798,8 +798,9 @@
       right: -400px;
     }
     @include media ("<phone"){
-      left: auto;
-      right: -480px;
+      left: -28vw;
+      right: auto;
+      min-height: 660px;
     }
     @include media ("<smallPhone"){
       left: auto;
@@ -842,8 +843,9 @@
       left: -60px;
     }
     @include media ("<phone"){
-      left: -87px;
+      left: -60px;
       //top: 15vh;
+      min-height: 640px;
     }
     @include media ("<smallPhone"){
       left: -53px;
@@ -2031,6 +2033,7 @@
       @include media ("<smallTablet"){
        font-size: 14px;
        margin-bottom: 10px;
+       margin-top: 10px;
       }
     }
   }
@@ -2059,7 +2062,7 @@
        margin-top: 40vh;
        }
        @include media ("<phone"){
-        margin-top: 36vh;
+        margin-top: 30vh;
       }
       @include media ("<smallPhone"){
         margin-top: 18vh;
