@@ -14,7 +14,7 @@
   margin-left: 45px;
   margin-right: 45px;
   .is-mobile &{
-    @include media ("<phone"){
+    @include media ("<tablet"){
       margin-left: 25px;
       margin-right: 25px;
       width: calc(100% - 50px);
@@ -38,7 +38,7 @@
 .header-logo{
   img{
     width: 22px;
-    height: 32px;
+    height: 25px;
   }
   position: absolute;
   top: 27px;
@@ -77,6 +77,8 @@
     margin: 0 auto;
     width: 50px;
     display: block;
+    color: $bright-beige;
+    @include montserrat-bold;
   }
 
     // Menu burger
@@ -228,6 +230,13 @@
     animation:linear infinite alternate;
     animation-name: run;
     animation-duration: 0.8s;
+  }
+  .is-mobile &{
+    @include media ("<tablet"){
+      margin-left: 25px;
+      margin-right: 15px;
+      width: calc(100% - 40px);
+    }
   }
 }
 @keyframes run {
@@ -429,10 +438,11 @@
   }
   .is-mobile &{
     @include media ("<tablet"){
-      width: 62%;
-      left: 21%;
-      height: 80vh;
-      bottom: 13vh;
+      width: 460px;
+      height: 691px;
+      bottom: calc(50vh - 345px);
+      display: block;
+      left: calc(50% - 230px);
     }
     @include media ("<smallTablet"){
       bottom: 25vh;
@@ -651,8 +661,10 @@
       right: -12vw;
     }
   }
-  @include media ("<tablet"){
-    display: none;
+  .is-mobile &{
+    @include media ("<tablet"){
+      display: none;
+    }
   }
 }
 
@@ -792,7 +804,8 @@
      @include media ("<tablet"){
       left: 0;
       right: auto;
-      min-height: 100vh;
+      min-height: 112vh;
+      top: -10vh;
      }
      @include media ("<tablet"){
       right: auto;
@@ -801,19 +814,8 @@
      @include media ("<phone"){
       right: auto;
       left: -40vw;
-      //top: 10vh;
-     }
-   }
-  // @include media ("<phone"){
-  //   right: 4%;
-  //   left: auto;
-  // }
-  // @include media ("<hSmallPhone"){
-  //   right: auto;
-  //   left: -150px;
-  //   top: 10%;
-  //   min-height: 700px;
-  // }
+    }
+  }
 }
 .slide-image--mob-3{
   position: absolute;
@@ -825,7 +827,7 @@
     opacity: 1;
     z-index: 10;
     @include media ("<tablet"){
-     left: -10vw;
+     left: 3vw;
     }
     @include media ("<smallTablet"){
       left: auto;
@@ -871,19 +873,17 @@
     display: block;
     opacity: 1;
     @include media ("<tablet"){
-     left: 0vw;
+     left: -2vw;
     }
     @include media ("<smallTablet"){
       left: -60px;
     }
     @include media ("<phone"){
       left: -60px;
-      //top: 15vh;
       min-height: 640px;
     }
     @include media ("<smallPhone"){
       left: -53px;
-      //top: 15vh;
     }
   }
 }
@@ -935,7 +935,9 @@
     height: 70vh;
     .is-mobile & {
       @include media ("<tablet"){
-        height: 72vh;
+        height: 400px;
+        margin-bottom: 33vh;
+        margin-right: -35px;
       }
       @include media ("<smallTablet"){
         height: 50vh;
@@ -953,11 +955,11 @@
       background: -webkit-linear-gradient(90deg, #E9C0A0 -29.04%, #E5BB9C -11.71%, #D8AC90 9.05%, #C3947E 31.48%, #AB7968 51.12%, #BD8C76 53.66%, #D0A084 57.25%, #DDAE8E 61.34%, #E5B794 66.37%, #E7B996 74.94%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      font-size: 16px;
-      line-height: 22px;
+      font-size: 18px;
+      line-height: 1.5;
       text-align: right;
       letter-spacing: 0.1em;
-      margin-top: 30px;
+      margin-top: 20px;
       .is-mobile & {
         @include media ("<phone"){
           font-size: 14px;
@@ -984,7 +986,7 @@
     margin-right: 35px;
   }
   .logo-block__position{
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.2;
     letter-spacing: 0.05em;
     @include montserrat-regular;
@@ -1011,10 +1013,11 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 52px;
-    line-height: 1;
+    line-height: 1.1;
     text-align: right;
     padding-top: 3px;
     margin-top: 10px;
+    margin-bottom: 0px;
     .is-mobile & {
       @include media ("<tablet"){
         font-size: 62px;
@@ -1049,7 +1052,8 @@
   .is-mobile & {
     @include media ("<tablet"){
       right: 70px;
-      bottom: 100px;
+      bottom: 80px;
+      max-width: 370px;
     }
     @include media ("<smallTablet"){
       right: 30px;
@@ -1068,6 +1072,11 @@
     border: 13px solid transparent;	
     border-top: 13px solid #000; 
     border-right: 13px solid #000;
+    .is-mobile & {
+      @include media ("<tablet"){
+      display: none;
+      }
+    }
   }
 }
 .qoute__icon{
@@ -1151,7 +1160,7 @@
       @include media ("<tablet"){
         width: 60%;
         margin-top: 0;
-        margin-bottom: 10vh;
+        margin-bottom: 2vh;
       }
       @include media ("<smallTablet"){
         width: 100%;
@@ -1186,17 +1195,14 @@
       box-sizing: border-box;
       margin-top: 3%;
     }
+  }
+
+  .padding-for-text{
     .is-mobile &{
-      @include media ("<tablet"){
-       width: 40%;
-       margin-top: 0;
-       padding-bottom: 20vh;
-      }
-      @include media ("<smallTablet"){
-        width: 100%;
-      }
+      margin-bottom: 18vh;
     }
   }
+
   .year{
     @include montserrat-medium;
     background: -webkit-linear-gradient(90deg, #E9C0A0 -29.04%, #E5BB9C -11.71%, #D8AC90 9.05%, #C3947E 31.48%, #AB7968 51.12%, #BD8C76 53.66%, #D0A084 57.25%, #DDAE8E 61.34%, #E5B794 66.37%, #E7B996 74.94%);
@@ -1339,6 +1345,9 @@
     .is-mobile &{
       @include media ("<tablet"){
         font-size: 16px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 60px;
       }
       @include media ("<smallTablet"){
         padding-left: 80px;
@@ -1369,11 +1378,13 @@
     }
     .is-mobile &{
       @include media ("<tablet"){
-        width: 100px;
-        display: block;
-      }
+        top: 6px;
+        left: 16px;
+        font-size: 28px;
+       }
       @include media ("<smallTablet"){
        left: 0px;
+       top: 15px;
       }
       @include media ("<phone"){
         left: -15px;
@@ -1408,16 +1419,17 @@
       width: 100%;
       max-width: 500px;
       @include media ("<tablet"){
-        width: 70%;
-        max-width: 300px;
+        width: 75%;
+        max-width: 310px;
+        .text{
+          width: 70%;
+          max-width: 250px;
+        }
       }
       @include media ("<smallTablet"){
        width: 100%;
        margin-right: 0;
-       .text{
-        width: 70%;
-        max-width: 250px;
-      }
+
       }
     }
   }
@@ -1471,8 +1483,13 @@
     .is-mobile &{
       @include media ("<tablet"){
        width: 100%;
-       margin-left: 0;
       }
+    }
+  }
+  .is-mobile &{
+    @include media ("<tablet"){
+     width: 100%;
+     margin-left: 0 !important;
     }
   }
 
@@ -1504,6 +1521,7 @@
     }
     .is-mobile &{
       @include media ("<tablet"){
+        font-size: 16px;
         width: 100%;
         padding-bottom: 30px;
         padding-right: 20px;
@@ -1577,6 +1595,7 @@
     .is-mobile &{
       @include media ("<tablet"){
        width: 55%;
+       max-width: 300px;
       }
       @include media ("<phone"){
         width: 60%;
@@ -1611,11 +1630,14 @@
   .is-mobile &{
     @include media ("<tablet"){
      margin-right: 0vw;
-     width: 65%;
+     width: 60%;
+     br{
+       display: none;
+     }
     }
     @include media ("<smallTablet"){
       width: 100%;
-     }
+    }
   }
   .arrow-list{
     margin-top: 0;
@@ -1677,9 +1699,12 @@
   }
   .is-mobile &{
     @include media ("<tablet"){
-     margin-right: 0vw;
-     width: 65%;
-    }
+      margin-right: 0vw;
+      width: 60%;
+      br{
+        display: none;
+      }
+     }
     @include media ("<smallTablet"){
       width: 100%;
      }
@@ -1714,9 +1739,12 @@
   }
   .is-mobile &{
     @include media ("<tablet"){
-     margin-right: 0vw;
-     width: 65%;
-    }
+      margin-right: 0vw;
+      width: 60%;
+      br{
+        display: none;
+      }
+     }
     @include media ("<smallTablet"){
       width: 100%;
      }
@@ -1767,9 +1795,12 @@
   }
   .is-mobile &{
     @include media ("<tablet"){
-     margin-right: 0vw;
-     width: 65%;
-    }
+      margin-right: 0vw;
+      width: 60%;
+      br{
+        display: none;
+      }
+     }
     @include media ("<smallTablet"){
       width: 100%;
      }
@@ -1815,9 +1846,12 @@
   }
   .is-mobile &{
     @include media ("<tablet"){
-     margin-right: 0vw;
-     width: 65%;
-    }
+      margin-right: 0vw;
+      width: 60%;
+      br{
+        display: none;
+      }
+     }
     @include media ("<smallTablet"){
       width: 100%;
      }
@@ -1901,9 +1935,12 @@
   }
   .is-mobile &{
     @include media ("<tablet"){
-     margin-right: 0vw;
-     width: 65%;
-    }
+      margin-right: 0vw;
+      width: 60%;
+      br{
+        display: none;
+      }
+     }
     @include media ("<smallTablet"){
       width: 100%;
      }
@@ -1945,9 +1982,12 @@
   }
   .is-mobile &{
     @include media ("<tablet"){
-     margin-right: 0vw;
-     width: 60%;
-    }
+      margin-right: 0vw;
+      width: 60%;
+      br{
+        display: none;
+      }
+     }
     @include media ("<smallTablet"){
       width: 100%;
      }
@@ -2007,12 +2047,9 @@
   }
   .is-mobile &{
     @include media ("<tablet"){
-      width: 58%;
+      width: 57%;
       margin-right: 0%;
       margin-left: auto;
-    }
-    @include media ("<tablet"){
-      width: 68%;
     }
     @include media ("<phone"){
       width: 75%;
@@ -2069,10 +2106,12 @@
     margin-top: 30px;
     margin-bottom: 20px;
     .is-mobile &{
+      @include media ("<tablet"){
+       margin-bottom: 10px;
+       margin-top: 30px;
+       }
       @include media ("<smallTablet"){
        font-size: 14px;
-       margin-bottom: 10px;
-       margin-top: 10px;
       }
     }
   }
@@ -2096,7 +2135,9 @@
     color: $grey;
     margin-top: 5px;
     .is-mobile &{
-      margin-top: 30vh;
+      @include media ("<tablet"){
+        margin-top: 35vh;
+      }
       @include media ("<smallTablet"){
        margin-top: 40vh;
        }
@@ -2288,13 +2329,16 @@
     }
     .phone-page-contact{
       display: block !important;
-      width: 250px;
+      width: 280px;
+      height: 42px;
       border-radius: 30px;
       @include montserrat-medium;
       font-size: 18px;
       text-align: center;
-      padding-top: 20px;
+      padding-top: 14px;
       color: $beige;
+      margin-bottom: 30px;
+      margin-right: 10px;
       @include media ("<phone"){
        font-size: 14px;
        width: 200px;
