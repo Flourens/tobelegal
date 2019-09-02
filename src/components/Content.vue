@@ -44,7 +44,7 @@ export default {
       var delay = 1000; //milliseconds
       var timeoutId;
       var animationIsFinished = false;
-      if(this.userAgent.window.width >= 1024 && !this.userAgent.device.isMobile){
+      if((this.userAgent.window.width > 768 && !this.userAgent.device.isMobile) || (this.userAgent.window.width >= 1024 && this.userAgent.device.isMobile)){
         new fullpage('#fullpage', {
         // Init
         licenseKey: 'F1F7C056-F79543AF-9D4C42D2-E43F5FDE',
@@ -840,6 +840,8 @@ export default {
       } else {
 
         // MOBILE animations
+
+        
         
         new fullpage('#fullpage', {
         // Init
@@ -1429,17 +1431,19 @@ export default {
     animatePreloader(){
       setTimeout(()=>{
         var preloaderTl = new TimelineMax({});
-        if(this.userAgent.window.width >= 1024 && !this.userAgent.device.isMobile){
-          preloaderTl.to('.hummer', 0.5, {opacity: 0})
-                      .to('.pre_dot', 1.1, {left: '19.5%'},0)
-                      .to('#preloader-pane-1', 0.7, {opacity: 0})
-                      .fromTo('.slide-image--1', 0.7, {opacity: 0},{opacity: 1}, '-=0.7')
-                      .set('#preloader-pane-1, #preloader-pane-2', {pointerEvents: 'none'})
-                      .fromTo('.slide-1-cols__1 .text', 0.8, {x: -220,opacity:0},{x: 0,opacity:1})
-                      .fromTo('.quote', 1, {y: 60, opacity:0},{y: 0,opacity:1}, '+=0.1')
-          ;
+        if((this.userAgent.window.width >= 1024)){
+          preloaderTl.to('#cut-off-bottom-rect', 3, { attr:{transform:"translate(0,0)"} })
+                     .to('#logo-anim-1 > *', 0.3, { x:50,opacity: 0})
+                     .to('.hummer', 0.3, {opacity: 0},"-=0.3")
+                     .to('.pre_dot', 1.1, {left: '-70%'})
+                     .to('#preloader-pane-1', 0.7, {opacity: 0})
+                     .fromTo('.slide-image--1', 0.7, {opacity: 0},{opacity: 1}, '-=0.7')
+                     .set('#preloader-pane-1, #preloader-pane-2', {pointerEvents: 'none'})
+                     .fromTo('.slide-1-cols__1 .text', 0.8, {x: -220,opacity:0},{x: 0,opacity:1})
+                     .fromTo('.quote', 1, {y: 60, opacity:0},{y: 0,opacity:1}, '+=0.1');
         } else {
-          preloaderTl.to('#preloader-pane-1', 0.3, {opacity: 0})
+            preloaderTl.to('#cut-off-bottom-rect-2', 3, { attr:{transform:"translate(0,0)"} },0)
+                       .to('#preloader-pane-1', 0.3, {opacity: 0})
           ;
         }
         

@@ -1,6 +1,8 @@
-import isMobile from "ismobilejs";
+import isMobile from 'ismobilejs';
 import windowSize from "get-window-size";
 import browser from "browser-detect";
+
+console.log(isMobile);
 
 const userAgent = {
   state: {
@@ -34,7 +36,7 @@ const userAgent = {
     },
     UPDATE_WINDOW_PARAMS(state, payload) {
       state.window = payload;
-      state.device.isMobile = payload.width < 1024;
+      //state.device.isMobile = payload.width < 1024;
     },
     UPDATE_SCREENTEST: (state, payload) => {
       state.screentest = payload;
