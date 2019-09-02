@@ -421,11 +421,11 @@
     position: absolute;
     bottom: 0;
   }
-  &-2{
-    left: 55vw;
-  }
   @include media ("<desktop"){
     left: 14.5vw;
+  }
+  @include media ("height<hSmall"){
+    bottom: 15vh;
   }
   .is-mobile &{
     @include media ("<tablet"){
@@ -448,8 +448,8 @@
   top: 20vh;
   right: 18.5vw;
   overflow: hidden;
-  &-2{
-    right: 55vw;
+  @include media ("height<hSmall"){
+    top: 15vh;
   }
 }
 .black-logo{
@@ -518,6 +518,9 @@
   font-size: 14px;
   @include media (">largeDesktop"){
     font-size: 18px;
+  }
+  @include media ("height<hSmall"){
+    margin-top: 30px;
   }
   .is-mobile &{
     @include media ("<phone"){
@@ -642,9 +645,10 @@
   //   margin: auto 0;
   // }
   @include media ("height<hSmall"){
-    height: 120vh;
+    height: 130vh;
     min-height: 0px;
-    right: -3%;
+    right: -2%;
+    bottom: -7vh;
   }
   @include media ("<tablet"){
     display: none;
@@ -678,10 +682,8 @@
     bottom: 0;
     opacity: 0;
   }
-  @include media (">phone"){
-    @include media ("height<hSmall"){
-      top: 10%;
-    }
+  @include media ("height<hSmall"){
+    top: 10%;
   }
 }
 .slide-image--3{
@@ -693,10 +695,8 @@
   @include media (">largeDesktop"){
     width: 400px;
   }
-  @include media (">phone"){
-    @include media ("height<hSmall"){
-      top: 10%;
-    }
+  @include media ("height<hSmall"){
+    top: 10%;
   }
   .is-mobile &{
     display: none;
@@ -713,10 +713,10 @@
     left: 11vw;
     height: 100vh;
   }
-  @include media (">phone"){
-    @include media ("height<hSmall"){
-      bottom: -120px;
-    }
+  @include media ("height<hSmall"){
+    left: 37vw; 
+    height: 110vh;
+    bottom: -5vh;
   }
 }
 .slide-image--6{
@@ -728,10 +728,10 @@
   @include media ("<desktop"){
     left: -18vw;
   }
-  @include media (">phone"){
-    @include media ("height<hSmall"){
-      bottom: -110px;
-    }
+  @include media ("height<hSmall"){
+    height: 140vh;
+    left: 0;
+    bottom: -25vh;
   }
 }
 .slide-image--7{
@@ -743,11 +743,10 @@
   @include media ("<desktop"){
     left: 30vw;
   }
-  @include media (">smallDesktop"){
-    @include media ("height<hSmall"){
-      left: 50vw;
-      height: 110vh;
-    }
+  @include media ("height<hSmall"){
+    left: 40vw;
+    height: 130vh;
+    bottom: -15vh;
   }
 }
 .slide-image--mob-1{
@@ -1008,6 +1007,9 @@
   padding: 25px;
   @include media (">largeDesktop"){
     max-width: 645px;
+  }
+  @include media ("height<hSmall"){
+    bottom: 100px;
   }
   .is-mobile & {
     @include media ("<tablet"){
@@ -1921,6 +1923,10 @@
   .arrow-list{
     margin-bottom: 24vh;
     margin-top: 60px;
+    @include media ("height<hSmall"){
+      margin-top: 30px;
+      margin-bottom: 20vh;
+    }
     .is-mobile &{
       @include media ("<tablet"){
        margin-top: 25px;
