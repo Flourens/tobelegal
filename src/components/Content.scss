@@ -1057,7 +1057,7 @@
       max-width: 350px;
     }
     @include media ("<phone"){
-      display: none;
+      //display: none;
     }
   }
   &:after{
@@ -2228,13 +2228,6 @@
     }
   }
 }
-// .fp-viewing-section-4{
-// .slide-image--mob-3{
-//   .is-mobile &{
-//       opacity: 0 !important;
-//     }
-//   }
-// }
 .slide-image--mob-4{
   .is-mobile &{
     .fp-viewing-section-8 &,.fp-viewing-section-9 &,.fp-viewing-section-10 &,.fp-viewing-section-11 &,.fp-viewing-section-12 &,.fp-viewing-section-13 &,.fp-viewing-section-14 &{
@@ -2261,6 +2254,14 @@
   }
   .black-logo__owerlay{
     opacity: 0;
+  }
+}
+
+.fp-viewing-section-6,.fp-viewing-section-8,.fp-viewing-section-9,.fp-viewing-section-10,.fp-viewing-section-11,.fp-viewing-section-12 {
+  .is-mobile{
+    .black-logo__owerlay{
+      opacity: 1;
+    }
   }
 }
 
@@ -2319,6 +2320,11 @@
     .black-logo-right__owerlay{
       opacity: 0;
     }
+  }
+}
+
+.fp-viewing-section-5,.fp-viewing-section-7 {
+  .is-mobile{
     .black-logo__owerlay{
       opacity: 0;
     }
@@ -2328,8 +2334,10 @@
 
 
 .fp-viewing-section-13{
-  .is-mobile &{
-    opacity: 1;
+  .is-mobile{
+    .black-logo__owerlay{
+      opacity: 1 !important;
+    }
   }
   .black-logo__owerlay{
     opacity: 0 !important;
