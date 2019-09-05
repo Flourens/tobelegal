@@ -994,7 +994,7 @@ export default {
             if(origin.index == 8){
               if(destination.index < 8 || destination.index > 14){
                 animationTl.to('.slide-7-cols', 0.3, { opacity: 0, y: -80 },0)
-                           .to('.slide-image--mob-4', 0.9, { xPercent: -30, opacity: 0 })
+                           .to('.black-logo__owerlay', 0.6, { opacity: 0 })
                            .set('body', {opacity: 1, onComplete: function(){
                               animationIsFinished = true;
                               fullpage_api.moveTo(`section-${destination.index}`);
@@ -1016,6 +1016,7 @@ export default {
               if(destination.index < 8 || destination.index > 14){
                 animationTl.to('.slide-8-cols', 0.3, { opacity: 0, y: -80 },0)
                 .to('.slide-image--mob-4', 0.9, { xPercent: -30, opacity: 0 })
+                .to('.black-logo__owerlay', 0.6, { opacity: 0 })
                 .set('body', {opacity: 1, onComplete: function(){
                     animationIsFinished = true;
                     fullpage_api.moveTo(`section-${destination.index}`);
@@ -1037,6 +1038,7 @@ export default {
               if(destination.index < 8 || destination.index > 14){
                 animationTl.to('.slide-9-cols', 0.3, { opacity: 0, y: -80 },0)
                 .to('.slide-image--mob-4', 0.9, { xPercent: -30, opacity: 0 })
+                .to('.black-logo__owerlay', 0.6, { opacity: 0 })
                 .set('body', {opacity: 1, onComplete: function(){
                     animationIsFinished = true;
                     fullpage_api.moveTo(`section-${destination.index}`);
@@ -1058,6 +1060,7 @@ export default {
               if(destination.index < 8 || destination.index > 14){
                 animationTl.to('.slide-10-cols', 0.3, { opacity: 0, y: -80 },0)
                 .to('.slide-image--mob-4', 0.9, { xPercent: -30, opacity: 0 })
+                .to('.black-logo__owerlay', 0.6, { opacity: 0 })
                 .set('body', {opacity: 1, onComplete: function(){
                     animationIsFinished = true;
                     fullpage_api.moveTo(`section-${destination.index}`);
@@ -1079,6 +1082,7 @@ export default {
               if(destination.index < 8 || destination.index > 14){
                 animationTl.to('.slide-11-cols', 0.3, { opacity: 0, y: -80 },0)
                 .to('.slide-image--mob-4', 0.9, { xPercent: -30, opacity: 0 })
+                .to('.black-logo__owerlay', 0.6, { opacity: 0 })
                 .set('body', {opacity: 1, onComplete: function(){
                     animationIsFinished = true;
                     fullpage_api.moveTo(`section-${destination.index}`);
@@ -1100,6 +1104,7 @@ export default {
               if(destination.index < 8 || destination.index > 14){
                 animationTl.to('.slide-12-cols', 0.3, { opacity: 0, y: -80 },0)
                 .to('.slide-image--mob-4', 0.9, { xPercent: -30, opacity: 0 })
+                .to('.black-logo__owerlay', 0.6, { opacity: 0 })
                 .set('body', {opacity: 1, onComplete: function(){
                     animationIsFinished = true;
                     fullpage_api.moveTo(`section-${destination.index}`);
@@ -1121,6 +1126,7 @@ export default {
               if(destination.index < 8 || destination.index > 14){
                 animationTl.to('.slide-13-cols', 0.3, { opacity: 0, y: -80 },0)
                 .to('.slide-image--mob-4', 0.9, { xPercent: -30, opacity: 0 })
+                .to('.black-logo__owerlay', 0.6, { opacity: 0 })
                 .set('body', {opacity: 1, onComplete: function(){
                     animationIsFinished = true;
                     fullpage_api.moveTo(`section-${destination.index}`);
@@ -1382,7 +1388,7 @@ export default {
               ;
             } else {
               animationTlBack.set('.slide-10-cols', { clearProps: 'all'},0)
-                              // .fromTo('.slide-image--mob-4', 0.9, { xPercent: -30, opacity: 1 },{ xPercent: 0, opacity: 1 })
+                              .fromTo('.slide-image--mob-4', 0.9, { xPercent: -30, opacity: 1 },{ xPercent: 0, opacity: 1 })
                               .fromTo('.slide-10-cols .services-title', 0.3, { opacity:0, y:30 },{ opacity:1, y:0 })
                               .fromTo('.slide-10-cols .text', 0.3, { opacity:0, y:30 },{ opacity:1, y:0 })
                               .staggerFromTo('.slide-10-cols .arrow-list__item', 0.3, { opacity:0, y:30 },{ opacity:1, y:0 }, 0.5 )
@@ -1405,7 +1411,7 @@ export default {
               ;
             } else {
               animationTlBack.set('.slide-11-cols', { clearProps: 'all'},0)
-                              // .fromTo('.slide-image--mob-4', 0.9, { xPercent: -30, opacity: 1 },{ xPercent: 0, opacity: 1 })
+                              .fromTo('.slide-image--mob-4', 0.9, { xPercent: -30, opacity: 1 },{ xPercent: 0, opacity: 1 })
                               .fromTo('.slide-11-cols .services-title', 0.3, { opacity:0, y:30 },{ opacity:1, y:0 })
                               .fromTo('.slide-11-cols .text', 0.3, { opacity:0, y:30 },{ opacity:1, y:0 })
                               .staggerFromTo('.slide-11-cols .arrow-list__item', 0.3, { opacity:0, y:30 },{ opacity:1, y:0 }, 0.5 )
@@ -1427,7 +1433,7 @@ export default {
               ;
             } else {
               animationTlBack.set('.slide-12-cols', { clearProps: 'all'},0)
-                              // .fromTo('.slide-image--mob-4', 0.9, { xPercent: -30, opacity: 1 },{ xPercent: 0, opacity: 1 })
+                              .fromTo('.slide-image--mob-4', 0.9, { xPercent: -30, opacity: 1 },{ xPercent: 0, opacity: 1 })
                               .fromTo('.slide-12-cols .services-title', 0.3, { opacity:0, y:30 },{ opacity:1, y:0 })
                               .staggerFromTo('.slide-12-cols .arrow-list__item', 0.3, { opacity:0, y:30 },{ opacity:1, y:0 }, 0.5 )
                               .set('body', {opacity: 1, onComplete: ()=>{
@@ -1441,13 +1447,17 @@ export default {
             if(origin.index > 8 && origin.index < 15){
               animationTlBack.set('.slide-13-cols', { clearProps: 'all'},0)
                               .fromTo('.slide-13-cols .services-title', 0.3, { opacity:0, y:30 },{ opacity:1, y:0 })
-                              .staggerFromTo('.slide-13-cols .arrow-list__item', 0.3, { opacity:0, y:30 },{ opacity:1, y:0 }, 0.5 )
+                              .staggerFromTo('.slide-13-cols .arrow-list__item', 0.8, { opacity:0, y:30 },{ opacity:1, y:0 }, 0.8 )
                               .set('body', {opacity: 1, onComplete: ()=>{
                                 setTimeout(()=>{ this.enterAnimFinished = true; },200)
                               }})
               ;
             } else {
               animationTlBack.set('.slide-13-cols', { clearProps: 'all'},0)
+                              .set('.black-logo, .black-logo__owerlay', { clearProps: 'all' },0)
+                              .set('.black-logo__owerlay', { opacity:1, height: 0 },0)
+                              .set('.black-logo__owerlay', { height: 'auto' })
+                              .from('.black-logo__owerlay', 1, { height: 0 })
                               .fromTo('.slide-image--mob-4', 0.9, { xPercent: -30, opacity: 1 },{ xPercent: 0, opacity: 1 })
                               .fromTo('.slide-13-cols .services-title', 0.5, { opacity:0, y:30 },{ opacity:1, y:0 })
                               .staggerFromTo('.slide-13-cols .arrow-list__item', 0.3, { opacity:0, y:30 },{ opacity:1, y:0 }, 0.5 )
@@ -1459,7 +1469,7 @@ export default {
           }
           // Enter anim slide 16
           if(destination.index == 15){
-              animationTlBack.fromTo('.slide-image--mob-5', 0.9, { xPercent: -30, opacity: 1 },{ xPercent: 0, opacity: 1 })
+              animationTlBack.fromTo('.slide-image--mob-5', 0.8, { xPercent: -60, opacity: 1 },{ xPercent: 0, opacity: 1 })
                               .staggerFromTo('.slide-14-cols-1 > *', 0.3, { opacity:0, y:30 },{ opacity:1, y:0 }, 0.5 )
                               .set('body', {opacity: 1, onComplete: ()=>{
                                 setTimeout(()=>{ this.enterAnimFinished = true; },200)
