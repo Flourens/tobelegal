@@ -490,6 +490,9 @@
   z-index: 10;
   margin-left: 15%;
   margin-right: 7%;
+  @include media (">largeDesktop"){
+   margin-left: 13%;
+  }
   @include media ("<smallDesktop"){
     margin-left: 7%;
   }
@@ -664,6 +667,10 @@
   z-index: 1;
   height: 110vh;
   width: auto;
+  @include media (">largeDesktop"){
+    height: 125vh;
+    margin-bottom: -5vh;
+  }
   @include media ("<desktop"){
     right: -5vh;
   }
@@ -698,8 +705,11 @@
     width: 275px;
     height: auto;
     @include media (">largeDesktop"){
-      width: 400px;
+      width: 430px;
     }
+  }
+  @include media (">largeDesktop"){
+   top: 13vh;
   }
   @include media ("<smallDesktop"){
     right: 30vw;
@@ -728,7 +738,8 @@
   top: 21vh;
   z-index: 1000;
   @include media (">largeDesktop"){
-    width: 400px;
+    width: 430px;
+    top: 13vh;
   }
   @include media ("height<hSmall"){
     top: 15vh;
@@ -747,6 +758,9 @@
   bottom: 0vh;
   height: 102vh;
   z-index: 0;
+  @include media (">largeDesktop"){
+    left: 30vw;
+  }
   @include media ("<desktop"){
     left: 28vw;
   }
@@ -1069,6 +1083,10 @@
   padding: 25px;
   @include media (">largeDesktop"){
     max-width: 645px;
+    right: 100px;
+    bottom: 160px;
+    padding-top: 35px;
+    padding-bottom: 35px;
   }
   @include media ("<desktop"){
     bottom: 130px;
@@ -1116,6 +1134,10 @@
   left: 20px;
   top: 28px;
   color: #fff;
+  @include media (">largeDesktop"){
+    font-size: 120px;
+    top: 40px;
+  }
 }
 .qoute__text{
   margin-left: 60px;
@@ -1125,8 +1147,8 @@
   color: #fff;
   @include media (">largeDesktop"){
     font-size: 18px;
+    margin-left: 90px;
   }
-
 }
 .qoute__contact{
   display: flex;
@@ -1135,6 +1157,11 @@
   width: calc(100% - 60px);
   margin-left: 60px;
   margin-top: 20px;
+  @include media (">largeDesktop"){
+    margin-top: 30px;
+    margin-left: 90px;
+    width: calc(100% - 110px);
+  }
 }
 .qoute__tel{
   font-size: 12px;
@@ -1176,6 +1203,9 @@
     position: relative;
     margin-top: 11%;
     margin-left: 6vw;
+    @include media (">largeDesktop"){
+      margin-left: 2vw;
+    }
     @include media ("<desktop"){
       width: 37%;
       box-sizing: border-box;
@@ -1202,6 +1232,9 @@
   .slide-2-cols__2{
     width: 27%;
     min-width: 274px;
+    @include media (">largeDesktop"){
+      min-width: 490px;
+    }
     @include media ("<desktop"){
       width: 35%;
     }
@@ -1222,6 +1255,7 @@
     margin-left: 45px;
     @include media (">largeDesktop"){
       max-width: 300px;
+      margin-left: 8%;
     }
     @include media ("<desktop"){
       box-sizing: border-box;
@@ -1242,6 +1276,9 @@
     -webkit-text-fill-color: transparent;
     font-size: 64px;
     line-height: 1;
+    @include media (">largeDesktop"){
+      font-size: 84px;
+    }
     .is-mobile &{
       @include media ("<tablet"){
        font-size: 80px;
@@ -1254,6 +1291,13 @@
     top: -55px;
     left: 165px;
     width: 145%;
+    height: 90px;
+    @include media (">largeDesktop"){
+      left: 220px;
+      top: -85px;
+      width: 185%;
+      height: 130px;
+    }
     @include media ("<tablet"){
      display: none;
     }
@@ -1263,12 +1307,21 @@
     position: absolute;
     top: -68px;
     left: 153px;
+    height: 90px;
+    width: 190%;
+    @include media (">largeDesktop"){
+      left: 200px;
+      top: -58px;
+      height: 90px;
+      width: 120%;
+    }
     @include media ("<tablet"){
       display: none;
     }
   }
   .line-inner{
     height: 100%;
+    width: 100%;
   }
   .text{
     margin-top: 15px;
@@ -1283,6 +1336,9 @@
   display: flex;
   flex-direction: row;
   margin-left: 4vw;
+  @include media (">largeDesktop"){
+    margin-left: 0;
+  }
   @include media ("<desktop"){
    margin-left: 3vw;
   }
@@ -1295,7 +1351,11 @@
     width: 50%;
     max-width: 430px;
     margin-right: 10%;
-
+    @include media (">largeDesktop"){
+      width: 60%;
+      max-width: 570px;
+      margin-right: auto;
+    }
     @include media ("<tablet"){
       width: 50%;
       max-width: 320px;
@@ -1335,6 +1395,7 @@
     align-items: center;
     @include media (">largeDesktop"){
       height: 65px;
+      margin-bottom: 30px;
     }
     .is-mobile &{
       @include media ("<tablet"){
@@ -1449,6 +1510,9 @@
   display: flex;
   flex-direction: row;
   margin-left: 6vw;
+  @include media (">largeDesktop"){
+    margin-left: 2vw;
+  }
   @include media ("<tablet"){
     margin-left: 0;
   }
@@ -1456,6 +1520,10 @@
     width: 50%;
     max-width: 400px;
     margin-right: 10%;
+    @include media (">largeDesktop"){
+      max-width: 500px;
+      margin-top: 12vh;
+    }
     .is-mobile &{
       width: 100%;
       max-width: 500px;
@@ -1524,6 +1592,9 @@
   display: flex;
   flex-direction: row;
   margin-left: 4vw;
+  @include media (">largeDesktop"){
+    margin-left: 2vw;
+  }
   .slide-5-cols__1{
     width: 60%;
     .is-mobile &{
@@ -1633,6 +1704,9 @@
   display: flex;
   flex-direction: row;
   margin-left: 6vw;
+  @include media (">largeDesktop"){
+    margin-left: 2vw;
+  }
   .is-mobile &{
      @include media ("<tablet"){
       margin-left: 0;
