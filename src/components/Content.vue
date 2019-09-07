@@ -44,7 +44,10 @@ export default {
       var delay = 1000; //milliseconds
       var timeoutId;
       var animationIsFinished = false;
-      if((this.userAgent.window.width > 768 && !this.userAgent.device.isMobile) || (this.userAgent.window.width >= 1024 && this.userAgent.device.isMobile)){
+      if((this.userAgent.window.width > 768 && !this.userAgent.device.isMobile) || 
+         (this.userAgent.window.width >= 1024 && this.userAgent.device.isMobile && this.userAgent.orientation == 'landscape'))
+        {
+        console.log('desktop');
         new fullpage('#fullpage', {
         // Init
         licenseKey: 'F1F7C056-F79543AF-9D4C42D2-E43F5FDE',
@@ -75,6 +78,8 @@ export default {
             }
             // Leave animation slide 2
             if(origin.index == 1){
+              // document.querySelector('.line-1 img').width = document.querySelector('.line-1').width;
+              // document.querySelector('.line-2 img').width = document.querySelector('.line-2').width;
               if(direction == 'up'){
                 animationTl.set('.slide__overlay,#preloader-pane-2', {opacity: 0},0)
                               .set('.section.active', {opacity: 1},0)
@@ -401,6 +406,7 @@ export default {
           animationTlBack.progress(0);
           countriesLoop.progress(0);
           this.enterAnimFinished = false;
+          let blackLogoHeight = document.querySelector('.black-logo-right__owerlay').scrollHeight;
           
           // Enter anim slide 1
           if(destination.index == 0){
@@ -577,7 +583,7 @@ export default {
                               .set('.section.active', {opacity: 1},0)
                               //face
                               .set('.black-logo,.black-logo__owerlay', { clearProps: 'all' },0)
-                              .fromTo('.black-logo__owerlay', 0.6, { height: '0px' },{ height: '430px' })
+                              .fromTo('.black-logo__owerlay', 0.6, { height: '0px' },{ height: blackLogoHeight })
                               .fromTo('.slide-6-cols__1 .text', 0.6, { opacity:0, y:0, x:-60 },{ opacity:1, x:0 })
                               .fromTo('.slide-image--5', 1.5, { opacity:0, xPercent:30 },{ opacity:1,xPercent:0 })
                               .set('body', {opacity: 1, onComplete: () => {
@@ -610,7 +616,7 @@ export default {
                                 .set('.section.active', {opacity: 1},0)
                                 
                                 .set('.black-logo,.black-logo-right__owerlay', { clearProps: 'all' },0)
-                                .fromTo('.black-logo-right__owerlay', 0.5, { height: '0px' },{ height: '430px' })
+                                .fromTo('.black-logo-right__owerlay', 0.5, { height: '0px' },{ height: blackLogoHeight })
                                 //face
                                 .fromTo('.slide-image--6', 0.9, { xPercent: -30 },{ xPercent: 0 })
                                 .fromTo('.slide-image--6', 1.5, { opacity: 0 },{ opacity: 1 }, '-=0.9')
@@ -803,7 +809,7 @@ export default {
                                 .set('.slide__overlay,#preloader-pane-2', {opacity: 0},0)
                                 .set('.section.active', {opacity: 1},0)
                                 .set('.black-logo,.black-logo-right__owerlay', { clearProps: 'all' },0)
-                                .fromTo('.black-logo-right__owerlay', 0.5, { height: '0px' },{ height: '430px' })
+                                .fromTo('.black-logo-right__owerlay', 0.5, { height: '0px' },{ height: blackLogoHeight })
                                 //face
                                 .fromTo('.slide-image--6', 0.9, { xPercent: -30 },{ xPercent: 0 })
                                 .fromTo('.slide-image--6', 1.5, { opacity: 0 },{ opacity: 1 }, '-=0.9')
@@ -900,16 +906,16 @@ export default {
             // Leave animation slide 3
             if(origin.index == 2){
               if(direction == 'up'){
-                animationTl.to('.inner-image-mobile--1', 1, { yPercent: 130 },0)
-                           .set('.inner-image-mobile--1', { opacity: 0 })
+                animationTl.to('.slide-image-mobile--2', 1, { yPercent: 130 },0)
+                           .set('.slide-image-mobile--2', { opacity: 0 })
                            .set('body', {opacity: 1, delay: 0.5, onComplete: function(){
                               animationIsFinished = true;
                               fullpage_api.moveTo(`section-${destination.index}`);
                               animationIsFinished = false;
                             }});
               } else if(direction == 'down'){
-                animationTl.to('.inner-image-mobile--1', 1, { yPercent: -100 },0)
-                           .set('.inner-image-mobile--1', { opacity: 0 })
+                animationTl.to('.slide-image-mobile--2', 1, { yPercent: -100 },0)
+                           .set('.slide-image-mobile--2', { opacity: 0 })
                            .set('body', {opacity: 1, delay: 0.5, onComplete: function(){
                               animationIsFinished = true;
                               fullpage_api.moveTo(`section-${destination.index}`);
@@ -1200,15 +1206,15 @@ export default {
           // Enter anim slide 3
           if(destination.index == 2){
             if(origin.index > 2){
-              animationTlBack.set('.inner-image-mobile--1', { opacity: 1 })
-                             .fromTo('.inner-image-mobile--1', 1, { yPercent: -105 }, { yPercent: 0 },0)
+              animationTlBack.set('.slide-image-mobile--2', { opacity: 1 })
+                             .fromTo('.slide-image-mobile--2', 1, { yPercent: -105 }, { yPercent: 0 },0)
                              .set('body', {opacity: 1, onComplete: ()=>{
                               setTimeout(()=>{ this.enterAnimFinished = true; },200)
                             }})
               ;
             } else {
-              animationTlBack.set('.inner-image-mobile--1', { opacity: 1 })
-                             .fromTo('.inner-image-mobile--1', 0.8, { yPercent: 105 }, { yPercent: 0 },0)
+              animationTlBack.set('.slide-image-mobile--2', { opacity: 1 })
+                             .fromTo('.slide-image-mobile--2', 0.8, { yPercent: 105 }, { yPercent: 0 },0)
                              .set('body', {opacity: 1, onComplete: ()=>{
                               setTimeout(()=>{ this.enterAnimFinished = true; },200)
                             }});
@@ -1482,13 +1488,21 @@ export default {
       
     },
     animatePreloader(){
+      let preloaderShift = '-70%';
+      if(this.userAgent.window.width >= 1920){
+        preloaderShift = '-89%';
+      }
+      if(this.userAgent.window.width >= 2600){
+        preloaderShift = '-85%';
+      }
+      
       setTimeout(()=>{
         var preloaderTl = new TimelineMax({});
-        if((this.userAgent.window.width >= 1024)){
+        if((this.userAgent.window.width > 768 && !this.userAgent.device.isMobile) || (this.userAgent.window.width >= 1024 && this.userAgent.device.isMobile && this.userAgent.orientation == 'landscape')){
           preloaderTl.to('#cut-off-bottom-rect', 3, { attr:{transform:"translate(0,0)"} })
                      .to('#logo-anim-1 > *', 0.3, { x:50,opacity: 0})
                      .to('.hummer', 0.3, {opacity: 0},"-=0.3")
-                     .to('.pre_dot', 1.1, {left: '-70%'})
+                     .to('.pre_dot', 1.1, {left: preloaderShift})
                      .to('#preloader-pane-1', 0.7, {opacity: 0})
                      .fromTo('.slide-image--1', 0.7, {opacity: 0},{opacity: 1}, '-=0.7')
                      .set('#preloader-pane-1, #preloader-pane-2', {pointerEvents: 'none'})
