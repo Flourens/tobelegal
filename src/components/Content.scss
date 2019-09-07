@@ -13,6 +13,13 @@
   justify-content: space-between;
   margin-left: 45px;
   margin-right: 45px;
+  @include media (">xlargeDesktop"){
+    height: 58px;
+    margin-top: 10px;
+    width: calc(100% - 150px);
+    margin-left: 60px;
+    margin-right: 60px;
+  }
   .is-mobile &{
     @include media ("<tablet"){
       margin-left: 25px;
@@ -39,10 +46,15 @@
   img{
     width: 22px;
     height: 25px;
+    @include media (">xlargeDesktop"){
+      width: 32px;
+      height: 48px;
+    }
   }
   position: absolute;
   top: 27px;
   left: calc(50% - 11px);
+
 }
 .header-link{
   @include montserrat-medium;
@@ -55,6 +67,9 @@
   }
   @include media (">largeDesktop"){
     font-size: 14px;
+  }
+  @include media (">xlargeDesktop"){
+    font-size: 18px;
   }
 }
 .header-desktop{
@@ -231,6 +246,12 @@
     animation-name: run;
     animation-duration: 0.8s;
   }
+  @include media (">xlargeDesktop"){
+    width: calc(100% - 160px);
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-bottom: 50px;
+  }
   .is-mobile &{
     @include media ("<tablet"){
       margin-left: 25px;
@@ -252,6 +273,10 @@
   width: 14px;
   height: 16px;
   margin-bottom: 15px;
+  @include media (">xlargeDesktop"){
+    height: 23px;
+    width: 25px;
+  }
 }
 .facebook{
   display: flex;
@@ -261,7 +286,11 @@
 .facebook-icon{
   height: 16px;
   width: 8px;
-   margin-right: 15px;
+  margin-right: 15px;
+  @include media (">xlargeDesktop"){
+    height: 25px;
+    width: 17px;
+  }
 }
 .facebook-text{
   display: inline;
@@ -283,6 +312,9 @@
   }
   @include media (">largeDesktop"){
     font-size: 14px;
+  }
+  @include media (">xlargeDesktop"){
+    font-size: 18px;
   }
 }
 .facebook-link{
@@ -306,6 +338,10 @@
     color: $dark-beige;
     @include media (">largeDesktop"){
       font-size: 14px;
+    }
+    @include media (">xlargeDesktop"){
+      font-size: 18px;
+      margin-left: 30px;
     }
     }
     a{
@@ -436,6 +472,11 @@
     left: 18vw;
     bottom: 14vh;
   }
+  @include media (">xlargeDesktop"){
+    width: 728px;
+    height: 1128px;
+    left: 17vw;
+  }
   @include media ("<desktop"){
     left: 14.5vw;
   }
@@ -478,6 +519,11 @@
     height: 703px;
     right: 20vw;
     top: 14vh;
+  }
+  @include media (">xlargeDesktop"){
+    width: 728px;
+    height: 1128px;
+    right: 15vw;
   }
   @include media ("height<hSmall"){
     top: 15vh;
@@ -536,6 +582,9 @@
   @include media (">largeDesktop"){
     font-size: 18px;
   }
+  @include media (">xlargeDesktop"){
+    font-size: 24px;
+  }
   @include media ("<tablet"){
     font-size: 16px;
   }
@@ -552,6 +601,9 @@
   font-size: 14px;
   @include media (">largeDesktop"){
     font-size: 18px;
+  }
+  @include media (">xlargeDesktop"){
+    font-size: 24px;
   }
   @include media ("height<hSmall"){
     margin-top: 30px;
@@ -580,6 +632,9 @@
   margin-top: 20px;
   @include media (">largeDesktop"){
     font-size: 48px;
+  }
+  @include media (">xlargeDesktop"){
+    font-size: 64px;
   }
   &:before{
     content: '/';
@@ -621,6 +676,9 @@
 .arrow-list{
   margin-top: 20px;
   margin-left: 10px;
+  @include media (">xlargeDesktop"){
+    margin-top: 35px;
+  }
   .is-mobile &{
     @include media ("<phone"){
       margin-top: 5px;
@@ -639,6 +697,12 @@
   color: $grey;
   @include media (">largeDesktop"){
     font-size: 18px;
+    padding-left: 25px;
+  }
+  @include media (">xlargeDesktop"){
+    font-size: 24px;
+    padding-left: 35px;
+    margin-bottom: 65px;
   }
   &:before{
     content: '';
@@ -653,6 +717,11 @@
     @include media (">largeDesktop"){
       width: 14px;
       height: 10px;
+    }
+    @include media (">xlargeDesktop"){
+      width: 25px;
+      height: 18px;
+      top: 9px;
     }
     .is-mobile &{
       @include media ("<phone"){
@@ -681,6 +750,10 @@
   width: auto;
   @include media (">largeDesktop"){
     height: 125vh;
+    margin-bottom: -5vh;
+  }
+  @include media (">xlargeDesktop"){
+    height: 115vh;
     margin-bottom: -5vh;
   }
   @include media ("<desktop"){
@@ -719,6 +792,9 @@
     @include media (">largeDesktop"){
       width: 430px;
     }
+    @include media (">xlargeDesktop"){
+      width: 720px;
+    }
   }
   @include media (">largeDesktop"){
    top: 13vh;
@@ -753,6 +829,9 @@
     width: 430px;
     top: 13vh;
   }
+  @include media (">xlargeDesktop"){
+    width: 720px;
+  }
   @include media ("height<hSmall"){
     top: 15vh;
     @include media ("<desktop"){
@@ -772,6 +851,9 @@
   z-index: 0;
   @include media (">largeDesktop"){
     left: 30vw;
+  }
+  @include media (">xlargeDesktop"){
+    left: 22vw;
   }
   @include media ("<desktop"){
     left: 28vw;
@@ -819,6 +901,9 @@
   right: 0vw;
   bottom: 0vh;
   z-index: 0;
+  @include media (">xlargeDesktop"){
+    height: 100vh;
+  }
   @include media ("<desktop"){
     bottom: 0;
     right: -3vw;
@@ -974,6 +1059,9 @@
     display: flex;
     flex-wrap: wrap;
     width: 470px;
+    @include media (">xlargeDesktop"){
+     width: 800px;
+    }
   }
   .slide-1-cols__2{
     width: 410px;
@@ -1027,6 +1115,10 @@
     margin-top: 80px;
     @include media (">largeDesktop"){
       margin-top: 150px;
+    }
+    @include media (">xlargeDesktop"){
+      margin-top: 320px;
+      margin-left: 200px;
     }
     @include media ("<smallDesktop"){
       margin-left: 145px;
@@ -1100,6 +1192,12 @@
     padding-top: 35px;
     padding-bottom: 35px;
   }
+  @include media (">xlargeDesktop"){
+    max-width: 858px;
+    padding-top: 45px;
+    padding-bottom: 45px;
+    bottom: 350px;
+  }
   @include media ("<desktop"){
     bottom: 130px;
   }
@@ -1150,6 +1248,10 @@
     font-size: 120px;
     top: 40px;
   }
+  @include media (">xlargeDesktop"){
+    font-size: 159px;
+    top: 50px;
+  }
 }
 .qoute__text{
   margin-left: 60px;
@@ -1160,6 +1262,10 @@
   @include media (">largeDesktop"){
     font-size: 18px;
     margin-left: 90px;
+  }
+  @include media (">xlargeDesktop"){
+    font-size: 24px;
+    margin-left: 120px;
   }
 }
 .qoute__contact{
@@ -1174,6 +1280,12 @@
     margin-left: 90px;
     width: calc(100% - 110px);
   }
+  @include media (">xlargeDesktop"){
+    font-size: 24px;
+    margin-top: 50px;
+    margin-left: 120px;
+    width: calc(100% - 150px);
+  }
 }
 .qoute__tel{
   font-size: 12px;
@@ -1184,6 +1296,9 @@
   @include media (">largeDesktop"){
     font-size: 18px;
   }
+  @include media (">xlargeDesktop"){
+    font-size: 24px;
+  }
 }
 .qoute__name{
   font-size: 12px;
@@ -1193,6 +1308,9 @@
   @include merri-bold-italic;
   @include media (">largeDesktop"){
     font-size: 18px;
+  }
+  @include media (">xlargeDesktop"){
+    font-size: 24px;
   }
 }
 
@@ -1247,6 +1365,9 @@
     @include media (">largeDesktop"){
       min-width: 490px;
     }
+    @include media (">xlargeDesktop"){
+      width: 720px;
+    }
     @include media ("<desktop"){
       width: 35%;
     }
@@ -1268,6 +1389,9 @@
     @include media (">largeDesktop"){
       max-width: 300px;
       margin-left: 8%;
+    }
+    @include media (">xlargeDesktop"){
+      margin-left: 10%;
     }
     @include media ("<desktop"){
       box-sizing: border-box;
@@ -1291,6 +1415,9 @@
     @include media (">largeDesktop"){
       font-size: 84px;
     }
+    @include media (">xlargeDesktop"){
+      font-size: 120px;
+    }
     .is-mobile &{
       @include media ("<tablet"){
        font-size: 80px;
@@ -1310,6 +1437,12 @@
       width: 175%;
       height: 130px;
     }
+    @include media (">xlargeDesktop"){
+      left: 320px;
+      top: -100px;
+      width: 193%;
+      height: 170px;
+    }
     @include media ("<tablet"){
      display: none;
     }
@@ -1326,6 +1459,12 @@
       top: -58px;
       height: 90px;
       width: 120%;
+    }
+    @include media (">xlargeDesktop"){
+      left: 300px;
+      top: -70px;
+      width: 150%;
+      height: 130px;
     }
     @include media ("<tablet"){
       display: none;
@@ -1368,6 +1507,10 @@
       max-width: 570px;
       margin-right: auto;
     }
+    @include media (">xlargeDesktop"){
+      max-width: 800px;
+      margin-top: 10vh;
+    }
     @include media ("<tablet"){
       width: 50%;
       max-width: 320px;
@@ -1409,6 +1552,10 @@
       height: 65px;
       margin-bottom: 30px;
     }
+    @include media (">xlargeDesktop"){
+     height: 85px;
+     margin-bottom: 40px;
+    }
     .is-mobile &{
       @include media ("<tablet"){
         padding-right: 40px;
@@ -1433,6 +1580,12 @@
     background-repeat: no-repeat;
     width: 28px;
     height: 8px;
+    @include media (">xlargeDesktop"){
+      width: 60px;
+      height: 20px;
+      top: calc(50% - 8px);
+      right: -20px;
+     }
   }
   .list-block__text{
     @include montserrat-regular;
@@ -1450,6 +1603,10 @@
       padding-left: 70px;
       padding-right: 20px;
     }
+    @include media (">xlargeDesktop"){
+      font-size: 24px;
+      padding-left: 100px;
+     }
     .is-mobile &{
       @include media ("<tablet"){
         font-size: 16px;
@@ -1485,6 +1642,11 @@
     @include media (">largeDesktop"){
       font-size: 33px;
     }
+    @include media (">xlargeDesktop"){
+      font-size: 46px;
+      width: 65px;
+      left: 20px;
+     }
     .is-mobile &{
       @include media ("<tablet"){
         top: 6px;
@@ -1536,6 +1698,10 @@
       max-width: 500px;
       margin-top: 12vh;
     }
+    @include media (">xlargeDesktop"){
+      min-width: 700px;
+      margin-top: 5vh;
+     }
     .is-mobile &{
       width: 100%;
       max-width: 500px;
@@ -1585,6 +1751,9 @@
     @include media (">largeDesktop"){
       font-size: 52px;
     }
+    @include media (">xlargeDesktop"){
+      font-size: 70px;
+     }
     .is-mobile &{
       position: relative;
       font-size: 30px;
@@ -1647,6 +1816,12 @@
     @include media (">largeDesktop"){
       font-size: 18px;
       max-width: 480px;
+    }
+    @include media (">largeDesktop"){
+      font-size: 24px;
+      max-width: 680px;
+      margin-bottom: 50px;
+      padding: 45px  35px;
     }
     .is-mobile &{
       @include media ("<tablet"){
@@ -1788,9 +1963,15 @@
   }
   .arrow-list{
     margin-top: 0;
+    @include media (">xlargeDesktop"){
+      margin-top: 25px;
+    }
   }
   .arrow-list__item{
     margin-bottom: 25px;
+    @include media (">xlargeDesktop"){
+      margin-bottom: 65px;
+    }
     .is-mobile &{
       @include media ("<phone"){
         margin-bottom: 10px;
@@ -1913,6 +2094,9 @@
   }
   .arrow-list__item{
     margin-bottom: 35px;
+    @include media (">xlargeDesktop"){
+      margin-bottom: 65px;
+    }
     .is-mobile &{
       @include media ("<phone"){
         margin-bottom: 10px;
@@ -2015,6 +2199,9 @@
   .arrow-list{
     margin-bottom: 13vh;
     margin-top: 0;
+    @include media (">xlargeDesktop"){
+      margin-top: 35px;
+    }
     .is-mobile &{
       @include media ("<smallTablet"){
         margin-bottom: 0;
@@ -2026,6 +2213,9 @@
   }
   .arrow-list__item{
     margin-bottom: 24px;
+    @include media (">xlargeDesktop"){
+      margin-bottom: 65px;
+    }
     .is-mobile &{
       @include media ("<phone"){
         margin-bottom: 10px;
@@ -2204,6 +2394,9 @@
   @include media (">largeDesktop"){
     margin-left: 2vw;
   }
+  @include media (">xlargeDesktop"){
+    width: 60%;
+  }
   @include media ("<desktop"){
     margin-right: 46vw;
     margin-left: 4vw;
@@ -2234,6 +2427,9 @@
     @include media ("<smallDesktop"){
       width: 60%;
     }
+    @include media (">xlargeDesktop"){
+      width: 50%;
+    }
     .is-mobile &{
       @include media ("<tablet"){
         width: 90%;
@@ -2248,6 +2444,9 @@
     margin-left: 7%;
     @include media (">largeDesktop"){
       width: 33%;
+    }
+    @include media (">xlargeDesktop"){
+      width: 40%;
     }
     @include media ("<desktop"){
       margin-left: 8%;
@@ -2267,6 +2466,9 @@
     @include media (">largeDesktop"){
       font-size: 48px;
     }
+    @include media (">xlargeDesktop"){
+      font-size: 65px;
+    }
     .is-mobile &{
       @include media ("<smallTablet"){
        font-size: 28px;
@@ -2280,11 +2482,19 @@
   .text{
     margin-top: 30px;
     margin-bottom: 20px;
+    @include media (">largeDesktop"){
+      margin-top: 40px;
+    }
+    @include media (">xlargeDesktop"){
+      margin-top: 70px;
+      margin-bottom: 35px;
+    }
     .is-mobile &{
       @include media ("<tablet"){
        margin-bottom: 10px;
        margin-top: 30px;
-       }
+      }
+
       @include media ("<smallTablet"){
        font-size: 14px;
       }
@@ -2302,7 +2512,9 @@
     line-height: 1.2;
     @include media (">largeDesktop"){
       font-size: 30px;
-      margin-bottom: 45px;
+    }
+    @include media (">xlargeDesktop"){
+      font-size: 40px;
     }
     .is-mobile &{
       @include media ("<phone"){
@@ -2321,6 +2533,11 @@
     @include media (">largeDesktop"){
       font-size: 18px;
       margin-top: 5vh;
+    }
+    @include media (">xlargeDesktop"){
+      font-size: 28px;
+      margin-top: 8vh;
+      margin-bottom: 5vh;
     }
     .is-mobile &{
       @include media ("<tablet"){
@@ -2352,6 +2569,10 @@
     @include media (">largeDesktop"){
       font-size: 17px;
     }
+    @include media (">xlargeDesktop"){
+      font-size: 24px;
+      max-width: 350px;
+    }
   }
   .contact-code{
     width: 145px;
@@ -2359,6 +2580,11 @@
     @include media (">largeDesktop"){
       width: 245px;
       height: 245px;
+    }
+    @include media (">xlargeDesktop"){
+      width: 350px;
+      height: 350px;
+      margin-top: 20px;
     }
   }
 }

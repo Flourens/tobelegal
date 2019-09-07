@@ -55,7 +55,6 @@
             height: 54px;
             right: 0;
             left: 0;
-            bottom: 0;
             margin: 0 auto;
             box-sizing: content-box;
             padding-left: 8%;
@@ -75,9 +74,16 @@
             width: 100%;
             display: none;
         }
+
         @media screen and (min-width: 1601px) {
            .preloader-pane .preloader-wrap {
                max-width: 740px;
+           }
+       }
+       @media screen and (min-width: 2559px) {
+           .preloader-pane .preloader-wrap {
+               max-width: 940px;
+               top: 38%;
            }
        }
         @media screen and (max-width: 1365px) {
