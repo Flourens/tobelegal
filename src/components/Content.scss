@@ -386,6 +386,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    @include media ("<phone"){
+      //margin-right: 15px;
+    }
   }
   .phone-icon{
     width: 22px;
@@ -923,6 +926,9 @@
       height: 110vh;
     }
   }
+  @include media ("<phone"){
+    min-height: 800px;
+  }
 }
 .slide-image--mob-1{
   position: absolute;
@@ -954,7 +960,7 @@
 .slide-image--mob-3{
   position: absolute;
   bottom: 0;
-  height: 100%;
+  height: 100vh;
   left: -13vw;
   .is-mobile & {
     display: block;
@@ -965,17 +971,24 @@
     }
     @include media ("<smallTablet"){
       left: auto;
+      min-height: 702px;
       right: -450px;
     }
     @include media ("<phone"){
-      bottom: -5vh;
-      min-height: 560px;
-      right: -320px;
+      top: 0%;
+      bottom: auto;
+      right: -490px;
+      min-height: 782px;
+      @include media ("height<650px"){
+        top: -50px;
+        min-height: 742px;
+        right: -445px;
+      }
     }
-    // @include media ("<smallPhone"){
-    //   left: auto;
-    //   right: -350px;
-    // }
+    @include media ("<smallPhone"){
+      //left: auto;
+      //min-height: 500px;
+    }
   }
 }
 .inner-image-mobile--1{
@@ -1013,13 +1026,13 @@
       left: -75px;
     }
     @include media ("<phone"){
-      left: -60px;
-      min-height: 640px;
+      left: -18%;
+      min-height: 760px;
       bottom:  auto;
-      top: 20px;
+      top: 0px;
     }
     @include media ("<smallPhone"){
-      left: -53px;
+      left: -23%;
     }
   }
 }
@@ -1205,6 +1218,10 @@
   @include media ("height<hSmall"){
     bottom: 100px;
   }
+  @include media ("<smallPhone"){
+    padding: 10px;
+    display: none;
+  }
   .is-mobile & {
     @include media ("<tablet"){
       right: 70px;
@@ -1255,6 +1272,9 @@
     font-size: 159px;
     top: 50px;
   }
+  @include media ("<smallPhone"){
+    display: none;
+  }
 }
 .qoute__text{
   margin-left: 60px;
@@ -1270,6 +1290,10 @@
     font-size: 24px;
     margin-left: 120px;
   }
+  @include media ("<smallPhone"){
+    margin: 0;
+  }
+
 }
 .qoute__contact{
   display: flex;
@@ -2417,6 +2441,12 @@
     }
     @include media ("<phone"){
       width: 70%;
+      height: 65vh;
+      margin-top: 15vh;
+    }
+    @include media ("<smallPhone"){
+      width: 68%;
+      margin-top: 8vh;
     }
   }
   // @include media ("<smallDesktop"){
@@ -2478,7 +2508,6 @@
       }
       @include media ("<phone"){
         font-size: 20px;
-        margin-top: 120px;
       }
     }
   }
@@ -2551,8 +2580,11 @@
        margin-bottom: 60px;
        }
        @include media ("<phone"){
-        margin-top: 10vh;
+        margin-top: 0;
         margin-bottom: 0;
+        position: absolute;
+        bottom: 50px;
+        right: 20px;
       }
       @include media ("<smallPhone"){
         margin-top: 18vh;
@@ -2742,10 +2774,10 @@
       opacity: 0 !important;
     }
     .none-phone-contact{
-      display: none;
+     // display: none;
     }
     .phone-page-contact{
-      display: block !important;
+      //display: block !important;
       width: 280px;
       height: 42px;
       border-radius: 30px;
