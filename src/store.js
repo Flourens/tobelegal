@@ -8,6 +8,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     content,
+    activeSection: 0,
+    activeLanguage: 'ru'
   },
 
   modules: {
@@ -15,7 +17,9 @@ export default new Vuex.Store({
   },
 
   mutations: {
-
+    SET_ACTIVE_SECTION: (state, payload) => {
+      state.activeSection = payload;
+    },
   },
   actions: {
 

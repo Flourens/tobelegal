@@ -431,6 +431,11 @@
 
 .active-link{
   color: $beige;
+  @include montserrat-bold;
+  a{
+    color: $beige;
+    @include montserrat-bold;
+  }
 }
 
 

@@ -3,13 +3,13 @@
   <!-- header desktop-->
   <div class="header header-desktop">
     <div class="left-block">
-      <a class="brand-link header-link" @click="goToSection(1)" href="javascript:void(0);">tobe.legal</a>
-      <a href="javascript:void(0);" @click="goToSection(2)" class="about header-link">Об адвокате</a>
+      <a class="brand-link header-link" @click="goToSection(1)" href="javascript:void(0);" :class="{ 'active-link': $store.state.activeSection == 0}">tobe.legal</a>
+      <a href="javascript:void(0);" @click="goToSection(2)" class="about header-link" :class="{ 'active-link': $store.state.activeSection >= 1 && $store.state.activeSection <= 4 }">Об адвокате</a>
     </div>
       <a class="header-logo" @click="goToSection(1)" href="javascript:void(0);"><img src="./img/logo-legal.svg" alt=""></a>
     <div class="right-block">
-      <a href="javascript:void(0);" @click="goToSection(7)" class="services header-link">Услуги</a>
-      <a href="javascript:void(0);" @click="goToSection(14)" class="contact header-link">Контакты</a>
+      <a href="javascript:void(0);" @click="goToSection(7)" class="services header-link" :class="{ 'active-link': $store.state.activeSection >= 5 && $store.state.activeSection <= 12 }">Услуги</a>
+      <a href="javascript:void(0);" @click="goToSection(14)" class="contact header-link" :class="{ 'active-link': $store.state.activeSection == 13 }">Контакты</a>
     </div>
   </div>
   <!-- header mobile-->
@@ -22,9 +22,9 @@
       </div>
   </div>
   <div class="burder-menu">
-    <a href="javascript:void(0);" @click="goToSection(2)" class="about header-link">Об адвокате</a>
-    <a href="javascript:void(0);" @click="goToSection(7)" class="services header-link">Услуги</a>
-    <a href="javascript:void(0);" @click="goToSection(16)" class="contact header-link">Контакты</a>
+    <a href="javascript:void(0);" @click="goToSection(2)" class="about header-link" :class="{ 'active-link': $store.state.activeSection >= 1 && $store.state.activeSection <= 7 }">Об адвокате</a>
+    <a href="javascript:void(0);" @click="goToSection(9)" class="services header-link" :class="{ 'active-link': $store.state.activeSection >= 8 && $store.state.activeSection <= 14 }">Услуги</a>
+    <a href="javascript:void(0);" @click="goToSection(16)" class="contact header-link" :class="{ 'active-link': $store.state.activeSection == 15}">Контакты</a>
     <img src="./img/code.svg" class="qr-code">
     <div class="social">
         <a href="javascript:void(0);"  class="connect"><img src="./img/connect-icon.svg" alt="" class="connect-icon"></a>
@@ -39,9 +39,9 @@
       </div> -->
     </div>
     <ul class="languages">
-      <li class="languages__item"><a href="javascript:void(0);">Укр</a></li>
-      <li class="languages__item"><a href="javascript:void(0);">Рус</a></li>
-      <li class="languages__item"><a href="javascript:void(0);">Eng</a></li>
+      <li class="languages__item" :class="{ 'active-link': $store.state.activeLanguage == 'ua'}"><a href="javascript:void(0);">Укр</a></li>
+      <li class="languages__item" :class="{ 'active-link': $store.state.activeLanguage == 'ru'}"><a href="javascript:void(0);">Рус</a></li>
+      <li class="languages__item" :class="{ 'active-link': $store.state.activeLanguage == 'en'}"><a href="javascript:void(0);">Eng</a></li>
     </ul>
   </div>
 
@@ -190,7 +190,7 @@
     <div v-if="this.userAgent.window.width <= 1024 && this.userAgent.device.isMobile && this.userAgent.orientation == 'portrait'" class="section">
         <div class="slide_wrap no-margin">
             <div class="photo__owerlay slide-image-mobile--2">
-              <img class="inner-image-mobile--1" src="./img/photo-2-mobile.jpg" alt="tobe.leagel">
+              <!-- <img class="inner-image-mobile--1" src="./img/photo-2-mobile.jpg" alt="tobe.leagel"> -->
             </div>
         </div>
     </div>
