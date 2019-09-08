@@ -12,8 +12,11 @@
     </div>
       <a class="header-logo" @click="goToSection(1)" href="javascript:void(0);"><img src="./img/logo-legal.svg" alt=""></a>
     <div class="right-block">
-      <a href="javascript:void(0);" @click="goToSection(7)" class="services header-link" :class="{ 'active-link': $store.state.activeSection >= 5 && $store.state.activeSection <= 12 }">Услуги</a>
-      <a href="javascript:void(0);" @click="goToSection(14)" class="contact header-link" :class="{ 'active-link': $store.state.activeSection == 13 }">Контакты</a>
+      <a href="javascript:void(0);" @click="goToSection(7)" class="services header-link" :class="{ 'active-link': $store.state.activeSection >= 5 && $store.state.activeSection <= 12 }" v-html="localization.menu.services"></a>
+      <a href="javascript:void(0);" @click="goToSection(14)" class="contact header-link"
+         :class="{ 'active-link': $store.state.activeSection == 13 }"
+         v-html="localization.menu.contacts">
+      </a>
     </div>
   </div>
   <!-- header mobile-->
@@ -26,9 +29,21 @@
       </div>
   </div>
   <div class="burder-menu">
-    <a href="javascript:void(0);" @click="goToSection(2)" class="about header-link" :class="{ 'active-link': $store.state.activeSection >= 1 && $store.state.activeSection <= 7 }">Об адвокате</a>
-    <a href="javascript:void(0);" @click="goToSection(9)" class="services header-link" :class="{ 'active-link': $store.state.activeSection >= 8 && $store.state.activeSection <= 14 }">Услуги</a>
-    <a href="javascript:void(0);" @click="goToSection(16)" class="contact header-link" :class="{ 'active-link': $store.state.activeSection == 15}">Контакты</a>
+    <a href="javascript:void(0);" class="about header-link"
+       @click="goToSection(2)"
+       :class="{ 'active-link': $store.state.activeSection >= 1 && $store.state.activeSection <= 7 }"
+       v-html="localization.menu.about">
+    </a>
+    <a href="javascript:void(0);" class="services header-link"
+       @click="goToSection(9)"
+       :class="{ 'active-link': $store.state.activeSection >= 8 && $store.state.activeSection <= 14 }"
+       v-html="localization.menu.services">
+    </a>
+    <a href="javascript:void(0);" class="contact header-link"
+       @click="goToSection(16)"
+       :class="{ 'active-link': $store.state.activeSection == 15}"
+       v-html="localization.menu.contacts">
+    </a>
     <img src="./img/code.svg" class="qr-code">
     <div class="social">
         <a href="javascript:void(0);"  class="connect"><img src="./img/connect-icon.svg" alt="" class="connect-icon"></a>
@@ -44,13 +59,13 @@
     </div>
     <ul class="languages">
       <li class="languages__item" :class="{ 'active-link': userAgent.userLanguage == 'uk'}">
-        <a  @click="toggleLocalization('uk')" href="javascript:void(0);">Укр</a>
+        <a  @click="toggleLocalization('uk')" href="javascript:void(0);" v-html="localization.menu.uk_lang">Укр</a>
       </li>
       <li class="languages__item" :class="{ 'active-link': userAgent.userLanguage == 'ru'}">
-        <a @click="toggleLocalization('ru')" href="javascript:void(0);">Рус</a>
+        <a @click="toggleLocalization('ru')" href="javascript:void(0);" v-html="localization.menu.ru_lang">Рус</a>
       </li>
       <li class="languages__item" :class="{ 'active-link': userAgent.userLanguage == 'en'}">
-        <a @click="toggleLocalization('en')" href="javascript:void(0);">Eng</a>
+        <a @click="toggleLocalization('en')" href="javascript:void(0);" v-html="localization.menu.en_lang">Eng</a>
       </li>
     </ul>
   </div>
@@ -61,18 +76,18 @@
       <a href="javascript:void(0);"  class="connect"><img src="./img/connect-icon.svg" alt="" class="connect-icon"></a>
       <div class="facebook">
           <a class="facebook-link" target="blank_" href="https://www.facebook.com/evgenii.vorobey"><img src="./img/facebook-icon.svg" alt="" class="facebook-icon"></a>
-        <p class="facebook-text">подписывайтесь на мой  <a class="facebook-link" href="https://www.facebook.com/evgenii.vorobey" target="blank_">facebook</a></p>
+        <p class="facebook-text" v-html="localization.menu.fb_subscribe">подписывайтесь на мой</p>
       </div>
     </div>
     <ul class="languages">
       <li class="languages__item" :class="{ 'active-link': userAgent.userLanguage == 'uk'}">
-        <a @click="toggleLocalization('uk')" href="javascript:void(0);">Укр</a>
+        <a @click="toggleLocalization('uk')" href="javascript:void(0);" v-html="localization.menu.uk_lang">Укр</a>
       </li>
       <li class="languages__item" :class="{ 'active-link': userAgent.userLanguage == 'ru'}">
-        <a @click="toggleLocalization('ru')" href="javascript:void(0);">Рус</a>
+        <a @click="toggleLocalization('ru')" href="javascript:void(0);" v-html="localization.menu.ru_lang">Рус</a>
       </li>
       <li class="languages__item" :class="{ 'active-link': userAgent.userLanguage == 'en'}">
-        <a @click="toggleLocalization('en')" href="javascript:void(0);">Eng</a>
+        <a @click="toggleLocalization('en')" href="javascript:void(0);" v-html="localization.menu.en_lang">Eng</a>
       </li>
     </ul>
   </div>
