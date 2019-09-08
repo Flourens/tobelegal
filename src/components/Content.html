@@ -4,7 +4,11 @@
   <div class="header header-desktop">
     <div class="left-block">
       <a class="brand-link header-link" @click="goToSection(1)" href="javascript:void(0);" :class="{ 'active-link': $store.state.activeSection == 0}">tobe.legal</a>
-      <a href="javascript:void(0);" @click="goToSection(2)" class="about header-link" :class="{ 'active-link': $store.state.activeSection >= 1 && $store.state.activeSection <= 4 }">Об адвокате</a>
+      <a href="javascript:void(0);" class="about header-link"
+         @click="goToSection(2)"
+         :class="{ 'active-link': $store.state.activeSection >= 1 && $store.state.activeSection <= 4 }"
+         v-html="localization.menu.about"
+      >Об адвокате</a>
     </div>
       <a class="header-logo" @click="goToSection(1)" href="javascript:void(0);"><img src="./img/logo-legal.svg" alt=""></a>
     <div class="right-block">
@@ -39,9 +43,15 @@
       </div> -->
     </div>
     <ul class="languages">
-      <li class="languages__item" :class="{ 'active-link': $store.state.activeLanguage == 'ua'}"><a href="javascript:void(0);">Укр</a></li>
-      <li class="languages__item" :class="{ 'active-link': $store.state.activeLanguage == 'ru'}"><a href="javascript:void(0);">Рус</a></li>
-      <li class="languages__item" :class="{ 'active-link': $store.state.activeLanguage == 'en'}"><a href="javascript:void(0);">Eng</a></li>
+      <li class="languages__item" :class="{ 'active-link': userAgent.userLanguage == 'uk'}">
+        <a  @click="toggleLocalization('uk')" href="javascript:void(0);">Укр</a>
+      </li>
+      <li class="languages__item" :class="{ 'active-link': userAgent.userLanguage == 'ru'}">
+        <a @click="toggleLocalization('ru')" href="javascript:void(0);">Рус</a>
+      </li>
+      <li class="languages__item" :class="{ 'active-link': userAgent.userLanguage == 'en'}">
+        <a @click="toggleLocalization('en')" href="javascript:void(0);">Eng</a>
+      </li>
     </ul>
   </div>
 
@@ -55,9 +65,15 @@
       </div>
     </div>
     <ul class="languages">
-      <li class="languages__item"><a href="javascript:void(0);">Укр</a></li>
-      <li class="languages__item"><a href="javascript:void(0);">Рус</a></li>
-      <li class="languages__item"><a href="javascript:void(0);">Eng</a></li>
+      <li class="languages__item" :class="{ 'active-link': userAgent.userLanguage == 'uk'}">
+        <a @click="toggleLocalization('uk')" href="javascript:void(0);">Укр</a>
+      </li>
+      <li class="languages__item" :class="{ 'active-link': userAgent.userLanguage == 'ru'}">
+        <a @click="toggleLocalization('ru')" href="javascript:void(0);">Рус</a>
+      </li>
+      <li class="languages__item" :class="{ 'active-link': userAgent.userLanguage == 'en'}">
+        <a @click="toggleLocalization('en')" href="javascript:void(0);">Eng</a>
+      </li>
     </ul>
   </div>
   <!-- footer mobile-->

@@ -1526,9 +1526,16 @@ export default {
       }
       
     },
+
+    toggleLocalization(language){
+      this.$store.commit('DETECT_USER_LANGUAGE', language);
+    }
   },
   computed: {
     ...mapState(['userAgent']),
+    localization(){
+      return this.$store.getters.localizationState[this.userAgent.userLanguage];
+    }
   },
   mounted(){},
   created(){

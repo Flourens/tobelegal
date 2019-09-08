@@ -1,14 +1,20 @@
 
 const content = {
 
-  ua:{
-    headline: 'Заголовок'
+  'uk':{
+    menu:{
+      about: 'Про адвоката'
+    },
   },
   ru: {
-    headline: 'Заглавие'
+    menu:{
+      about: 'Об адвокате'
+    },
   },
-  eng: {
-    headline: 'Title'
+  'en': {
+    menu:{
+      about: 'About'
+    },
   }
 
 }

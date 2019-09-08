@@ -13,15 +13,24 @@ import handleOrientation from '@/mixins/handleOrientation';
 export default {
   components: {},
   data() {
-    return {};
+    return {
+      user_lang: navigator.language || navigator.userLanguage,
+    };
   },
   watch: {},
   computed: {
     ...mapState(['userAgent'])
   },
   mixins: [handleResize, handleOrientation],
-  methods: {},
-  mounted() {}
+  methods: {
+    setUserLanguage(){
+      var formatedUserLang = this.user_lang.substring(0, 2).toLowerCase();  
+      this.$store.commit('DETECT_USER_LANGUAGE', formatedUserLang);
+    }
+  },
+  mounted() {
+    this.setUserLanguage();
+  }
 };
 </script>
 
