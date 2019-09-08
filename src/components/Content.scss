@@ -355,6 +355,11 @@
   @include media ("<tablet"){
     display: none;
    }
+   &:before{
+    .fp-viewing-section-13 &{
+      display: none;
+    }
+   }
 }
 .footer-mobile{
   display: none;
@@ -386,6 +391,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    @include media ("<phone"){
+      //margin-right: 15px;
+    }
   }
   .phone-icon{
     width: 22px;
@@ -800,7 +808,7 @@
    top: 13vh;
   }
   @include media ("<smallDesktop"){
-    right: 30vw;
+    left: 45.5%;
   }
   @include media ("height<hSmall"){
     top: 15vh;
@@ -923,6 +931,9 @@
       height: 110vh;
     }
   }
+  @include media ("<phone"){
+    min-height: 800px;
+  }
 }
 .slide-image--mob-1{
   position: absolute;
@@ -933,28 +944,28 @@
   z-index: 0;
   .is-mobile &{
      @include media ("<tablet"){
-      left: -6vw;
+      left: -11vw;
       right: auto;
       min-height: 120vh;
       top: -7vh;
      }
      @include media ("<smallTablet"){
       left: -150px;
-      min-height: 70vh;
+      //min-height: 700px;
       max-height: 100vh;
       top: 0;
      }
      @include media ("<phone"){
       left: -150px;
-      min-height: 150vh;
-      max-height: 150vh;
+      min-height: 800px;
+      height: 100vh;
     }
   }
 }
 .slide-image--mob-3{
   position: absolute;
   bottom: 0;
-  height: 100%;
+  height: 100vh;
   left: -13vw;
   .is-mobile & {
     display: block;
@@ -965,17 +976,24 @@
     }
     @include media ("<smallTablet"){
       left: auto;
+      min-height: 702px;
       right: -450px;
     }
     @include media ("<phone"){
-      bottom: -5vh;
-      min-height: 560px;
-      right: -320px;
+      top: 0%;
+      bottom: auto;
+      right: -490px;
+      min-height: 782px;
+      @include media ("height<650px"){
+        top: -50px;
+        min-height: 742px;
+        right: -445px;
+      }
     }
-    // @include media ("<smallPhone"){
-    //   left: auto;
-    //   right: -350px;
-    // }
+    @include media ("<smallPhone"){
+      //left: auto;
+      //min-height: 500px;
+    }
   }
 }
 .inner-image-mobile--1{
@@ -1013,13 +1031,13 @@
       left: -75px;
     }
     @include media ("<phone"){
-      left: -60px;
-      min-height: 640px;
+      left: -18%;
+      min-height: 760px;
       bottom:  auto;
-      top: 20px;
+      top: 0px;
     }
     @include media ("<smallPhone"){
-      left: -53px;
+      left: -23%;
     }
   }
 }
@@ -1084,6 +1102,7 @@
         margin-bottom: 30vh;
       }
       @include media ("<phone"){
+        height: 80vh;
         margin-bottom: 0;
         margin-top: 10px;
       }
@@ -1204,6 +1223,10 @@
   @include media ("height<hSmall"){
     bottom: 100px;
   }
+  @include media ("<smallPhone"){
+    padding: 10px;
+    display: none;
+  }
   .is-mobile & {
     @include media ("<tablet"){
       right: 70px;
@@ -1216,7 +1239,9 @@
       max-width: 350px;
     }
     @include media ("<phone"){
-      //display: none;
+      right: 0;
+      left: 0;
+      margin: 0 auto;
     }
   }
   &:after{
@@ -1252,6 +1277,9 @@
     font-size: 159px;
     top: 50px;
   }
+  @include media ("<smallPhone"){
+    display: none;
+  }
 }
 .qoute__text{
   margin-left: 60px;
@@ -1267,6 +1295,10 @@
     font-size: 24px;
     margin-left: 120px;
   }
+  @include media ("<smallPhone"){
+    margin: 0;
+  }
+
 }
 .qoute__contact{
   display: flex;
@@ -2414,6 +2446,12 @@
     }
     @include media ("<phone"){
       width: 70%;
+      height: 65vh;
+      margin-top: 15vh;
+    }
+    @include media ("<smallPhone"){
+      width: 68%;
+      margin-top: 8vh;
     }
   }
   // @include media ("<smallDesktop"){
@@ -2475,7 +2513,6 @@
       }
       @include media ("<phone"){
         font-size: 20px;
-        margin-top: 120px;
       }
     }
   }
@@ -2548,8 +2585,11 @@
        margin-bottom: 60px;
        }
        @include media ("<phone"){
-        margin-top: 10vh;
+        margin-top: 0;
         margin-bottom: 0;
+        position: absolute;
+        bottom: 50px;
+        right: 20px;
       }
       @include media ("<smallPhone"){
         margin-top: 18vh;
@@ -2646,6 +2686,9 @@
       .fp-viewing-section-0 &{
         opacity: 1;
       }
+      .is-mobile &{
+        opacity: 0;
+      }
     }
     &--1{
       .fp-viewing-section-1,.fp-viewing-section-2,.fp-viewing-section-3  &{
@@ -2739,10 +2782,10 @@
       opacity: 0 !important;
     }
     .none-phone-contact{
-      display: none;
+     // display: none;
     }
     .phone-page-contact{
-      display: block !important;
+      //display: block !important;
       width: 280px;
       height: 42px;
       border-radius: 30px;
@@ -2812,10 +2855,16 @@
 
 .slide-image-mobile--2{
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 66px);
+  // margin-top: 50px;
+  // margin-bottom: 50px;
+  margin-top: 66px !important;
   overflow: hidden;
   margin: 0 auto;
   display: none;
+  background-image: url('./img/photo-2-mobile.jpg');
+  background-size: cover;
+  background-position: top center;
   .is-mobile &{
     display: block;
   }

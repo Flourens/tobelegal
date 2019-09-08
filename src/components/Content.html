@@ -1,5 +1,5 @@
 
-<div class="content-wrapper" :class="{'is-mobile': this.userAgent.window.width < 1024 && this.userAgent.device.isMobile}">
+<div class="content-wrapper" :class="{'is-mobile': this.userAgent.window.width <= 1024 && this.userAgent.device.isMobile && this.userAgent.orientation == 'portrait'}">
   <!-- header desktop-->
   <div class="header header-desktop">
     <div class="left-block">
@@ -147,7 +147,7 @@
     </div>
 
     <!-- Slide 2 Desktop -->
-    <div class="section" v-if="(this.userAgent.window.width > 768 && !this.userAgent.device.isMobile) || (this.userAgent.window.width >= 1024 && this.userAgent.device.isMobile)">
+    <div class="section" v-if="(this.userAgent.window.width > 768 && !this.userAgent.device.isMobile) || (this.userAgent.window.width >= 1024 && this.userAgent.device.isMobile && this.userAgent.orientation == 'landscape')">
       <div class="photo__owerlay slide-image--2">
         <img class="inner-image inner-image--1" src="./img/photo-2.png" alt="tobe.leagel">
       </div>
@@ -175,7 +175,7 @@
     </div>
 
     <!-- Slide 2 Mobile -->
-    <div v-if="this.userAgent.window.width < 1024 && this.userAgent.device.isMobile" class="section">
+    <div v-if="this.userAgent.window.width <= 1024 && this.userAgent.device.isMobile && this.userAgent.orientation == 'portrait'" class="section">
       <div class="slide_wrap">
         <div class="slide-2-cols slide-2-cols-2">
           <div class="slide-2-cols__1">
@@ -187,7 +187,7 @@
       </div>  
     </div>
     <!-- Slide 3 Mobile -->
-    <div v-if="this.userAgent.window.width < 1024 && this.userAgent.device.isMobile" class="section">
+    <div v-if="this.userAgent.window.width <= 1024 && this.userAgent.device.isMobile && this.userAgent.orientation == 'portrait'" class="section">
         <div class="slide_wrap no-margin">
             <div class="photo__owerlay slide-image-mobile--2">
               <img class="inner-image-mobile--1" src="./img/photo-2-mobile.jpg" alt="tobe.leagel">
@@ -195,7 +195,7 @@
         </div>
     </div>
     <!-- Slide 4 Mobile -->
-    <div v-if="this.userAgent.window.width < 1024 && this.userAgent.device.isMobile" class="section">
+    <div v-if="this.userAgent.window.width <= 1024 && this.userAgent.device.isMobile && this.userAgent.orientation == 'portrait'" class="section">
         <div class="slide_wrap">
           <div class="slide-2-cols slide-2-cols-3">
             <div class="slide-2-cols__1 padding-for-text">
