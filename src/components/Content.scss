@@ -135,7 +135,7 @@
         opacity: 1;
         left: 0;
         transform: rotate(0deg);
-        transition: 0.25s ease-in-out;
+        transition: 0.3s ease-in-out;
         
         &:nth-child(1) {
           top: 0px;
@@ -523,9 +523,12 @@
   .is-mobile &{
     @include media(">=1024px", "height<=1366px", "portrait"){
       width: 687px;
-      height: 830px;
+      height: 1030px;
       left: calc(50% - 345px);
-      bottom: calc(50vh - 415px);
+      bottom: calc(50vh - 515px);
+      img{
+        
+      }
     }
     @include media ("<tablet"){
       width: 460px;

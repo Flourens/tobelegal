@@ -26,11 +26,15 @@ export default {
       }
       var animationTl = new TimelineMax({});
       if(this.openMenu && state != 'close'){
-        animationTl.fromTo('.burder-menu', 0.3, {display:'flex',height:'0%', width:'0%', opacity:0},{height:'100%', width:'100%', opacity:1},0)
+        animationTl.set('.header, .burder, .burder-menu', {pointerEvents: 'none'},0)
+                   .fromTo('.burder-menu', 0.3, {display:'flex',height:'0%', width:'0%', opacity:0},{height:'100%', width:'100%', opacity:1},0)
                    .fromTo('.burder-menu > *', 0.3, {opacity:0},{opacity:1})
+                   .set('.header, .burder, .burder-menu', {pointerEvents: 'all'})
       } else {
-        animationTl.fromTo('.burder-menu > *', 0.3, {opacity:1},{opacity:0},0)
+        animationTl.set('.header, .burder, .burder-menu', {pointerEvents: 'none'},0)
+                   .fromTo('.burder-menu > *', 0.3, {opacity:1},{opacity:0},0)
                    .fromTo('.burder-menu', 0.3, {height:'100%', width:'100%', opacity:1},{height:'0%', width:'0%', opacity:0,display:'none'})
+                   .set('.header, .burder, .burder-menu', {pointerEvents: 'all'})
       }
 
     },
@@ -1281,8 +1285,9 @@ export default {
           // Enter anim slide 6
           if(destination.index == 5){
               animationTlBack.set('.slide-4-cols__1', {clearProps:'all'},0)
-                              .fromTo('.slide-image--mob-3', 0.6, { y:0, x:200 },{ x:0 })
-                              .fromTo('.slide-image--mob-3', 1.2, { opacity:0 },{ opacity:1 },'-=0.6')
+                             .set('.slide-image--mob-3',{ opacity:0})
+                              .fromTo('.slide-image--mob-3', 1.2, {y:0, x:200, opacity:0 },{ opacity:1 },0)
+                              .fromTo('.slide-image--mob-3', 0.6, { x:200 },{ x:0 },'-=1.2')
                               .fromTo('.slide-4-cols__1 .text', 0.8, { opacity:0, x:0, y:60 },{ opacity:1, y:0 },'-=0.6')
                               .staggerFromTo('.list-country .list-country__item', 0.4, { opacity:0, y:60 },{ opacity:1, y:0}, 0.6)
                               .set('body', {opacity: 1, onComplete: ()=>{
