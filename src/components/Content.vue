@@ -1534,7 +1534,7 @@ export default {
   computed: {
     ...mapState(['userAgent']),
     localization(){
-      return this.$store.getters.localizationState[this.userAgent.userLanguage];
+      return this.$store.getters.localizationState[this.userAgent.userLanguage] || this.$store.getters.localizationState['en'];
     }
   },
   mounted(){},

@@ -20,7 +20,7 @@ const userAgent = {
     },
     screentest: false,
     isScrollLock: false,
-    userLanguage: navigator.language.substring(0, 2).toLowerCase() || navigator.userLanguage.substring(0, 2).toLowerCase(),
+    userLanguage: navigator.language.substring(0, 2).toLowerCase() || navigator.userLanguage.substring(0, 2).toLowerCase()
   },
   mutations: {
     DETECT_DEVICE(state, devices) {
