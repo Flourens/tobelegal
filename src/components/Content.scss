@@ -73,12 +73,22 @@
   }
 }
 .header-desktop{
+  @include media(">=1024px", "height<=1366px", "portrait"){
+    display: none;
+  }
   @include media ("<tablet"){
     display: none;
   }
 }
+
 .header-mobile{
   display: none;
+  @include media(">=1024px", "height<=1366px", "portrait"){
+    display: flex;
+    align-items: center;
+    height: 75px;
+    z-index: 100000;
+  }
   @include media ("<tablet"){
     display: flex;
     align-items: center;
@@ -108,6 +118,9 @@
       cursor: pointer;
       display: none;
       z-index: 1500;
+      @include media(">=1024px", "height<=1366px", "portrait"){
+       display: block;
+      }
       @include media ("<tablet"){
         display: block;
       }
@@ -352,6 +365,9 @@
     }
 }
 .footer-desktop{
+  @include media(">=1024px", "height<=1366px", "portrait"){
+    display: none;
+  }
   @include media ("<tablet"){
     display: none;
    }
@@ -363,7 +379,15 @@
 }
 .footer-mobile{
   display: none;
-
+  @include media(">=1024px", "height<=1366px", "portrait"){
+    display: flex;
+   height: 55px;
+   margin-bottom: 10px;
+   margin-left: 30px;
+   margin-right: 30px;
+   width: calc(100% - 60px);
+   align-items: center;
+  }
   @include media ("<tablet"){
    display: flex;
    height: 55px;
@@ -492,6 +516,12 @@
     bottom: 15vh;
   }
   .is-mobile &{
+    @include media(">=1024px", "height<=1366px", "portrait"){
+      width: 687px;
+      height: 830px;
+      left: calc(50% - 345px);
+      bottom: calc(50vh - 415px);
+    }
     @include media ("<tablet"){
       width: 460px;
       height: 691px;
@@ -535,6 +565,13 @@
   }
   @include media ("height<hSmall"){
     top: 15vh;
+  }
+  .is-mobile & {
+    @include media(">=1024px", "height<=1366px", "portrait"){
+      width: 387px;
+      height: 530px;
+      top: calc(50vh - 305px);
+    }
   }
 }
 .black-logo{
@@ -597,6 +634,9 @@
     font-size: 16px;
   }
   .is-mobile &{
+    @include media(">=1024px", "height<=1366px", "portrait"){
+      font-size: 20px;
+    }
     @include media ("<phone"){
       font-size: 14px;
     }
@@ -617,6 +657,12 @@
     margin-top: 30px;
   }
   .is-mobile &{
+    @include media(">=1024px", "height<=1366px", "portrait"){
+      font-size: 20px;
+      br{
+        display: none;
+      }
+    }
     @include media ("<phone"){
       font-size: 12px;
       line-height: 1.1;
@@ -671,6 +717,9 @@
     font-size: 28px;
   }
   .is-mobile &{
+    @include media(">=1024px", "height<=1366px", "portrait"){
+      font-size: 40px;
+    }
     @include media ("<smallTablet"){
       font-size: 23px;
       padding-left: 25px;
@@ -732,14 +781,19 @@
       top: 9px;
     }
     .is-mobile &{
+      @include media(">=1024px", "height<=1366px", "portrait"){
+       top: 12px;
+      }
       @include media ("<phone"){
         width: 10px;
         height: 6px;
-
       }
     }
   }
   .is-mobile &{
+    @include media(">=1024px", "height<=1366px", "portrait"){
+      font-size: 20px;
+    }
     @include media ("<phone"){
       margin-bottom: 10px;
       padding-left: 17px;
@@ -1121,6 +1175,9 @@
       letter-spacing: 0.1em;
       margin-top: 20px;
       .is-mobile & {
+        @include media(">=1024px", "height<=1366px", "portrait"){
+          font-size: 24px;
+        }
         @include media ("<smallTablet"){
           font-size: 14px;
           margin: 0;
@@ -1164,6 +1221,9 @@
       font-size: 18px;
     }
     .is-mobile & {
+      @include media(">=1024px", "height<=1366px", "portrait"){
+        font-size: 20px;
+      }
       @include media ("<phone"){
         font-size: 14px;
         margin-bottom: 10px;
@@ -1183,6 +1243,9 @@
     margin-top: 10px;
     margin-bottom: 0px;
     .is-mobile & {
+      @include media(">=1024px", "height<=1366px", "portrait"){
+        font-size: 90px;
+      }
       @include media ("<tablet"){
         font-size: 62px;
       }
@@ -1228,6 +1291,11 @@
     display: none;
   }
   .is-mobile & {
+    @include media(">=1024px", "height<=1366px", "portrait"){
+      max-width: 550px;
+      padding-top: 35px;
+      padding-bottom: 35px;
+    }
     @include media ("<tablet"){
       right: 70px;
       bottom: 80px;
@@ -1277,8 +1345,11 @@
     font-size: 159px;
     top: 50px;
   }
-  @include media ("<smallPhone"){
-    display: none;
+  .is-mobile & {
+    @include media(">=1024px", "height<=1366px", "portrait"){
+      font-size: 100px;
+      top: 40px;
+    }
   }
 }
 .qoute__text{
@@ -1298,7 +1369,12 @@
   @include media ("<smallPhone"){
     margin: 0;
   }
-
+  .is-mobile & {
+    @include media(">=1024px", "height<=1366px", "portrait"){
+      font-size: 16px;
+      margin-left: 80px;
+    }
+  }
 }
 .qoute__contact{
   display: flex;
@@ -1318,6 +1394,14 @@
     margin-left: 120px;
     width: calc(100% - 150px);
   }
+  .is-mobile & {
+    @include media(">=1024px", "height<=1366px", "portrait"){
+      font-size: 16px;
+      margin-top: 30px;
+      margin-left: 80px;
+      width: calc(100% - 80px);
+    }
+  }
 }
 .qoute__tel{
   font-size: 12px;
@@ -1331,6 +1415,14 @@
   @include media (">xlargeDesktop"){
     font-size: 24px;
   }
+  .is-mobile & {
+    @include media(">=1024px", "height<=1366px", "portrait"){
+      font-size: 16px;
+    }
+    @include media ("<tablet"){
+      display: none;
+    }
+  }
 }
 .qoute__name{
   font-size: 12px;
@@ -1343,6 +1435,11 @@
   }
   @include media (">xlargeDesktop"){
     font-size: 24px;
+  }
+  .is-mobile & {
+    @include media(">=1024px", "height<=1366px", "portrait"){
+      font-size: 16px;
+    }
   }
 }
 
@@ -1376,6 +1473,10 @@
       margin-top: 14%;
     }
     .is-mobile &{
+      @include media(">=1024px", "height<=1366px", "portrait"){
+        width: 53%;
+        margin-top: 0;
+      }
       @include media ("<tablet"){
         width: 60%;
         margin-top: 0;
@@ -1451,6 +1552,9 @@
       font-size: 120px;
     }
     .is-mobile &{
+      @include media(">=1024px", "height<=1366px", "portrait"){
+        font-size: 120px;
+      }
       @include media ("<tablet"){
        font-size: 80px;
       }
@@ -1526,6 +1630,9 @@
    margin-left: 3vw;
   }
   .is-mobile &{
+    @include media(">=1024px", "height<=1366px", "portrait"){
+      margin-left: 0;
+    }
     @include media ("<tablet"){
     margin-left: 0;
     }
@@ -1543,11 +1650,13 @@
       max-width: 800px;
       margin-top: 10vh;
     }
-    @include media ("<tablet"){
-      width: 50%;
-      max-width: 320px;
-    }
     .is-mobile &{
+      @include media(">=1024px", "height<=1366px", "portrait"){
+        width: 100%;
+        margin-right: 0;
+       max-width: 100%;
+       margin-bottom: 60px;
+      }
       @include media ("<tablet"){
        width: 100%;
        margin-right: 0;
@@ -1559,12 +1668,20 @@
   .slide-3-cols__2{
     width: 40%;
     min-width: 274px;
+    .is-mobile &{
+      @include media(">=1024px", "height<=1366px", "portrait"){
+        display: none;
+      }
+    }
   }
   .list-block{
     padding-left: 0;
     margin-top: 30px;
     margin-left: 10px;
     .is-mobile &{
+      @include media(">=1024px", "height<=1366px", "portrait"){
+        margin-top: 40px;
+      }
       @include media ("<phone"){
         margin-top: 10px;
       }
@@ -1589,6 +1706,12 @@
      margin-bottom: 40px;
     }
     .is-mobile &{
+      @include media(">=1024px", "height<=1366px", "portrait"){
+        height: 75px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin-bottom: 40px;
+      }
       @include media ("<tablet"){
         padding-right: 40px;
         height: auto;
@@ -1640,6 +1763,10 @@
       padding-left: 100px;
      }
     .is-mobile &{
+      @include media(">=1024px", "height<=1366px", "portrait"){
+        font-size: 20px;
+        padding-left: 70px;
+      }
       @include media ("<tablet"){
         font-size: 16px;
         padding-top: 10px;
@@ -1680,6 +1807,11 @@
       left: 20px;
      }
     .is-mobile &{
+      @include media(">=1024px", "height<=1366px", "portrait"){
+        font-size: 30px;
+        top: 10px;
+        margin-left: 15px;
+      }
       @include media ("<tablet"){
         top: 6px;
         left: 16px;
@@ -1735,8 +1867,10 @@
       margin-top: 5vh;
      }
     .is-mobile &{
-      width: 100%;
-      max-width: 500px;
+      @include media(">=1024px", "height<=1366px", "portrait"){
+        width: 55%;
+        max-width: 430px;
+      }
       @include media ("<tablet"){
         width: 75%;
         max-width: 310px;
@@ -1788,7 +1922,9 @@
      }
     .is-mobile &{
       position: relative;
-      font-size: 30px;
+      @include media(">=1024px", "height<=1366px", "portrait"){
+       font-size: 40px;
+      }
       @include media ("<tablet"){
         font-size: 35px;
       }
@@ -1811,12 +1947,22 @@
   .slide-5-cols__1{
     width: 60%;
     .is-mobile &{
+      @include media(">=1024px", "height<=1366px", "portrait"){
+        width: 100%;
+        br{
+          display: none;
+        }
+      }
       @include media ("<tablet"){
        width: 100%;
       }
     }
   }
   .is-mobile &{
+    @include media(">=1024px", "height<=1366px", "portrait"){
+      margin-left: 0;
+      width: 100%;
+    }
     @include media ("<tablet"){
      width: 100%;
      margin-left: 0 !important;
@@ -1856,6 +2002,14 @@
       padding: 45px  35px;
     }
     .is-mobile &{
+      @include media(">=1024px", "height<=1366px", "portrait"){
+        font-size: 20px;
+        max-width: 100%;
+        width: 100%;
+        min-height: 70px;
+        padding: 35px;
+        margin-bottom: 40px;
+      }
       @include media ("<tablet"){
         font-size: 16px;
         width: 100%;
@@ -1937,6 +2091,9 @@
       width: 70%;
     }
     .is-mobile &{
+      @include media(">=1024px", "height<=1366px", "portrait"){
+        width: 55%;
+      }
       @include media ("<tablet"){
        width: 55%;
        max-width: 300px;
@@ -2025,6 +2182,9 @@
     margin-top: 30px;
     margin-bottom: 40px;
     .is-mobile &{
+      @include media(">=1024px", "height<=1366px", "portrait"){
+        flex-direction: column;
+      }
       @include media ("<tablet"){
         flex-direction: column;
       }
@@ -2037,6 +2197,10 @@
     width: 50%;
     margin-right: 10%;
     .is-mobile &{
+      @include media(">=1024px", "height<=1366px", "portrait"){
+        width: 100%;
+        margin-right: 0;
+      }
       @include media ("<tablet"){
         width: 100%;
         margin-right: 0;
@@ -2046,6 +2210,9 @@
   .two-column__2{
     width: 40%;
     .is-mobile &{
+      @include media(">=1024px", "height<=1366px", "portrait"){
+        width: 100%;
+      }
       @include media ("<tablet"){
         width: 100%;
       }
@@ -2235,6 +2402,9 @@
       margin-top: 35px;
     }
     .is-mobile &{
+      @include media(">=1024px", "height<=1366px", "portrait"){
+        margin-bottom: 0;
+      }
       @include media ("<smallTablet"){
         margin-bottom: 0;
       }
@@ -2275,6 +2445,9 @@
     margin-bottom: 40px;
     justify-content: space-between;
     .is-mobile &{
+      @include media(">=1024px", "height<=1366px", "portrait"){
+        flex-direction: column;
+      }
       @include media ("<tablet"){
       flex-direction: column;
       }
@@ -2288,6 +2461,10 @@
     width: 50%;
     margin-right: 60px;
     .is-mobile &{
+      @include media(">=1024px", "height<=1366px", "portrait"){
+        width: 100%;
+        margin-right: 0;
+      }
       @include media ("<tablet"){
       width: 100%;
       margin-right: 0;
@@ -2300,6 +2477,10 @@
   .two-column__2{
     width: 50%;
     .is-mobile &{
+      @include media(">=1024px", "height<=1366px", "portrait"){
+        width: 100%;
+        margin-right: 0;
+      }
       @include media ("<tablet"){
       width: 100%;
       margin-right: 0;
@@ -2348,6 +2529,10 @@
     width: 80%;
     margin-right: 10%;
     .is-mobile &{
+      @include media(">=1024px", "height<=1366px", "portrait"){
+        width: 100%;
+        margin-right: 0;
+      }
       @include media ("<tablet"){
       width: 100%;
       margin-right: 0;
@@ -2408,6 +2593,10 @@
     width: 75%;
     margin-right: 10%;
     .is-mobile &{
+      @include media(">=1024px", "height<=1366px", "portrait"){
+        width: 100%;
+        margin-right: 0;
+      }
       @include media ("<tablet"){
       width: 100%;
       margin-right: 0;
@@ -2435,6 +2624,11 @@
     width: 54%;
   }
   .is-mobile &{
+    @include media(">=1024px", "height<=1366px", "portrait"){
+      width: 57%;
+      margin-right: 0%;
+      margin-left: auto;
+    }
     @include media ("<tablet"){
       width: 57%;
       margin-right: 0%;
@@ -2454,11 +2648,6 @@
       margin-top: 8vh;
     }
   }
-  // @include media ("<smallDesktop"){
-  //   margin-right: 46vw;
-  //   margin-left: 0;
-  //   width: 55%;
-  // }
 
   .slide-14-cols-1{
     width: 58%;
@@ -2469,6 +2658,9 @@
       width: 50%;
     }
     .is-mobile &{
+      @include media(">=1024px", "height<=1366px", "portrait"){
+        width: 90%;
+      }
       @include media ("<tablet"){
         width: 90%;
       }
@@ -2508,6 +2700,9 @@
       font-size: 65px;
     }
     .is-mobile &{
+      @include media(">=1024px", "height<=1366px", "portrait"){
+        font-size: 40px;
+      }
       @include media ("<smallTablet"){
        font-size: 28px;
       }
@@ -2527,6 +2722,10 @@
       margin-bottom: 35px;
     }
     .is-mobile &{
+      @include media(">=1024px", "height<=1366px", "portrait"){
+        margin-bottom: 30px;
+        margin-top: 60px;
+      }
       @include media ("<tablet"){
        margin-bottom: 10px;
        margin-top: 30px;
@@ -2554,6 +2753,9 @@
       font-size: 40px;
     }
     .is-mobile &{
+      @include media(">=1024px", "height<=1366px", "portrait"){
+        font-size: 30px;
+      }
       @include media ("<phone"){
         font-size: 16px;
       }
@@ -2577,6 +2779,10 @@
       margin-bottom: 5vh;
     }
     .is-mobile &{
+      @include media(">=1024px", "height<=1366px", "portrait"){
+       font-size: 20px;
+       margin-top: 20vh;
+      }
       @include media ("<tablet"){
         margin-top: 35vh;
       }
