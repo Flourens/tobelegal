@@ -54,6 +54,8 @@ export default {
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-around;
+    position: relative;
+    z-index: 9999;
   }
   .small__content{
     margin: 30px;

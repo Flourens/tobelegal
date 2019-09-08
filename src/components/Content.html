@@ -1,5 +1,5 @@
 
-<div class="content-wrapper" :class="{'is-mobile': this.userAgent.window.width <= 1024 && this.userAgent.device.isMobile && this.userAgent.orientation == 'portrait'}">
+<div class="content-wrapper" :class="{'is-mobile': (this.userAgent.window.width < 1024 && this.userAgent.device.isMobile) || (this.userAgent.window.width >= 1024 && this.userAgent.window.height <= 1366 && this.userAgent.device.isMobile && this.userAgent.orientation == 'portrait')}">
   <!-- header desktop-->
   <div class="header header-desktop">
     <div class="left-block">
