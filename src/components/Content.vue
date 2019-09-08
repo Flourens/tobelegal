@@ -26,11 +26,15 @@ export default {
       }
       var animationTl = new TimelineMax({});
       if(this.openMenu && state != 'close'){
-        animationTl.fromTo('.burder-menu', 0.3, {display:'flex',height:'0%', width:'0%', opacity:0},{height:'100%', width:'100%', opacity:1},0)
+        animationTl.set('.header, .burder, .burder-menu', {pointerEvents: 'none'},0)
+                   .fromTo('.burder-menu', 0.3, {display:'flex',height:'0%', width:'0%', opacity:0},{height:'100%', width:'100%', opacity:1},0)
                    .fromTo('.burder-menu > *', 0.3, {opacity:0},{opacity:1})
+                   .set('.header, .burder, .burder-menu', {pointerEvents: 'all'})
       } else {
-        animationTl.fromTo('.burder-menu > *', 0.3, {opacity:1},{opacity:0},0)
+        animationTl.set('.header, .burder, .burder-menu', {pointerEvents: 'none'},0)
+                   .fromTo('.burder-menu > *', 0.3, {opacity:1},{opacity:0},0)
                    .fromTo('.burder-menu', 0.3, {height:'100%', width:'100%', opacity:1},{height:'0%', width:'0%', opacity:0,display:'none'})
+                   .set('.header, .burder, .burder-menu', {pointerEvents: 'all'})
       }
 
     },
@@ -79,8 +83,6 @@ export default {
             }
             // Leave animation slide 2
             if(origin.index == 1){
-              // document.querySelector('.line-1 img').width = document.querySelector('.line-1').width;
-              // document.querySelector('.line-2 img').width = document.querySelector('.line-2').width;
               if(direction == 'up'){
                 animationTl.set('.slide__overlay,#preloader-pane-2', {opacity: 0},0)
                               .set('.section.active', {opacity: 1},0)
@@ -89,12 +91,14 @@ export default {
                               .to('.slide-2-cols__1 .year', 0.6, { opacity:0, y:-50 },0)
                               .to('.slide-2-cols__1 .text', 0.6, { opacity:0, y:-50 },0)
                               // line
-                              .to('.slide-2-cols .line-1', 0.6, { opacity:0, y:-50 },0)
+                              .set('#clipped_mask-1', {  x:'0%' }, 0)
+                              .to('#clipped_mask-1', 0.6, {  xPercent: '100%' },0)
                               // text
                               .to('.slide-2-cols__3 .year', 0.6, { opacity:0, y:-50 },0)
                               .to('.slide-2-cols__3 .text', 0.6, { opacity:0, y:-50 },0)
                               // line
-                              .to('.slide-2-cols .line-2', 0.6, { opacity:0, y:-50 },0)
+                              .set('#clipped_mask-2', {  x:'0%' },0)
+                              .to('#clipped_mask-2', 0.6, {  xPercent: '100%' },0)
                               .to('.slide-image--2, .slide-image--3, .black-logo__owerlay', 0.6, { opacity:0 },0)
                               .set('.slide__overlay', {opacity: 1, delay: 0.6, onComplete: function(){
                               animationIsFinished = true;
@@ -111,12 +115,14 @@ export default {
                               .to('.slide-2-cols__1 .year', 0.6, { opacity:0, y:-50 },0)
                               .to('.slide-2-cols__1 .text', 0.6, { opacity:0, y:-50 },0)
                               // line
-                              .to('.slide-2-cols .line-1', 0.6, { opacity:0, y:-50 },0)
+                              .set('#clipped_mask-1', {  x:'0%' }, 0)
+                              .to('#clipped_mask-1', 0.6, {  xPercent: '100%' },0)
                               // text
                               .to('.slide-2-cols__3 .year', 0.6, { opacity:0, y:-50 },0)
                               .to('.slide-2-cols__3 .text', 0.6, { opacity:0, y:-50 },0)
                               // line
-                              .to('.slide-2-cols .line-2', 0.6, { opacity:0, y:-50 },0)
+                              .set('#clipped_mask-2', {  x:'0%' },0)
+                               .to('#clipped_mask-2', 0.6, {  xPercent: '100%' },0)
                               .to('.slide-image--2, .slide-image--3', 0.8, { left:'56.5%' })
                             .set('.slide__overlay', {opacity: 0, onComplete: function(){
                               animationIsFinished = true;
@@ -442,16 +448,12 @@ export default {
                               .fromTo('.slide-2-cols__1 .year', 0.6, { opacity:0, y:0, x:-50 },{ opacity:1, x:0 })
                               .fromTo('.slide-2-cols__1 .text', 0.6, { opacity:0, y:0, x:-50 },{ opacity:1, x:0 })
                               // line
-                              .set('.slide-2-cols .line-1', { x:0,y:0, opacity:1, width: 0 },0)
-                              .set('.slide-2-cols .line-1', { width: 'auto' })
-                              .from('.slide-2-cols .line-1', 1.5, { width: 0 })
+                              .fromTo('#clipped_mask-1', 1.5, { x:'0%', width: '0%' },{  width: '100%' })
                               // text
                               .fromTo('.slide-2-cols__3 .year', 0.6, { opacity:0, y:0, x:-50 },{ opacity:1, x:0 })
                               .fromTo('.slide-2-cols__3 .text', 0.6, { opacity:0, y:0, x:-50 },{ opacity:1, x:0 })
                               // line
-                              .set('.slide-2-cols .line-2', { x:0,y:0, opacity:1, width: 0 },0)
-                              .set('.slide-2-cols .line-2', { width: 'auto' })
-                              .from('.slide-2-cols .line-2', 0.8, { width: 0 })
+                              .fromTo('#clipped_mask-2', 1.5, { x:'0%', width: '0%' },{  width: '100%' })
                               .set('body', {opacity: 1, onComplete: () => {
                                 setTimeout(()=>{ this.enterAnimFinished = true; },200)
                               }})
@@ -475,16 +477,12 @@ export default {
                               .fromTo('.slide-2-cols__1 .year', 0.6, { opacity:0, y:0, x:-50 },{ opacity:1, x:0 })
                               .fromTo('.slide-2-cols__1 .text', 0.6, { opacity:0, y:0, x:-50 },{ opacity:1, x:0 })
                               // line
-                              .set('.slide-2-cols .line-1', { x:0,y:0, opacity:1, width: 0 },0)
-                              .set('.slide-2-cols .line-1', { width: 'auto' })
-                              .from('.slide-2-cols .line-1', 1.5, { width: 0 })
+                              .fromTo('#clipped_mask-1', 1.5, { x:'0%', width: '0%' },{  width: '100%' })
                               // text
                               .fromTo('.slide-2-cols__3 .year', 0.6, { opacity:0, y:0, x:-50 },{ opacity:1, x:0 })
                               .fromTo('.slide-2-cols__3 .text', 0.6, { opacity:0, y:0, x:-50 },{ opacity:1, x:0 })
                               // line
-                              .set('.slide-2-cols .line-2', { x:0,y:0, opacity:1, width: 0 },0)
-                              .set('.slide-2-cols .line-2', { width: 'auto' })
-                              .from('.slide-2-cols .line-2', 0.8, { width: 0 })
+                              .fromTo('#clipped_mask-2', 1.5, {x:'05', width: '0%' },{  width: '100%' })
                               .set('body', {opacity: 1, onComplete: () => {
                                 setTimeout(()=>{ this.enterAnimFinished = true; },200)
                               }});
@@ -1287,8 +1285,9 @@ export default {
           // Enter anim slide 6
           if(destination.index == 5){
               animationTlBack.set('.slide-4-cols__1', {clearProps:'all'},0)
-                              .fromTo('.slide-image--mob-3', 0.6, { y:0, x:200 },{ x:0 })
-                              .fromTo('.slide-image--mob-3', 1.2, { opacity:0 },{ opacity:1 },'-=0.6')
+                             .set('.slide-image--mob-3',{ opacity:0})
+                              .fromTo('.slide-image--mob-3', 1.2, {y:0, x:200, opacity:0 },{ opacity:1 },0)
+                              .fromTo('.slide-image--mob-3', 0.6, { x:200 },{ x:0 },'-=1.2')
                               .fromTo('.slide-4-cols__1 .text', 0.8, { opacity:0, x:0, y:60 },{ opacity:1, y:0 },'-=0.6')
                               .staggerFromTo('.list-country .list-country__item', 0.4, { opacity:0, y:60 },{ opacity:1, y:0}, 0.6)
                               .set('body', {opacity: 1, onComplete: ()=>{
@@ -1526,9 +1525,16 @@ export default {
       }
       
     },
+
+    toggleLocalization(language){
+      this.$store.commit('DETECT_USER_LANGUAGE', language);
+    }
   },
   computed: {
     ...mapState(['userAgent']),
+    localization(){
+      return this.$store.getters.localizationState[this.userAgent.userLanguage] || this.$store.getters.localizationState['en'];
+    }
   },
   mounted(){},
   created(){

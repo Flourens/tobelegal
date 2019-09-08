@@ -135,7 +135,7 @@
         opacity: 1;
         left: 0;
         transform: rotate(0deg);
-        transition: 0.25s ease-in-out;
+        transition: 0.3s ease-in-out;
         
         &:nth-child(1) {
           top: 0px;
@@ -523,9 +523,12 @@
   .is-mobile &{
     @include media(">=1024px", "height<=1366px", "portrait"){
       width: 687px;
-      height: 830px;
+      height: 1030px;
       left: calc(50% - 345px);
-      bottom: calc(50vh - 415px);
+      bottom: calc(50vh - 515px);
+      img{
+        
+      }
     }
     @include media ("<tablet"){
       width: 460px;
@@ -3102,4 +3105,25 @@
       display: block;
     }
   }
+}
+
+.clipped__image-1{
+  clip-path: url('#clipped__shape');
+  -webkit-clip-path: url('#clipped__shape'); /*For Chrome and Safari*/ 
+  -moz-clip-path: url('#clipped__shape'); /*for Firefox*/
+  -ms-clip-path: url('#clipped__shape'); /*for IE*/
+  -o-clip-path: url('#clipped__shape'); /*for Opera*/
+  clip-path: url('#clipped__shape'); 
+  position: relative;
+  overflow: visible;
+}
+.clipped__image-2{
+  clip-path: url('#clipped__shape-2');
+  -webkit-clip-path: url('#clipped__shape-2'); /*For Chrome and Safari*/ 
+  -moz-clip-path: url('#clipped__shape-2'); /*for Firefox*/
+  -ms-clip-path: url('#clipped__shape-2'); /*for IE*/
+  -o-clip-path: url('#clipped__shape-2'); /*for Opera*/
+  clip-path: url('#clipped__shape-2'); 
+  position: relative;
+  overflow: visible;
 }

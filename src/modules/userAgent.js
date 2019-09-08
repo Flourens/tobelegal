@@ -2,8 +2,6 @@ import isMobile from 'ismobilejs';
 import windowSize from "get-window-size";
 import browser from "browser-detect";
 
-console.log(isMobile);
-
 const userAgent = {
   state: {
     window: {
@@ -21,7 +19,8 @@ const userAgent = {
       version: browser().version
     },
     screentest: false,
-    isScrollLock: false
+    isScrollLock: false,
+    userLanguage: navigator.language.substring(0, 2).toLowerCase() || navigator.userLanguage.substring(0, 2).toLowerCase()
   },
   mutations: {
     DETECT_DEVICE(state, devices) {
@@ -36,13 +35,15 @@ const userAgent = {
     },
     UPDATE_WINDOW_PARAMS(state, payload) {
       state.window = payload;
-      //state.device.isMobile = payload.width < 1024;
     },
     UPDATE_SCREENTEST: (state, payload) => {
       state.screentest = payload;
     },
     UPDATE_LOCK_STATE: (state, payload) => {
       state.isScrollLock = payload;
+    },
+    DETECT_USER_LANGUAGE: (state, payload) => {
+      state.userLanguage = payload;
     }
   }
 };

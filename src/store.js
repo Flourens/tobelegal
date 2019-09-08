@@ -9,19 +9,18 @@ export default new Vuex.Store({
   state: {
     content,
     activeSection: 0,
-    activeLanguage: 'ru'
   },
-
   modules: {
     userAgent
   },
-
   mutations: {
     SET_ACTIVE_SECTION: (state, payload) => {
       state.activeSection = payload;
     },
   },
-  actions: {
-
-  }
+  getters: {
+    localizationState: (state) => {
+      return state.content;
+    }
+  },
 })

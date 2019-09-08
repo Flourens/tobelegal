@@ -1,6 +1,9 @@
 const handleOrientation = {
   methods: {
-    checkOrientation() {
+    checkOrientation(status) {
+      if(status !== 'first'){
+        location.reload();
+      }
       this.$store.commit(
         'DETECT_ORIENTATION',
         Math.abs(window.orientation) === 90
@@ -8,7 +11,7 @@ const handleOrientation = {
     }
   },
   mounted() {
-    this.checkOrientation();
+    this.checkOrientation('first');
     window.addEventListener(
       'orientationchange',
       () => {
