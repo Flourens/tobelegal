@@ -2686,6 +2686,9 @@
       .fp-viewing-section-0 &{
         opacity: 1;
       }
+      .is-mobile &{
+        opacity: 0;
+      }
     }
     &--1{
       .fp-viewing-section-1,.fp-viewing-section-2,.fp-viewing-section-3  &{
