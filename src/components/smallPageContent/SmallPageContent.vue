@@ -4,18 +4,18 @@
       <div class="small__content">
          <div class="small__col">
             <div class="small__col-1">
-              <p class="small__services">комплексное<br>сопровождение<br>бизнеса</p>
-              <p class="small__services">судебная<br>практика</p>
+              <p class="small__services" v-html="localization.slide_15.text_1">комплексное<br>сопровождение<br>бизнеса</p>
+              <p class="small__services" v-html="localization.slide_15.text_2">судебная<br>практика</p>
             </div>
              <div class="small__col-2">
                <img src="../img/code.svg" alt="" class="small_code">
             </div>
             <div class="small__col-3">
-              <p class="small__position">Адвокат</p>
-              <p class="small__name">Евгений<br>Воробей</p>
+              <p class="small__position" v-html="localization.slide_15.text_3">Адвокат</p>
+              <p class="small__name" v-html="localization.slide_15.text_4">Евгений<br>Воробей</p>
             </div>  
         </div>
-        <p class="small__text">Не смотря на безоговорочную законность данных действий, я настоятельно рекомендую Вам увеличить размер окна браузера, для полноценного просмотра сайта!</p>
+        <p class="small__text" v-html="localization.slide_15.text_5">Не смотря на безоговорочную законность данных действий, я настоятельно рекомендую Вам увеличить размер окна браузера, для полноценного просмотра сайта!</p>
       </div>
     </div>
   </div>
@@ -37,6 +37,9 @@ export default {
   },
   computed: {
     ...mapState(['userAgent']),
+    localization(){
+      return this.$store.getters.localizationState[this.userAgent.userLanguage] || this.$store.getters.localizationState['en'];
+    }
   },
   methods:{},
   mounted(){},

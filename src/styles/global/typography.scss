@@ -108,6 +108,18 @@
       format("truetype");
 }
 
+@font-face {
+  font-family: "Social-Gothic-DemiBold";
+  src: url("~@/assets/fonts/Social-Gothic-DemiBold.otf");
+  // src: url("~@/assets/fonts/Montserrat-Regular.eot?#iefix")
+  //     format("eot"),
+  //   url("~@/assets/fonts/Montserrat-Regular.woff2")
+  //     format("woff2"),
+  //   url("~@/assets/fonts/Montserrat-Regular.woff")
+  //     format("woff"),
+  //   url("~@/assets/fonts/Montserrat-Regular.ttf")
+  //     format("truetype");
+}
 
 @mixin bebas-bold {
   font-family: "BEBASNEUEBOLD0";
@@ -135,4 +147,8 @@
 }
 @mixin montserrat-regular {
   font-family: "Montserrat-Regular";
+}
+
+@mixin social-demibold {
+  font-family: "Social-Gothic-DemiBold";
 }
