@@ -971,6 +971,10 @@
   right: 0vw;
   bottom: 0vh;
   z-index: 0;
+  @include media (">smallDesktop","<xlargeDesktop","height>768px"){
+    height: 100vh;
+    right: -100px;
+  }
   @include media (">xlargeDesktop"){
     height: 100vh;
   }
@@ -1053,8 +1057,11 @@
       }
     }
     @include media ("<smallPhone"){
-      //left: auto;
-      //min-height: 500px;
+      @include media ("height<650px"){
+        top: -50px;
+        min-height: 629px;
+        right: -364px;
+      }
     }
   }
 }
@@ -1496,7 +1503,7 @@
       }
       @include media ("<phone"){
         margin-top: 0vh;
-        margin-bottom: 10vh;
+        margin-bottom: 6vh;
       }
     }
   }
@@ -1623,6 +1630,9 @@
   }
   .text-2{
     margin-top: 35px;
+    @include media ("<phone"){
+      margin-top: 15px;
+    }
   }
 }
 
@@ -2182,6 +2192,9 @@
     .is-mobile &{
       @include media ("<smallTablet"){
         margin-top: 4vh;
+      }
+      @include media ("<smallPhone"){
+        margin-top: 2vh;
       }
     }
   }
@@ -3073,6 +3086,10 @@
   // margin-top: 50px;
   // margin-bottom: 50px;
   margin-top: 96px !important;
+  @include media ("<phone"){
+    height: calc(100vh - 136px);
+    margin-top: 136px !important;
+  }
   overflow: hidden;
   margin: 0 auto;
   display: none;

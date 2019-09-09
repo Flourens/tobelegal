@@ -211,15 +211,15 @@ const content = {
     },
     slide_13:{
       text_1: 'Медиация',
-      text_2: 'Урегулирование спора с участием адвоката (медиатора) как нейтральной, беспристрастной, не заинтересованной в конфликте стороны, помогающее сторонам выработать определённое соглашение по спору',
+      text_2: 'Урегулирование спора с участием адвоката (медиатора) как нейтральной, беспристрастной, незаинтересованной в конфликте стороны, помогающее сторонам выработать определённое соглашение по спору',
     },
     slide_14:{
       text_1: 'На связи 24/7',
       text_2: 'Если Вам нужна профессиональная юридическая помощь, позвоните мне:',
       text_3: 'Если Вам нужна помощь, позвоните мне:',
-      text_4: 'Для Ваших вопросов, пересылки документов и фиксации неформальных договоренностей',
+      text_4: 'Для Ваших вопросов, пересылки документов и фиксации неформальных договоренностей:',
       text_5: 'Для вопросов и документов:',
-      text_6: 'За моей социальной и профессиональной активностью следи на моей странице:',
+      text_6: 'За моей социальной и профессиональной активностью следите на моей странице:',
       text_7: 'Адвокат<br> Евгений Воробей',
       text_8: 'Сканируйте код, чтобы сохранить мои контакты',
     },
@@ -284,7 +284,7 @@ const content = {
       text_4: 'To reject illegal actions of law enforcement agencies.',
     },
     slide_6:{
-      text_1: 'I give advice on building the optimum structure <br>of entrepreneurial activity and tax planning<br>, develop individual measures to protect assets.'
+      text_1: 'I give advice on building the optimum structure <br>of entrepreneurial activity and tax planning, <br>develop individual measures to protect assets.'
     },
     slide_7:{
       text_1: 'Business <br>customer service',
