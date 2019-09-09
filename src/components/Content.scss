@@ -1881,7 +1881,7 @@
       }
       @include media ("<tablet"){
         width: 75%;
-        max-width: 310px;
+        max-width: 365px;
         .text{
           width: 70%;
           max-width: 250px;
@@ -3069,10 +3069,10 @@
 
 .slide-image-mobile--2{
   width: 100%;
-  height: calc(100vh - 66px);
+  height: calc(100vh - 96px);
   // margin-top: 50px;
   // margin-bottom: 50px;
-  margin-top: 66px !important;
+  margin-top: 96px !important;
   overflow: hidden;
   margin: 0 auto;
   display: none;
