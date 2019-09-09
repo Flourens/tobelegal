@@ -3127,3 +3127,8 @@
   position: relative;
   overflow: visible;
 }
+
+.font_replace{
+  @include social-demibold;
+  font-size: 84%;
+}

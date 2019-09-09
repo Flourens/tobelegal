@@ -43,7 +43,11 @@ export default {
       fullpage_api.moveTo(id);
       this.toggleMenu('close');
     },
-
+    getImgUrl(pic){
+      var images = require.context('./img/', false, /\.svg$/)
+      return images('./preloader-2-' + pic + ".svg")
+    },
+    
     initSectionSlides(){
       this.$store.commit('SET_ACTIVE_SECTION', 0);
       var delay = 1000; //milliseconds
@@ -1534,6 +1538,7 @@ export default {
     ...mapState(['userAgent']),
     localization(){
       return this.$store.getters.localizationState[this.userAgent.userLanguage] || this.$store.getters.localizationState['en'];
+      // return this.$store.getters.localizationState['en'];
     }
   },
   mounted(){},

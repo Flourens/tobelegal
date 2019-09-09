@@ -108,9 +108,9 @@
     <div class="slide__overlay"></div>
     <div v-if="this.userAgent.window.width > 768 && !this.userAgent.device.isMobile || this.userAgent.window.width >=1024 && this.userAgent.device.isMobile" id="preloader-pane-2" class="preloader-pane">
         <div class="preloader-wrap">
-            <img class="pre_dot pre_dot--ru" v-if="userAgent.userLanguage == 'ru'" src="./img/preloader-2.svg" alt="tobe legal">
-            <img class="pre_dot pre_dot--uk" v-if="userAgent.userLanguage == 'uk'" src="./img/preloader-2-uk.svg" alt="tobe legal">
-            <img class="pre_dot pre_dot--en" v-if="userAgent.userLanguage == 'en'" src="./img/preloader-2-en.svg" alt="tobe legal">
+            <img class="pre_dot pre_dot--ru" v-if="localization.lang == 'ru'" src="./img/preloader-2.svg" alt="tobe legal">
+            <img class="pre_dot pre_dot--uk" v-if="localization.lang == 'uk'" src="./img/preloader-2-uk.svg" alt="tobe legal">
+            <img class="pre_dot pre_dot--en" v-if="localization.lang == 'en'" src="./img/preloader-2-en.svg" alt="tobe legal">
         </div>
     </div>
     <div class="black-logo__owerlay">
@@ -160,18 +160,18 @@
               <!-- <img src="./img/logo-legal.svg" alt="tobe.leagel" class="logo-block__logo"> -->
             </div>
             <div class="logo-block__2" style="opacity: 0"> 
-              <p class="logo-block__position">Адвокат</p>
-              <p class="logo-block__name">Евгений <br>Воробей</p>
+              <p class="logo-block__position" v-html="localization.slide_1.text_2">Адвокат</p>
+              <p class="logo-block__name" v-html="localization.slide_1.text_1">Евгений <br>Воробей</p>
             </div>
             <p class="text on-desktop" v-html="localization.slide_1.text_1">Комплексное сопровождении  <br>бизнеса и судебная практика.</p>
           </div>
           <div class="slide-1-cols__3 on-mobile">
               <div class="logo-block__2">
-                <p class="logo-block__position">Адвокат</p>
-                <p class="logo-block__name">Евгений<br>Воробей</p>
+                <p class="logo-block__position" v-html="localization.slide_1.text_2">Адвокат</p>
+                <p class="logo-block__name" v-html="localization.slide_1.text_3">Евгений<br>Воробей</p>
               </div>
-              <p class="text-2">комплексное<br>сопровождение<br>бизнеса</p>
-              <p class="text-2">судебная<br>практика</p>
+              <p class="text-2" v-html="localization.slide_1.text_4">комплексное<br>сопровождение<br>бизнеса</p>
+              <p class="text-2" v-html="localization.slide_1.text_5">судебная<br>практика</p>
             </div>
           <div class="slide-1-cols__2">
           </div>
@@ -376,14 +376,14 @@
       <!-- <img class="slide-image--6" src="./img/photo-4.jpg" alt="tobe.leagel"> -->
       <div class="slide_wrap">
         <div class="slide-8-cols">
-          <h3 class="services-title">Структурирование бизнеса
+          <h3 class="services-title" v-html="localization.slide_8.text_1">Структурирование бизнеса
            </h3>
           <div class="two-column">
             <div class="two-column__1">
               <ul class="arrow-list">
-                <li class="arrow-list__item">Разработка уникальных, индивидуальных и оптимальных схем построения предпринимательской деятельности.</li>
-                <li class="arrow-list__item">Оформление отношений между участниками структуры, выявление и защита зон риска. </li>
-                <li class="arrow-list__item">Использование субъектов иностранных юрисдикций с целью уменьшения налоговой нагрузки.</li>
+                <li class="arrow-list__item" v-html="localization.slide_8.text_2">Разработка уникальных, индивидуальных и оптимальных схем построения предпринимательской деятельности.</li>
+                <li class="arrow-list__item" v-html="localization.slide_8.text_3">Оформление отношений между участниками структуры, выявление и защита зон риска. </li>
+                <li class="arrow-list__item" v-html="localization.slide_8.text_4">Использование субъектов иностранных юрисдикций с целью уменьшения налоговой нагрузки.</li>
               </ul>
             </div>
           </div>
@@ -396,13 +396,13 @@
       <!-- <img class="slide-image--6" src="./img/photo-4.jpg" alt="tobe.leagel"> -->
       <div class="slide_wrap">
         <div class="slide-9-cols">
-          <h3 class="services-title">Представительство интересов в судах</h3>
+          <h3 class="services-title" v-html="localization.slide_9.text_1">Представительство интересов в судах</h3>
           <div class="two-column">
             <div class="two-column__1">
               <ul class="arrow-list">
-                <li class="arrow-list__item">Защита прав и представительство интересов в органах судебной власти.</li>
-                <li class="arrow-list__item">Составление процессуальных документов (исковых заявлений, отзывов, ходатайств и т. д.).</li>
-                <li class="arrow-list__item">Участие в судебных заседаниях.
+                <li class="arrow-list__item" v-html="localization.slide_9.text_2">Защита прав и представительство интересов в органах судебной власти.</li>
+                <li class="arrow-list__item" v-html="localization.slide_9.text_3">Составление процессуальных документов (исковых заявлений, отзывов, ходатайств и т. д.).</li>
+                <li class="arrow-list__item" v-html="localization.slide_9.text_4">Участие в судебных заседаниях.
                   </li>
               </ul>
             </div>
@@ -416,12 +416,12 @@
       <!-- <img class="slide-image--6" src="./img/photo-4.jpg" alt="tobe.leagel"> -->
       <div class="slide_wrap">
         <div class="slide-10-cols">
-          <h3 class="services-title">Защита в уголовных производствах</h3>
+          <h3 class="services-title" v-html="localization.slide_10.text_1">Защита в уголовных производствах</h3>
           <div class="two-column">
             <div class="two-column__1">
               <ul class="arrow-list">
-                <li class="arrow-list__item">Защита интересов субъектов в уголовных производствах, в том числе потерпевшей стороны, как на этапе досудебного следствия, так и судебного рассмотрения.</li>
-                <li class="arrow-list__item">Участие в следственных действиях (обысках, допросах и т. п.)</li>
+                <li class="arrow-list__item" v-html="localization.slide_10.text_2">Защита интересов субъектов в уголовных производствах, в том числе потерпевшей стороны, как на этапе досудебного следствия, так и судебного рассмотрения.</li>
+                <li class="arrow-list__item" v-html="localization.slide_10.text_3">Участие в следственных действиях (обысках, допросах и т. п.)</li>
               </ul>
             </div>
           </div>
@@ -434,20 +434,20 @@
       <!-- <img class="slide-image--6" src="./img/photo-4.jpg" alt="tobe.leagel"> -->
       <div class="slide_wrap">
         <div class="slide-11-cols">
-          <h3 class="services-title">Обжалование решений органов власти</h3>
-          <p class="text text-upper">Административное и судебное обжалование <br>решений органов власти, в том числе:</p>
+          <h3 class="services-title" v-html="localization.slide_11.text_1">Обжалование решений органов власти</h3>
+          <p class="text text-upper" v-html="localization.slide_11.text_2">Административное и судебное обжалование <br>решений органов власти, в том числе:</p>
           <div class="two-column">
             <div class="two-column__1">
               <ul class="arrow-list">
-                <li class="arrow-list__item">о запретах;</li>
-                <li class="arrow-list__item">обвязывающих выполнение;</li>
-                <li class="arrow-list__item">о начислениях и штрафах;</li>
+                <li class="arrow-list__item" v-html="localization.slide_11.text_3">о запретах;</li>
+                <li class="arrow-list__item" v-html="localization.slide_11.text_4">обвязывающих выполнение;</li>
+                <li class="arrow-list__item" v-html="localization.slide_11.text_5">о начислениях и штрафах;</li>
               </ul>
             </div>
             <div class="two-column__2">
               <ul class="arrow-list">
-                <li class="arrow-list__item">о проведении проверки;</li>
-                <li class="arrow-list__item">об отказах в выполнении прошений.</li>
+                <li class="arrow-list__item" v-html="localization.slide_11.text_6">о проведении проверки;</li>
+                <li class="arrow-list__item" v-html="localization.slide_11.text_7">об отказах в выполнении прошений.</li>
               </ul>
             </div>
           </div>
@@ -460,11 +460,11 @@
       <!-- <img class="slide-image--6" src="./img/photo-4.jpg" alt="tobe.leagel"> -->
       <div class="slide_wrap">
         <div class="slide-12-cols">
-          <h3 class="services-title">Аудит объектов инвестирования</h3>
+          <h3 class="services-title" v-html="localization.slide_12.text_1">Аудит объектов инвестирования</h3>
           <div class="two-column">
             <div class="two-column__1">
               <ul class="arrow-list">
-                <li class="arrow-list__item">Анализ состояния, рисков, скрытых угроз объектов инвестирования, в том числе в сфере жилой и коммерческой недвижимости (проверка застройщика, разрешительной документации, наличия уголовных и судебным производств и т. п.)</li>
+                <li class="arrow-list__item" v-html="localization.slide_12.text_2">Анализ состояния, рисков, скрытых угроз объектов инвестирования, в том числе в сфере жилой и коммерческой недвижимости (проверка застройщика, разрешительной документации, наличия уголовных и судебным производств и т. п.)</li>
               </ul>
             </div>
           </div>
@@ -477,11 +477,11 @@
       <!-- <img class="slide-image--6" src="./img/photo-4.jpg" alt="tobe.leagel"> -->
       <div class="slide_wrap">
         <div class="slide-13-cols">
-          <h3 class="services-title">Медиация</h3>
+          <h3 class="services-title" v-html="localization.slide_13.text_1">Медиация</h3>
           <div class="two-column">
             <div class="two-column__1">
               <ul class="arrow-list">
-                <li class="arrow-list__item">Урегулирование спора с участием адвоката (медиатора) как нейтральной, беспристрастной, не заинтересованной в конфликте стороны, помогающее сторонам выработать определённое соглашение по спору.</li>
+                <li class="arrow-list__item" v-html="localization.slide_13.text_2">Урегулирование спора с участием адвоката (медиатора) как нейтральной, беспристрастной, не заинтересованной в конфликте стороны, помогающее сторонам выработать определённое соглашение по спору.</li>
               </ul>
             </div>
           </div>
@@ -495,25 +495,25 @@
       <div class="slide_wrap">
         <div class="slide-14-cols">
           <div class="slide-14-cols-1">
-            <h3 class="contact-title">На связи 24/7</h3>
+            <h3 class="contact-title" v-html="localization.slide_14.text_1">На связи 24/7</h3>
             <div class="contact-group-1">
-                <p class="text text-desktop">Если Вам нужна профессиональная юридическая помощь, позвоните мне:</p>
-                <p class="text text-mobile">Если Вам нужна помощь, позвоните мне:</p>
+                <p class="text text-desktop" v-html="localization.slide_14.text_2">Если Вам нужна профессиональная юридическая помощь, позвоните мне:</p>
+                <p class="text text-mobile" v-html="localization.slide_14.text_3">Если Вам нужна помощь, позвоните мне:</p>
                 <a class="contact-link" href="tel:+380 50 441 89 82">+380 50 441 89 82</a>
             </div>
             <div class="contact-group-2">
-                <p class="text text-desktop">Для Ваших вопросов, пересылки документов и фиксации неформальных договоренностей</p>
-                <p class="text text-mobile">Для вопросов и документов:</p>
+                <p class="text text-desktop" v-html="localization.slide_14.text_4">Для Ваших вопросов, пересылки документов и фиксации неформальных договоренностей</p>
+                <p class="text text-mobile" v-html="localization.slide_14.text_5">Для вопросов и документов:</p>
                 <a class="contact-link" href="mailto:ev@tobe.legal">ev@tobe.legal</a>
             </div>
             <div class="contact-group-3">
-                <p class="text">За моей социальной и профессиональной активностью следи на моей странице:</p>
+                <p class="text" v-html="localization.slide_14.text_6">За моей социальной и профессиональной активностью следи на моей странице:</p>
                 <a class="contact-link" href="javascript:void(0);">facebook</a>
             </div>
-            <p class="contact-name">Адвокат<br> Евгений Воробей</p>
+            <p class="contact-name" v-html="localization.slide_14.text_7">Адвокат<br> Евгений Воробей</p>
           </div>
           <div class="slide-14-cols-2">
-            <p class="code">Сканируйте код, чтобы сохранить мои контакты</p>
+            <p class="code" v-html="localization.slide_14.text_8">Сканируйте код, чтобы сохранить мои контакты</p>
             <img src="./img/code.svg" alt="" class="contact-code">
           </div>
         </div>
