@@ -1,6 +1,6 @@
 <template>
   <div class="page_wrapper">
-    <smallPageContent v-if="(this.userAgent.window.width < 1024 && !this.userAgent.device.isMobile) || (this.userAgent.window.height < 520)"/>
+    <smallPageContent v-if="(this.userAgent.window.width < 1024 && !this.userAgent.device.isMobile) || (this.userAgent.window.height < 440)"/>
     <Content v-else />
   </div>
 </template>
