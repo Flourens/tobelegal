@@ -99,8 +99,8 @@
       <li class="languages__item"><a href="javascript:void(0);">Eng</a></li>
     </ul> -->
     <a class="facebook-link" target="blank_" href="https://www.facebook.com/evgenii.vorobey"><img src="./img/facebook-icon.svg" alt="" class="facebook-icon"></a>
-    <a class="phone none-phone-contact" href="tel:+380 50 441 89 82"><img src="./img/phone-icon.svg" alt="" class="phone-icon"></a>
-    <a class="phone phone-page-contact" href="tel:+380 50 441 89 82">Сохранить в контакты</a>
+    <a class="phone none-phone-contact" href="tel:+380504418982"><img src="./img/phone-icon.svg" alt="" class="phone-icon"></a>
+    <a class="phone phone-page-contact" href="tel:+380504418982">Сохранить в контакты</a>
   </div>
   
   <!-- static object -->
@@ -149,7 +149,7 @@
           <p class="qoute__icon">“</p>
           <p class="qoute__text" v-html="localization.slide_1.quote">Я умею предотвращать проблемы и выведу Вас из сложной ситуации законным путём.</p>
           <div class="qoute__contact">
-            <a class="qoute__tel" href="tel:+380 50 441 89 82">+380 50 441 89 82</a>
+            <a class="qoute__tel" href="tel:+380504418982">+380 50 441 89 82</a>
             <p class="qoute__name" v-html="localization.slide_1.quote_name">Адвокат <nobr>Евгений Воробей</nobr></p>
           </div>
         </div>
@@ -182,8 +182,7 @@
     <!-- Slide 2 Desktop -->
     <div class="section" v-if="
                                 (this.userAgent.window.width > 768 && !this.userAgent.device.isMobile) ||
-                                (this.userAgent.window.width >= 1024 && this.userAgent.device.isMobile && this.userAgent.orientation == 'portrait') ||
-                                (this.userAgent.window.width >= 1024 && this.userAgent.window.height <= 1366 && this.userAgent.device.isMobile && this.userAgent.orientation == 'portrait')
+                                (this.userAgent.window.width >= 1024 && this.userAgent.device.isMobile && this.userAgent.orientation == 'landscape')
                               ">
       <div class="photo__owerlay slide-image--2">
         <img class="inner-image inner-image--1" src="./img/photo-2.png" alt="tobe.leagel">
@@ -204,7 +203,7 @@
                 
             </div>
             <p class="year">2002</p>
-            <p class="text" v-html="localization.slide_2.text_1">Начал свою карьру на должности помощника адвоката.</p>
+            <p class="text" v-html="localization.slide_2.text_1">Начал свою карьeру на должности помощника адвоката.</p>
             <p class="text text-2" v-html="localization.slide_2.text_2">Продолжительное время работал юрисконсультом на различных предприятиях, руководил юридической службой компании, осуществляющей деятельность в сфере энергетики.</p>
           </div>
           <div class="slide-2-cols__2">
@@ -235,7 +234,7 @@
         <div class="slide-2-cols slide-2-cols-2">
           <div class="slide-2-cols__1">
             <p class="year">2002</p>
-            <p class="text" v-html="localization.slide_2.text_1">Начал свою карьру на должности помощника адвоката.</p>
+            <p class="text" v-html="localization.slide_2.text_1">Начал свою карьеру на должности помощника адвоката.</p>
             <p class="text text-2" v-html="localization.slide_2.text_2">Продолжительное время работал юрисконсультом на различных предприятиях, руководил юридической службой компании, осуществляющей деятельность в сфере энергетики.</p>
           </div>
         </div>
@@ -499,7 +498,7 @@
             <div class="contact-group-1">
                 <p class="text text-desktop" v-html="localization.slide_14.text_2">Если Вам нужна профессиональная юридическая помощь, позвоните мне:</p>
                 <p class="text text-mobile" v-html="localization.slide_14.text_3">Если Вам нужна помощь, позвоните мне:</p>
-                <a class="contact-link" href="tel:+380 50 441 89 82">+380 50 441 89 82</a>
+                <a class="contact-link" href="tel:+380504418982">+380 50 441 89 82</a>
             </div>
             <div class="contact-group-2">
                 <p class="text text-desktop" v-html="localization.slide_14.text_4">Для Ваших вопросов, пересылки документов и фиксации неформальных договоренностей</p>
