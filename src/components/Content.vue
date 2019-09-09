@@ -1540,13 +1540,11 @@ export default {
   created(){
     window.addEventListener('load', () => {
       this.initSectionSlides();
-      // this.animatePreloader();
     })
   },
   destroyed(){
     window.removeEventListener('load', () => {
       this.initSectionSlides();
-      // this.animatePreloader();
     })
   }
 }
