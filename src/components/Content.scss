@@ -1770,7 +1770,7 @@
     letter-spacing: 0.05em;
     margin: 0;
     padding: 0;
-    padding-left: 40px;
+    padding-left: 36px;
     @include media (">largeDesktop"){
       font-size: 18px;
       padding-left: 70px;
@@ -3148,4 +3148,10 @@
 .font_replace{
   @include social-demibold;
   font-size: 84%;
+}
+
+.logo-block__2{
+  .correction{
+    display: none;
+  }
 }

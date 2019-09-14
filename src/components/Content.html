@@ -46,7 +46,7 @@
     </a>
     <img src="./img/code.svg" class="qr-code">
     <div class="social">
-        <a href="javascript:void(0);"  class="connect"><img src="./img/connect-icon.svg" alt="" class="connect-icon"></a>
+        <a href="javascript:void(0);" @click="onShareClick"  class="connect"><img src="./img/connect-icon.svg" alt="" class="connect-icon"></a>
         <div class="facebook">
           <a class="facebook-link" target="_blank" href="https://www.facebook.com/evgenii.vorobey"><img src="./img/facebook-icon.svg" alt="" class="facebook-icon"></a>
           <p class="facebook-text"><a class="facebook-link" href="https://www.facebook.com/evgenii.vorobey" target="_blank">facebook</a></p>
@@ -73,7 +73,7 @@
   <!-- footer desktop-->
   <div class="footer footer-desktop">
     <div class="social">
-      <a href="javascript:void(0);"  class="connect"><img src="./img/connect-icon.svg" alt="" class="connect-icon"></a>
+      <a href="javascript:void(0);" @click="onShareClick" class="connect"><img src="./img/connect-icon.svg" alt="" class="connect-icon"></a>
       <div class="facebook">
           <a class="facebook-link" target="blank_" href="https://www.facebook.com/evgenii.vorobey"><img src="./img/facebook-icon.svg" alt="" class="facebook-icon"></a>
         <p class="facebook-text" v-html="localization.menu.fb_subscribe"></p>

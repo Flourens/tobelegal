@@ -44,7 +44,7 @@ const content = {
       country_6: 'Ізраїля',
     },
     slide_5:{
-      text_1: 'Успішно реалізовані кейси дозволили моїм довірителям: ',
+      text_1: 'Успішно реалізовані кейси <br>дозволили моїм довірителям: ',
       text_2: 'Оскаржити безпідставні вимоги державних органів',
       text_3: 'Повернути незаконно відібране майно',
       text_4: 'Дати достойну відсіч протиправним діям силових структур',
@@ -82,11 +82,11 @@ const content = {
     slide_11:{
       text_1: 'Оскарження рішень <br>органів влади',
       text_2: 'Адміністративне та судове оскарження рішень органів влади, в тому числі:',
-      text_3: 'Про заборони',
-      text_4: 'Що зобов’язують виконання',
-      text_5: 'Про нарахування та штрафи',
-      text_6: 'Про проведення перевірок',
-      text_7: 'Про відмови у виконанні прохань',
+      text_3: 'про заборони',
+      text_4: 'що зобов’язують виконання',
+      text_5: 'про нарахування та штрафи',
+      text_6: 'про проведення перевірок',
+      text_7: 'про відмови у виконанні прохань',
     },
     slide_12:{
       text_1: 'Аудит об’єктів інвестування',
@@ -101,7 +101,7 @@ const content = {
       text_2: 'Якщо Вам необхідна професійна юридична допомога, зателефонуйте мені:',
       text_3: 'Якщо Вам необхідна допомога, зателефонуйте мені:',
       text_4: 'Для Ваших запитань, пересилання документів та фіксації неформалних домовленостей:',
-      text_5: 'Для Ваших запитань та документів',
+      text_5: 'Для Ваших запитань та документів:',
       text_6: 'За моєю соціальною та професійною активністю слідкуйте на моїй сторінці:',
       text_7: 'Адвокат <br>Євгеній Воробей',
       text_8: 'Скануйте код щоб зберегти мої контакти',
@@ -130,7 +130,7 @@ const content = {
       en_lang: 'Eng'
     },
     slide_1:{
-      text_1: 'Комплексное сопровождении <br>бизнеса и судебная практика.',
+      text_1: 'Комплексное сопровождение <br class="correction">бизнеса и судебная практика.',
       quote: 'Я умею предотвращать проблемы и выведу Вас из сложной ситуации законным путём.',
       quote_name: 'Адвокат <nobr>Евгений Воробей</nobr>',
 
@@ -269,7 +269,7 @@ const content = {
       text_4: 'Criminal law',
     },
     slide_4:{
-      text_1: 'My clients, with whom I managed to build long and mutually beneficial relations, are private individuals and business representatives from many countries:',
+      text_1: 'My clients, <br>with whom I managed to build long and mutually beneficial relations, are private individuals and business representatives from many countries:',
       country_1: 'Ukraine',
       country_2: 'United States',
       country_3: 'Germany',
@@ -278,7 +278,7 @@ const content = {
       country_6: 'Israel',
     },
     slide_5:{
-      text_1: 'Successfully implemented cases allowed my clients: ',
+      text_1: 'Successfully implemented cases <br>allowed my clients: ',
       text_2: 'To appeal unjustified state authorities demands',
       text_3: 'Return illegally selected property',
       text_4: 'To reject illegal actions of law enforcement agencies.',
@@ -291,7 +291,7 @@ const content = {
       text_2: 'legal support of commercial activities, including:',
       text_3: 'legal advice on current issues',
       text_4: 'creation of internal company documentation',
-      text_5: 'development, verification and approval of contractual documentation;',
+      text_5: 'development, verification and approval of contractual documentation',
       text_6: 'negotiations with contractors',
       text_7: 'support of inspections',
       text_8: 'communication with State authorities',
@@ -316,11 +316,11 @@ const content = {
     slide_11:{
       text_1: 'Appealing against decisions <br>of the authorities',
       text_2: 'Administrative and judicial appeal of decisions of the authorities, including:',
-      text_3: 'About prohibitions',
-      text_4: 'That oblige',
-      text_5: 'On charges and penalties',
-      text_6: 'About conducting inspections',
-      text_7: 'About denial of requests',
+      text_3: 'about prohibitions',
+      text_4: 'that oblige',
+      text_5: 'on charges and penalties',
+      text_6: 'about conducting inspections',
+      text_7: 'about denial of requests',
     },
     slide_12:{
       text_1: 'Investment <br>object audits',
@@ -334,8 +334,8 @@ const content = {
       text_1: '24/7 online',
       text_2: 'If you need professional legal assistance, call me:',
       text_3: 'If you need ssistance, call me:',
-      text_4: 'For your questions, forwarding documents and fixing informal agreements Follow my social and professional activity on my page:',
-      text_5: 'For your questions and documents',
+      text_4: 'For your questions, forwarding documents and fixing informal agreements:',
+      text_5: 'For your questions and documents:',
       text_6: 'Follow my social and professional activity on my page:',
       text_7: 'Lawyer <br>Evhenii Vorobei',
       text_8: 'Scan code to save my contacts',

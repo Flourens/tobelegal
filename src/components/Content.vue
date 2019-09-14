@@ -39,6 +39,23 @@ export default {
 
     },
 
+    onShareClick(){
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          text: 'Comprehensive business support and judicial practice',
+          url: window.location.href
+        }).then(() => {
+          console.log('Thanks for sharing!');
+        })
+        .catch(err => {
+          console.log(`Couldn't share because of`, err.message);
+        });
+      } else {
+        console.log('web share not supported');
+      }
+    },
+
     goToSection(id){
       fullpage_api.moveTo(id);
       this.toggleMenu('close');
