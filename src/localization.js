@@ -130,7 +130,7 @@ const content = {
       en_lang: 'Eng'
     },
     slide_1:{
-      text_1: 'Комплексное сопровождении <br>бизнеса и судебная практика.',
+      text_1: 'Комплексное сопровождение <br class="correction">бизнеса и судебная практика.',
       quote: 'Я умею предотвращать проблемы и выведу Вас из сложной ситуации законным путём.',
       quote_name: 'Адвокат <nobr>Евгений Воробей</nobr>',
 
@@ -269,7 +269,7 @@ const content = {
       text_4: 'Criminal law',
     },
     slide_4:{
-      text_1: 'My clients, with whom I managed to build long and mutually beneficial relations, are private individuals and business representatives from many countries:',
+      text_1: 'My clients, <br>with whom I managed to build long and mutually beneficial relations, are private individuals and business representatives from many countries:',
       country_1: 'Ukraine',
       country_2: 'United States',
       country_3: 'Germany',
