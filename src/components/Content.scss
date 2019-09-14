@@ -547,7 +547,7 @@
       width: 230px;
       height: 350px;
       bottom: calc(57vh - 175px);
-      left: calc(50vw - 115px);
+      left: calc(49vw - 115px);
     }
   }
 }
@@ -3082,13 +3082,13 @@
 
 .slide-image-mobile--2{
   width: 100%;
-  height: calc(100vh - 96px);
+  height: calc(100vh - 16px);
   // margin-top: 50px;
   // margin-bottom: 50px;
-  margin-top: 96px !important;
+  margin-top: 16px !important;
   @include media ("<phone"){
-    height: calc(100vh - 136px);
-    margin-top: 136px !important;
+    height: calc(100vh - 56px);
+    margin-top: 56px !important;
   }
   overflow: hidden;
   margin: 0 auto;
