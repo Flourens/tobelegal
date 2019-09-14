@@ -61,7 +61,7 @@ export default {
   mounted(){},
   created(){
     window.addEventListener('load', () => {
-      //this.animatePreloader();
+      this.animatePreloader();
     })
   },
   destroyed(){
