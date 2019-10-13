@@ -51,6 +51,9 @@ export default {
                      .fromTo(".quote", 1.2, {x:0,y:60,opacity:0},{y:0,opacity:1})
           ;
         }
+        preloaderTl.eventCallback("onComplete", ()=>{
+            fullpage_api.setAllowScrolling(true);
+        });
         
       }, 400);
     },

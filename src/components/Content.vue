@@ -46,13 +46,13 @@ export default {
           text: 'Comprehensive business support and judicial practice',
           url: window.location.href
         }).then(() => {
-          console.log('Thanks for sharing!');
+          // console.log('Thanks for sharing!');
         })
         .catch(err => {
-          console.log(`Couldn't share because of`, err.message);
+          // console.log(`Couldn't share because of`, err.message);
         });
       } else {
-        console.log('web share not supported');
+        // console.log('web share not supported');
       }
     },
 
@@ -73,7 +73,7 @@ export default {
       if((this.userAgent.window.width > 768 && !this.userAgent.device.isMobile) || 
          (this.userAgent.window.width >= 1024 && this.userAgent.device.isMobile && this.userAgent.orientation == 'landscape'))
         {
-        console.log('desktop');
+        // console.log('desktop');
         new fullpage('#fullpage', {
         // Init
         licenseKey: 'F1F7C056-F79543AF-9D4C42D2-E43F5FDE',
@@ -89,10 +89,10 @@ export default {
         //Methods
         onLeave: (origin, destination, direction)=>{
             var animationTl = new TimelineMax({});
-            console.log(this.enterAnimFinished);
+            // console.log(this.enterAnimFinished);
           if(this.enterAnimFinished == true){
             this.enterAnimFinished = false;
-            console.log('Leave: ' + origin.index, 'Enter: ' + destination.index, 'Direction: ' + direction);
+            // console.log('Leave: ' + origin.index, 'Enter: ' + destination.index, 'Direction: ' + direction);
             // Leave animation slide 1
             if(origin.index == 0){
               animationTl.to('.slide__overlay', 0.9, {ease: Power0.easeNone, height:'110vh'},0)
@@ -441,21 +441,29 @@ export default {
           
           // Enter anim slide 1
           if(destination.index == 0){
+            fullpage_api.setAllowScrolling(false);
             if(origin.index > 0){
               animationTlBack.set('.preloader-pane-1,#preloader-pane-2,.black-logo,.slide-image--1', {opacity:1})
                             .fromTo('.slide__overlay', 0.9, {ease: Power0.easeNone, opacity:1, height:'100vh'},{ease: Power0.easeNone, opacity:1, height:'0vh'},0)
                             .set('body', {opacity: 1, onComplete: ()=>{
-                                setTimeout(()=>{ this.enterAnimFinished = true; },200)
+                                setTimeout(()=>{
+                                  this.enterAnimFinished = true;
+                                },200)
                               }});
               ;
             } else {
               animationTlBack.set('.preloader-pane-1,#preloader-pane-2,.black-logo,.slide-image--1', {opacity:1})
                             .fromTo('.slide__overlay', 0.9, {ease: Power0.easeNone, opacity:1, height:'100vh'},{ease: Power0.easeNone, opacity:1, height:'0vh'},0)
                             .set('body', {opacity: 1, onComplete: ()=>{
-                                setTimeout(()=>{ this.enterAnimFinished = true; },200)
+                                setTimeout(()=>{
+                                  this.enterAnimFinished = true;
+                                },200)
                               }});
               ;
             }
+            animationTlBack.eventCallback("onComplete", ()=>{
+                fullpage_api.setAllowScrolling(true);
+            });
           }
           // Enter anim slide 2
           if(destination.index == 1){
@@ -485,15 +493,17 @@ export default {
                               .set('.section.active', {opacity: 1},0)
                               .set('.slide-2-cols', {clearProps: 'all'})
                               // logo+photo
-                              .set('.black-logo,.black-logo__owerlay', { clearProps: 'all' },0)
-                              .set('.black-logo__owerlay', { height: 0 },0)
-                              .set('.black-logo__owerlay', { height: 'auto' })
-                              .from('.black-logo__owerlay', 0.8, { height: 0 })
+                              .set('#clipped_mask-3, .black-logo__owerlay', { clearProps: 'all' },0)
+                              // .set('.black-logo__owerlay', { height: 0 },0)
+                              // .set('.black-logo__owerlay', { height: 'auto' })
+                              // .from('.black-logo__owerlay', 0.8, { height: 0 })
+                              .fromTo('#clipped_mask-3', 1, { x:'0%', y: '100%' },{  y: '0%' })
                               //
                               .set('.slide-image--2', { clearProps: 'all' },0)
-                              .set('.photo__owerlay', { height: 0 },0)
-                              .set('.photo__owerlay', { height: 'auto' })
-                              .from('.photo__owerlay', 0.9, { height: 0 }, '-=0.6')
+                              .fromTo('.photo__owerlay img', 1, { yPercent: 100 },{ yPercent: 0 },0)
+                              .fromTo('.photo__owerlay', 1, { yPercent: -100 },{ yPercent: 0 },0)
+                              // .set('.photo__owerlay img', { height: 'auto' })
+                              // .from('.photo__owerlay img', 0.9, { height: 0 }, '-=0.6')
                               // text
                               .fromTo('.slide-2-cols__1 .year', 0.6, { opacity:0, y:0, x:-50 },{ opacity:1, x:0 })
                               .fromTo('.slide-2-cols__1 .text', 0.6, { opacity:0, y:0, x:-50 },{ opacity:1, x:0 })
@@ -889,9 +899,9 @@ export default {
 
         onLeave: (origin, destination, direction) => {
             var animationTl = new TimelineMax({});
-            console.log('Leave: ' + origin.index, 'Enter: ' + destination.index, 'Direction: ' + direction);
+            // console.log('Leave: ' + origin.index, 'Enter: ' + destination.index, 'Direction: ' + direction);
             // Leave animation slide 1
-            console.log(this.enterAnimFinished);
+            // console.log(this.enterAnimFinished);
           if(this.enterAnimFinished == true){
               this.enterAnimFinished = false;
             if(origin.index == 0){
