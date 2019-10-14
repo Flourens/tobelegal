@@ -1,7 +1,8 @@
 
 const baseUrlSlug = process.env.DEVELOPMENT_SUBFOLDER
   ? "process.env.DEVELOPMENT_SUBFOLDER"
-  : "tobelegal/";
+  // : "tobelegal/";
+  : "/";
   
 const addApacheConfig = indexFolder => {
   return {};

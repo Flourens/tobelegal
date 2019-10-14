@@ -763,6 +763,7 @@
   .is-mobile &{
     @include media ("<phone"){
       margin-top: 5px;
+      padding-right: 5%;
     }
   }
 }
@@ -1058,6 +1059,7 @@
       left: -150px;
       min-height: 800px;
       height: 100vh;
+      top: -70px;
     }
   }
 }
@@ -2047,6 +2049,8 @@
     padding: 25px;
     padding-right: 10px;
     max-width: 380px;
+    display: flex;
+    align-items: center;
     @include media (">largeDesktop"){
       font-size: 18px;
       max-width: 480px;
@@ -2225,7 +2229,7 @@
     }
     .is-mobile &{
       @include media ("<phone"){
-        margin-bottom: 10px;
+        margin-bottom: 15px;
       }
     }
   }
