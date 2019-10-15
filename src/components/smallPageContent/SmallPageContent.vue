@@ -8,7 +8,9 @@
               <p class="small__services" v-html="localization.slide_15.text_2">судебная<br>практика</p>
             </div>
              <div class="small__col-2">
-               <img src="../img/code.svg" alt="" class="small_code">
+               <img v-if="this.$store.state.userAgent.userLanguage === 'ru'" src="../img/code-ru.gif" alt="" class="small_code">
+               <img v-else-if="this.$store.state.userAgent.userLanguage === 'uk'" src="../img/code-uk.gif" alt="" class="small_code">
+               <img v-else src="../img/code-en.gif" alt="" class="small_code">
             </div>
             <div class="small__col-3">
               <p class="small__position" v-html="localization.slide_15.text_3">Адвокат</p>

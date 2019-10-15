@@ -44,7 +44,10 @@
        :class="{ 'active-link': $store.state.activeSection == 15}"
        v-html="localization.menu.contacts">
     </a>
-    <img src="./img/code.svg" class="qr-code">
+    <!-- <img src="./img/code.svg" class="qr-code"> -->
+    <img v-if="this.$store.state.userAgent.userLanguage === 'ru'" src="./img/code-ru.gif" alt="" class="qr-code">
+    <img v-else-if="this.$store.state.userAgent.userLanguage === 'uk'" src="./img/code-uk.gif" alt="" class="qr-code">
+    <img v-else src="./img/code-en.gif" alt="" class="qr-code">
     <div class="social">
         <a href="javascript:void(0);" @click="onShareClick"  class="connect"><img src="./img/connect-icon.svg" alt="" class="connect-icon"></a>
         <div class="facebook">
@@ -523,7 +526,10 @@
           </div>
           <div class="slide-14-cols-2">
             <p class="code" v-html="localization.slide_14.text_8">Сканируйте код, чтобы сохранить мои контакты</p>
-            <img src="./img/code.svg" alt="" class="contact-code">
+            <!-- <img src="./img/code.svg" alt="" class="contact-code"> -->
+            <img v-if="this.$store.state.userAgent.userLanguage === 'ru'" src="./img/code-ru.gif" alt="" class="contact-code">
+            <img v-else-if="this.$store.state.userAgent.userLanguage === 'uk'" src="./img/code-uk.gif" alt="" class="contact-code">
+            <img v-else src="./img/code-en.gif" alt="" class="contact-code">
           </div>
         </div>
       </div>  

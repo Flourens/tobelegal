@@ -50,6 +50,7 @@ export default {
                      .staggerFromTo(".slide-1-cols__3 .text-2", 0.6, {x:30,y:0,opacity:0},{x:0,y:0,opacity:1},0.6)
                      .fromTo(".quote", 1.2, {x:0,y:60,opacity:0},{y:0,opacity:1})
           ;
+          
         }
         preloaderTl.eventCallback("onComplete", ()=>{
             fullpage_api.setAllowScrolling(true);
