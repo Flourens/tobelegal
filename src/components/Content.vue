@@ -15,7 +15,7 @@ export default {
     return {
       openMenu: false,
       enterAnimFinished: true,
-      mobileAnimScale: 1.5
+      mobileAnimScale: 1
     }
   },
   methods:{
