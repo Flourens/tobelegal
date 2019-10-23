@@ -10,8 +10,8 @@ const userAgent = {
     },
     device: {
       isPhone: isMobile.phone,
-      isTablet: isMobile.tablet,
-      isMobile: isMobile.any
+      isTablet: isMobile.tablet || (('ontouchstart' in window) && window.innerWidth >= 768 && window.innerheight >= 768),
+      isMobile: isMobile.any || ('ontouchstart' in window),
     },
     orientation: null,
     browser: {

@@ -15,6 +15,7 @@ export default {
     return {
       openMenu: false,
       enterAnimFinished: true,
+      mobileAnimScale: 1
     }
   },
   methods:{
@@ -46,13 +47,13 @@ export default {
           text: 'Comprehensive business support and judicial practice',
           url: window.location.href
         }).then(() => {
-          console.log('Thanks for sharing!');
+          // console.log('Thanks for sharing!');
         })
         .catch(err => {
-          console.log(`Couldn't share because of`, err.message);
+          // console.log(`Couldn't share because of`, err.message);
         });
       } else {
-        console.log('web share not supported');
+        // console.log('web share not supported');
       }
     },
 
@@ -73,7 +74,7 @@ export default {
       if((this.userAgent.window.width > 768 && !this.userAgent.device.isMobile) || 
          (this.userAgent.window.width >= 1024 && this.userAgent.device.isMobile && this.userAgent.orientation == 'landscape'))
         {
-        console.log('desktop');
+        // console.log('desktop');
         new fullpage('#fullpage', {
         // Init
         licenseKey: 'F1F7C056-F79543AF-9D4C42D2-E43F5FDE',
@@ -89,10 +90,10 @@ export default {
         //Methods
         onLeave: (origin, destination, direction)=>{
             var animationTl = new TimelineMax({});
-            console.log(this.enterAnimFinished);
+            // console.log(this.enterAnimFinished);
           if(this.enterAnimFinished == true){
             this.enterAnimFinished = false;
-            console.log('Leave: ' + origin.index, 'Enter: ' + destination.index, 'Direction: ' + direction);
+            // console.log('Leave: ' + origin.index, 'Enter: ' + destination.index, 'Direction: ' + direction);
             // Leave animation slide 1
             if(origin.index == 0){
               animationTl.to('.slide__overlay', 0.9, {ease: Power0.easeNone, height:'110vh'},0)
@@ -441,21 +442,29 @@ export default {
           
           // Enter anim slide 1
           if(destination.index == 0){
+            fullpage_api.setAllowScrolling(false);
             if(origin.index > 0){
               animationTlBack.set('.preloader-pane-1,#preloader-pane-2,.black-logo,.slide-image--1', {opacity:1})
                             .fromTo('.slide__overlay', 0.9, {ease: Power0.easeNone, opacity:1, height:'100vh'},{ease: Power0.easeNone, opacity:1, height:'0vh'},0)
                             .set('body', {opacity: 1, onComplete: ()=>{
-                                setTimeout(()=>{ this.enterAnimFinished = true; },200)
+                                setTimeout(()=>{
+                                  this.enterAnimFinished = true;
+                                },200)
                               }});
               ;
             } else {
               animationTlBack.set('.preloader-pane-1,#preloader-pane-2,.black-logo,.slide-image--1', {opacity:1})
                             .fromTo('.slide__overlay', 0.9, {ease: Power0.easeNone, opacity:1, height:'100vh'},{ease: Power0.easeNone, opacity:1, height:'0vh'},0)
                             .set('body', {opacity: 1, onComplete: ()=>{
-                                setTimeout(()=>{ this.enterAnimFinished = true; },200)
+                                setTimeout(()=>{
+                                  this.enterAnimFinished = true;
+                                },200)
                               }});
               ;
             }
+            animationTlBack.eventCallback("onComplete", ()=>{
+                fullpage_api.setAllowScrolling(true);
+            });
           }
           // Enter anim slide 2
           if(destination.index == 1){
@@ -485,15 +494,17 @@ export default {
                               .set('.section.active', {opacity: 1},0)
                               .set('.slide-2-cols', {clearProps: 'all'})
                               // logo+photo
-                              .set('.black-logo,.black-logo__owerlay', { clearProps: 'all' },0)
-                              .set('.black-logo__owerlay', { height: 0 },0)
-                              .set('.black-logo__owerlay', { height: 'auto' })
-                              .from('.black-logo__owerlay', 0.8, { height: 0 })
+                              .set('#clipped_mask-3, .black-logo__owerlay', { clearProps: 'all' },0)
+                              // .set('.black-logo__owerlay', { height: 0 },0)
+                              // .set('.black-logo__owerlay', { height: 'auto' })
+                              // .from('.black-logo__owerlay', 0.8, { height: 0 })
+                              .fromTo('#clipped_mask-3', 1, { x:'0%', y: '100%' },{  y: '0%' })
                               //
                               .set('.slide-image--2', { clearProps: 'all' },0)
-                              .set('.photo__owerlay', { height: 0 },0)
-                              .set('.photo__owerlay', { height: 'auto' })
-                              .from('.photo__owerlay', 0.9, { height: 0 }, '-=0.6')
+                              .fromTo('.photo__owerlay img', 1, { yPercent: 100 },{ yPercent: 0 },0)
+                              .fromTo('.photo__owerlay', 1, { yPercent: -100 },{ yPercent: 0 },0)
+                              // .set('.photo__owerlay img', { height: 'auto' })
+                              // .from('.photo__owerlay img', 0.9, { height: 0 }, '-=0.6')
                               // text
                               .fromTo('.slide-2-cols__1 .year', 0.6, { opacity:0, y:0, x:-50 },{ opacity:1, x:0 })
                               .fromTo('.slide-2-cols__1 .text', 0.6, { opacity:0, y:0, x:-50 },{ opacity:1, x:0 })
@@ -889,9 +900,9 @@ export default {
 
         onLeave: (origin, destination, direction) => {
             var animationTl = new TimelineMax({});
-            console.log('Leave: ' + origin.index, 'Enter: ' + destination.index, 'Direction: ' + direction);
+            // console.log('Leave: ' + origin.index, 'Enter: ' + destination.index, 'Direction: ' + direction);
             // Leave animation slide 1
-            console.log(this.enterAnimFinished);
+            // console.log(this.enterAnimFinished);
           if(this.enterAnimFinished == true){
               this.enterAnimFinished = false;
             if(origin.index == 0){
@@ -1232,12 +1243,14 @@ export default {
                             .set('body', {opacity: 1, onComplete: ()=>{
                               setTimeout(()=>{ this.enterAnimFinished = true; },200)
                             }});
+              animationTlBack.timeScale(this.mobileAnimScale);
             } else {
               animationTlBack.set('.slide-1-cols__3', { clearProps: 'all' }, 0)
                             .staggerFromTo('.slide-2-cols-2 .slide-2-cols__1 > *', 0.4, { opacity: 0, y: 30 }, { opacity: 1, y: 0 }, 0.4)
                             .set('body', {opacity: 1, onComplete: ()=>{
                               setTimeout(()=>{ this.enterAnimFinished = true; },200)
                             }});
+                            animationTlBack.timeScale(this.mobileAnimScale);
             }
           }
           // Enter anim slide 3
@@ -1270,12 +1283,14 @@ export default {
                             .set('body', {opacity: 1, onComplete: ()=>{
                               setTimeout(()=>{ this.enterAnimFinished = true; },200)
                             }});
+                            animationTlBack.timeScale(this.mobileAnimScale);
             } else {
               animationTlBack.set('.slide-1-cols__3', { clearProps: 'all' }, 0)
                             .staggerFromTo('.slide-2-cols-3 .slide-2-cols__1 > *', 0.4, { opacity: 0, y: 30 }, { opacity: 1, y: 0 }, 0.4)
                             .set('body', {opacity: 1, onComplete: ()=>{
                               setTimeout(()=>{ this.enterAnimFinished = true; },200)
                             }});
+                            animationTlBack.timeScale(this.mobileAnimScale);
             }
           }
           // Enter anim slide 5
@@ -1293,6 +1308,7 @@ export default {
                                 setTimeout(()=>{ this.enterAnimFinished = true; },200)
                               }})
               ;
+              animationTlBack.timeScale(this.mobileAnimScale);
             } else {
               animationTlBack.fromTo('.slide-3-cols__1 .text', 0.6, { opacity:0, y:30 },{ opacity:1, y:0 })
                               .staggerFromTo('.slide-3-cols__1 .list-block .list-block__item', 0.4, { opacity:0, y:50 },{ opacity:1, y:0}, 0.6)
@@ -1301,6 +1317,7 @@ export default {
                                 setTimeout(()=>{ this.enterAnimFinished = true; },200)
                               }})
               ;
+              animationTlBack.timeScale(this.mobileAnimScale);
             }
           }
           // Enter anim slide 6
@@ -1310,7 +1327,7 @@ export default {
                               .fromTo('.slide-image--mob-3', 1.2, {y:0, x:200, opacity:0 },{ opacity:1 },0)
                               .fromTo('.slide-image--mob-3', 0.6, { x:200 },{ x:0 },'-=1.2')
                               .fromTo('.slide-4-cols__1 .text', 0.8, { opacity:0, x:0, y:60 },{ opacity:1, y:0 },'-=0.6')
-                              .staggerFromTo('.list-country .list-country__item', 0.4, { opacity:0, y:60 },{ opacity:1, y:0}, 0.6)
+                              .staggerFromTo('.list-country .list-country__item', 0.2, { opacity:0, y:60 },{ opacity:1, y:0}, 0.4)
                               .set('body', {opacity: 1, onComplete: ()=>{
                                 setTimeout(()=>{ this.enterAnimFinished = true; },200)
                               }})
@@ -1330,6 +1347,7 @@ export default {
                                 setTimeout(()=>{ this.enterAnimFinished = true; },200)
                               }})
               ;
+              animationTlBack.timeScale(this.mobileAnimScale);
             } else {
               animationTlBack.set('.slide-5-cols__1', {clearProps:'all'},0)
                               .fromTo('.slide-5-cols__1 .text', 0.6, { opacity:0, y:30 },{ opacity:1, y:0 })
@@ -1338,6 +1356,7 @@ export default {
                                 setTimeout(()=>{ this.enterAnimFinished = true; },200)
                               }})
               ;
+              animationTlBack.timeScale(this.mobileAnimScale);
             }
           }
           // Enter anim slide 8
@@ -1376,6 +1395,7 @@ export default {
                                   setTimeout(()=>{ this.enterAnimFinished = true; },200)
                                 }})
                 ;
+                animationTlBack.timeScale(this.mobileAnimScale);
               }
             } else {
               animationTlBack.set('.slide-7-cols', { clearProps: 'all'},0)
@@ -1386,6 +1406,7 @@ export default {
                                 setTimeout(()=>{ this.enterAnimFinished = true; },200)
                               }})
               ;
+              animationTlBack.timeScale(this.mobileAnimScale);
             }
           }
           // Enter anim slide 10
@@ -1398,6 +1419,7 @@ export default {
                                 setTimeout(()=>{ this.enterAnimFinished = true; },200)
                               }})
               ;
+              animationTlBack.timeScale(this.mobileAnimScale);
             } else {
               animationTlBack.set('.slide-8-cols', { clearProps: 'all'},0)
                               .fromTo('.slide-image--mob-4', 0.9, { xPercent: -30, opacity: 0 },{ xPercent: 0, opacity: 1 })
@@ -1407,6 +1429,7 @@ export default {
                                 setTimeout(()=>{ this.enterAnimFinished = true; },200)
                               }})
               ;
+              animationTlBack.timeScale(this.mobileAnimScale);
             }
           }
           // Enter anim slide 11
@@ -1419,6 +1442,7 @@ export default {
                                 setTimeout(()=>{ this.enterAnimFinished = true; },200)
                               }})
               ;
+              animationTlBack.timeScale(this.mobileAnimScale);
             } else {
               animationTlBack.set('.slide-9-cols', { clearProps: 'all'},0)
                               .fromTo('.slide-image--mob-4', 0.9, { xPercent: -30, opacity: 0 },{ xPercent: 0, opacity: 1 })
@@ -1428,6 +1452,7 @@ export default {
                                 setTimeout(()=>{ this.enterAnimFinished = true; },200)
                               }})
               ;
+              animationTlBack.timeScale(this.mobileAnimScale);
             }
           }
           // Enter anim slide 12
@@ -1441,6 +1466,7 @@ export default {
                                 setTimeout(()=>{ this.enterAnimFinished = true; },200)
                               }})
               ;
+              animationTlBack.timeScale(this.mobileAnimScale);
             } else {
               animationTlBack.set('.slide-10-cols', { clearProps: 'all'},0)
                               .fromTo('.slide-image--mob-4', 0.9, { xPercent: -30, opacity: 0 },{ xPercent: 0, opacity: 1 })
@@ -1451,6 +1477,7 @@ export default {
                                 setTimeout(()=>{ this.enterAnimFinished = true; },200)
                               }})
               ;
+              animationTlBack.timeScale(this.mobileAnimScale);
             }
           }
           // Enter anim slide 13
@@ -1464,6 +1491,7 @@ export default {
                                 setTimeout(()=>{ this.enterAnimFinished = true; },200)
                               }})
               ;
+              animationTlBack.timeScale(this.mobileAnimScale);
             } else {
               animationTlBack.set('.slide-11-cols', { clearProps: 'all'},0)
                               .fromTo('.slide-image--mob-4', 0.9, { xPercent: -30, opacity: 0 },{ xPercent: 0, opacity: 1 })
@@ -1474,6 +1502,7 @@ export default {
                                 setTimeout(()=>{ this.enterAnimFinished = true; },200)
                               }})
               ;
+              animationTlBack.timeScale(this.mobileAnimScale);
             }
           }
           // Enter anim slide 14
@@ -1486,6 +1515,7 @@ export default {
                                 setTimeout(()=>{ this.enterAnimFinished = true; },200)
                               }})
               ;
+              animationTlBack.timeScale(this.mobileAnimScale);
             } else {
               animationTlBack.set('.slide-12-cols', { clearProps: 'all'},0)
                               .fromTo('.slide-image--mob-4', 0.9, { xPercent: -30, opacity: 0 },{ xPercent: 0, opacity: 1 })
@@ -1495,6 +1525,7 @@ export default {
                                 setTimeout(()=>{ this.enterAnimFinished = true; },200)
                               }})
               ;
+              animationTlBack.timeScale(this.mobileAnimScale);
             }
           }
           // Enter anim slide 15
@@ -1507,6 +1538,7 @@ export default {
                                 setTimeout(()=>{ this.enterAnimFinished = true; },200)
                               }})
               ;
+              animationTlBack.timeScale(this.mobileAnimScale);
             } else {
               if(this.userAgent.window.width >= 768){
                 animationTlBack.set('.slide-13-cols', { clearProps: 'all'},0)
@@ -1517,6 +1549,7 @@ export default {
                                   setTimeout(()=>{ this.enterAnimFinished = true; },200)
                                 }})
                 ;
+                animationTlBack.timeScale(this.mobileAnimScale);
               } else {
                 animationTlBack.set('.slide-13-cols', { clearProps: 'all'},0)
                                 .set('.black-logo, .black-logo__owerlay', { clearProps: 'all' },0)
@@ -1529,6 +1562,7 @@ export default {
                                   setTimeout(()=>{ this.enterAnimFinished = true; },200)
                                 }})
                 ;
+                animationTlBack.timeScale(this.mobileAnimScale);
               }
             }
           }
@@ -1540,6 +1574,7 @@ export default {
                                 setTimeout(()=>{ this.enterAnimFinished = true; },200)
                               }})
               ;
+              animationTlBack.timeScale(this.mobileAnimScale);
           }
         }
         });

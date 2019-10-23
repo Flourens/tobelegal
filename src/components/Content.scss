@@ -494,12 +494,23 @@
   z-index: 10;
   width: 287px;
   height: 430px;
-  //top: 23vh;
   bottom: 20vh;
   left: 22.5vw;
   overflow: hidden;
+
+  .fp-viewing-section-1 &, .fp-viewing-section-2 &, .fp-viewing-section-3 &, .fp-viewing-section-4 &, .fp-viewing-section-5 &{
+    top: 50vh;
+    transform: translate(0,-50%);
+  }
+
   img{
     width: 100%;
+    position: absolute;
+    bottom: 0;
+  }
+  svg{
+    width: 100%;
+    height: auto;
     position: absolute;
     bottom: 0;
   }
@@ -508,6 +519,10 @@
     height: 703px;
     left: 18vw;
     bottom: 14vh;
+    .fp-viewing-section-1 &, .fp-viewing-section-2 &, .fp-viewing-section-3 &, .fp-viewing-section-4 &, .fp-viewing-section-5 &{
+      top: 50vh;
+      transform: translate(0,-50%);
+    }
   }
   @include media (">xlargeDesktop"){
     width: 728px;
@@ -526,9 +541,8 @@
       height: 1030px;
       left: calc(50% - 345px);
       bottom: calc(50vh - 515px);
-      img{
-        
-      }
+      transform: none;
+      top: auto;
     }
     @include media ("<tablet"){
       width: 460px;
@@ -536,6 +550,8 @@
       bottom: calc(50vh - 345px);
       display: block;
       left: calc(50% - 230px);
+      top: auto;
+      transform: none;;
     }
     @include media ("<smallTablet"){
       width: 300px;
@@ -673,7 +689,7 @@
     }
     @include media ("<phone"){
       font-size: 12px;
-      line-height: 1.1;
+      line-height: 1.3;
       br{
         display: none;
         margin-top: 20px;
@@ -747,6 +763,7 @@
   .is-mobile &{
     @include media ("<phone"){
       margin-top: 5px;
+      padding-right: 5%;
     }
   }
 }
@@ -806,7 +823,7 @@
       margin-bottom: 10px;
       padding-left: 17px;
       font-size: 12px;
-      line-height: 1.1;
+      line-height: 1.3;
     }
   }
 }
@@ -856,6 +873,11 @@
   left: 47.5%;
   top: 21vh;
   z-index: 1000;
+  .fp-viewing-section-1 &, .fp-viewing-section-2 &, .fp-viewing-section-3 &, .fp-viewing-section-4 &, .fp-viewing-section-5 &{
+    bottom: auto;
+    top: 50vh;
+    transform: translate(0,-50%);
+  }
   img{
     width: 275px;
     height: auto;
@@ -868,6 +890,10 @@
   }
   @include media (">largeDesktop"){
    top: 13vh;
+    .fp-viewing-section-1 &, .fp-viewing-section-2 &, .fp-viewing-section-3 &, .fp-viewing-section-4 &, .fp-viewing-section-5 &{
+      top: 50vh;
+      transform: translate(0,-50%);
+    }
   }
   @include media ("<smallDesktop"){
     left: 45.5%;
@@ -894,10 +920,18 @@
   position: absolute;
   left: 57.5%;
   top: 21vh;
+  .fp-viewing-section-1 &, .fp-viewing-section-2 &, .fp-viewing-section-3 &, .fp-viewing-section-4 &, .fp-viewing-section-5 &{
+    top: 50vh;
+    transform: translate(0,-50%);
+  }
   z-index: 1000;
   @include media (">largeDesktop"){
     width: 430px;
     top: 13vh;
+    .fp-viewing-section-1 &, .fp-viewing-section-2 &, .fp-viewing-section-3 &, .fp-viewing-section-4 &, .fp-viewing-section-5 & {
+      top: 50vh;
+      transform: translate(0,-50%);
+    }
   }
   @include media (">xlargeDesktop"){
     width: 720px;
@@ -1025,6 +1059,7 @@
       left: -150px;
       min-height: 800px;
       height: 100vh;
+      top: -70px;
     }
   }
 }
@@ -1874,7 +1909,7 @@
   }
   .slide-4-cols__1{
     width: 50%;
-    max-width: 400px;
+    max-width: 390px;
     margin-right: 10%;
     @include media (">largeDesktop"){
       max-width: 500px;
@@ -1894,7 +1929,12 @@
         max-width: 365px;
         .text{
           width: 70%;
-          max-width: 250px;
+          max-width: 240px;
+        }
+      }
+      @include media ("<tablet"){
+        .text{
+          max-width: 210px;
         }
       }
       @include media ("<smallTablet"){
@@ -2009,6 +2049,8 @@
     padding: 25px;
     padding-right: 10px;
     max-width: 380px;
+    display: flex;
+    align-items: center;
     @include media (">largeDesktop"){
       font-size: 18px;
       max-width: 480px;
@@ -2044,6 +2086,7 @@
        padding-bottom: 10px;
        font-size: 12px;
        padding-left: 20px;
+       padding-right: 60px;
        margin-bottom: 15px;
       }
     }
@@ -2139,6 +2182,11 @@
         width: 70%;
       }
     }
+    @include media ("<phone"){
+      .slide-6-cols__1{
+        max-width: 195px;
+      }
+    }
   }
 }
 
@@ -2181,7 +2229,7 @@
     }
     .is-mobile &{
       @include media ("<phone"){
-        margin-bottom: 10px;
+        margin-bottom: 15px;
       }
     }
   }
@@ -3141,6 +3189,16 @@
   -ms-clip-path: url('#clipped__shape-2'); /*for IE*/
   -o-clip-path: url('#clipped__shape-2'); /*for Opera*/
   clip-path: url('#clipped__shape-2'); 
+  position: relative;
+  overflow: visible;
+}
+.clipped__image-3{
+  clip-path: url('#clipped__shape-3');
+  -webkit-clip-path: url('#clipped__shape-3'); /*For Chrome and Safari*/ 
+  -moz-clip-path: url('#clipped__shape-3'); /*for Firefox*/
+  -ms-clip-path: url('#clipped__shape-3'); /*for IE*/
+  -o-clip-path: url('#clipped__shape-3'); /*for Opera*/
+  clip-path: url('#clipped__shape-3'); 
   position: relative;
   overflow: visible;
 }
